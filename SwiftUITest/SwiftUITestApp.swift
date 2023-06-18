@@ -9,9 +9,25 @@ import SwiftUI
 
 @main
 struct SwiftUITestApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            
+            DevToolsView()
+                .environmentObject(NavSettings())
+            
         }
     }
+    
+}
+
+extension UIApplication {
+    
+    var firstKeyWindow: UIWindow? {
+        return UIApplication.shared.connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+            .filter { $0.activationState == .foregroundActive }
+            .first?.keyWindow
+    }
+    
 }
