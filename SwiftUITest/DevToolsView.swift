@@ -304,7 +304,7 @@ struct DevToolsView: View {
         case .chip: selectedView = ChipDemoContentView()
         case .grid: selectedView = GridContentView()
         case .safari: selectedView = (SafariWebContentView(url: URL(string: "https://www.google.com")!))
-        case .zoomView: selectedView = (ZoomView(image: Image("sunset")).padding(24))
+        case .zoomView: selectedView = ZoomView(image: Image("sunset"), cornerRadius: 24).padding(.horizontal, 24)
         case .typewriterView: selectedView = (TypewriterContentView())
         case .wildView: selectedView = (WildButtonView())
         case .socialMediaView: selectedView = (SocialMediaView())

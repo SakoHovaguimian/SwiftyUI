@@ -10,6 +10,7 @@ import SwiftUI
 public struct ZoomView: View {
     
     let image: Image
+    let cornerRadius: CGFloat
     
     @State private var scale: CGFloat = 1
     @State private var lastScale: CGFloat = 1
@@ -17,20 +18,58 @@ public struct ZoomView: View {
     @State private var offset: CGPoint = .zero
     @State private var lastTranslation: CGSize = .zero
     
-    public init(image: Image) {
+    public init(image: Image, cornerRadius: CGFloat = 0) {
+        
         self.image = image
+        self.cornerRadius = cornerRadius
+        
+    }
+    
+    public init(imageString: String, cornerRadius: CGFloat = 0) {
+        
+        self.image = Image(imageString)
+        self.cornerRadius = cornerRadius
+        
+    }
+    
+    public init(systemImageName: String, cornerRadius: CGFloat) {
+        
+        self.image = Image(systemName: systemImageName)
+        self.cornerRadius = cornerRadius
+        
     }
     
     public var body: some View {
         GeometryReader { proxy in
             ZStack {
+                
+                Color.clear
+                                
                 self.image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .cornerRadius(self.cornerRadius)
                     .scaleEffect(self.scale)
                     .offset(x: self.offset.x, y: self.offset.y)
                     .gesture(self.makeDragGesture(size: proxy.size))
                     .gesture(self.makeMagnificationGesture(size: proxy.size))
+                    .onTapGesture(count: 2, perform: {
+                        if self.scale == 1 {
+                            withAnimation(.spring()) {
+                                self.scale = 5
+                            }
+                        } else {
+                            
+                            withAnimation(.spring()) {
+                                
+                                self.scale = 1
+                                self.offset = .zero
+                                
+                            }
+                            
+                        }
+                    })
+                
 //                    .cornerRadius(23)
 //                    .shadow(color: .pink, radius: 11)
             }
