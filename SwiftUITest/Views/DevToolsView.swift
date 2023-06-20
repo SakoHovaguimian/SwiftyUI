@@ -17,6 +17,7 @@ enum DevToolsNavigationRoute: Hashable {
     case redactedView
     case chip
     
+    case sideMenu
     case grid
     case safari
     case zoomView
@@ -29,6 +30,7 @@ enum DevToolsNavigationRoute: Hashable {
     
     var displayTitle: String {
         switch self {
+        case .sideMenu: return "Side Menu"
         case .grid: return "Grid"
         case .safari: return "Safari"
         case .tabBarView: return "Tab Bar View"
@@ -49,6 +51,7 @@ enum DevToolsNavigationRoute: Hashable {
     
     var icon: String {
         switch self {
+        case .sideMenu: return "person.fill"
         case .grid: return "square.grid.3x2.fill"
         case .safari: return "safari.fill"
         case .tabBarView: return "chart.bar.fill"
@@ -69,6 +72,7 @@ enum DevToolsNavigationRoute: Hashable {
     
     var color: Color {
         switch self {
+        case .sideMenu: return AppColor.charcoal.opacity(0.8)
         case .grid: return .green.opacity(0.4)
         case .safari: return .blue
         case .tabBarView: return .pink
@@ -104,6 +108,7 @@ enum DevToolsNavigationRoute: Hashable {
     static func views() -> [DevToolsNavigationRoute] {
         
         return [
+            .sideMenu,
             .grid,
             .safari,
             .zoomView,
@@ -310,6 +315,7 @@ struct DevToolsView: View {
         case .socialMediaView: selectedView = (SocialMediaView())
         case .horizontalPagingView: selectedView = (HorizontalPagingView())
         case .product(let productId): selectedView = Text("PRODUCT PAGE \(productId)")
+        case .sideMenu: selectedView = SideMenuParentContentView()
         }
         
         return AnyView(selectedView)
