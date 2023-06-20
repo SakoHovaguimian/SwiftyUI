@@ -11,11 +11,12 @@
 		750D45D92A3CCD4B00756005 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D45D82A3CCD4B00756005 /* ShimmerView.swift */; };
 		750D45DB2A3CCED500756005 /* RedactedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D45DA2A3CCED500756005 /* RedactedView.swift */; };
 		750D45DD2A3CF69900756005 /* HorizontalPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D45DC2A3CF69900756005 /* HorizontalPagingView.swift */; };
-		7523AAB32A409448006DB270 /* MarkdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523AAB22A409448006DB270 /* MarkdownView.swift */; };
+		7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523AAB22A409448006DB270 /* PlaygroundView.swift */; };
 		7523AAB52A409DEA006DB270 /* Extension+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523AAB42A409DEA006DB270 /* Extension+Double.swift */; };
 		753356152A3D7CC000A42D6C /* GridContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356142A3D7CC000A42D6C /* GridContentView.swift */; };
 		753356172A3E157E00A42D6C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753356162A3E157E00A42D6C /* Colors.xcassets */; };
 		753356192A3E16F700A42D6C /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356182A3E16F700A42D6C /* AppColor.swift */; };
+		75472E1C2A412B6100E822AC /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75472E1B2A412B6100E822AC /* CustomAlertView.swift */; };
 		7549FB412A37C875002AEDC5 /* WildButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7549FB402A37C875002AEDC5 /* WildButtonView.swift */; };
 		754B8B6C2A3B685500409582 /* TypewriterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B6B2A3B685500409582 /* TypewriterContentView.swift */; };
 		754B8B702A3B69B200409582 /* ProductionTabBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B6F2A3B69B200409582 /* ProductionTabBarContentView.swift */; };
@@ -26,6 +27,7 @@
 		754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B7C2A3B72B100409582 /* HapticViewModifier.swift */; };
 		754B8B7F2A3B72CD00409582 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B7E2A3B72CD00409582 /* Haptics.swift */; };
 		7565E9AF2A3A0EA60076A362 /* SuperCustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */; };
+		756DB1992A40BCFB009D5D01 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756DB1982A40BCFB009D5D01 /* Extension+View.swift */; };
 		759383CC2A3622F20016EA29 /* SwiftUITestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */; };
 		759383CE2A3622F20016EA29 /* FirstPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383CD2A3622F20016EA29 /* FirstPlaygroundView.swift */; };
 		759383D02A3622F30016EA29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759383CF2A3622F30016EA29 /* Assets.xcassets */; };
@@ -42,6 +44,11 @@
 		75B5A8872A3C0EB600378C7B /* DevToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8862A3C0EB600378C7B /* DevToolsView.swift */; };
 		75CB8C372A3A716600CE192D /* TypewriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB8C362A3A716600CE192D /* TypewriterView.swift */; };
 		75D122682A3F62050024E60C /* TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D122672A3F62050024E60C /* TokenView.swift */; };
+		75E888B42A41F75600F6B52A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888B32A41F75600F6B52A /* SideMenuView.swift */; };
+		75E888B62A41F76700F6B52A /* SideMenuParentContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888B52A41F76700F6B52A /* SideMenuParentContentView.swift */; };
+		75E888B82A41F8D200F6B52A /* SideMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888B72A41F8D200F6B52A /* SideMenuHeaderView.swift */; };
+		75E888BA2A41FAD200F6B52A /* SideMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888B92A41FAD200F6B52A /* SideMenuOptionView.swift */; };
+		75E888BC2A41FFB900F6B52A /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888BB2A41FFB900F6B52A /* MenuOption.swift */; };
 		75ED4F0E2A38D81D00B7091C /* SocialMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED4F0D2A38D81D00B7091C /* SocialMediaView.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,11 +74,12 @@
 		750D45D82A3CCD4B00756005 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		750D45DA2A3CCED500756005 /* RedactedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedactedView.swift; sourceTree = "<group>"; };
 		750D45DC2A3CF69900756005 /* HorizontalPagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPagingView.swift; sourceTree = "<group>"; };
-		7523AAB22A409448006DB270 /* MarkdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownView.swift; sourceTree = "<group>"; };
+		7523AAB22A409448006DB270 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		7523AAB42A409DEA006DB270 /* Extension+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Double.swift"; sourceTree = "<group>"; };
 		753356142A3D7CC000A42D6C /* GridContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContentView.swift; sourceTree = "<group>"; };
 		753356162A3E157E00A42D6C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		753356182A3E16F700A42D6C /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		75472E1B2A412B6100E822AC /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		7549FB402A37C875002AEDC5 /* WildButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildButtonView.swift; sourceTree = "<group>"; };
 		754B8B6B2A3B685500409582 /* TypewriterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypewriterContentView.swift; sourceTree = "<group>"; };
 		754B8B6F2A3B69B200409582 /* ProductionTabBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionTabBarContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +90,7 @@
 		754B8B7C2A3B72B100409582 /* HapticViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticViewModifier.swift; sourceTree = "<group>"; };
 		754B8B7E2A3B72CD00409582 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperCustomTabBarView.swift; sourceTree = "<group>"; };
+		756DB1982A40BCFB009D5D01 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		759383C82A3622F20016EA29 /* SwiftUITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestApp.swift; sourceTree = "<group>"; };
 		759383CD2A3622F20016EA29 /* FirstPlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPlaygroundView.swift; sourceTree = "<group>"; };
@@ -101,6 +110,11 @@
 		75B5A8862A3C0EB600378C7B /* DevToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsView.swift; sourceTree = "<group>"; };
 		75CB8C362A3A716600CE192D /* TypewriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypewriterView.swift; sourceTree = "<group>"; };
 		75D122672A3F62050024E60C /* TokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenView.swift; sourceTree = "<group>"; };
+		75E888B32A41F75600F6B52A /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		75E888B52A41F76700F6B52A /* SideMenuParentContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuParentContentView.swift; sourceTree = "<group>"; };
+		75E888B72A41F8D200F6B52A /* SideMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuHeaderView.swift; sourceTree = "<group>"; };
+		75E888B92A41FAD200F6B52A /* SideMenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionView.swift; sourceTree = "<group>"; };
+		75E888BB2A41FFB900F6B52A /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		75ED4F0D2A38D81D00B7091C /* SocialMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				7523AAB42A409DEA006DB270 /* Extension+Double.swift */,
+				756DB1982A40BCFB009D5D01 /* Extension+View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,7 +223,6 @@
 				754B8B772A3B70D200409582 /* CustomButton.swift */,
 				75ACB9032A3BB77C0007338E /* SafariWebView.swift */,
 				750D45D82A3CCD4B00756005 /* ShimmerView.swift */,
-				7523AAB22A409448006DB270 /* MarkdownView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -238,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				759383CA2A3622F20016EA29 /* SwiftUITest */,
+				7523AAB22A409448006DB270 /* PlaygroundView.swift */,
 				759383CF2A3622F30016EA29 /* Assets.xcassets */,
 				753356162A3E157E00A42D6C /* Colors.xcassets */,
 				759383DB2A3622F30016EA29 /* SwiftUITestTests */,
@@ -265,7 +280,9 @@
 				7523AAB82A40A2E3006DB270 /* Helpers */,
 				7523AAB62A40A2C8006DB270 /* Extensions */,
 				7523AABA2A40A36B006DB270 /* Sandbox */,
+				75E888B22A41F74700F6B52A /* SideMenu */,
 				759383D12A3622F30016EA29 /* Preview Content */,
+				75472E1B2A412B6100E822AC /* CustomAlertView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -293,6 +310,18 @@
 				759383E82A3622F30016EA29 /* SwiftUITestUITestsLaunchTests.swift */,
 			);
 			path = SwiftUITestUITests;
+			sourceTree = "<group>";
+		};
+		75E888B22A41F74700F6B52A /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				75E888B52A41F76700F6B52A /* SideMenuParentContentView.swift */,
+				75E888B32A41F75600F6B52A /* SideMenuView.swift */,
+				75E888B72A41F8D200F6B52A /* SideMenuHeaderView.swift */,
+				75E888B92A41FAD200F6B52A /* SideMenuOptionView.swift */,
+				75E888BB2A41FFB900F6B52A /* MenuOption.swift */,
+			);
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,20 +463,26 @@
 				750D45DB2A3CCED500756005 /* RedactedView.swift in Sources */,
 				75988F752A3A543C007EF7C6 /* NewCustomTabBarView.swift in Sources */,
 				75B5A8852A3BD96700378C7B /* ZoomView.swift in Sources */,
-				7523AAB32A409448006DB270 /* MarkdownView.swift in Sources */,
+				7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */,
 				754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */,
 				759CFAE12A39897B006C0DC4 /* CustomProgressBar.swift in Sources */,
 				75D122682A3F62050024E60C /* TokenView.swift in Sources */,
 				750D45D92A3CCD4B00756005 /* ShimmerView.swift in Sources */,
 				759383CE2A3622F20016EA29 /* FirstPlaygroundView.swift in Sources */,
 				750D45D72A3CCAE000756005 /* GradientLabelView.swift in Sources */,
+				75E888B82A41F8D200F6B52A /* SideMenuHeaderView.swift in Sources */,
+				75E888B42A41F75600F6B52A /* SideMenuView.swift in Sources */,
+				75E888BA2A41FAD200F6B52A /* SideMenuOptionView.swift in Sources */,
+				75E888B62A41F76700F6B52A /* SideMenuParentContentView.swift in Sources */,
 				75CB8C372A3A716600CE192D /* TypewriterView.swift in Sources */,
 				754B8B6C2A3B685500409582 /* TypewriterContentView.swift in Sources */,
+				756DB1992A40BCFB009D5D01 /* Extension+View.swift in Sources */,
 				754B8B702A3B69B200409582 /* ProductionTabBarContentView.swift in Sources */,
 				75ACB9042A3BB77C0007338E /* SafariWebView.swift in Sources */,
 				754B8B742A3B6D1900409582 /* StyledLabelButton.swift in Sources */,
 				75ED4F0E2A38D81D00B7091C /* SocialMediaView.swift in Sources */,
 				753356192A3E16F700A42D6C /* AppColor.swift in Sources */,
+				75E888BC2A41FFB900F6B52A /* MenuOption.swift in Sources */,
 				75B5A8872A3C0EB600378C7B /* DevToolsView.swift in Sources */,
 				750D45DD2A3CF69900756005 /* HorizontalPagingView.swift in Sources */,
 				7523AAB52A409DEA006DB270 /* Extension+Double.swift in Sources */,
@@ -455,6 +490,7 @@
 				759383CC2A3622F20016EA29 /* SwiftUITestApp.swift in Sources */,
 				7565E9AF2A3A0EA60076A362 /* SuperCustomTabBarView.swift in Sources */,
 				754B8B782A3B70D200409582 /* CustomButton.swift in Sources */,
+				75472E1C2A412B6100E822AC /* CustomAlertView.swift in Sources */,
 				754B8B7B2A3B729A00409582 /* HapticOption.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

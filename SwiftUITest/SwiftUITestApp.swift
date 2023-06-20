@@ -13,8 +13,11 @@ struct SwiftUITestApp: App {
     var body: some Scene {
         WindowGroup {
             
-            DevToolsView()
-                .environmentObject(NavSettings())
+//            PlaygroundView()
+            SideMenuParentContentView()
+            
+//            DevToolsView()
+//                .environmentObject(NavSettings())
             
         }
     }
