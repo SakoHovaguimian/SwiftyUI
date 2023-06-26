@@ -55,6 +55,7 @@
 		75E888B82A41F8D200F6B52A /* SideMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888B72A41F8D200F6B52A /* SideMenuHeaderView.swift */; };
 		75E888BA2A41FAD200F6B52A /* SideMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888B92A41FAD200F6B52A /* SideMenuOptionView.swift */; };
 		75E888BC2A41FFB900F6B52A /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888BB2A41FFB900F6B52A /* MenuOption.swift */; };
+		75E8C1FB2A4A292B00C3A564 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */; };
 		75ED4F0E2A38D81D00B7091C /* SocialMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED4F0D2A38D81D00B7091C /* SocialMediaView.swift */; };
 /* End PBXBuildFile section */
 
@@ -127,6 +128,7 @@
 		75E888B72A41F8D200F6B52A /* SideMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuHeaderView.swift; sourceTree = "<group>"; };
 		75E888B92A41FAD200F6B52A /* SideMenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionView.swift; sourceTree = "<group>"; };
 		75E888BB2A41FFB900F6B52A /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
+		75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		75ED4F0D2A38D81D00B7091C /* SocialMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -301,6 +303,7 @@
 				75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */,
 				7594FCB72A4734FE00EBB605 /* CustomTextView.swift */,
 				75C5EE392A49E79B00FA9056 /* OnboardingViewCarousel.swift */,
+				75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -514,6 +517,7 @@
 				7565E9AF2A3A0EA60076A362 /* SuperCustomTabBarView.swift in Sources */,
 				754B8B782A3B70D200409582 /* CustomButton.swift in Sources */,
 				75472E1C2A412B6100E822AC /* CustomAlertView.swift in Sources */,
+				75E8C1FB2A4A292B00C3A564 /* AnimationView.swift in Sources */,
 				7594FCBA2A474AAC00EBB605 /* Extension+UIApplication.swift in Sources */,
 				754B8B7B2A3B729A00409582 /* HapticOption.swift in Sources */,
 			);

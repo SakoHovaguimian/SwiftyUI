@@ -97,8 +97,11 @@ public struct TabBarDefaultView: View {
     @Namespace private var namespace
     
     public var body: some View {
+        
+        let tabs = self.tabs.map({ $0.tabBarOption })
+        
         HStack(spacing: 0) {
-            ForEach(self.tabs.map({ $0.tabBarOption }), id: \.self) { tab in
+            ForEach(tabs, id: \.self) { tab in
                 
                 // MARK: - Having this code here let's us make custom properties in tabBar
                 //                if tab.title == "Discover" {
@@ -126,10 +129,9 @@ public struct TabBarDefaultView: View {
                     .onTapGesture {
                         switchToTab(tab: tab.tabBarItem)
                     }
-                
-                //                }
-                
+                 
             }
+            
         }
         .padding(.horizontal, self.horizontalInsetPadding)
         .background(
@@ -152,6 +154,7 @@ public struct TabBarDefaultView: View {
                 self.localSelection = newTabSelection
             }
         }
+        
     }
     
     private func switchToTab(tab: TabBarItem) {
@@ -179,56 +182,75 @@ private extension TabBarDefaultView {
         
         let tabItem = tab
         
-        return VStack(spacing: spacing) {
+        return VStack(spacing: self.spacing) {
+            
             if let icon = tabItem.iconName {
+                
                 Image(systemName: icon)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: iconSize, height: iconSize)
-                    .foregroundColor(self.localSelection == tabItem ? tabItem.color : defaultColor)
+                    .frame(width: self.iconSize, height: self.iconSize)
+                    .foregroundColor(self.localSelection == tabItem ? tabItem.color : self.defaultColor)
+                
             }
+            
             if let image = tabItem.image {
+                
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
-                    .foregroundColor(self.localSelection == tabItem ? tabItem.color : defaultColor)
-                    .frame(width: iconSize, height: iconSize)
+                    .foregroundColor(self.localSelection == tabItem ? tabItem.color : self.defaultColor)
+                    .frame(width: self.iconSize, height: self.iconSize)
+                
             }
+            
             if let title = tabItem.title {
+                
                 Text(title)
-                    .foregroundColor(self.localSelection == tabItem ? tabItem.color : defaultColor)
+                    .foregroundColor(self.localSelection == tabItem ? tabItem.color : self.defaultColor)
+                
             }
+            
         }
-        .font(font)
-        .foregroundColor(selection == tabItem ? accentColor : defaultColor)
+        .font(self.font)
+        .foregroundColor(self.selection == tabItem ? self.accentColor : self.defaultColor)
         .frame(maxWidth: .infinity)
         .padding(.vertical, self.verticalInsetPadding)
         .overlay(
+            
             ZStack {
+                
                 if let count = badgeCount, count > 0 {
+                    
                     Text("\(count)")
                         .foregroundColor(.white)
                         .font(.caption)
                         .padding(5)
                         .background(.red)
                         .clipShape(Circle())
-                        .offset(x: iconSize * 0.9, y: -iconSize * 0.9)
+                        .offset(x: self.iconSize * 0.9, y: -self.iconSize * 0.9)
+                    
                 }
+                
             }
+            
         )
         .background(
+            
             ZStack {
+                
                 if self.localSelection == tabItem {
-                    //                    withAnimation {
+                    
                     RoundedRectangle(cornerRadius: 7)
                         .fill(self.localSelection.color?.opacity(0.2) ?? .yellow.opacity(0.2))
                         .matchedGeometryEffect(id: "background_rectangle", in: namespace)
-                    //                    }
                     
                 }
+                
             }
-                .padding(8)//: ZSTACK
+            .padding(8)
         )
+        
     }
     
 }
