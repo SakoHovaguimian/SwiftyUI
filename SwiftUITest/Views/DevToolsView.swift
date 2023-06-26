@@ -157,6 +157,7 @@ struct DevToolsView: View {
     
     @EnvironmentObject var navSettings: NavSettings
     
+    @State private var petCount: Int = 100
     @State private var pathItems: [DevToolsNavigationRoute] = []
     @State private var shouldPresentSheet: Bool = false
     @State private var shouldPresentFullScreen: Bool = false
@@ -327,20 +328,23 @@ struct DevToolsView: View {
         case .styledLabelButton: selectedView = WildButtonView()
         case .customButton:
             
-            
             selectedView =  AnyView(
-                    VStack {
-                        Text("Click me")
-                            .padding(24)
-                            .background(Color.indigo)
-                            .cornerRadius(12)
-                            .asButton {
-                                print("You clicked me")
-                            }
-                    }
-
-                )
-//            }
+            
+                
+                VStack {
+                    
+                    AnimationView(petCount: petCount)
+                    
+                    Text("Click me")
+                        .padding(24)
+                        .background(Color.indigo)
+                        .cornerRadius(12)
+                        .asButton {
+                            self.petCount += 1
+                        }
+                }
+                
+            )
             
         case .progressBar: selectedView = CustomProgressBarTest()
         case .gradientLabel: selectedView = GradientLabelView()
