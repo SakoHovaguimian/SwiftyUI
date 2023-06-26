@@ -16,21 +16,26 @@ enum DevToolsNavigationRoute: Hashable {
     case gradientLabel
     case redactedView
     case chip
+    case textView
     
     case sideMenu
+    case signupContentView
     case grid
     case safari
     case zoomView
     case typewriterView
     case wildView
     case socialMediaView
+    case horizontalPagingViewAppleAPI
     case horizontalPagingView
+    case onboarding
     
     case product(productId: String)
     
     var displayTitle: String {
         switch self {
         case .sideMenu: return "Side Menu"
+        case .signupContentView: return "Create Account"
         case .grid: return "Grid"
         case .safari: return "Safari"
         case .tabBarView: return "Tab Bar View"
@@ -41,17 +46,21 @@ enum DevToolsNavigationRoute: Hashable {
         case .gradientLabel: return "Gradient Label"
         case .redactedView: return "Shimmer View"
         case .chip: return "Chip Demo"
+        case .textView: return "Text View"
         case .typewriterView: return "Typewriter View"
         case .wildView: return "Wild View"
         case .socialMediaView: return "Social Media View"
         case .horizontalPagingView: return "Horizontal Paging View"
+        case .horizontalPagingViewAppleAPI: return "Horizontal Paging Apple's API"
         case .product: return "Product Demo Page"
+        case .onboarding: return "Onboarding"
         }
     }
     
     var icon: String {
         switch self {
         case .sideMenu: return "person.fill"
+        case .signupContentView: return "person.fill"
         case .grid: return "square.grid.3x2.fill"
         case .safari: return "safari.fill"
         case .tabBarView: return "chart.bar.fill"
@@ -62,16 +71,20 @@ enum DevToolsNavigationRoute: Hashable {
         case .gradientLabel: return "pencil.tip"
         case .redactedView: return "sink.fill"
         case .chip: return "globe"
+        case .textView: return "abc"
         case .typewriterView: return "window.vertical.open"
         case .wildView: return "paperplane.fill"
         case .socialMediaView: return "book.fill"
         case .horizontalPagingView: return "briefcase.fill"
+        case .horizontalPagingViewAppleAPI: return "rectangle.fill.on.rectangle.fill"
         case .product: return ""
+        case .onboarding: return "chart"
         }
     }
     
     var color: Color {
         switch self {
+        case .signupContentView: return .teal.opacity(0.5)
         case .sideMenu: return AppColor.charcoal.opacity(0.8)
         case .grid: return .green.opacity(0.4)
         case .safari: return .blue
@@ -83,11 +96,14 @@ enum DevToolsNavigationRoute: Hashable {
         case .gradientLabel: return .indigo
         case .redactedView: return .gray.opacity(0.5)
         case .chip: return .blue.opacity(0.2)
+        case .textView: return .pink.opacity(0.4)
         case .typewriterView: return .purple
         case .wildView: return .yellow.opacity(0.6)
         case .socialMediaView: return .cyan.opacity(0.7)
         case .horizontalPagingView: return .red.opacity(0.4)
+        case .horizontalPagingViewAppleAPI: return .red.opacity(0.8)
         case .product: return .black.opacity(0.3)
+        case .onboarding: return .pink.opacity(0.1)
         }
     }
     
@@ -100,7 +116,8 @@ enum DevToolsNavigationRoute: Hashable {
             .progressBar,
             .gradientLabel,
             .redactedView,
-            .chip
+            .chip,
+            .textView
         ]
         
     }
@@ -108,13 +125,16 @@ enum DevToolsNavigationRoute: Hashable {
     static func views() -> [DevToolsNavigationRoute] {
         
         return [
+            .onboarding,
             .sideMenu,
+            .signupContentView,
             .grid,
             .safari,
             .zoomView,
             .typewriterView,
             .wildView,
             .socialMediaView,
+            .horizontalPagingViewAppleAPI,
             .horizontalPagingView
         ]
         
@@ -139,6 +159,7 @@ struct DevToolsView: View {
     
     @State private var pathItems: [DevToolsNavigationRoute] = []
     @State private var shouldPresentSheet: Bool = false
+    @State private var shouldPresentFullScreen: Bool = false
     
     var body: some View {
         
@@ -183,11 +204,24 @@ struct DevToolsView: View {
             .navigationTitle("Dev Tools")
             .background(Color.clear)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
+                
+                ToolbarItem(placement: .topBarLeading) {
                     Button {
                         self.shouldPresentSheet = true
                     } label: {
                         Image(systemName: "heart.fill")
+                            .resizable()
+                            .foregroundColor(Color.white)
+                            .frame(width: 16, height: 16)
+                    }
+
+                }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        self.shouldPresentFullScreen.toggle()
+                    } label: {
+                        Image(systemName: "person.fill")
                             .resizable()
                             .foregroundColor(Color.white)
                             .frame(width: 16, height: 16)
@@ -208,6 +242,11 @@ struct DevToolsView: View {
             }
             
         }
+        .fullScreenCover(isPresented: self.$shouldPresentFullScreen, onDismiss: {
+            print("[DEBUG]: DISMISSING THE VIEW")
+        }, content: {
+            FullScreenModalView()
+        })
         .tint(self.navSettings.currentTintColor)
         
     }
@@ -307,19 +346,63 @@ struct DevToolsView: View {
         case .gradientLabel: selectedView = GradientLabelView()
         case .redactedView: selectedView = RedactedView().environmentObject(self.navSettings)
         case .chip: selectedView = ChipDemoContentView()
+        case .textView: selectedView = CustomTextView()
         case .grid: selectedView = GridContentView()
         case .safari: selectedView = (SafariWebContentView(url: URL(string: "https://www.google.com")!))
         case .zoomView: selectedView = ZoomView(image: Image("sunset"), cornerRadius: 24).padding(.horizontal, 24)
         case .typewriterView: selectedView = (TypewriterContentView())
         case .wildView: selectedView = (WildButtonView())
-        case .socialMediaView: selectedView = (SocialMediaView())
+        case .socialMediaView: selectedView = (SocialMediaView(image: Image("pond")))
         case .horizontalPagingView: selectedView = (HorizontalPagingView())
+        case .horizontalPagingViewAppleAPI: selectedView = ScrollViewPagingAPI()
         case .product(let productId): selectedView = Text("PRODUCT PAGE \(productId)")
         case .sideMenu: selectedView = SideMenuParentContentView()
+        case .signupContentView: selectedView = SignUpContentView()
+        case .onboarding: selectedView = (OnboardingViewCarousel().navigationBarBackButtonHidden())
         }
         
         return AnyView(selectedView)
         
     }
     
+}
+
+struct FullScreenModalView: View {
+    
+    @Environment(\.dismiss) var dismiss
+
+    var body: some View {
+        NavigationStack {
+            ZStack {
+                LinearGradient(colors: [Color.indigo, Color.cyan], startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+                VStack(spacing: 32) {
+                 
+                    Button("Dismiss Modal") {
+                        dismiss()
+                    }
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
+                    .fontWeight(.heavy)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(.pink)
+                    .cornerRadius(10)
+                    
+//                    Button("Push New Modal") {
+                        NavigationLink("Push New Modal") {
+                            Text("New Push")
+                        }
+//                    }
+                    .font(.largeTitle)
+                    .fontDesign(.serif)
+                    .fontWeight(.heavy)
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(.pink)
+                    .cornerRadius(10)
+                    
+                }
+            }
+        }
+    }
 }

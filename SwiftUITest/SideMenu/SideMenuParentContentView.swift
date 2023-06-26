@@ -40,10 +40,12 @@ struct SideMenuParentContentView: View {
                                 }
                                 
                             } label: {
-                                Image (systemName: "list.bullet")
-                                    .foregroundColor (.black)
+                                Image(systemName: "list.bullet")
+                                    .foregroundStyle(.black)
+                                
                             }
-                            
+                            .buttonStyle(.plain)
+
                         }
                 }
                 

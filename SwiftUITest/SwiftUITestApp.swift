@@ -12,25 +12,14 @@ struct SwiftUITestApp: App {
     
     var body: some Scene {
         WindowGroup {
-            
-//            PlaygroundView()
-            SideMenuParentContentView()
-            
-//            DevToolsView()
-//                .environmentObject(NavSettings())
+  
+//            HomePageView()
+//            SocialMediaView(image: Image("sunset"))
+//            OnboardingViewCarousel()
+            DevToolsView()
+                .environmentObject(NavSettings())
             
         }
-    }
-    
-}
-
-extension UIApplication {
-    
-    var firstKeyWindow: UIWindow? {
-        return UIApplication.shared.connectedScenes
-            .compactMap { $0 as? UIWindowScene }
-            .filter { $0.activationState == .foregroundActive }
-            .first?.keyWindow
     }
     
 }

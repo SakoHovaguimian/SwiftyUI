@@ -23,7 +23,7 @@ struct SuperAppTabBarView: View {
             CustomProgressBarTest()
                 .superTabBarItem(tab: .home, selection: self.$tabSelection)
             
-            SocialMediaView()
+            SocialMediaView(image: Image("sunset"))
                 .superTabBarItem(tab: .favorites, selection: self.$tabSelection)
             
             FirstPlaygroundView()
