@@ -47,6 +47,7 @@
 		75B5A8852A3BD96700378C7B /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8842A3BD96700378C7B /* ZoomView.swift */; };
 		75B5A8872A3C0EB600378C7B /* DevToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8862A3C0EB600378C7B /* DevToolsView.swift */; };
 		75B85B7A2A452B5B0014112F /* BackgroundTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B85B792A452B5B0014112F /* BackgroundTestView.swift */; };
+		75C29F692A4A9F71003859B7 /* TikTokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C29F682A4A9F71003859B7 /* TikTokView.swift */; };
 		75C5EE3A2A49E79B00FA9056 /* OnboardingViewCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5EE392A49E79B00FA9056 /* OnboardingViewCarousel.swift */; };
 		75CB8C372A3A716600CE192D /* TypewriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB8C362A3A716600CE192D /* TypewriterView.swift */; };
 		75D122682A3F62050024E60C /* TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D122672A3F62050024E60C /* TokenView.swift */; };
@@ -120,6 +121,7 @@
 		75B5A8842A3BD96700378C7B /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
 		75B5A8862A3C0EB600378C7B /* DevToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsView.swift; sourceTree = "<group>"; };
 		75B85B792A452B5B0014112F /* BackgroundTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTestView.swift; sourceTree = "<group>"; };
+		75C29F682A4A9F71003859B7 /* TikTokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokView.swift; sourceTree = "<group>"; };
 		75C5EE392A49E79B00FA9056 /* OnboardingViewCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewCarousel.swift; sourceTree = "<group>"; };
 		75CB8C362A3A716600CE192D /* TypewriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypewriterView.swift; sourceTree = "<group>"; };
 		75D122672A3F62050024E60C /* TokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenView.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				7594FCB72A4734FE00EBB605 /* CustomTextView.swift */,
 				75C5EE392A49E79B00FA9056 /* OnboardingViewCarousel.swift */,
 				75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */,
+				75C29F682A4A9F71003859B7 /* TikTokView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */,
 				759CFAE12A39897B006C0DC4 /* CustomProgressBar.swift in Sources */,
 				75D122682A3F62050024E60C /* TokenView.swift in Sources */,
+				75C29F692A4A9F71003859B7 /* TikTokView.swift in Sources */,
 				750D45D92A3CCD4B00756005 /* ShimmerView.swift in Sources */,
 				759383CE2A3622F20016EA29 /* FirstPlaygroundView.swift in Sources */,
 				750D45D72A3CCAE000756005 /* GradientLabelView.swift in Sources */,
