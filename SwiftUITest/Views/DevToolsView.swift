@@ -17,8 +17,10 @@ enum DevToolsNavigationRoute: Hashable {
     case redactedView
     case chip
     case textView
+    case toggle
     
     case sideMenu
+    case tikTokView
     case signupContentView
     case grid
     case safari
@@ -54,6 +56,8 @@ enum DevToolsNavigationRoute: Hashable {
         case .horizontalPagingViewAppleAPI: return "Horizontal Paging Apple's API"
         case .product: return "Product Demo Page"
         case .onboarding: return "Onboarding"
+        case .tikTokView: return "TikTok View"
+        case .toggle: return "Custom Toggle Components"
         }
     }
     
@@ -77,8 +81,10 @@ enum DevToolsNavigationRoute: Hashable {
         case .socialMediaView: return "book.fill"
         case .horizontalPagingView: return "briefcase.fill"
         case .horizontalPagingViewAppleAPI: return "rectangle.fill.on.rectangle.fill"
-        case .product: return ""
-        case .onboarding: return "chart"
+        case .product: return "person.crop.artframe"
+        case .onboarding: return "person.2.crop.square.stack"
+        case .tikTokView: return "books.vertical.fill"
+        case .toggle: return "slider.vertical.3"
         }
     }
     
@@ -104,6 +110,8 @@ enum DevToolsNavigationRoute: Hashable {
         case .horizontalPagingViewAppleAPI: return .red.opacity(0.8)
         case .product: return .black.opacity(0.3)
         case .onboarding: return .pink.opacity(0.1)
+        case .toggle: return .yellow.opacity(0.5)
+        case .tikTokView: return .green.opacity(0.5)
         }
     }
     
@@ -117,7 +125,8 @@ enum DevToolsNavigationRoute: Hashable {
             .gradientLabel,
             .redactedView,
             .chip,
-            .textView
+            .textView,
+            .toggle,
         ]
         
     }
@@ -126,6 +135,7 @@ enum DevToolsNavigationRoute: Hashable {
         
         return [
             .onboarding,
+            .tikTokView,
             .sideMenu,
             .signupContentView,
             .grid,
@@ -237,6 +247,7 @@ struct DevToolsView: View {
             VStack {
                 Text("My Sheet")
             }
+            .presentationDetents([.large, .medium])
             .presentationBackground(alignment: .bottom) {
                 LinearGradient(colors: [Color.pink, Color.purple], startPoint: .bottomLeading, endPoint: .topTrailing)
 //            .presentationCornerRadius(180)
@@ -363,6 +374,8 @@ struct DevToolsView: View {
         case .sideMenu: selectedView = SideMenuParentContentView()
         case .signupContentView: selectedView = SignUpContentView()
         case .onboarding: selectedView = (OnboardingViewCarousel().navigationBarBackButtonHidden())
+        case .tikTokView: selectedView = (TikTokView().navigationBarBackButtonHidden())
+        case .toggle: selectedView = (SettingsView().navigationBarBackButtonHidden())
         }
         
         return AnyView(selectedView)

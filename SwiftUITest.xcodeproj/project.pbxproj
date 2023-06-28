@@ -27,6 +27,7 @@
 		754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B7C2A3B72B100409582 /* HapticViewModifier.swift */; };
 		754B8B7F2A3B72CD00409582 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B7E2A3B72CD00409582 /* Haptics.swift */; };
 		75543D202A4605A9008805BD /* ScrollViewPagingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */; };
+		755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */; };
 		7565E9AF2A3A0EA60076A362 /* SuperCustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */; };
 		756DB1992A40BCFB009D5D01 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756DB1982A40BCFB009D5D01 /* Extension+View.swift */; };
 		759383CC2A3622F20016EA29 /* SwiftUITestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */; };
@@ -47,10 +48,12 @@
 		75B5A8852A3BD96700378C7B /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8842A3BD96700378C7B /* ZoomView.swift */; };
 		75B5A8872A3C0EB600378C7B /* DevToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8862A3C0EB600378C7B /* DevToolsView.swift */; };
 		75B85B7A2A452B5B0014112F /* BackgroundTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B85B792A452B5B0014112F /* BackgroundTestView.swift */; };
+		75BBCBFA2A4C6D7300DD03C2 /* BlurContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BBCBF92A4C6D7300DD03C2 /* BlurContentView.swift */; };
 		75C29F692A4A9F71003859B7 /* TikTokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C29F682A4A9F71003859B7 /* TikTokView.swift */; };
 		75C5EE3A2A49E79B00FA9056 /* OnboardingViewCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5EE392A49E79B00FA9056 /* OnboardingViewCarousel.swift */; };
 		75CB8C372A3A716600CE192D /* TypewriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB8C362A3A716600CE192D /* TypewriterView.swift */; };
 		75D122682A3F62050024E60C /* TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D122672A3F62050024E60C /* TokenView.swift */; };
+		75DD42B12A4BA615002E9E92 /* Extension+NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DD42B02A4BA615002E9E92 /* Extension+NavigationController.swift */; };
 		75E888B42A41F75600F6B52A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888B32A41F75600F6B52A /* SideMenuView.swift */; };
 		75E888B62A41F76700F6B52A /* SideMenuParentContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888B52A41F76700F6B52A /* SideMenuParentContentView.swift */; };
 		75E888B82A41F8D200F6B52A /* SideMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888B72A41F8D200F6B52A /* SideMenuHeaderView.swift */; };
@@ -98,6 +101,7 @@
 		754B8B7C2A3B72B100409582 /* HapticViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticViewModifier.swift; sourceTree = "<group>"; };
 		754B8B7E2A3B72CD00409582 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewPagingAPI.swift; sourceTree = "<group>"; };
+		755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
 		7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperCustomTabBarView.swift; sourceTree = "<group>"; };
 		756DB1982A40BCFB009D5D01 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
 		759383C82A3622F20016EA29 /* SwiftUITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,10 +125,12 @@
 		75B5A8842A3BD96700378C7B /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
 		75B5A8862A3C0EB600378C7B /* DevToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsView.swift; sourceTree = "<group>"; };
 		75B85B792A452B5B0014112F /* BackgroundTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTestView.swift; sourceTree = "<group>"; };
+		75BBCBF92A4C6D7300DD03C2 /* BlurContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurContentView.swift; sourceTree = "<group>"; };
 		75C29F682A4A9F71003859B7 /* TikTokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokView.swift; sourceTree = "<group>"; };
 		75C5EE392A49E79B00FA9056 /* OnboardingViewCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewCarousel.swift; sourceTree = "<group>"; };
 		75CB8C362A3A716600CE192D /* TypewriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypewriterView.swift; sourceTree = "<group>"; };
 		75D122672A3F62050024E60C /* TokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenView.swift; sourceTree = "<group>"; };
+		75DD42B02A4BA615002E9E92 /* Extension+NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NavigationController.swift"; sourceTree = "<group>"; };
 		75E888B32A41F75600F6B52A /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		75E888B52A41F76700F6B52A /* SideMenuParentContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuParentContentView.swift; sourceTree = "<group>"; };
 		75E888B72A41F8D200F6B52A /* SideMenuHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuHeaderView.swift; sourceTree = "<group>"; };
@@ -165,6 +171,7 @@
 				7523AAB42A409DEA006DB270 /* Extension+Double.swift */,
 				756DB1982A40BCFB009D5D01 /* Extension+View.swift */,
 				7594FCB92A474AAC00EBB605 /* Extension+UIApplication.swift */,
+				75DD42B02A4BA615002E9E92 /* Extension+NavigationController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,6 +314,8 @@
 				75C5EE392A49E79B00FA9056 /* OnboardingViewCarousel.swift */,
 				75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */,
 				75C29F682A4A9F71003859B7 /* TikTokView.swift */,
+				755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */,
+				75BBCBF92A4C6D7300DD03C2 /* BlurContentView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -490,6 +499,7 @@
 				7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */,
 				75C5EE3A2A49E79B00FA9056 /* OnboardingViewCarousel.swift in Sources */,
 				754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */,
+				75BBCBFA2A4C6D7300DD03C2 /* BlurContentView.swift in Sources */,
 				759CFAE12A39897B006C0DC4 /* CustomProgressBar.swift in Sources */,
 				75D122682A3F62050024E60C /* TokenView.swift in Sources */,
 				75C29F692A4A9F71003859B7 /* TikTokView.swift in Sources */,
@@ -502,8 +512,10 @@
 				75E888BA2A41FAD200F6B52A /* SideMenuOptionView.swift in Sources */,
 				75E888B62A41F76700F6B52A /* SideMenuParentContentView.swift in Sources */,
 				75CB8C372A3A716600CE192D /* TypewriterView.swift in Sources */,
+				755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */,
 				754B8B6C2A3B685500409582 /* TypewriterContentView.swift in Sources */,
 				756DB1992A40BCFB009D5D01 /* Extension+View.swift in Sources */,
+				75DD42B12A4BA615002E9E92 /* Extension+NavigationController.swift in Sources */,
 				754B8B702A3B69B200409582 /* ProductionTabBarContentView.swift in Sources */,
 				75ACB9042A3BB77C0007338E /* SafariWebView.swift in Sources */,
 				754B8B742A3B6D1900409582 /* StyledLabelButton.swift in Sources */,
