@@ -31,6 +31,8 @@
 		755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */; };
 		7565E9AF2A3A0EA60076A362 /* SuperCustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */; };
 		756DB1992A40BCFB009D5D01 /* Extension+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756DB1982A40BCFB009D5D01 /* Extension+View.swift */; };
+		757DE9722A4E2C810099FE6E /* GradientButtonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DE9712A4E2C810099FE6E /* GradientButtonContentView.swift */; };
+		757DE9742A4E2CB00099FE6E /* TikTokSideWaysContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DE9732A4E2CB00099FE6E /* TikTokSideWaysContentView.swift */; };
 		758B3FE72A4CC11C00C624A8 /* CurrentOffsetScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B3FE62A4CC11C00C624A8 /* CurrentOffsetScrollView.swift */; };
 		759383CC2A3622F20016EA29 /* SwiftUITestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */; };
 		759383CE2A3622F20016EA29 /* FirstPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383CD2A3622F20016EA29 /* FirstPlaygroundView.swift */; };
@@ -107,6 +109,8 @@
 		755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
 		7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperCustomTabBarView.swift; sourceTree = "<group>"; };
 		756DB1982A40BCFB009D5D01 /* Extension+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+View.swift"; sourceTree = "<group>"; };
+		757DE9712A4E2C810099FE6E /* GradientButtonContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonContentView.swift; sourceTree = "<group>"; };
+		757DE9732A4E2CB00099FE6E /* TikTokSideWaysContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokSideWaysContentView.swift; sourceTree = "<group>"; };
 		758B3FE62A4CC11C00C624A8 /* CurrentOffsetScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOffsetScrollView.swift; sourceTree = "<group>"; };
 		759383C82A3622F20016EA29 /* SwiftUITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestApp.swift; sourceTree = "<group>"; };
@@ -280,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				759383CA2A3622F20016EA29 /* SwiftUITest */,
-				7523AAB22A409448006DB270 /* PlaygroundView.swift */,
 				759383CF2A3622F30016EA29 /* Assets.xcassets */,
 				753356162A3E157E00A42D6C /* Colors.xcassets */,
 				759383DB2A3622F30016EA29 /* SwiftUITestTests */,
@@ -318,10 +321,13 @@
 				75C5EE392A49E79B00FA9056 /* OnboardingViewCarousel.swift */,
 				75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */,
 				75C29F682A4A9F71003859B7 /* TikTokView.swift */,
+				757DE9732A4E2CB00099FE6E /* TikTokSideWaysContentView.swift */,
+				7523AAB22A409448006DB270 /* PlaygroundView.swift */,
 				755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */,
 				75BBCBF92A4C6D7300DD03C2 /* BlurContentView.swift */,
 				758B3FE62A4CC11C00C624A8 /* CurrentOffsetScrollView.swift */,
 				7558F8632A4DF845008486A0 /* LongPressContentView.swift */,
+				757DE9712A4E2C810099FE6E /* GradientButtonContentView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -525,9 +531,11 @@
 				756DB1992A40BCFB009D5D01 /* Extension+View.swift in Sources */,
 				75DD42B12A4BA615002E9E92 /* Extension+NavigationController.swift in Sources */,
 				754B8B702A3B69B200409582 /* ProductionTabBarContentView.swift in Sources */,
+				757DE9722A4E2C810099FE6E /* GradientButtonContentView.swift in Sources */,
 				75ACB9042A3BB77C0007338E /* SafariWebView.swift in Sources */,
 				754B8B742A3B6D1900409582 /* StyledLabelButton.swift in Sources */,
 				75B85B7A2A452B5B0014112F /* BackgroundTestView.swift in Sources */,
+				757DE9742A4E2CB00099FE6E /* TikTokSideWaysContentView.swift in Sources */,
 				75ED4F0E2A38D81D00B7091C /* SocialMediaView.swift in Sources */,
 				753356192A3E16F700A42D6C /* AppColor.swift in Sources */,
 				75E888BC2A41FFB900F6B52A /* MenuOption.swift in Sources */,

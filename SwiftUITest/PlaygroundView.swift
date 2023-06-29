@@ -64,17 +64,17 @@ struct PlaygroundView: View {
                         TextField("Name...", text: $name)
                     }
                     .padding(.vertical, 16)
-                    .padding(.horizontal, 8)
+                    .padding(.horizontal, 16)
                     .background(.ultraThinMaterial)
                     .cornerRadius(8)
-                    .shadow(radius: 10)
+                    .shadow(radius: 2, y: 4)
                     
                     HStack {
                         Image(systemName: "calendar")
                         TextField("Age......", text: $age)
                     }
                     .padding(.vertical, 16)
-                    .padding(.horizontal, 8)
+                    .padding(.horizontal, 16)
                     .background(.ultraThinMaterial)
                     .cornerRadius(8)
                     .shadow(radius: 10)
@@ -87,8 +87,8 @@ struct PlaygroundView: View {
                             TextField("Age......", text: $age)
                         }
                         .padding(.vertical, 8)
-                        .padding(.horizontal, 8)
-    //                    .background(.ultraThinMaterial)
+                        .padding(.horizontal, 16)
+//                        .background(.ultraThinMaterial)
                         .cornerRadius(8)
                         .shadow(radius: 10)
                         .keyboardType(.numberPad)
