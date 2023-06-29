@@ -125,7 +125,6 @@ struct BlurRepresentableView: View {
                 in: RoundedRectangle(cornerRadius: 16.0)
             )
             .opacity(self.shouldShowOverlay ? 1 : 0)
-//            .multicolorGlow()
             
         }
         

@@ -16,16 +16,18 @@ struct SwiftUITestApp: App {
 //            HomePageView()
 //            SocialMediaView(image: Image("sunset"))
 //            OnboardingViewCarousel()
+            
+            OnKeyPressContentView()
 //            DevToolsView()
 //                .environmentObject(NavSettings())
             
-            BlurRepresentableView(
-                dismissAction: {
-                    print("DISMISS ACTION")
-                },
-                successAction: {
-                    print("SUCCESS ACTION")
-                })
+//            BlurRepresentableView(
+//                dismissAction: {
+//                    print("DISMISS ACTION")
+//                },
+//                successAction: {
+//                    print("SUCCESS ACTION")
+//                })
             
         }
     }
