@@ -373,7 +373,7 @@ struct DevToolsView: View {
         case .product(let productId): selectedView = Text("PRODUCT PAGE \(productId)")
         case .sideMenu: selectedView = SideMenuParentContentView()
         case .signupContentView: selectedView = SignUpContentView()
-        case .onboarding: selectedView = (OnboardingViewCarousel().navigationBarBackButtonHidden())
+        case .onboarding: selectedView = (OnboardingViewCarousel())//.navigationBarBackButtonHidden())
         case .tikTokView: selectedView = (TikTokView().navigationBarBackButtonHidden())
         case .toggle: selectedView = (SettingsView().navigationBarBackButtonHidden())
         }
