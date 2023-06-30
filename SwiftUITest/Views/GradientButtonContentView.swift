@@ -65,10 +65,10 @@ struct GradientOutlineButton: View {
     
     var body: some View {
         Button {
-            print("Linear Gradient Button Tapped")
+            print("Tap me")
         } label: {
             
-            Text ("Linear Gradient")
+            Text ("Tap Me")
                 .bold()
                 .frame(width: UIScreen.main.bounds.width - 128, height: 50)
                 .foregroundColor (.white)

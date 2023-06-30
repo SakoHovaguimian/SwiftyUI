@@ -137,6 +137,106 @@ struct NatureInspiration: Identifiable {
             NatureInspiration(name: "Sky",
                               description: "The sky is an unobstructed view upward from the surface of the Earth. It includes the atmosphere and outer space. "),
             NatureInspiration(name: "Death Valley",
+                              description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. "),
+            NatureInspiration(
+                name: "Desert",
+                description: "A desert is a barren area of landscape where little precipitation occurs and, consequently, living conditions are hostile for plant and animal life."
+            ),
+            NatureInspiration(
+                name: "Tree",
+                description: "In botany, a tree is a perennial plant with an elongated stem, or trunk, usually supporting branches and leaves."
+            ),
+            NatureInspiration(name: "Mountain Air",
+                              description: "A mountain is an elevated portion of the Earth's crust, generally with steep sides that show significant exposed bedrock"),
+            NatureInspiration(name: "Moos Trees",
+                              description: "In our unique moss farm we cultivate natural, pure and high performance moss. This forms the green basis for our regenerative moss filters."),
+            NatureInspiration(name: "Sky",
+                              description: "The sky is an unobstructed view upward from the surface of the Earth. It includes the atmosphere and outer space. "),
+            NatureInspiration(name: "Death Valley",
+                              description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. "),
+            NatureInspiration(name: "Sky",
+                              description: "The sky is an unobstructed view upward from the surface of the Earth. It includes the atmosphere and outer space. "),
+            NatureInspiration(name: "Death Valley",
+                              description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. "),
+            NatureInspiration(
+                name: "Desert",
+                description: "A desert is a barren area of landscape where little precipitation occurs and, consequently, living conditions are hostile for plant and animal life."
+            ),
+            NatureInspiration(
+                name: "Tree",
+                description: "In botany, a tree is a perennial plant with an elongated stem, or trunk, usually supporting branches and leaves."
+            ),
+            NatureInspiration(name: "Mountain Air",
+                              description: "A mountain is an elevated portion of the Earth's crust, generally with steep sides that show significant exposed bedrock"),
+            NatureInspiration(name: "Moos Trees",
+                              description: "In our unique moss farm we cultivate natural, pure and high performance moss. This forms the green basis for our regenerative moss filters."),
+            NatureInspiration(name: "Sky",
+                              description: "The sky is an unobstructed view upward from the surface of the Earth. It includes the atmosphere and outer space. "),
+            NatureInspiration(name: "Death Valley",
+                              description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. "),
+            NatureInspiration(name: "Sky",
+                              description: "The sky is an unobstructed view upward from the surface of the Earth. It includes the atmosphere and outer space. "),
+            NatureInspiration(name: "Death Valley",
+                              description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. "),
+            NatureInspiration(
+                name: "Desert",
+                description: "A desert is a barren area of landscape where little precipitation occurs and, consequently, living conditions are hostile for plant and animal life."
+            ),
+            NatureInspiration(
+                name: "Tree",
+                description: "In botany, a tree is a perennial plant with an elongated stem, or trunk, usually supporting branches and leaves."
+            ),
+            NatureInspiration(name: "Mountain Air",
+                              description: "A mountain is an elevated portion of the Earth's crust, generally with steep sides that show significant exposed bedrock"),
+            NatureInspiration(name: "Moos Trees",
+                              description: "In our unique moss farm we cultivate natural, pure and high performance moss. This forms the green basis for our regenerative moss filters."),
+            NatureInspiration(name: "Sky",
+                              description: "The sky is an unobstructed view upward from the surface of the Earth. It includes the atmosphere and outer space. "),
+            NatureInspiration(name: "Death Valley",
+                              description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. "),
+            NatureInspiration(name: "Sky",
+                              description: "The sky is an unobstructed view upward from the surface of the Earth. It includes the atmosphere and outer space. "),
+            NatureInspiration(name: "Death Valley",
+                              description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. "),
+            NatureInspiration(
+                name: "Desert",
+                description: "A desert is a barren area of landscape where little precipitation occurs and, consequently, living conditions are hostile for plant and animal life."
+            ),
+            NatureInspiration(
+                name: "Tree",
+                description: "In botany, a tree is a perennial plant with an elongated stem, or trunk, usually supporting branches and leaves."
+            ),
+            NatureInspiration(name: "Mountain Air",
+                              description: "A mountain is an elevated portion of the Earth's crust, generally with steep sides that show significant exposed bedrock"),
+            NatureInspiration(name: "Moos Trees",
+                              description: "In our unique moss farm we cultivate natural, pure and high performance moss. This forms the green basis for our regenerative moss filters."),
+            NatureInspiration(name: "Sky",
+                              description: "The sky is an unobstructed view upward from the surface of the Earth. It includes the atmosphere and outer space. "),
+            NatureInspiration(name: "Death Valley",
+                              description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. "),
+            NatureInspiration(name: "Sky",
+                              description: "The sky is an unobstructed view upward from the surface of the Earth. It includes the atmosphere and outer space. "),
+            NatureInspiration(name: "Death Valley",
+                              description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. "),
+            NatureInspiration(
+                name: "Desert",
+                description: "A desert is a barren area of landscape where little precipitation occurs and, consequently, living conditions are hostile for plant and animal life."
+            ),
+            NatureInspiration(
+                name: "Tree",
+                description: "In botany, a tree is a perennial plant with an elongated stem, or trunk, usually supporting branches and leaves."
+            ),
+            NatureInspiration(name: "Mountain Air",
+                              description: "A mountain is an elevated portion of the Earth's crust, generally with steep sides that show significant exposed bedrock"),
+            NatureInspiration(name: "Moos Trees",
+                              description: "In our unique moss farm we cultivate natural, pure and high performance moss. This forms the green basis for our regenerative moss filters."),
+            NatureInspiration(name: "Sky",
+                              description: "The sky is an unobstructed view upward from the surface of the Earth. It includes the atmosphere and outer space. "),
+            NatureInspiration(name: "Death Valley",
+                              description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. "),
+            NatureInspiration(name: "Sky",
+                              description: "The sky is an unobstructed view upward from the surface of the Earth. It includes the atmosphere and outer space. "),
+            NatureInspiration(name: "Death Valley",
                               description: "In this below-sea-level basin, steady drought and record summer heat make Death Valley a land of extremes. ")
         ]
     }

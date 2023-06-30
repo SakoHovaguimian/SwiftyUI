@@ -52,6 +52,7 @@ struct SignUpContentView: View {
                         .font(.largeTitle)
                         .bold()
                         .fontDesign(.rounded)
+                        .foregroundStyle(.blue.gradient.opacity(1))
                     
                     Text("Create an account")
                         .font(.largeTitle)
