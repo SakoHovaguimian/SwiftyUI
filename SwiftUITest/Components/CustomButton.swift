@@ -49,20 +49,104 @@ public extension View {
 
 @available(iOS 14, *)
 struct ButtonStyleViewModifier_Previews: PreviewProvider {
+    
     static var previews: some View {
         
         VStack {
             
-            Text("Hello")
+            CardView {
+                
+                ZStack {
+                    
+                    VStack(alignment: .leading) {
+                        
+                        HStack {
+                            
+                            Text("Card")
+                                .font(.largeTitle)
+                                .fontWeight(.heavy)
+                                .fontDesign(.rounded)
+                                .foregroundStyle(.black)
+                                .multilineTextAlignment(.leading)
+                                .padding([.top], 24)
+                            
+                            Spacer()
+                            
+                            Image(systemName: "person.circle.fill")
+                                .resizable()
+                                .frame(width: 32, height: 32)
+                                .foregroundStyle(Gradient(colors: [.orange, .red]))
+                                .padding([.top], 24)
+                            
+                        }
+                        
+                        HStack {
+                            
+                            Text("Buy now, pay later")
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                .fontDesign(.rounded)
+                                .foregroundStyle(.gray)
+                                .multilineTextAlignment(.leading)
+                            
+                            Spacer()
+                            
+                        }
+                        
+                        Spacer()
+                        
+                        Text("Sako Hovaguimian")
+                            .font(.headline)
+                            .fontWeight(.black)
+                            .fontDesign(.rounded)
+                            .foregroundStyle(.black.opacity(0.8))
+                            .multilineTextAlignment(.leading)
+                        
+                        Text("0000-0000-0000-0000")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .fontDesign(.rounded)
+                            .foregroundStyle(.gray)
+                            .multilineTextAlignment(.leading)
+                            .padding([.bottom], 24)
+                        
+                    }
+                    .padding(.horizontal, 24)
+                }
+                
+                
+            }
+            .frame(height: 200)
+            
+            Spacer()
+            
+            Label(
+                title: { Text("Click me") },
+                icon: { Image(systemName: "heart.fill") }
+            )
+            .font(.headline)
+            .foregroundColor(.white)
+            .padding()
+            .padding(.horizontal)
+            .background(Color.green)
+            .clipShape(Capsule())
+            .asButton {
+                print("Test")
+            }
+            
+            Text("Animated Button")
                 .font(.headline)
                 .foregroundColor(.white)
                 .padding()
                 .padding(.horizontal)
                 .background(Color.red)
                 .cornerRadiusIfNeeded(cornerRadius: 12)
-                .asWebLink {
-                    URL(string: "https://www.google.com")
+                .asButton {
+                    print("Tapped")
                 }
+//                .asWebLink {
+//                    URL(string: "https://www.google.com")
+//                }
         }
         
     }
