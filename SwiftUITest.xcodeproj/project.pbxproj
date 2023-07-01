@@ -17,6 +17,7 @@
 		753356172A3E157E00A42D6C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753356162A3E157E00A42D6C /* Colors.xcassets */; };
 		753356192A3E16F700A42D6C /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356182A3E16F700A42D6C /* AppColor.swift */; };
 		75409B3E2A4E950400347352 /* Ext+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75409B3D2A4E950400347352 /* Ext+Color.swift */; };
+		75409B402A4E9F2100347352 /* ViewBuilderExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */; };
 		75472E1C2A412B6100E822AC /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75472E1B2A412B6100E822AC /* CustomAlertView.swift */; };
 		7549FB412A37C875002AEDC5 /* WildButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7549FB402A37C875002AEDC5 /* WildButtonView.swift */; };
 		754B8B6C2A3B685500409582 /* TypewriterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B6B2A3B685500409582 /* TypewriterContentView.swift */; };
@@ -97,6 +98,7 @@
 		753356162A3E157E00A42D6C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		753356182A3E16F700A42D6C /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		75409B3D2A4E950400347352 /* Ext+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Color.swift"; sourceTree = "<group>"; };
+		75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilderExample.swift; sourceTree = "<group>"; };
 		75472E1B2A412B6100E822AC /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		7549FB402A37C875002AEDC5 /* WildButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildButtonView.swift; sourceTree = "<group>"; };
 		754B8B6B2A3B685500409582 /* TypewriterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypewriterContentView.swift; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 				7523AAB82A40A2E3006DB270 /* Helpers */,
 				7523AAB62A40A2C8006DB270 /* Extensions */,
 				759383D12A3622F30016EA29 /* Preview Content */,
+				75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */,
 				75C5EE3A2A49E79B00FA9056 /* OnboardingViewCarousel.swift in Sources */,
 				754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */,
+				75409B402A4E9F2100347352 /* ViewBuilderExample.swift in Sources */,
 				75BBCBFA2A4C6D7300DD03C2 /* BlurContentView.swift in Sources */,
 				759CFAE12A39897B006C0DC4 /* CustomProgressBar.swift in Sources */,
 				75A68B962A4E403E00646C00 /* NeonGlowContentView.swift in Sources */,
