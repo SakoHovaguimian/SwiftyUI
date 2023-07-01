@@ -114,7 +114,8 @@ struct ProductionTabBarContentView: View {
                 verticalInsetPadding: 16,
                 outerPadding: 24,
                 cornerRadius: 11, // 99 for full corner raidus
-                shadowRadius: 23)
+                shadowRadius: 23
+            )
         }
         .onChange(of: self.selection) { newValue in
         
@@ -136,3 +137,36 @@ struct ProductionTabBarContentView_Previews: PreviewProvider {
         ProductionTabBarContentView()
     }
 }
+
+//let floatingTabBar = TabBarDefaultView(
+//    tabs: self.tabs,
+//    selection: self.$selection,
+//    badges: self.badges,
+//    accentColor: .black,
+//    defaultColor: .gray,
+//    backgroundColor: .white,
+//    font: .system(size: 10, weight: .medium),
+//    iconSize: 18,
+//    spacing: 2,
+//    horizontalInsetPadding: 2,
+//    verticalInsetPadding: 16,
+//    outerPadding: 24,
+//    cornerRadius: 11, // 99 for full corner raidus
+//    shadowRadius: 23
+//)
+//
+//let standardTabBar = TabBarDefaultView(
+//    tabs: self.tabs,
+//    selection: self.$selection,
+//    badges: self.badges,
+//    accentColor: .black,
+//    defaultColor: .gray,
+//    backgroundColor: .white,
+//    font: .system(size: 10, weight: .medium),
+//    iconSize: 18,
+//    spacing: 4,
+//    horizontalInsetPadding: 16,
+//    verticalInsetPadding: 25,
+//    outerPadding: 0,
+//    cornerRadius: 0
+//)

@@ -18,8 +18,10 @@ struct SwiftUITestApp: App {
 //            OnboardingViewCarousel()
             
 //            OnKeyPressContentView()
-            DevToolsView()
-                .environmentObject(NavSettings())
+//            DevToolsView()
+//                .environmentObject(NavSettings())
+            
+            TestActivityIndicatorView()
             
 //            BlurRepresentableView(
 //                dismissAction: {
