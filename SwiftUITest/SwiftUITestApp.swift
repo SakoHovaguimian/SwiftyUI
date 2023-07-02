@@ -6,9 +6,13 @@
 //
 
 import SwiftUI
+import Observation
 
 @main
 struct SwiftUITestApp: App {
+    
+    @State private var launchService = LaunchScreenService()
+    @State private var opacity: Double = 1
     
     var body: some Scene {
         WindowGroup {
@@ -21,8 +25,21 @@ struct SwiftUITestApp: App {
 //            DevToolsView()
 //                .environmentObject(NavSettings())
             
-            TestActivityIndicatorView()
-            
+            ZStack {
+                
+                // MARK: Replace this with initial ContentView
+                TestActivityIndicatorView()
+                
+                SplashScreenView()
+                    .opacity(self.opacity)
+                    .animation(.easeIn(duration: 0.3), value: self.opacity)
+                    .environment(self.launchService)
+                    .onChange(of: self.launchService.didFinishLaunching) { _, didFinishNewValue in
+                        self.opacity = didFinishNewValue ? 0 : 1
+                    }
+                
+            }
+
 //            BlurRepresentableView(
 //                dismissAction: {
 //                    print("DISMISS ACTION")
