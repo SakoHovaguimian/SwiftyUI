@@ -9,6 +9,34 @@ import SwiftUI
 
 extension View {
     
+    // View Alignment
+    
+    func centerHorizontally() -> some View {
+        
+        HStack(alignment: .center) {
+            
+            Spacer()
+            self
+            Spacer()
+            
+        }
+        
+    }
+    
+    func centerVertically() -> some View {
+        
+        VStack(alignment: .center) {
+            
+            Spacer()
+            self
+            Spacer()
+            
+        }
+        
+    }
+    
+    // Keyboard
+    
     func hideKeyboard() -> some View {
         
         self
@@ -57,6 +85,8 @@ extension View {
         
     }
     
+    // Conditional View Builder
+    
     @ViewBuilder func `if`<Content: View>(_ condition: Bool,
                                           transform: (Self) -> Content) -> some View {
         
@@ -67,6 +97,8 @@ extension View {
         }
         
     }
+    
+    // Glow Effect
     
     func addGlowEffect(color1:Color,
                        color2:Color,
@@ -88,5 +120,12 @@ extension View {
             }
         
     }
+    
+    extension View {
+        func eraseToAnyView() -> AnyView {
+            AnyView(self)
+        }
+    }
+    
     
 }

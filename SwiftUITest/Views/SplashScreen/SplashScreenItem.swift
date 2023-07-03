@@ -1,5 +1,5 @@
 //
-//  SplashScreenView.swift
+//  SplashScreenItem.swift
 //  SwiftUITest
 //
 //  Created by Sako Hovaguimian on 7/2/23.
@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct SplashScreenView: View {
+struct SplashScreenItem: View {
+    
+    @Binding var isLoading: Bool
     
     @State private var size = 0.5
     @State private var opacity = 0.5
-    @State private var textOpacity = 1.0
 
-    @Environment(LaunchScreenService.self) private var launchScreenService
-    
     var body: some View {
         
         ZStack {
@@ -33,14 +32,14 @@ struct SplashScreenView: View {
                 
                 VStack(spacing: 16) {
                     
-                    Image(systemName: "hare.fill")
+                    Image(systemName: "wrench.and.screwdriver.fill")
                         .font(.system(size: 120))
-                        .foregroundColor(.gray)
+                        .symbolRenderingMode(.multicolor)
+                        .foregroundStyle(AppColor.charcoal)
                     
-                    Text("Hopper")
-                        .font(.system(size: 48, weight: .heavy, design: .rounded))
+                    Text("SwiftyUI")
+                        .font(.system(size: 64, weight: .heavy, design: .rounded))
                         .foregroundColor(.black.opacity(0.80))
-                        .opacity(self.textOpacity)
                     
                 }
                 .scaleEffect(self.size)
@@ -64,18 +63,18 @@ struct SplashScreenView: View {
             Task {
                 
                 try? await Task.sleep(for: Duration.seconds(0.8))
+                
                 withAnimation(.easeIn) {
-                    self.textOpacity = 0
                     self.size = 1.3
                 }
                 
                 try? await Task.sleep(for: Duration.seconds(0.3))
+                
                 withAnimation(.easeIn) {
-                    self.size = 100
+                    self.size = 10
                 }
                 
-                self.launchScreenService
-                    .setDidCompleteLaunching(true)
+                self.isLoading = false
                 
             }
             
@@ -83,8 +82,4 @@ struct SplashScreenView: View {
         
     }
     
-}
-
-#Preview {
-    SplashScreenView()
 }
