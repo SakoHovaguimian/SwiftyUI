@@ -25,10 +25,21 @@ struct SwiftUITestApp: App {
 //            DevToolsView()
 //                .environmentObject(NavSettings())
             
+            
+//            BlurRepresentableView(
+//                dismissAction: {
+//                    print("DISMISS ACTION")
+//                },
+//                successAction: {
+//                    print("SUCCESS ACTION")
+//                })
+//            TestActivityIndicatorView()
+            
             ZStack {
                 
                 // MARK: Replace this with initial ContentView
-                TestActivityIndicatorView()
+                DevToolsView()
+                    .environmentObject(NavSettings())
                 
                 SplashScreenView()
                     .opacity(self.opacity)
@@ -39,14 +50,6 @@ struct SwiftUITestApp: App {
                     }
                 
             }
-
-//            BlurRepresentableView(
-//                dismissAction: {
-//                    print("DISMISS ACTION")
-//                },
-//                successAction: {
-//                    print("SUCCESS ACTION")
-//                })
             
         }
     }

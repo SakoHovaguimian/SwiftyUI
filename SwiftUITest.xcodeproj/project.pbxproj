@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75016BC32A52A7B1001AE249 /* CenterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75016BC22A52A7B1001AE249 /* CenterContentView.swift */; };
 		750D45D72A3CCAE000756005 /* GradientLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D45D62A3CCAE000756005 /* GradientLabelView.swift */; };
 		750D45D92A3CCD4B00756005 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D45D82A3CCD4B00756005 /* ShimmerView.swift */; };
 		750D45DB2A3CCED500756005 /* RedactedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D45DA2A3CCED500756005 /* RedactedView.swift */; };
@@ -53,6 +54,7 @@
 		75AB52BD2A4352B5001E086E /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AB52BC2A4352B5001E086E /* HomePageView.swift */; };
 		75ABC68F2A51E8DF00633F78 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABC68E2A51E8DF00633F78 /* SplashScreenView.swift */; };
 		75ABC6922A51EBCB00633F78 /* LaunchScreenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABC6912A51EBCB00633F78 /* LaunchScreenService.swift */; };
+		75ABC6942A52360A00633F78 /* SplashScreenItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABC6932A52360A00633F78 /* SplashScreenItem.swift */; };
 		75ACB9042A3BB77C0007338E /* SafariWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB9032A3BB77C0007338E /* SafariWebView.swift */; };
 		75B5A8852A3BD96700378C7B /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8842A3BD96700378C7B /* ZoomView.swift */; };
 		75B5A8872A3C0EB600378C7B /* DevToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8862A3C0EB600378C7B /* DevToolsView.swift */; };
@@ -90,6 +92,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		75016BC22A52A7B1001AE249 /* CenterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterContentView.swift; sourceTree = "<group>"; };
 		750D45D62A3CCAE000756005 /* GradientLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabelView.swift; sourceTree = "<group>"; };
 		750D45D82A3CCD4B00756005 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		750D45DA2A3CCED500756005 /* RedactedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedactedView.swift; sourceTree = "<group>"; };
@@ -139,6 +142,7 @@
 		75AB52BC2A4352B5001E086E /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 		75ABC68E2A51E8DF00633F78 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		75ABC6912A51EBCB00633F78 /* LaunchScreenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenService.swift; sourceTree = "<group>"; };
+		75ABC6932A52360A00633F78 /* SplashScreenItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenItem.swift; sourceTree = "<group>"; };
 		75ACB9032A3BB77C0007338E /* SafariWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebView.swift; sourceTree = "<group>"; };
 		75B5A8842A3BD96700378C7B /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
 		75B5A8862A3C0EB600378C7B /* DevToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsView.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 		7523AAB72A40A2D6006DB270 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				75ABC6902A51EAC000633F78 /* SplashScreen */,
 				75E888B22A41F74700F6B52A /* SideMenu */,
 				7523AABA2A40A36B006DB270 /* Sandbox */,
 				75472E1B2A412B6100E822AC /* CustomAlertView.swift */,
@@ -335,13 +340,13 @@
 			isa = PBXGroup;
 			children = (
 				759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */,
+				75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */,
 				754B8B752A3B6D2100409582 /* Components */,
 				7523AAB72A40A2D6006DB270 /* Views */,
 				7523AAB82A40A2E3006DB270 /* Helpers */,
 				7523AAB62A40A2C8006DB270 /* Extensions */,
 				759383D12A3622F30016EA29 /* Preview Content */,
-				75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */,
-				75ABC6902A51EAC000633F78 /* SplashScreen */,
+				75016BC22A52A7B1001AE249 /* CenterContentView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -374,8 +379,9 @@
 		75ABC6902A51EAC000633F78 /* SplashScreen */ = {
 			isa = PBXGroup;
 			children = (
-				75ABC68E2A51E8DF00633F78 /* SplashScreenView.swift */,
 				75ABC6912A51EBCB00633F78 /* LaunchScreenService.swift */,
+				75ABC68E2A51E8DF00633F78 /* SplashScreenView.swift */,
+				75ABC6932A52360A00633F78 /* SplashScreenItem.swift */,
 			);
 			path = SplashScreen;
 			sourceTree = "<group>";
@@ -572,8 +578,10 @@
 				750D45DD2A3CF69900756005 /* HorizontalPagingView.swift in Sources */,
 				7523AAB52A409DEA006DB270 /* Ext+Double.swift in Sources */,
 				759CFADF2A3924DD006C0DC4 /* GridView.swift in Sources */,
+				75016BC32A52A7B1001AE249 /* CenterContentView.swift in Sources */,
 				75AB52BD2A4352B5001E086E /* HomePageView.swift in Sources */,
 				759383CC2A3622F20016EA29 /* SwiftUITestApp.swift in Sources */,
+				75ABC6942A52360A00633F78 /* SplashScreenItem.swift in Sources */,
 				7565E9AF2A3A0EA60076A362 /* SuperCustomTabBarView.swift in Sources */,
 				754B8B782A3B70D200409582 /* CustomButton.swift in Sources */,
 				75472E1C2A412B6100E822AC /* CustomAlertView.swift in Sources */,
