@@ -3,4 +3,20 @@
    uuid = "94BF83ED-20AF-4C60-A4DD-9F6C6DB09217"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "487C666A-D13C-4F53-9224-F580C679AAF0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../private/var/folders/g0/xlwv0yk520325x3zbrxl5lm00000gn/T/swift-generated-sources/@__swiftmacro_11SwiftUITest21CombineInputViewModelC5input10ObservablefMr_.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1"
+            endingLineNumber = "1">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
