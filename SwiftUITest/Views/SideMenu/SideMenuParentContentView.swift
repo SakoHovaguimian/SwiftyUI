@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SideMenuParentContentView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @State var isShowing = false
     
     var body: some View {
@@ -52,6 +54,9 @@ struct SideMenuParentContentView: View {
             }
             .onAppear {
                 self.isShowing = false
+            }
+            .onTapGesture {
+                dismiss()
             }
             
         }

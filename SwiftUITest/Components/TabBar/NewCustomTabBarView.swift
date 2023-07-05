@@ -191,6 +191,8 @@ private extension TabBarDefaultView {
                     .scaledToFit()
                     .frame(width: self.iconSize, height: self.iconSize)
                     .foregroundColor(self.localSelection == tabItem ? tabItem.color : self.defaultColor)
+                    .scaleEffect(self.localSelection == tabItem ? 1.2 : 1)
+                    .animation(.easeIn, value: self.localSelection)
                 
             }
             
@@ -201,12 +203,16 @@ private extension TabBarDefaultView {
                     .scaledToFit()
                     .foregroundColor(self.localSelection == tabItem ? tabItem.color : self.defaultColor)
                     .frame(width: self.iconSize, height: self.iconSize)
+                    .scaleEffect(self.localSelection == tabItem ? 1.2 : 1)
+                    .animation(.easeIn, value: self.localSelection)
                 
             }
             
             if let title = tabItem.title {
                 
                 Text(title)
+                    .scaleEffect(self.localSelection == tabItem ? 1.2 : 1)
+                    .animation(.easeIn, value: self.localSelection)
                     .foregroundColor(self.localSelection == tabItem ? tabItem.color : self.defaultColor)
                 
             }

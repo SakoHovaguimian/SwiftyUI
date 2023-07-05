@@ -14,6 +14,8 @@ struct SwiftUITestApp: App {
     @State private var launchService = LaunchScreenService()
     @State private var opacity: Double = 1
     
+    @State private var debouncedText = ""
+    
     var body: some Scene {
         WindowGroup {
   
@@ -35,23 +37,25 @@ struct SwiftUITestApp: App {
 //                })
 //            TestActivityIndicatorView()
             
-//            CombineInputView(viewModel: CombineInputViewModel())
+//            CustomObservorTextFieldView(debouncedText: debouncedText)
             
-            ZStack {
-                
-                // MARK: Replace this with initial ContentView
-                DevToolsView()
-                    .environmentObject(NavSettings())
-                
-                SplashScreenView()
-                    .opacity(self.opacity)
-                    .animation(.easeIn(duration: 0.3), value: self.opacity)
-                    .environment(self.launchService)
-                    .onChange(of: self.launchService.didFinishLaunching) { _, didFinishNewValue in
-                        self.opacity = didFinishNewValue ? 0 : 1
-                    }
-                
-            }
+//            ZStack {
+//                
+//                // MARK: Replace this with initial ContentView
+//                DevToolsView()
+//                    .environmentObject(NavSettings())
+//                
+//                SplashScreenView()
+//                    .opacity(self.opacity)
+//                    .animation(.easeIn(duration: 0.3), value: self.opacity)
+//                    .environment(self.launchService)
+//                    .onChange(of: self.launchService.didFinishLaunching) { _, didFinishNewValue in
+//                        self.opacity = didFinishNewValue ? 0 : 1
+//                    }
+//                
+//            }
+            
+            ProductionTabBarContentView()
             
         }
     }
