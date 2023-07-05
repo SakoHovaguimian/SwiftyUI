@@ -18,8 +18,7 @@ enum DevToolsNavigationRoute: Hashable {
     case chip
     case textView
     case toggle
-    
-    case sideMenu
+
     case tikTokView
     case signupContentView
     case grid
@@ -36,7 +35,6 @@ enum DevToolsNavigationRoute: Hashable {
     
     var displayTitle: String {
         switch self {
-        case .sideMenu: return "Side Menu"
         case .signupContentView: return "Create Account"
         case .grid: return "Grid"
         case .safari: return "Safari"
@@ -63,7 +61,6 @@ enum DevToolsNavigationRoute: Hashable {
     
     var icon: String {
         switch self {
-        case .sideMenu: return "person.fill"
         case .signupContentView: return "person.fill"
         case .grid: return "square.grid.3x2.fill"
         case .safari: return "safari.fill"
@@ -91,7 +88,6 @@ enum DevToolsNavigationRoute: Hashable {
     var color: Color {
         switch self {
         case .signupContentView: return .teal.opacity(0.5)
-        case .sideMenu: return AppColor.charcoal.opacity(0.8)
         case .grid: return .green.opacity(0.4)
         case .safari: return .blue
         case .tabBarView: return .pink
@@ -136,7 +132,6 @@ enum DevToolsNavigationRoute: Hashable {
         return [
             .onboarding,
             .tikTokView,
-            .sideMenu,
             .signupContentView,
             .grid,
             .safari,
@@ -170,6 +165,7 @@ struct DevToolsView: View {
     @State private var petCount: Int = 100
     @State private var pathItems: [DevToolsNavigationRoute] = []
     @State private var shouldPresentSheet: Bool = false
+    @State private var shouldPresentSideMenuView: Bool = false
     @State private var shouldPresentFullScreen: Bool = false
     
     var body: some View {
@@ -228,6 +224,18 @@ struct DevToolsView: View {
 
                 }
                 
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        self.shouldPresentSideMenuView.toggle()
+                    } label: {
+                        Image(systemName: "envelope.fill")
+                            .resizable()
+                            .foregroundColor(Color.white)
+                            .frame(width: 16, height: 16)
+                    }
+
+                }
+                
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
                         self.shouldPresentFullScreen.toggle()
@@ -253,6 +261,9 @@ struct DevToolsView: View {
 //            .presentationCornerRadius(180)
             }
             
+        }
+        .fullScreenCover(isPresented: self.$shouldPresentSideMenuView) {
+            SideMenuParentContentView()
         }
         .fullScreenCover(isPresented: self.$shouldPresentFullScreen, onDismiss: {
             print("[DEBUG]: DISMISSING THE VIEW")
@@ -353,6 +364,7 @@ struct DevToolsView: View {
                         .asButton {
                             self.petCount += 1
                         }
+                    
                 }
                 
             )
@@ -371,7 +383,6 @@ struct DevToolsView: View {
         case .horizontalPagingView: selectedView = (HorizontalPagingView())
         case .horizontalPagingViewAppleAPI: selectedView = ScrollViewPagingAPI()
         case .product(let productId): selectedView = Text("PRODUCT PAGE \(productId)")
-        case .sideMenu: selectedView = SideMenuParentContentView()
         case .signupContentView: selectedView = SignUpContentView()
         case .onboarding: selectedView = (OnboardingViewCarousel())//.navigationBarBackButtonHidden())
         case .tikTokView: selectedView = (TikTokView().navigationBarBackButtonHidden())
@@ -387,11 +398,16 @@ struct DevToolsView: View {
 struct FullScreenModalView: View {
     
     @Environment(\.dismiss) var dismiss
+    @State var isFullScreenModePresented: Bool = false
 
     var body: some View {
+        
         NavigationStack {
+            
             ZStack {
+                
                 LinearGradient(colors: [Color.indigo, Color.cyan], startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+                
                 VStack(spacing: 32) {
                  
                     Button("Dismiss Modal") {
@@ -406,7 +422,7 @@ struct FullScreenModalView: View {
                     .cornerRadius(10)
                     
 //                    Button("Push New Modal") {
-                        NavigationLink("Push New Modal") {
+                        NavigationLink("Push New View") {
                             Text("New Push")
                         }
 //                    }
@@ -418,8 +434,42 @@ struct FullScreenModalView: View {
                     .background(.pink)
                     .cornerRadius(10)
                     
+//                    NavigationLink("Present New Modal") {
+                        Text("New Modal")
+//                    }
+//                    }
+                .font(.largeTitle)
+                .fontDesign(.serif)
+                .fontWeight(.heavy)
+                .padding()
+                .foregroundColor(.white)
+                .background(.pink)
+                .cornerRadius(10)
+                .onTapGesture {
+                    self.isFullScreenModePresented.toggle()
+                }
+                    
                 }
             }
         }
+        .fullScreenCover(isPresented: self.$isFullScreenModePresented) {
+            TestNestedModalView()
+        }
     }
+}
+
+
+struct TestNestedModalView: View {
+    
+    @Environment(\.dismiss) var dismiss
+    
+    var body: some View {
+        
+        Text("NEWLY PRESENTED SCREEN")
+            .onTapGesture {
+                dismiss()
+            }
+        
+    }
+    
 }
