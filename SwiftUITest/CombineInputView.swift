@@ -19,7 +19,10 @@ class CombineInputViewModel: ObservableObject {
     
     private func setupBindings() {
         $input
-            .debounce(for: 1, scheduler: DispatchQueue.main)
+            .debounce(
+                for: 1,
+                scheduler: DispatchQueue.main
+            )
             .filter({ $0.count >= 3 })
             .removeDuplicates()
             .sink { value in
