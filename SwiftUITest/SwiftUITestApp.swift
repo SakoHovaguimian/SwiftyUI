@@ -35,21 +35,23 @@ struct SwiftUITestApp: App {
 //                })
 //            TestActivityIndicatorView()
             
-            ZStack {
-                
-                // MARK: Replace this with initial ContentView
-                DevToolsView()
-                    .environmentObject(NavSettings())
-                
-                SplashScreenView()
-                    .opacity(self.opacity)
-                    .animation(.easeIn(duration: 0.3), value: self.opacity)
-                    .environment(self.launchService)
-                    .onChange(of: self.launchService.didFinishLaunching) { _, didFinishNewValue in
-                        self.opacity = didFinishNewValue ? 0 : 1
-                    }
-                
-            }
+            CombineInputView(viewModel: CombineInputViewModel())
+            
+//            ZStack {
+//                
+//                // MARK: Replace this with initial ContentView
+//                DevToolsView()
+//                    .environmentObject(NavSettings())
+//                
+//                SplashScreenView()
+//                    .opacity(self.opacity)
+//                    .animation(.easeIn(duration: 0.3), value: self.opacity)
+//                    .environment(self.launchService)
+//                    .onChange(of: self.launchService.didFinishLaunching) { _, didFinishNewValue in
+//                        self.opacity = didFinishNewValue ? 0 : 1
+//                    }
+//                
+//            }
             
         }
     }

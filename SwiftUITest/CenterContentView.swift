@@ -7,34 +7,51 @@
 
 import SwiftUI
 
-struct CenterContentView: View {
+struct SpotifyCollectionLayoutView: View {
+    
+    @State var currentViewIndex: Int? = 0
+    var hSpacing: CGFloat = 24
+    
+    let colors: [Color] = [
+        .red,
+        .orange,
+        .yellow,
+        .green,
+        .cyan,
+        .blue,
+        .purple
+    ]
+    
     var body: some View {
         
-        ZStack(alignment: .bottom) {
+        let itemWidth: CGFloat = UIScreen.main.bounds.width - (self.hSpacing * 2)
+        
+        GeometryReader { proxy in
             
-            Color.clear
-                .ignoresSafeArea()
-            
-            VStack(alignment: .leading) {
+            ScrollView(.horizontal) {
                 
-                Text("Some Text")
-                    .background(Color.gray)
+                LazyHStack(spacing: self.hSpacing / 2) {
+                    
+                    ForEach (self.colors, id: \.self) { color in
+                        
+                        RoundedRectangle (cornerRadius: 25.0)
+                            .fill(color .gradient)
+                            .frame(width: itemWidth, height: 400)
+                    }
+                    
+                }
                 
-                Button(action: {}, label: {
-                    Text("Button")
-                })
-                
-            }.frame(
-                width: UIScreen.main.bounds.width - 32,
-                alignment: .leading
-            )
-            .background(Color.red)
-            
+            }
+            .scrollIndicators(.hidden)
+            .safeAreaPadding(.horizontal, (proxy.size.width - itemWidth) / 2)
+            .scrollTargetLayout()
         }
+        .scrollTargetBehavior(.viewAligned)
         
     }
+    
 }
 
 #Preview {
-    CenterContentView()
+    SpotifyCollectionLayoutView()
 }
