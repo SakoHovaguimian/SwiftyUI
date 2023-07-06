@@ -33,6 +33,8 @@
 		7558F8642A4DF846008486A0 /* LongPressContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7558F8632A4DF845008486A0 /* LongPressContentView.swift */; };
 		755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */; };
 		7565E9AF2A3A0EA60076A362 /* SuperCustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */; };
+		756D74412A571F1B00DBDBBA /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D74402A571F1B00DBDBBA /* TimerManager.swift */; };
+		756D74432A571FDF00DBDBBA /* DashProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D74422A571FDF00DBDBBA /* DashProgressCircle.swift */; };
 		756DB1992A40BCFB009D5D01 /* Ext+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756DB1982A40BCFB009D5D01 /* Ext+View.swift */; };
 		757DE9722A4E2C810099FE6E /* GradientButtonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DE9712A4E2C810099FE6E /* GradientButtonContentView.swift */; };
 		757DE9742A4E2CB00099FE6E /* TikTokSideWaysContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DE9732A4E2CB00099FE6E /* TikTokSideWaysContentView.swift */; };
@@ -73,6 +75,7 @@
 		75E888BC2A41FFB900F6B52A /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888BB2A41FFB900F6B52A /* MenuOption.swift */; };
 		75E8C1FB2A4A292B00C3A564 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */; };
 		75ED4F0E2A38D81D00B7091C /* SocialMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED4F0D2A38D81D00B7091C /* SocialMediaView.swift */; };
+		75F9F96A2A5725260073F61A /* NuemorphicProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F9F9692A5725260073F61A /* NuemorphicProgressCircleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +122,8 @@
 		7558F8632A4DF845008486A0 /* LongPressContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressContentView.swift; sourceTree = "<group>"; };
 		755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
 		7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperCustomTabBarView.swift; sourceTree = "<group>"; };
+		756D74402A571F1B00DBDBBA /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
+		756D74422A571FDF00DBDBBA /* DashProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashProgressCircle.swift; sourceTree = "<group>"; };
 		756DB1982A40BCFB009D5D01 /* Ext+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+View.swift"; sourceTree = "<group>"; };
 		757DE9712A4E2C810099FE6E /* GradientButtonContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonContentView.swift; sourceTree = "<group>"; };
 		757DE9732A4E2CB00099FE6E /* TikTokSideWaysContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokSideWaysContentView.swift; sourceTree = "<group>"; };
@@ -162,6 +167,7 @@
 		75E888BB2A41FFB900F6B52A /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		75ED4F0D2A38D81D00B7091C /* SocialMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaView.swift; sourceTree = "<group>"; };
+		75F9F9692A5725260073F61A /* NuemorphicProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuemorphicProgressCircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +322,16 @@
 			path = Haptic;
 			sourceTree = "<group>";
 		};
+		756D743F2A571F0800DBDBBA /* CicularProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				756D74402A571F1B00DBDBBA /* TimerManager.swift */,
+				756D74422A571FDF00DBDBBA /* DashProgressCircle.swift */,
+				75F9F9692A5725260073F61A /* NuemorphicProgressCircleView.swift */,
+			);
+			path = CicularProgressBar;
+			sourceTree = "<group>";
+		};
 		759383BF2A3622F20016EA29 = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +366,7 @@
 				759383D12A3622F30016EA29 /* Preview Content */,
 				75016BC22A52A7B1001AE249 /* CenterContentView.swift */,
 				75E0F4502A55DE34000AAC5A /* CombineInputView.swift */,
+				756D743F2A571F0800DBDBBA /* CicularProgressBar */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -547,6 +564,7 @@
 				754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */,
 				75409B402A4E9F2100347352 /* ViewBuilderExample.swift in Sources */,
 				75BBCBFA2A4C6D7300DD03C2 /* BlurContentView.swift in Sources */,
+				75F9F96A2A5725260073F61A /* NuemorphicProgressCircleView.swift in Sources */,
 				759CFAE12A39897B006C0DC4 /* CustomProgressBar.swift in Sources */,
 				75A68B962A4E403E00646C00 /* NeonGlowContentView.swift in Sources */,
 				75D122682A3F62050024E60C /* TokenView.swift in Sources */,
@@ -566,6 +584,7 @@
 				755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */,
 				754B8B6C2A3B685500409582 /* TypewriterContentView.swift in Sources */,
 				756DB1992A40BCFB009D5D01 /* Ext+View.swift in Sources */,
+				756D74432A571FDF00DBDBBA /* DashProgressCircle.swift in Sources */,
 				75DD42B12A4BA615002E9E92 /* Ext+NavigationController.swift in Sources */,
 				754B8B702A3B69B200409582 /* ProductionTabBarContentView.swift in Sources */,
 				757DE9722A4E2C810099FE6E /* GradientButtonContentView.swift in Sources */,
@@ -580,6 +599,7 @@
 				75543D202A4605A9008805BD /* ScrollViewPagingAPI.swift in Sources */,
 				750D45DD2A3CF69900756005 /* HorizontalPagingView.swift in Sources */,
 				7523AAB52A409DEA006DB270 /* Ext+Double.swift in Sources */,
+				756D74412A571F1B00DBDBBA /* TimerManager.swift in Sources */,
 				759CFADF2A3924DD006C0DC4 /* GridView.swift in Sources */,
 				75016BC32A52A7B1001AE249 /* CenterContentView.swift in Sources */,
 				75AB52BD2A4352B5001E086E /* HomePageView.swift in Sources */,
