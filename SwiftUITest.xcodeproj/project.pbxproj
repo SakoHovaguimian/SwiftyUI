@@ -29,6 +29,7 @@
 		754B8B7B2A3B729A00409582 /* HapticOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B7A2A3B729A00409582 /* HapticOption.swift */; };
 		754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B7C2A3B72B100409582 /* HapticViewModifier.swift */; };
 		754B8B7F2A3B72CD00409582 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B7E2A3B72CD00409582 /* Haptics.swift */; };
+		754DDFC32A58827D00609569 /* AnimatedSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754DDFC22A58827D00609569 /* AnimatedSearchBarView.swift */; };
 		75543D202A4605A9008805BD /* ScrollViewPagingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */; };
 		7558F8642A4DF846008486A0 /* LongPressContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7558F8632A4DF845008486A0 /* LongPressContentView.swift */; };
 		755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */; };
@@ -121,6 +122,7 @@
 		754B8B7A2A3B729A00409582 /* HapticOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticOption.swift; sourceTree = "<group>"; };
 		754B8B7C2A3B72B100409582 /* HapticViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticViewModifier.swift; sourceTree = "<group>"; };
 		754B8B7E2A3B72CD00409582 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
+		754DDFC22A58827D00609569 /* AnimatedSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSearchBarView.swift; sourceTree = "<group>"; };
 		75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewPagingAPI.swift; sourceTree = "<group>"; };
 		7558F8632A4DF845008486A0 /* LongPressContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressContentView.swift; sourceTree = "<group>"; };
 		755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				75B2DA772A5752B500A52E22 /* AdaptiveGridView.swift */,
 				75B2DA792A57592E00A52E22 /* NewStretchyHeaderView.swift */,
 				7570703C2A5874FC00BD4098 /* PintrestLayout.swift */,
+				754DDFC22A58827D00609569 /* AnimatedSearchBarView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				7549FB412A37C875002AEDC5 /* WildButtonView.swift in Sources */,
 				753356152A3D7CC000A42D6C /* GridContentView.swift in Sources */,
 				750D45DB2A3CCED500756005 /* RedactedView.swift in Sources */,
+				754DDFC32A58827D00609569 /* AnimatedSearchBarView.swift in Sources */,
 				75988F752A3A543C007EF7C6 /* NewCustomTabBarView.swift in Sources */,
 				75ABC68F2A51E8DF00633F78 /* SplashScreenView.swift in Sources */,
 				75ABC6922A51EBCB00633F78 /* LaunchScreenService.swift in Sources */,
