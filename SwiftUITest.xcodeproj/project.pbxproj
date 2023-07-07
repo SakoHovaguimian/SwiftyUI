@@ -36,6 +36,7 @@
 		756D74412A571F1B00DBDBBA /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D74402A571F1B00DBDBBA /* TimerManager.swift */; };
 		756D74432A571FDF00DBDBBA /* DashProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D74422A571FDF00DBDBBA /* DashProgressCircle.swift */; };
 		756DB1992A40BCFB009D5D01 /* Ext+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756DB1982A40BCFB009D5D01 /* Ext+View.swift */; };
+		7570703D2A5874FC00BD4098 /* PintrestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7570703C2A5874FC00BD4098 /* PintrestLayout.swift */; };
 		757DE9722A4E2C810099FE6E /* GradientButtonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DE9712A4E2C810099FE6E /* GradientButtonContentView.swift */; };
 		757DE9742A4E2CB00099FE6E /* TikTokSideWaysContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DE9732A4E2CB00099FE6E /* TikTokSideWaysContentView.swift */; };
 		758B3FE72A4CC11C00C624A8 /* CurrentOffsetScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B3FE62A4CC11C00C624A8 /* CurrentOffsetScrollView.swift */; };
@@ -58,6 +59,8 @@
 		75ABC6922A51EBCB00633F78 /* LaunchScreenService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABC6912A51EBCB00633F78 /* LaunchScreenService.swift */; };
 		75ABC6942A52360A00633F78 /* SplashScreenItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABC6932A52360A00633F78 /* SplashScreenItem.swift */; };
 		75ACB9042A3BB77C0007338E /* SafariWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ACB9032A3BB77C0007338E /* SafariWebView.swift */; };
+		75B2DA782A5752B500A52E22 /* AdaptiveGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B2DA772A5752B500A52E22 /* AdaptiveGridView.swift */; };
+		75B2DA7A2A57592E00A52E22 /* NewStretchyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B2DA792A57592E00A52E22 /* NewStretchyHeaderView.swift */; };
 		75B5A8852A3BD96700378C7B /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8842A3BD96700378C7B /* ZoomView.swift */; };
 		75B5A8872A3C0EB600378C7B /* DevToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8862A3C0EB600378C7B /* DevToolsView.swift */; };
 		75B85B7A2A452B5B0014112F /* BackgroundTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B85B792A452B5B0014112F /* BackgroundTestView.swift */; };
@@ -125,6 +128,7 @@
 		756D74402A571F1B00DBDBBA /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		756D74422A571FDF00DBDBBA /* DashProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashProgressCircle.swift; sourceTree = "<group>"; };
 		756DB1982A40BCFB009D5D01 /* Ext+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+View.swift"; sourceTree = "<group>"; };
+		7570703C2A5874FC00BD4098 /* PintrestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PintrestLayout.swift; sourceTree = "<group>"; };
 		757DE9712A4E2C810099FE6E /* GradientButtonContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonContentView.swift; sourceTree = "<group>"; };
 		757DE9732A4E2CB00099FE6E /* TikTokSideWaysContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokSideWaysContentView.swift; sourceTree = "<group>"; };
 		758B3FE62A4CC11C00C624A8 /* CurrentOffsetScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOffsetScrollView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 		75ABC6912A51EBCB00633F78 /* LaunchScreenService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenService.swift; sourceTree = "<group>"; };
 		75ABC6932A52360A00633F78 /* SplashScreenItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenItem.swift; sourceTree = "<group>"; };
 		75ACB9032A3BB77C0007338E /* SafariWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebView.swift; sourceTree = "<group>"; };
+		75B2DA772A5752B500A52E22 /* AdaptiveGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveGridView.swift; sourceTree = "<group>"; };
+		75B2DA792A57592E00A52E22 /* NewStretchyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStretchyHeaderView.swift; sourceTree = "<group>"; };
 		75B5A8842A3BD96700378C7B /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
 		75B5A8862A3C0EB600378C7B /* DevToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsView.swift; sourceTree = "<group>"; };
 		75B85B792A452B5B0014112F /* BackgroundTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTestView.swift; sourceTree = "<group>"; };
@@ -291,6 +297,7 @@
 			children = (
 				754B8B792A3B729000409582 /* Haptic */,
 				7523AAB92A40A332006DB270 /* TabBar */,
+				756D743F2A571F0800DBDBBA /* CicularProgressBar */,
 				754B8B712A3B6B3800409582 /* GradientLabel.swift */,
 				759CFAE02A39897B006C0DC4 /* CustomProgressBar.swift */,
 				754B8B732A3B6D1900409582 /* StyledLabelButton.swift */,
@@ -366,7 +373,9 @@
 				759383D12A3622F30016EA29 /* Preview Content */,
 				75016BC22A52A7B1001AE249 /* CenterContentView.swift */,
 				75E0F4502A55DE34000AAC5A /* CombineInputView.swift */,
-				756D743F2A571F0800DBDBBA /* CicularProgressBar */,
+				75B2DA772A5752B500A52E22 /* AdaptiveGridView.swift */,
+				75B2DA792A57592E00A52E22 /* NewStretchyHeaderView.swift */,
+				7570703C2A5874FC00BD4098 /* PintrestLayout.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -549,6 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75B2DA782A5752B500A52E22 /* AdaptiveGridView.swift in Sources */,
 				754B8B7F2A3B72CD00409582 /* Haptics.swift in Sources */,
 				754B8B722A3B6B3800409582 /* GradientLabel.swift in Sources */,
 				759CFAE32A398D4A006C0DC4 /* CustomTabBarView.swift in Sources */,
@@ -562,6 +572,7 @@
 				7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */,
 				75C5EE3A2A49E79B00FA9056 /* OnboardingViewCarousel.swift in Sources */,
 				754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */,
+				7570703D2A5874FC00BD4098 /* PintrestLayout.swift in Sources */,
 				75409B402A4E9F2100347352 /* ViewBuilderExample.swift in Sources */,
 				75BBCBFA2A4C6D7300DD03C2 /* BlurContentView.swift in Sources */,
 				75F9F96A2A5725260073F61A /* NuemorphicProgressCircleView.swift in Sources */,
@@ -597,6 +608,7 @@
 				75E888BC2A41FFB900F6B52A /* MenuOption.swift in Sources */,
 				75B5A8872A3C0EB600378C7B /* DevToolsView.swift in Sources */,
 				75543D202A4605A9008805BD /* ScrollViewPagingAPI.swift in Sources */,
+				75B2DA7A2A57592E00A52E22 /* NewStretchyHeaderView.swift in Sources */,
 				750D45DD2A3CF69900756005 /* HorizontalPagingView.swift in Sources */,
 				7523AAB52A409DEA006DB270 /* Ext+Double.swift in Sources */,
 				756D74412A571F1B00DBDBBA /* TimerManager.swift in Sources */,
