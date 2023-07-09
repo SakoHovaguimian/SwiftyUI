@@ -12,6 +12,7 @@
 		750D45D92A3CCD4B00756005 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D45D82A3CCD4B00756005 /* ShimmerView.swift */; };
 		750D45DB2A3CCED500756005 /* RedactedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D45DA2A3CCED500756005 /* RedactedView.swift */; };
 		750D45DD2A3CF69900756005 /* HorizontalPagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D45DC2A3CF69900756005 /* HorizontalPagingView.swift */; };
+		7512BF892A5B4183001EEB93 /* CardFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7512BF882A5B4183001EEB93 /* CardFlipView.swift */; };
 		7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523AAB22A409448006DB270 /* PlaygroundView.swift */; };
 		7523AAB52A409DEA006DB270 /* Ext+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523AAB42A409DEA006DB270 /* Ext+Double.swift */; };
 		753356152A3D7CC000A42D6C /* GridContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356142A3D7CC000A42D6C /* GridContentView.swift */; };
@@ -107,6 +108,7 @@
 		750D45D82A3CCD4B00756005 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
 		750D45DA2A3CCED500756005 /* RedactedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedactedView.swift; sourceTree = "<group>"; };
 		750D45DC2A3CF69900756005 /* HorizontalPagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalPagingView.swift; sourceTree = "<group>"; };
+		7512BF882A5B4183001EEB93 /* CardFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlipView.swift; sourceTree = "<group>"; };
 		7523AAB22A409448006DB270 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		7523AAB42A409DEA006DB270 /* Ext+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Double.swift"; sourceTree = "<group>"; };
 		753356142A3D7CC000A42D6C /* GridContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContentView.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				754DDFC22A58827D00609569 /* AnimatedSearchBarView.swift */,
 				756B39A92A58CA380067F9BB /* GradientCardView.swift */,
 				753DF0832A5A630E000AC3EC /* MeshGradientCardView.swift */,
+				7512BF882A5B4183001EEB93 /* CardFlipView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -584,6 +587,7 @@
 				75C5EE3A2A49E79B00FA9056 /* OnboardingViewCarousel.swift in Sources */,
 				754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */,
 				7570703D2A5874FC00BD4098 /* PintrestLayout.swift in Sources */,
+				7512BF892A5B4183001EEB93 /* CardFlipView.swift in Sources */,
 				75409B402A4E9F2100347352 /* ViewBuilderExample.swift in Sources */,
 				75BBCBFA2A4C6D7300DD03C2 /* BlurContentView.swift in Sources */,
 				75F9F96A2A5725260073F61A /* NuemorphicProgressCircleView.swift in Sources */,
