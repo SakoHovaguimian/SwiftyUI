@@ -17,6 +17,7 @@
 		753356152A3D7CC000A42D6C /* GridContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356142A3D7CC000A42D6C /* GridContentView.swift */; };
 		753356172A3E157E00A42D6C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753356162A3E157E00A42D6C /* Colors.xcassets */; };
 		753356192A3E16F700A42D6C /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356182A3E16F700A42D6C /* AppColor.swift */; };
+		753DF0842A5A630E000AC3EC /* MeshGradientCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DF0832A5A630E000AC3EC /* MeshGradientCardView.swift */; };
 		75409B3E2A4E950400347352 /* Ext+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75409B3D2A4E950400347352 /* Ext+Color.swift */; };
 		75409B402A4E9F2100347352 /* ViewBuilderExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */; };
 		75472E1C2A412B6100E822AC /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75472E1B2A412B6100E822AC /* CustomAlertView.swift */; };
@@ -34,6 +35,7 @@
 		7558F8642A4DF846008486A0 /* LongPressContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7558F8632A4DF845008486A0 /* LongPressContentView.swift */; };
 		755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */; };
 		7565E9AF2A3A0EA60076A362 /* SuperCustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */; };
+		756B39AA2A58CA380067F9BB /* GradientCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B39A92A58CA380067F9BB /* GradientCardView.swift */; };
 		756D74412A571F1B00DBDBBA /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D74402A571F1B00DBDBBA /* TimerManager.swift */; };
 		756D74432A571FDF00DBDBBA /* DashProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D74422A571FDF00DBDBBA /* DashProgressCircle.swift */; };
 		756DB1992A40BCFB009D5D01 /* Ext+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756DB1982A40BCFB009D5D01 /* Ext+View.swift */; };
@@ -110,6 +112,7 @@
 		753356142A3D7CC000A42D6C /* GridContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContentView.swift; sourceTree = "<group>"; };
 		753356162A3E157E00A42D6C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		753356182A3E16F700A42D6C /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
+		753DF0832A5A630E000AC3EC /* MeshGradientCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshGradientCardView.swift; sourceTree = "<group>"; };
 		75409B3D2A4E950400347352 /* Ext+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Color.swift"; sourceTree = "<group>"; };
 		75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilderExample.swift; sourceTree = "<group>"; };
 		75472E1B2A412B6100E822AC /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
@@ -127,6 +130,7 @@
 		7558F8632A4DF845008486A0 /* LongPressContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressContentView.swift; sourceTree = "<group>"; };
 		755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
 		7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperCustomTabBarView.swift; sourceTree = "<group>"; };
+		756B39A92A58CA380067F9BB /* GradientCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientCardView.swift; sourceTree = "<group>"; };
 		756D74402A571F1B00DBDBBA /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		756D74422A571FDF00DBDBBA /* DashProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashProgressCircle.swift; sourceTree = "<group>"; };
 		756DB1982A40BCFB009D5D01 /* Ext+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+View.swift"; sourceTree = "<group>"; };
@@ -379,6 +383,8 @@
 				75B2DA792A57592E00A52E22 /* NewStretchyHeaderView.swift */,
 				7570703C2A5874FC00BD4098 /* PintrestLayout.swift */,
 				754DDFC22A58827D00609569 /* AnimatedSearchBarView.swift */,
+				756B39A92A58CA380067F9BB /* GradientCardView.swift */,
+				753DF0832A5A630E000AC3EC /* MeshGradientCardView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -573,6 +579,7 @@
 				75ABC68F2A51E8DF00633F78 /* SplashScreenView.swift in Sources */,
 				75ABC6922A51EBCB00633F78 /* LaunchScreenService.swift in Sources */,
 				75B5A8852A3BD96700378C7B /* ZoomView.swift in Sources */,
+				756B39AA2A58CA380067F9BB /* GradientCardView.swift in Sources */,
 				7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */,
 				75C5EE3A2A49E79B00FA9056 /* OnboardingViewCarousel.swift in Sources */,
 				754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */,
@@ -602,6 +609,7 @@
 				756D74432A571FDF00DBDBBA /* DashProgressCircle.swift in Sources */,
 				75DD42B12A4BA615002E9E92 /* Ext+NavigationController.swift in Sources */,
 				754B8B702A3B69B200409582 /* ProductionTabBarContentView.swift in Sources */,
+				753DF0842A5A630E000AC3EC /* MeshGradientCardView.swift in Sources */,
 				757DE9722A4E2C810099FE6E /* GradientButtonContentView.swift in Sources */,
 				75ACB9042A3BB77C0007338E /* SafariWebView.swift in Sources */,
 				754B8B742A3B6D1900409582 /* StyledLabelButton.swift in Sources */,
