@@ -14,6 +14,7 @@ struct SwiftUITestApp: App {
     @State private var launchService = LaunchScreenService()
     @State private var opacity: Double = 1
     
+    @State var codeInputText: String = ""
     @State private var debouncedText = ""
     
     var body: some Scene {
@@ -55,7 +56,8 @@ struct SwiftUITestApp: App {
 //                
 //            }
 
-            ArcMenuButtonView()
+//            ArcMenuButtonView()
+            CodeInputView(codeInput: $codeInputText)
 //            GradientCardView()
             
 //            ProductionTabBarContentView()

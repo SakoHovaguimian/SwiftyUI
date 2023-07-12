@@ -43,6 +43,8 @@
 		7570703D2A5874FC00BD4098 /* PintrestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7570703C2A5874FC00BD4098 /* PintrestLayout.swift */; };
 		757DE9722A4E2C810099FE6E /* GradientButtonContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DE9712A4E2C810099FE6E /* GradientButtonContentView.swift */; };
 		757DE9742A4E2CB00099FE6E /* TikTokSideWaysContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DE9732A4E2CB00099FE6E /* TikTokSideWaysContentView.swift */; };
+		7582855E2A5E4B5900B30161 /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7582855D2A5E4B5900B30161 /* CodeInputView.swift */; };
+		758285602A5E504400B30161 /* Ext+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7582855F2A5E504400B30161 /* Ext+String.swift */; };
 		758B3FE72A4CC11C00C624A8 /* CurrentOffsetScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B3FE62A4CC11C00C624A8 /* CurrentOffsetScrollView.swift */; };
 		759383CC2A3622F20016EA29 /* SwiftUITestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */; };
 		759383CE2A3622F20016EA29 /* FirstPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383CD2A3622F20016EA29 /* FirstPlaygroundView.swift */; };
@@ -73,6 +75,7 @@
 		75C5EE3A2A49E79B00FA9056 /* OnboardingViewCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5EE392A49E79B00FA9056 /* OnboardingViewCarousel.swift */; };
 		75CB8C372A3A716600CE192D /* TypewriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB8C362A3A716600CE192D /* TypewriterView.swift */; };
 		75D122682A3F62050024E60C /* TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D122672A3F62050024E60C /* TokenView.swift */; };
+		75D898A82A5D0D5A00BEE17B /* GrowingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D898A72A5D0D5A00BEE17B /* GrowingTextField.swift */; };
 		75DD42B12A4BA615002E9E92 /* Ext+NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DD42B02A4BA615002E9E92 /* Ext+NavigationController.swift */; };
 		75E0F4512A55DE34000AAC5A /* CombineInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E0F4502A55DE34000AAC5A /* CombineInputView.swift */; };
 		75E888B42A41F75600F6B52A /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888B32A41F75600F6B52A /* SideMenuView.swift */; };
@@ -139,6 +142,8 @@
 		7570703C2A5874FC00BD4098 /* PintrestLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PintrestLayout.swift; sourceTree = "<group>"; };
 		757DE9712A4E2C810099FE6E /* GradientButtonContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButtonContentView.swift; sourceTree = "<group>"; };
 		757DE9732A4E2CB00099FE6E /* TikTokSideWaysContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokSideWaysContentView.swift; sourceTree = "<group>"; };
+		7582855D2A5E4B5900B30161 /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
+		7582855F2A5E504400B30161 /* Ext+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+String.swift"; sourceTree = "<group>"; };
 		758B3FE62A4CC11C00C624A8 /* CurrentOffsetScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOffsetScrollView.swift; sourceTree = "<group>"; };
 		759383C82A3622F20016EA29 /* SwiftUITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestApp.swift; sourceTree = "<group>"; };
@@ -172,6 +177,7 @@
 		75C5EE392A49E79B00FA9056 /* OnboardingViewCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewCarousel.swift; sourceTree = "<group>"; };
 		75CB8C362A3A716600CE192D /* TypewriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypewriterView.swift; sourceTree = "<group>"; };
 		75D122672A3F62050024E60C /* TokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenView.swift; sourceTree = "<group>"; };
+		75D898A72A5D0D5A00BEE17B /* GrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextField.swift; sourceTree = "<group>"; };
 		75DD42B02A4BA615002E9E92 /* Ext+NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+NavigationController.swift"; sourceTree = "<group>"; };
 		75E0F4502A55DE34000AAC5A /* CombineInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineInputView.swift; sourceTree = "<group>"; };
 		75E888B32A41F75600F6B52A /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
@@ -217,6 +223,7 @@
 				7523AAB42A409DEA006DB270 /* Ext+Double.swift */,
 				7594FCB92A474AAC00EBB605 /* Ext+UIApplication.swift */,
 				75DD42B02A4BA615002E9E92 /* Ext+NavigationController.swift */,
+				7582855F2A5E504400B30161 /* Ext+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -388,6 +395,8 @@
 				756B39A92A58CA380067F9BB /* GradientCardView.swift */,
 				753DF0832A5A630E000AC3EC /* MeshGradientCardView.swift */,
 				7512BF882A5B4183001EEB93 /* CardFlipView.swift */,
+				75D898A72A5D0D5A00BEE17B /* GrowingTextField.swift */,
+				7582855D2A5E4B5900B30161 /* CodeInputView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -601,10 +610,13 @@
 				750D45D72A3CCAE000756005 /* GradientLabelView.swift in Sources */,
 				75E888B82A41F8D200F6B52A /* SideMenuHeaderView.swift in Sources */,
 				75409B3E2A4E950400347352 /* Ext+Color.swift in Sources */,
+				75D898A82A5D0D5A00BEE17B /* GrowingTextField.swift in Sources */,
+				758285602A5E504400B30161 /* Ext+String.swift in Sources */,
 				7594FCB82A4734FE00EBB605 /* CustomTextView.swift in Sources */,
 				75E888B42A41F75600F6B52A /* SideMenuView.swift in Sources */,
 				75E888BA2A41FAD200F6B52A /* SideMenuOptionView.swift in Sources */,
 				75E888B62A41F76700F6B52A /* SideMenuParentContentView.swift in Sources */,
+				7582855E2A5E4B5900B30161 /* CodeInputView.swift in Sources */,
 				758B3FE72A4CC11C00C624A8 /* CurrentOffsetScrollView.swift in Sources */,
 				75CB8C372A3A716600CE192D /* TypewriterView.swift in Sources */,
 				755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */,
