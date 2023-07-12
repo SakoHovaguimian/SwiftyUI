@@ -27,16 +27,30 @@ struct CodeInputView: View {
                 ForEach(0..<self.maxCharacterCount, id: \.self) { i in
                     
                     let character = getCharacterForIndex(i)
+                    let isCurrentField = getCurrentIndex()
                     
-                    Text(character ?? "-")
-                        .lineLimit(1, reservesSpace: true)
-                        .fontWeight(.heavy)
-                        .font(.system(size: 24, weight: .heavy, design: .rounded))
-                        .frame(width: 48, height: 48)
-                        .foregroundStyle(character == nil ? Color.gray : Color.black)
-                        .background(Color(uiColor: .systemGray6))
-                        .clipShape(RoundedRectangle(cornerRadius: 11))
-                        .shadow(radius: 10)
+                    VStack(spacing: 4) {
+                        
+                        Text(character ?? "-")
+                            .lineLimit(1, reservesSpace: true)
+                            .fontWeight(.heavy)
+                            .font(.system(size: 24, weight: .heavy, design: .rounded))
+                            
+                            .foregroundStyle(character == nil ? Color.gray : Color.black)
+                        
+                    }
+                    .frame(width: 48, height: 48)
+                    .background(Color(uiColor: .systemGray6))
+                    .clipShape(RoundedRectangle(cornerRadius: 11))
+                    .shadow(radius: 10)
+                    .overlay(alignment: .bottom, content: {
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(isCurrentField == i ? .blue : .clear)
+                            .frame(height: 4)
+                            .padding(.vertical, 4)
+                            .padding(.horizontal, 12)
+                    })
+
                     
                 }
                 
@@ -70,6 +84,10 @@ struct CodeInputView: View {
         
         return nil
         
+    }
+    
+    private func getCurrentIndex() -> Int {
+        return self.codeInput.isEmpty ? 0 : self.codeInput.count
     }
     
 }
