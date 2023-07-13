@@ -7,12 +7,17 @@
 
 import SwiftUI
 import Observation
+import FirebaseCore
 
 @main
 struct SwiftUITestApp: App {
-    
+        
     @State private var launchService = LaunchScreenService()
     @State private var opacity: Double = 1
+    
+    init() {
+        FirebaseApp.configure()
+    }
     
     @State var codeInputText: String = ""
     @State private var debouncedText = ""
@@ -57,7 +62,8 @@ struct SwiftUITestApp: App {
 //            }
 
 //            ArcMenuButtonView()
-            CodeInputView(codeInput: $codeInputText)
+//            CodeInputView(codeInput: $codeInputText)
+            FirebaseTestView(firebaseService: FirebaseService())
 //            GradientCardView()
             
 //            ProductionTabBarContentView()
