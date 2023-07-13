@@ -14,6 +14,13 @@ struct FirebaseTestView: View {
     @ObservedObject var firebaseService: FirebaseService
     
     @State private var currentNonce: String?
+    @State private var errorMessage: String? {
+        didSet {
+            self.showingError.toggle()
+        }
+    }
+    
+    @State private var showingError = false
     
     var body: some View {
         
@@ -29,6 +36,7 @@ struct FirebaseTestView: View {
                     
                     Text("Is User Logged in: \(firebaseService.user?.uid ?? "NA")")
                     Text("Current Token: \(firebaseService.currentAccessToken ?? "NA")")
+                        .lineLimit(5)
                     
                 }
                 .foregroundStyle(Color.black)
@@ -36,14 +44,17 @@ struct FirebaseTestView: View {
                 Button("Sign Up") {
                     signUp()
                 }
+                .appFont(with: .heading(.h1))
                 
                 Button("Login") {
                     login()
                 }
+                .appFont(with: .heading(.h5))
                 
                 Button("Logout") {
                     try! firebaseService.logout()
                 }
+                .appFont(with: .heading(.h10))
                 
                 SignInWithAppleButton { request in
                     
@@ -68,6 +79,9 @@ struct FirebaseTestView: View {
             }
             
         }
+        .alert(isPresented: $showingError) {
+            Alert(title: Text("Important message"), message: Text(self.errorMessage ?? ""), dismissButton: .default(Text("Got it!")))
+        }
         
     }
     
@@ -82,9 +96,19 @@ struct FirebaseTestView: View {
                     password: "123456"
                 )
                 
+                // DISPTACH QUEUE IN THESE FOR SETTING VALUES
+                // IN TOP LEVEL SCOPE
+                
             }
             catch(let error) {
-                print(error)
+                
+                if let fbError = error as? FirebaseService.FirebaseError {
+                    self.errorMessage = fbError.message
+                }
+                else {
+                    self.errorMessage = error.localizedDescription
+                }
+                
             }
             
         }
@@ -145,3 +169,7 @@ struct FirebaseTestView: View {
     }
     
 }
+
+//#Preview {
+//    FirebaseTestView(firebaseService: FirebaseService())
+//}
