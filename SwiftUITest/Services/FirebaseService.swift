@@ -17,6 +17,14 @@ class FirebaseService: ObservableObject {
         case notFound
         case emailAlreadyInUse
         
+        var message: String {
+            switch self {
+            case .generic(let error): return error.localizedDescription
+            case .notFound: return "Not found"
+            case .emailAlreadyInUse: return "Email already in use" 
+            }
+        }
+        
     }
     
     @Published private(set) var user: FirebaseAuth.User?
