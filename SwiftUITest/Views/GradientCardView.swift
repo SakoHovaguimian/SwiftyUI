@@ -95,7 +95,7 @@ struct GradientCardView: View {
                 
             }
             
-            Text("Legendary")
+            Text("Card")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .fontDesign(.rounded)

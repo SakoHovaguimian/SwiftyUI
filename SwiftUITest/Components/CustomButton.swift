@@ -15,9 +15,10 @@ struct ButtonStyleViewModifier: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .scaleEffect(configuration.isPressed ? scale : 1)
-            .opacity(configuration.isPressed ? opacity : 1)
-            .brightness(configuration.isPressed ? brightness : 0)
+            .scaleEffect(configuration.isPressed ? self.scale : 1)
+            .animation(.spring, value: configuration.isPressed)
+            .opacity(configuration.isPressed ? self.opacity : 1)
+            .brightness(configuration.isPressed ? self.brightness : 0)
     }
     
 }
