@@ -15,6 +15,8 @@ struct SwiftUITestApp: App {
     @State private var launchService = LaunchScreenService()
     @State private var opacity: Double = 1
     
+    @StateObject var navigationService = NavigationService()
+    
     init() {
         FirebaseApp.configure()
     }
@@ -63,7 +65,16 @@ struct SwiftUITestApp: App {
 
 //            ArcMenuButtonView()
 //            CodeInputView(codeInput: $codeInputText)
-            FirebaseTestView(firebaseService: FirebaseService())
+//            FirebaseTestView(
+//                firebaseService: FirebaseService(), navigationService: self.navigationService)
+            
+//            CoordinatorTestView(
+//                firebaseService: FirebaseService(),
+//                navigationService: self.navigationService
+//            )
+            
+            DemoFitnessCardView()
+            
 //            GradientCardView()
             
 //            ProductionTabBarContentView()

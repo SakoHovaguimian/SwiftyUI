@@ -285,6 +285,7 @@ struct FirstPlaygroundView: View {
 }
 
 extension View {
+    
     func onBackSwipe(perform action: @escaping () -> Void) -> some View {
         gesture(
             DragGesture()
@@ -295,6 +296,7 @@ extension View {
                 })
         )
     }
+    
 }
 
 func horizontalScrollView(items: [String]) -> some View {
@@ -363,30 +365,36 @@ struct CardView<Content: View>: View {
     
     let content: Content
     
-    init(@ViewBuilder content: () -> Content) {
+    let backgroundColor: Color
+    let verticalPadding: CGFloat
+    let horizontalPadding: CGFloat
+    
+    init(backgroundColor: Color = .white,
+         verticalPadding: CGFloat = 8,
+         horizontalPadding: CGFloat = 16,
+         @ViewBuilder content: () -> Content) {
+        
         self.content = content()
+        self.backgroundColor = backgroundColor
+        self.verticalPadding = verticalPadding
+        self.horizontalPadding = horizontalPadding
+        
     }
     
     var body: some View {
         
-        GeometryReader { geometry in
-            
             HStack(alignment: .center, spacing: 0) {
-                
-                Spacer()
-                
                 content
-                    .frame(minWidth: geometry.size.width - 32, minHeight: 200)
-                    .background(Color.white)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
-                    .shadow(radius: 23)
-                
-                Spacer()
-                
             }
-            
-        }
-        
+            .padding(.horizontal, self.horizontalPadding)
+            .padding(.vertical, self.verticalPadding)
+            .frame(
+                maxWidth: UIScreen.main.bounds.width - (self.horizontalPadding * 2)
+            )
+            .background(self.backgroundColor)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .shadow(radius: 12)
+
     }
     
 }

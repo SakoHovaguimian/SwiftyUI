@@ -8,7 +8,7 @@
 import SwiftUI
 import FirebaseAuth
 
-@MainActor
+//@MainActor
 class FirebaseService: ObservableObject {
     
     enum FirebaseError: Error {

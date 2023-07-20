@@ -93,5 +93,5 @@ struct CodeInputView: View {
 }
 
 #Preview {
-    CodeInputView(codeInput: .constant("1"))
+    CodeInputView(codeInput: .constant("12346"))
 }
