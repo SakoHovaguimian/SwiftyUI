@@ -93,6 +93,8 @@
 		75E8C1FB2A4A292B00C3A564 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */; };
 		75ED4F0E2A38D81D00B7091C /* SocialMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED4F0D2A38D81D00B7091C /* SocialMediaView.swift */; };
 		75EE19382A5EF77A003CD5EB /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE19372A5EF77A003CD5EB /* FirebaseService.swift */; };
+		75F575BD2A69C2190060F764 /* WStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F575BC2A69C2190060F764 /* WStack.swift */; };
+		75F575BF2A69C22A0060F764 /* WStackViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F575BE2A69C22A0060F764 /* WStackViewPreview.swift */; };
 		75F9F96A2A5725260073F61A /* NuemorphicProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F9F9692A5725260073F61A /* NuemorphicProgressCircleView.swift */; };
 /* End PBXBuildFile section */
 
@@ -203,6 +205,8 @@
 		75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		75ED4F0D2A38D81D00B7091C /* SocialMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaView.swift; sourceTree = "<group>"; };
 		75EE19372A5EF77A003CD5EB /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		75F575BC2A69C2190060F764 /* WStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WStack.swift; sourceTree = "<group>"; };
+		75F575BE2A69C22A0060F764 /* WStackViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WStackViewPreview.swift; sourceTree = "<group>"; };
 		75F9F9692A5725260073F61A /* NuemorphicProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuemorphicProgressCircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -342,6 +346,7 @@
 		754B8B752A3B6D2100409582 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				75F575BB2A69C20F0060F764 /* WStack */,
 				754B8B792A3B729000409582 /* Haptic */,
 				7523AAB92A40A332006DB270 /* TabBar */,
 				756D743F2A571F0800DBDBBA /* CicularProgressBar */,
@@ -487,6 +492,15 @@
 				7503B91E2A60867900E83093 /* NavigationService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		75F575BB2A69C20F0060F764 /* WStack */ = {
+			isa = PBXGroup;
+			children = (
+				75F575BC2A69C2190060F764 /* WStack.swift */,
+				75F575BE2A69C22A0060F764 /* WStackViewPreview.swift */,
+			);
+			path = WStack;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -679,6 +693,7 @@
 				757DE9722A4E2C810099FE6E /* GradientButtonContentView.swift in Sources */,
 				75ACB9042A3BB77C0007338E /* SafariWebView.swift in Sources */,
 				754B8B742A3B6D1900409582 /* StyledLabelButton.swift in Sources */,
+				75F575BD2A69C2190060F764 /* WStack.swift in Sources */,
 				75B85B7A2A452B5B0014112F /* BackgroundTestView.swift in Sources */,
 				757DE9742A4E2CB00099FE6E /* TikTokSideWaysContentView.swift in Sources */,
 				75ED4F0E2A38D81D00B7091C /* SocialMediaView.swift in Sources */,
@@ -696,6 +711,7 @@
 				759CFADF2A3924DD006C0DC4 /* GridView.swift in Sources */,
 				75016BC32A52A7B1001AE249 /* CenterContentView.swift in Sources */,
 				75AB52BD2A4352B5001E086E /* HomePageView.swift in Sources */,
+				75F575BF2A69C22A0060F764 /* WStackViewPreview.swift in Sources */,
 				759383CC2A3622F20016EA29 /* SwiftUITestApp.swift in Sources */,
 				75ABC6942A52360A00633F78 /* SplashScreenItem.swift in Sources */,
 				75E0F4512A55DE34000AAC5A /* CombineInputView.swift in Sources */,

@@ -73,7 +73,8 @@ struct SwiftUITestApp: App {
 //                navigationService: self.navigationService
 //            )
             
-            DemoFitnessCardView()
+//            DemoFitnessCardView()
+            WStackExamplesView()
             
 //            GradientCardView()
             
