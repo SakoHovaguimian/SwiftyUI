@@ -192,7 +192,36 @@ protocol Navigation {
 //    
 //}
 
-//@MainActor
+// FOR TAB BARS:
+// WE NEED TO HAVE MULTIPLE PATH_ITEMS arrays and a top level enum
+// THEN WE CAN DO A DOUBLE SWITCH OR BREAKOUT FUNCTIONS FOR
+// WITHNAVIGATION EXTENSION
+// HAVEN'T TESTED BELOW
+/*
+
+enum TabNavigation {
+    
+    enum HomeNavigation {
+        case home
+    }
+    
+    enum StoreNavigation {
+        case store
+    }
+    
+    enum ProfileNavigation {
+        case profile
+    }
+    
+    case home(HomeNavigation)
+    case store(StoreNavigation)
+    case profile(ProfileNavigation)
+    
+}
+ 
+*/
+
+@MainActor
 class NavigationService: ObservableObject {
     
     enum Route: Navigation {
@@ -256,33 +285,33 @@ class NavigationService: ObservableObject {
         
     }
     
-    @ViewBuilder
-    func build(route: Route) -> some View {
-        switch route {
-        case .redView: ZStack { Color.red.ignoresSafeArea().onTapGesture { self.pathItems.append(.redView) }}
-        case .blueView: ZStack { Color.blue.ignoresSafeArea().onTapGesture { self.fullScreenCover = .yellowView }}
-        }
-    }
-    
-    @ViewBuilder
-    func build(sheet: Sheet) -> some View {
-        switch sheet {
-        case .purpleView:
-            NavigationStack {
-                ZStack { Color.purple.ignoresSafeArea() }
-            }
-        }
-    }
-    
-    @ViewBuilder
-    func build(fullScreenCover: FullScreenCover) -> some View {
-        switch fullScreenCover {
-        case .yellowView:
-            NavigationStack {
-                ZStack { NewCoordinatorTestView().environmentObject(self) }
-            }
-        }
-    }
+//    @ViewBuilder
+//    func build(route: Route) -> some View {
+//        switch route {
+//        case .redView: ZStack { Color.red.ignoresSafeArea().onTapGesture { self.pathItems.append(.redView) }}
+//        case .blueView: ZStack { Color.blue.ignoresSafeArea().onTapGesture { self.fullScreenCover = .yellowView }}
+//        }
+//    }
+//    
+//    @ViewBuilder
+//    func build(sheet: Sheet) -> some View {
+//        switch sheet {
+//        case .purpleView:
+//            NavigationStack {
+//                ZStack { Color.purple.ignoresSafeArea() }
+//            }
+//        }
+//    }
+//    
+//    @ViewBuilder
+//    func build(fullScreenCover: FullScreenCover) -> some View {
+//        switch fullScreenCover {
+//        case .yellowView:
+//            NavigationStack {
+//                ZStack { NewCoordinatorTestView().environmentObject(self) }
+//            }
+//        }
+//    }
     
 }
 
@@ -298,7 +327,7 @@ struct NewCoordinatorTestView: View {
     
     var body: some View {
         NavigationStack(path: self.$newNavigationService.pathItems) {
-            self.previousNavigationService.build(route: .redView)
+            ZStack { Color.red.ignoresSafeArea() }
                 .overlay(content: {
                     
                     VStack {
@@ -315,16 +344,68 @@ struct NewCoordinatorTestView: View {
 
                     
                 })
-                .navigationDestination(for: NavigationService.Route.self) { route in
-                    self.newNavigationService.build(route: route)
-                }
-                .sheet(item: self.$newNavigationService.sheet) { sheet in
-                    self.newNavigationService.build(sheet: sheet)
-                }
-                .fullScreenCover(item: self.$newNavigationService.fullScreenCover) { fullScreenCover in
-                    self.newNavigationService.build(fullScreenCover: fullScreenCover)
-                }
+                .withNavigationDestination()
+                .withSheetDestination(self.$newNavigationService.sheet)
+                .withFullScreenCover(self.$newNavigationService.fullScreenCover)
         }
+    }
+    
+}
+
+struct TestEmbedView: View {
+    
+    @EnvironmentObject var navigationService: NavigationService
+    
+    var body: some View {
+        
+        VStack {
+            
+            Button("Test") {
+                self.navigationService.push(.blueView)
+            }
+            
+        }
+        
+    }
+}
+
+extension View {
+    
+    func withNavigationDestination() -> some View {
+        
+        navigationDestination(for: NavigationService.Route.self) { route in
+            
+            switch route {
+            case .redView: ZStack { TestEmbedView() }
+            case .blueView: ZStack { TestEmbedView() }
+            }
+            
+        }
+        
+    }
+    
+    func withSheetDestination(_ customSheet: Binding<Sheet?>) -> some View {
+        
+        sheet(item: customSheet) { sheet in
+            
+            switch sheet {
+            case .purpleView: NavigationStack { ZStack { Color.purple.ignoresSafeArea() } }
+            }
+                
+        }
+        
+    }
+    
+    func withFullScreenCover(_ customFullScreenCover: Binding<FullScreenCover?>) -> some View {
+        
+        fullScreenCover(item: customFullScreenCover) { sheet in
+            
+            switch sheet {
+            case .yellowView: NavigationStack { ZStack { Color.yellow.ignoresSafeArea() } }
+            }
+                
+        }
+        
     }
     
 }

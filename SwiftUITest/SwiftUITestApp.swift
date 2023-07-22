@@ -66,15 +66,17 @@ struct SwiftUITestApp: App {
 //            ArcMenuButtonView()
 //            CodeInputView(codeInput: $codeInputText)
 //            FirebaseTestView(
-//                firebaseService: FirebaseService(), navigationService: self.navigationService)
-            
-//            CoordinatorTestView(
 //                firebaseService: FirebaseService(),
 //                navigationService: self.navigationService
 //            )
             
+            CoordinatorTestView(
+                firebaseService: FirebaseService(),
+                navigationService: self.navigationService
+            )
+            
 //            DemoFitnessCardView()
-            WStackExamplesView()
+//            WStackExamplesView()
             
 //            GradientCardView()
             

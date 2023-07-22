@@ -51,6 +51,9 @@ struct DemoFitnessCardView: View {
                         .padding(16)
                         .background(Color.white)
                         .clipShape(Circle())
+                        .asButton {
+                            
+                        }
                     
                     Image(systemName: "heart.fill")
                         .resizable()
@@ -58,6 +61,9 @@ struct DemoFitnessCardView: View {
                         .padding(16)
                         .background(Color.white)
                         .clipShape(Circle())
+                        .asButton {
+                            
+                        }
                     
                     CircularIconView(
                         foregroundColor: .black,
@@ -65,6 +71,9 @@ struct DemoFitnessCardView: View {
                         size: 48,
                         systemImage: "safari.fill"
                     )
+                    .asButton {
+                        
+                    }
                     
                     Circle()
                         .fill(Color.white)
@@ -78,6 +87,9 @@ struct DemoFitnessCardView: View {
                                 .frame(width: 24, height: 24)
                             
                         })
+                        .asButton {
+                            
+                        }
                     
                     ZStack {
                         
@@ -244,12 +256,13 @@ struct AvatarView: View {
     
     var name: String? = nil
     
-    init(name: String) {
+    init(name: String,
+         size: CGFloat = 48) {
         
         self.name = name
         self.foregroundColor = .black
         self.backgroundColor = .white
-        self.size = 48
+        self.size = size
         
     }
     
@@ -288,14 +301,14 @@ struct AvatarView: View {
             
             Circle()
                 .fill(self.backgroundColor)
-                .frame(width: 48, height: 48)
+                .frame(width: self.size, height: self.size)
         
             if let systemImage {
                 
                 Image(systemName: systemImage)
                     .resizable()
                     .aspectRatio(1.0, contentMode: .fit)
-                    .frame(width: imageSize, height: imageSize)
+                    .frame(width: self.imageSize, height: self.imageSize)
                     .foregroundColor(.black)
                 
             }
@@ -304,7 +317,7 @@ struct AvatarView: View {
                 Image(image)
                     .resizable()
                     .aspectRatio(1.0, contentMode: .fit)
-                    .frame(width: imageSize, height: imageSize)
+                    .frame(width: self.imageSize, height: self.imageSize)
                 
             }
             else if let _ = self.name {

@@ -39,11 +39,16 @@ public extension View {
         }
     }
     
-    func asButton(scale: CGFloat = 0.95, opacity: Double = 1, brightness: Double = 0, action: @escaping @MainActor () -> Void) -> some View {
+    func asButton(scale: CGFloat = 0.95,
+                  opacity: Double = 1,
+                  brightness: Double = 0,
+                  action: @escaping @MainActor () -> Void) -> some View {
+        
         Button(action: action) {
             self
         }
         .buttonStyle(ButtonStyleViewModifier(scale: scale, opacity: opacity, brightness: brightness))
+        
     }
     
 }
