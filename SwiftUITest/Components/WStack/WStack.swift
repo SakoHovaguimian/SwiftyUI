@@ -8,6 +8,7 @@
 import SwiftUI
 
 public struct WStack<Data, Content>: View where Data: RandomAccessCollection, Content: View {
+    
     public var data: Data
     var alignment: HorizontalAlignment
     var spacing: CGFloat

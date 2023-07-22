@@ -16,20 +16,18 @@ struct CoordinatorTestView: View {
         
         NavigationStack(path: self.$navigationService.pathItems) {
             
-            self.navigationService
-                .build(route: .blueView)
-            
-                .navigationDestination(for: NavigationService.Route.self) { route in
-                    self.navigationService.build(route: route)
-                }
-                .sheet(item: self.$navigationService.sheet) { sheet in
-                    self.navigationService.build(sheet: sheet)
-                }
-                .fullScreenCover(item: self.$navigationService.fullScreenCover) { fullScreenCover in
-                    self.navigationService.build(fullScreenCover: fullScreenCover)
-                }
+            ZStack {
+                Color.blue.ignoresSafeArea()
+                    .onTapGesture {
+                        self.navigationService.push(.redView)
+                    }
+            }
+            .withNavigationDestination()
+            .withSheetDestination(self.$navigationService.sheet)
+            .withFullScreenCover(self.$navigationService.fullScreenCover)
             
         }
+        .environmentObject(self.navigationService)
         
     }
     

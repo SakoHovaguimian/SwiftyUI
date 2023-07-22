@@ -56,6 +56,7 @@
 		759383DD2A3622F30016EA29 /* SwiftUITestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383DC2A3622F30016EA29 /* SwiftUITestTests.swift */; };
 		759383E72A3622F30016EA29 /* SwiftUITestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383E62A3622F30016EA29 /* SwiftUITestUITests.swift */; };
 		759383E92A3622F30016EA29 /* SwiftUITestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383E82A3622F30016EA29 /* SwiftUITestUITestsLaunchTests.swift */; };
+		7593A1382A6A002C00446ADE /* BaseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593A1372A6A002C00446ADE /* BaseCardView.swift */; };
 		7593F19D2A6482D900BBE7BF /* CoordinatorTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593F19C2A6482D900BBE7BF /* CoordinatorTestView.swift */; };
 		7594FCB82A4734FE00EBB605 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7594FCB72A4734FE00EBB605 /* CustomTextView.swift */; };
 		7594FCBA2A474AAC00EBB605 /* Ext+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7594FCB92A474AAC00EBB605 /* Ext+UIApplication.swift */; };
@@ -92,6 +93,7 @@
 		75E888BC2A41FFB900F6B52A /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E888BB2A41FFB900F6B52A /* MenuOption.swift */; };
 		75E8C1FB2A4A292B00C3A564 /* AnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */; };
 		75ED4F0E2A38D81D00B7091C /* SocialMediaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED4F0D2A38D81D00B7091C /* SocialMediaView.swift */; };
+		75ED82622A6C662E00A2CF0A /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ED82612A6C662E00A2CF0A /* ChartView.swift */; };
 		75EE19382A5EF77A003CD5EB /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE19372A5EF77A003CD5EB /* FirebaseService.swift */; };
 		75F575BD2A69C2190060F764 /* WStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F575BC2A69C2190060F764 /* WStack.swift */; };
 		75F575BF2A69C22A0060F764 /* WStackViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F575BE2A69C22A0060F764 /* WStackViewPreview.swift */; };
@@ -168,6 +170,7 @@
 		759383E22A3622F30016EA29 /* SwiftUITestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUITestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		759383E62A3622F30016EA29 /* SwiftUITestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestUITests.swift; sourceTree = "<group>"; };
 		759383E82A3622F30016EA29 /* SwiftUITestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		7593A1372A6A002C00446ADE /* BaseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCardView.swift; sourceTree = "<group>"; };
 		7593F19C2A6482D900BBE7BF /* CoordinatorTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorTestView.swift; sourceTree = "<group>"; };
 		7594FCB72A4734FE00EBB605 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		7594FCB92A474AAC00EBB605 /* Ext+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIApplication.swift"; sourceTree = "<group>"; };
@@ -204,6 +207,7 @@
 		75E888BB2A41FFB900F6B52A /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationView.swift; sourceTree = "<group>"; };
 		75ED4F0D2A38D81D00B7091C /* SocialMediaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaView.swift; sourceTree = "<group>"; };
+		75ED82612A6C662E00A2CF0A /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		75EE19372A5EF77A003CD5EB /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		75F575BC2A69C2190060F764 /* WStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WStack.swift; sourceTree = "<group>"; };
 		75F575BE2A69C22A0060F764 /* WStackViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WStackViewPreview.swift; sourceTree = "<group>"; };
@@ -293,6 +297,8 @@
 				754B8B6E2A3B686C00409582 /* TypewriterPlayground */,
 				7593F19C2A6482D900BBE7BF /* CoordinatorTestView.swift */,
 				756F0A562A67370C0075C04C /* DemoFitnessCardView.swift */,
+				7593A1372A6A002C00446ADE /* BaseCardView.swift */,
+				75ED82612A6C662E00A2CF0A /* ChartView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -653,6 +659,7 @@
 				75988F752A3A543C007EF7C6 /* NewCustomTabBarView.swift in Sources */,
 				75ABC68F2A51E8DF00633F78 /* SplashScreenView.swift in Sources */,
 				75ABC6922A51EBCB00633F78 /* LaunchScreenService.swift in Sources */,
+				75ED82622A6C662E00A2CF0A /* ChartView.swift in Sources */,
 				75B5A8852A3BD96700378C7B /* ZoomView.swift in Sources */,
 				756B39AA2A58CA380067F9BB /* GradientCardView.swift in Sources */,
 				7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */,
@@ -688,6 +695,7 @@
 				756DB1992A40BCFB009D5D01 /* Ext+View.swift in Sources */,
 				756D74432A571FDF00DBDBBA /* DashProgressCircle.swift in Sources */,
 				75DD42B12A4BA615002E9E92 /* Ext+NavigationController.swift in Sources */,
+				7593A1382A6A002C00446ADE /* BaseCardView.swift in Sources */,
 				754B8B702A3B69B200409582 /* ProductionTabBarContentView.swift in Sources */,
 				753DF0842A5A630E000AC3EC /* MeshGradientCardView.swift in Sources */,
 				757DE9722A4E2C810099FE6E /* GradientButtonContentView.swift in Sources */,

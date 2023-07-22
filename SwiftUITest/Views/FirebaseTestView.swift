@@ -135,15 +135,9 @@ struct FirebaseTestView: View {
             } message: {
                 Text("Please enter you pin.")
             }
-            .navigationDestination(for: NavigationService.Route.self) { route in
-                self.navigationService.build(route: route)
-            }
-            .sheet(item: self.$navigationService.sheet) { sheet in
-                self.navigationService.build(sheet: sheet)
-            }
-            .fullScreenCover(item: self.$navigationService.fullScreenCover) { fullScreenCover in
-                self.navigationService.build(fullScreenCover: fullScreenCover)
-            }
+            .withNavigationDestination()
+            .withSheetDestination(self.$navigationService.sheet)
+            .withFullScreenCover(self.$navigationService.fullScreenCover)
             
         }
         
@@ -276,11 +270,11 @@ struct AppButton: View {
     
 }
 
-#Preview {
-    
-    FirebaseTestView(
-        firebaseService: FirebaseService(),
-        navigationService: NavigationService()
-    )
-    
-}
+//#Preview {
+//    
+//    FirebaseTestView(
+//        firebaseService: FirebaseService(),
+//        navigationService: NavigationService()
+//    )
+//    
+//}
