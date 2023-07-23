@@ -70,10 +70,14 @@ struct SwiftUITestApp: App {
 //                navigationService: self.navigationService
 //            )
             
-            CoordinatorTestView(
-                firebaseService: FirebaseService(),
-                navigationService: self.navigationService
-            )
+//            CoordinatorTestView(
+//                firebaseService: FirebaseService(),
+//                navigationService: self.navigationService
+//            )
+            
+//            TransitionTestView()
+//            MatchedGeoView()
+            BoomView()
             
 //            DemoFitnessCardView()
 //            WStackExamplesView()
