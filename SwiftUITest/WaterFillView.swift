@@ -17,25 +17,41 @@ struct WaterFillView: View {
             
             CircleWaveView(
                 percent: Int(self.percent),
-                imageName: "drop.fill"
+                imageName: "drop.fill",
+                color: .blue
+            )
+
+            CircleWaveView(
+                percent: Int(self.percent),
+                imageName: "heart.fill",
+                color: .green
             )
             
             CircleWaveView(
                 percent: Int(self.percent),
-                imageName: "person.fill"
-            )
-            
-            CircleWaveView(
-                percent: Int(self.percent),
-                imageName: "heart.fill"
-            )
-            
-            CircleWaveView(
-                percent: Int(self.percent),
-                imageName: "circle.fill"
+                imageName: "circle.fill",
+                color: .indigo
             )
             
             Slider(value: self.$percent, in: 0...100)
+            
+            Button {
+                withAnimation {
+                    self.percent += 10
+                }
+            } label: {
+                
+                Text("Update Progress")
+                
+                    .frame(width: 200)
+                    .padding(.all, 12)
+                    .foregroundColor(.white)
+                    .background(Color.blue.gradient)
+                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                    .shadow(color: Color.blue.opacity(0.4), radius: 2, x: 0, y: 0)
+                
+            }
+
             
         }
         .padding(.all)
@@ -66,6 +82,7 @@ struct Wave: Shape {
         let newpercent = lowfudge + (highfudge - lowfudge) * self.percent
         let waveHeight = 0.015 * rect.height
         let yoffset = CGFloat(1 - newpercent) * (rect.height - 4 * waveHeight) + 2 * waveHeight
+        
         let startAngle = self.offset
         let endAngle = self.offset + Angle(degrees: 360)
         
@@ -87,28 +104,34 @@ struct Wave: Shape {
 struct CircleWaveView: View {
     
     @State private var waveOffset = Angle(degrees: 0)
+    
     let percent: Int
     let imageName: String
+    let color: Color
     
     var body: some View {
         
         GeometryReader { geo in
             
-            let _ = print(self.percent)
-            
             ZStack {
                 
                 Image(systemName: self.imageName)
                     .resizable()
-                    .foregroundStyle(.blue.gradient.opacity(0.2))
+                    .foregroundStyle(self.color.gradient.opacity(0.2))
                 
                 Image(systemName: self.imageName)
                     .resizable()
-                    .foregroundStyle(.blue.gradient)
+                    .foregroundStyle(self.color.gradient)
                     .mask {
-                        Wave(offset: Angle(degrees: self.waveOffset.degrees), percent: Double(self.percent)/100)
-                            .fill(Color(red: 0, green: 0.5, blue: 0.75, opacity: 0.5))
-                        //                                .clipShape(Circle().scale(1))
+                        
+                        Wave(
+                            offset: Angle(degrees: self.waveOffset.degrees),
+                            percent: Double(self.percent)/100
+                        )
+                        .fill(
+                            Color(red: 0, green: 0.5, blue: 0.75, opacity: 0.5)
+                        )
+                        
                     }
                 
                 Text("\(self.percent)%")
@@ -129,7 +152,9 @@ struct CircleWaveView: View {
             }
             
         }
+        
     }
+    
 }
 
 #Preview {
