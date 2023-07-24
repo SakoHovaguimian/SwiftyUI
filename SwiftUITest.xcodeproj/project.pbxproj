@@ -23,6 +23,7 @@
 		75409B3E2A4E950400347352 /* Ext+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75409B3D2A4E950400347352 /* Ext+Color.swift */; };
 		75409B402A4E9F2100347352 /* ViewBuilderExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */; };
 		7540D62C2A5F3C1F00A5E8A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7540D62B2A5F3C1F00A5E8A6 /* GoogleService-Info.plist */; };
+		754215212A6ED77800162BF8 /* WaterFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754215202A6ED77800162BF8 /* WaterFillView.swift */; };
 		75472E1C2A412B6100E822AC /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75472E1B2A412B6100E822AC /* CustomAlertView.swift */; };
 		7549FB412A37C875002AEDC5 /* WildButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7549FB402A37C875002AEDC5 /* WildButtonView.swift */; };
 		754B8B6C2A3B685500409582 /* TypewriterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B6B2A3B685500409582 /* TypewriterContentView.swift */; };
@@ -35,6 +36,7 @@
 		754B8B7F2A3B72CD00409582 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B7E2A3B72CD00409582 /* Haptics.swift */; };
 		754DDFC32A58827D00609569 /* AnimatedSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754DDFC22A58827D00609569 /* AnimatedSearchBarView.swift */; };
 		75543D202A4605A9008805BD /* ScrollViewPagingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */; };
+		755790502A6E31CD000E63EA /* PresentationHeightContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557904F2A6E31CD000E63EA /* PresentationHeightContentView.swift */; };
 		7558F8642A4DF846008486A0 /* LongPressContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7558F8632A4DF845008486A0 /* LongPressContentView.swift */; };
 		755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */; };
 		7565E9AF2A3A0EA60076A362 /* SuperCustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */; };
@@ -137,6 +139,7 @@
 		75409B3D2A4E950400347352 /* Ext+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Color.swift"; sourceTree = "<group>"; };
 		75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilderExample.swift; sourceTree = "<group>"; };
 		7540D62B2A5F3C1F00A5E8A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		754215202A6ED77800162BF8 /* WaterFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFillView.swift; sourceTree = "<group>"; };
 		75472E1B2A412B6100E822AC /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		7549FB402A37C875002AEDC5 /* WildButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildButtonView.swift; sourceTree = "<group>"; };
 		754B8B6B2A3B685500409582 /* TypewriterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypewriterContentView.swift; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		754B8B7E2A3B72CD00409582 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		754DDFC22A58827D00609569 /* AnimatedSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSearchBarView.swift; sourceTree = "<group>"; };
 		75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewPagingAPI.swift; sourceTree = "<group>"; };
+		7557904F2A6E31CD000E63EA /* PresentationHeightContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationHeightContentView.swift; sourceTree = "<group>"; };
 		7558F8632A4DF845008486A0 /* LongPressContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressContentView.swift; sourceTree = "<group>"; };
 		755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
 		7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperCustomTabBarView.swift; sourceTree = "<group>"; };
@@ -442,6 +446,8 @@
 				7523AAB62A40A2C8006DB270 /* Extensions */,
 				759383D12A3622F30016EA29 /* Preview Content */,
 				75D5111A2A6DAF1D00D671E0 /* BoomView.swift */,
+				7557904F2A6E31CD000E63EA /* PresentationHeightContentView.swift */,
+				754215202A6ED77800162BF8 /* WaterFillView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -679,6 +685,7 @@
 				7512BF892A5B4183001EEB93 /* CardFlipView.swift in Sources */,
 				75409B402A4E9F2100347352 /* ViewBuilderExample.swift in Sources */,
 				75BBCBFA2A4C6D7300DD03C2 /* BlurContentView.swift in Sources */,
+				755790502A6E31CD000E63EA /* PresentationHeightContentView.swift in Sources */,
 				75F9F96A2A5725260073F61A /* NuemorphicProgressCircleView.swift in Sources */,
 				759CFAE12A39897B006C0DC4 /* CustomProgressBar.swift in Sources */,
 				75FA49952A6CE8B800BC9BCB /* TransitionTestView.swift in Sources */,
@@ -698,6 +705,7 @@
 				75E888B42A41F75600F6B52A /* SideMenuView.swift in Sources */,
 				75E888BA2A41FAD200F6B52A /* SideMenuOptionView.swift in Sources */,
 				75E888B62A41F76700F6B52A /* SideMenuParentContentView.swift in Sources */,
+				754215212A6ED77800162BF8 /* WaterFillView.swift in Sources */,
 				7582855E2A5E4B5900B30161 /* CodeInputView.swift in Sources */,
 				758B3FE72A4CC11C00C624A8 /* CurrentOffsetScrollView.swift in Sources */,
 				75CB8C372A3A716600CE192D /* TypewriterView.swift in Sources */,
