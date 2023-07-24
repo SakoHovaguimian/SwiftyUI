@@ -75,6 +75,7 @@ struct SwiftUITestApp: App {
 //                navigationService: self.navigationService
 //            )
             
+//            BaseCardView()
 //            TransitionTestView()
 //            MatchedGeoView()
 //            PresentationHeightContentView()
