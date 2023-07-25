@@ -24,6 +24,9 @@ struct SwiftUITestApp: App {
     @State var codeInputText: String = ""
     @State private var debouncedText = ""
     
+    @State var materialUIText = ""
+    @State var materialUIPlaceholder = "Password"
+    
     var body: some Scene {
         WindowGroup {
   
@@ -79,7 +82,14 @@ struct SwiftUITestApp: App {
 //            TransitionTestView()
 //            MatchedGeoView()
 //            PresentationHeightContentView()
-            WaterFillView()
+//            WaterFillView()
+//            SuperFormContentView()
+//            MaterialUITextField(
+//                text: self.materialUIText,
+//                placeholder: self.materialUIPlaceholder,
+//                isSecureEntry: true
+//            )
+//            .padding(.horizontal, 32)
 //            BoomView()
 //            
 //            DemoFitnessCardView()
