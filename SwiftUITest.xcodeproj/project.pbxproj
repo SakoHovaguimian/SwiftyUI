@@ -63,6 +63,8 @@
 		7594FCB82A4734FE00EBB605 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7594FCB72A4734FE00EBB605 /* CustomTextView.swift */; };
 		7594FCBA2A474AAC00EBB605 /* Ext+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7594FCB92A474AAC00EBB605 /* Ext+UIApplication.swift */; };
 		75988F752A3A543C007EF7C6 /* NewCustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75988F742A3A543C007EF7C6 /* NewCustomTabBarView.swift */; };
+		759B8B5C2A6F3AD4008B19D7 /* SuperFontContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B8B5B2A6F3AD4008B19D7 /* SuperFontContentView.swift */; };
+		759B8B5E2A6F5468008B19D7 /* MaterialUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759B8B5D2A6F5468008B19D7 /* MaterialUITextField.swift */; };
 		759CFADF2A3924DD006C0DC4 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759CFADE2A3924DD006C0DC4 /* GridView.swift */; };
 		759CFAE12A39897B006C0DC4 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759CFAE02A39897B006C0DC4 /* CustomProgressBar.swift */; };
 		759CFAE32A398D4A006C0DC4 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759CFAE22A398D4A006C0DC4 /* CustomTabBarView.swift */; };
@@ -182,6 +184,8 @@
 		7594FCB72A4734FE00EBB605 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		7594FCB92A474AAC00EBB605 /* Ext+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+UIApplication.swift"; sourceTree = "<group>"; };
 		75988F742A3A543C007EF7C6 /* NewCustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustomTabBarView.swift; sourceTree = "<group>"; };
+		759B8B5B2A6F3AD4008B19D7 /* SuperFontContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperFontContentView.swift; sourceTree = "<group>"; };
+		759B8B5D2A6F5468008B19D7 /* MaterialUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialUITextField.swift; sourceTree = "<group>"; };
 		759CFADE2A3924DD006C0DC4 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		759CFAE02A39897B006C0DC4 /* CustomProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		759CFAE22A398D4A006C0DC4 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 				75ED82612A6C662E00A2CF0A /* ChartView.swift */,
 				75FA49942A6CE8B800BC9BCB /* TransitionTestView.swift */,
 				75FA49962A6CECF300BC9BCB /* MatchedGeoView.swift */,
+				759B8B5D2A6F5468008B19D7 /* MaterialUITextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,6 +453,7 @@
 				75D5111A2A6DAF1D00D671E0 /* BoomView.swift */,
 				7557904F2A6E31CD000E63EA /* PresentationHeightContentView.swift */,
 				754215202A6ED77800162BF8 /* WaterFillView.swift */,
+				759B8B5B2A6F3AD4008B19D7 /* SuperFontContentView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -668,6 +674,7 @@
 				759CFAE32A398D4A006C0DC4 /* CustomTabBarView.swift in Sources */,
 				7549FB412A37C875002AEDC5 /* WildButtonView.swift in Sources */,
 				753356152A3D7CC000A42D6C /* GridContentView.swift in Sources */,
+				759B8B5E2A6F5468008B19D7 /* MaterialUITextField.swift in Sources */,
 				750D45DB2A3CCED500756005 /* RedactedView.swift in Sources */,
 				7593F19D2A6482D900BBE7BF /* CoordinatorTestView.swift in Sources */,
 				754DDFC32A58827D00609569 /* AnimatedSearchBarView.swift in Sources */,
@@ -705,6 +712,7 @@
 				75E888B42A41F75600F6B52A /* SideMenuView.swift in Sources */,
 				75E888BA2A41FAD200F6B52A /* SideMenuOptionView.swift in Sources */,
 				75E888B62A41F76700F6B52A /* SideMenuParentContentView.swift in Sources */,
+				759B8B5C2A6F3AD4008B19D7 /* SuperFontContentView.swift in Sources */,
 				754215212A6ED77800162BF8 /* WaterFillView.swift in Sources */,
 				7582855E2A5E4B5900B30161 /* CodeInputView.swift in Sources */,
 				758B3FE72A4CC11C00C624A8 /* CurrentOffsetScrollView.swift in Sources */,
