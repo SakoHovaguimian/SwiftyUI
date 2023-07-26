@@ -46,21 +46,26 @@ struct WStackExamplesView: View {
         "🍠 Roasted Sweet Potato",
     ]
     
+    @State var badges: [String] = [
+    "SwiftUI", "Programming", "iOS", "Mobile Development", "😎"
+    ]
+    
     var body: some View {
+        
         
         ScrollView {
             
             VStack(alignment: .leading, spacing: 32) {
                 
-                WStack(fruits, spacing: 4, lineSpacing: 4) { fruit in
-                    Text(fruit)
-                        .padding(.vertical, 6)
-                        .padding(.horizontal, 8)
-                        .background(backgroundColor(fruit: fruit))
-                        .cornerRadius(20)
-                        .onTapGesture {
-                            selectFruit(fruit)
+                WStack(self.badges, spacing: 4, lineSpacing: 4) { badge in
+                    
+                    Badge(name: badge, color: Color(red: 228/255, green: 237/255, blue: 254/255), type: .removable({
+                        withAnimation {
+                            self.badges.removeAll { $0 == badge }
                         }
+                    }))
+                    .transition(.opacity)
+                    
                 }
                 
                 WStack(Array(fruits[0...3]), spacing: 4, lineSpacing: 4, lineLimit: 2, isHiddenLastItem: true) { fruit in
