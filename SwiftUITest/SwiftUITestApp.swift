@@ -99,6 +99,8 @@ struct SwiftUITestApp: App {
             
 //            ProductionTabBarContentView()
             
+            MeshGradientView()
+            
         }
     }
     
