@@ -57,14 +57,18 @@ struct WStackExamplesView: View {
             
             VStack(alignment: .leading, spacing: 32) {
                 
-                WStack(self.badges, spacing: 4, lineSpacing: 4) { badge in
+                if self.badges.count > 0 {
                     
-                    Badge(name: badge, color: Color(red: 228/255, green: 237/255, blue: 254/255), type: .removable({
-                        withAnimation {
-                            self.badges.removeAll { $0 == badge }
-                        }
-                    }))
-                    .transition(.opacity)
+                    WStack(self.badges, spacing: 4, lineSpacing: 4) { badge in
+                        
+                        Badge(name: badge, color: Color(red: 228/255, green: 237/255, blue: 254/255), type: .removable({
+                            withAnimation {
+                                self.badges.removeAll { $0 == badge }
+                            }
+                        }))
+                        .transition(.opacity)
+                        
+                    }
                     
                 }
                 

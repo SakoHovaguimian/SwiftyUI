@@ -79,6 +79,7 @@
 		75B5A8852A3BD96700378C7B /* ZoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8842A3BD96700378C7B /* ZoomView.swift */; };
 		75B5A8872A3C0EB600378C7B /* DevToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8862A3C0EB600378C7B /* DevToolsView.swift */; };
 		75B85B7A2A452B5B0014112F /* BackgroundTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B85B792A452B5B0014112F /* BackgroundTestView.swift */; };
+		75BA44732A71A253003A260D /* MeshGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA44722A71A253003A260D /* MeshGradientView.swift */; };
 		75BBCBFA2A4C6D7300DD03C2 /* BlurContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BBCBF92A4C6D7300DD03C2 /* BlurContentView.swift */; };
 		75C29F692A4A9F71003859B7 /* TikTokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C29F682A4A9F71003859B7 /* TikTokView.swift */; };
 		75C5A59A2A5F466200B66067 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 75C5A5992A5F466200B66067 /* FirebaseAuth */; };
@@ -88,6 +89,7 @@
 		75CB8C372A3A716600CE192D /* TypewriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CB8C362A3A716600CE192D /* TypewriterView.swift */; };
 		75CE29642A70935500FD5F05 /* HashtagTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE29632A70935500FD5F05 /* HashtagTextView.swift */; };
 		75CE29662A7099FF00FD5F05 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE29652A7099FE00FD5F05 /* BadgeView.swift */; };
+		75CE29682A70D81400FD5F05 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE29672A70D81400FD5F05 /* CurrencyTextField.swift */; };
 		75D122682A3F62050024E60C /* TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D122672A3F62050024E60C /* TokenView.swift */; };
 		75D5111B2A6DAF1D00D671E0 /* BoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D5111A2A6DAF1D00D671E0 /* BoomView.swift */; };
 		75D898A82A5D0D5A00BEE17B /* GrowingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D898A72A5D0D5A00BEE17B /* GrowingTextField.swift */; };
@@ -205,6 +207,7 @@
 		75B5A8842A3BD96700378C7B /* ZoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomView.swift; sourceTree = "<group>"; };
 		75B5A8862A3C0EB600378C7B /* DevToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsView.swift; sourceTree = "<group>"; };
 		75B85B792A452B5B0014112F /* BackgroundTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTestView.swift; sourceTree = "<group>"; };
+		75BA44722A71A253003A260D /* MeshGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshGradientView.swift; sourceTree = "<group>"; };
 		75BBCBF92A4C6D7300DD03C2 /* BlurContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurContentView.swift; sourceTree = "<group>"; };
 		75C29F682A4A9F71003859B7 /* TikTokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokView.swift; sourceTree = "<group>"; };
 		75C5A59B2A5F85F600B66067 /* FirebaseTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestView.swift; sourceTree = "<group>"; };
@@ -214,6 +217,7 @@
 		75CB8C362A3A716600CE192D /* TypewriterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypewriterView.swift; sourceTree = "<group>"; };
 		75CE29632A70935500FD5F05 /* HashtagTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashtagTextView.swift; sourceTree = "<group>"; };
 		75CE29652A7099FE00FD5F05 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		75CE29672A70D81400FD5F05 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		75D122672A3F62050024E60C /* TokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenView.swift; sourceTree = "<group>"; };
 		75D5111A2A6DAF1D00D671E0 /* BoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoomView.swift; sourceTree = "<group>"; };
 		75D898A72A5D0D5A00BEE17B /* GrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextField.swift; sourceTree = "<group>"; };
@@ -468,6 +472,8 @@
 				75E138592A705469006194F9 /* Sidebar */,
 				75E138542A7050D7006194F9 /* WebView */,
 				75CE29652A7099FE00FD5F05 /* BadgeView.swift */,
+				75CE29672A70D81400FD5F05 /* CurrencyTextField.swift */,
+				75BA44722A71A253003A260D /* MeshGradientView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -713,6 +719,7 @@
 				754B8B722A3B6B3800409582 /* GradientLabel.swift in Sources */,
 				759CFAE32A398D4A006C0DC4 /* CustomTabBarView.swift in Sources */,
 				7549FB412A37C875002AEDC5 /* WildButtonView.swift in Sources */,
+				75CE29682A70D81400FD5F05 /* CurrencyTextField.swift in Sources */,
 				753356152A3D7CC000A42D6C /* GridContentView.swift in Sources */,
 				759B8B5E2A6F5468008B19D7 /* MaterialUITextField.swift in Sources */,
 				750D45DB2A3CCED500756005 /* RedactedView.swift in Sources */,
@@ -727,6 +734,7 @@
 				7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */,
 				75C5EE3A2A49E79B00FA9056 /* OnboardingViewCarousel.swift in Sources */,
 				754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */,
+				75BA44732A71A253003A260D /* MeshGradientView.swift in Sources */,
 				756F0A572A67370C0075C04C /* DemoFitnessCardView.swift in Sources */,
 				7570703D2A5874FC00BD4098 /* PintrestLayout.swift in Sources */,
 				7512BF892A5B4183001EEB93 /* CardFlipView.swift in Sources */,
