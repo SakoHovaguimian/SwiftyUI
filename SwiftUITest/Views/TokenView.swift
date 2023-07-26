@@ -142,6 +142,7 @@ struct TokenListView: View {
                 }
                 
             }
+            
         }
         .padding(.horizontal, self.padding)
     }
