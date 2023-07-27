@@ -17,6 +17,8 @@
 		7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523AAB22A409448006DB270 /* PlaygroundView.swift */; };
 		7523AAB52A409DEA006DB270 /* Ext+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523AAB42A409DEA006DB270 /* Ext+Double.swift */; };
 		752995592A730EC0006854F3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752995582A730EC0006854F3 /* PhotoPickerView.swift */; };
+		7529955B2A731111006854F3 /* DateTimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529955A2A731111006854F3 /* DateTimeService.swift */; };
+		7529955D2A7312C7006854F3 /* DateTimeTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529955C2A7312C7006854F3 /* DateTimeTestView.swift */; };
 		753356152A3D7CC000A42D6C /* GridContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356142A3D7CC000A42D6C /* GridContentView.swift */; };
 		753356172A3E157E00A42D6C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753356162A3E157E00A42D6C /* Colors.xcassets */; };
 		753356192A3E16F700A42D6C /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356182A3E16F700A42D6C /* AppColor.swift */; };
@@ -144,6 +146,8 @@
 		7523AAB22A409448006DB270 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		7523AAB42A409DEA006DB270 /* Ext+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Double.swift"; sourceTree = "<group>"; };
 		752995582A730EC0006854F3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
+		7529955A2A731111006854F3 /* DateTimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeService.swift; sourceTree = "<group>"; };
+		7529955C2A7312C7006854F3 /* DateTimeTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeTestView.swift; sourceTree = "<group>"; };
 		753356142A3D7CC000A42D6C /* GridContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContentView.swift; sourceTree = "<group>"; };
 		753356162A3E157E00A42D6C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		753356182A3E16F700A42D6C /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
@@ -480,6 +484,7 @@
 				75BA44722A71A253003A260D /* MeshGradientView.swift */,
 				756A35EE2A71A8E8007BBFDA /* SegmentedControlView.swift */,
 				752995582A730EC0006854F3 /* PhotoPickerView.swift */,
+				7529955C2A7312C7006854F3 /* DateTimeTestView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 			children = (
 				75EE19372A5EF77A003CD5EB /* FirebaseService.swift */,
 				7503B91E2A60867900E83093 /* NavigationService.swift */,
+				7529955A2A731111006854F3 /* DateTimeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -797,6 +803,7 @@
 				75C5A59C2A5F85F600B66067 /* FirebaseTestView.swift in Sources */,
 				750D45DD2A3CF69900756005 /* HorizontalPagingView.swift in Sources */,
 				756A35EF2A71A8E8007BBFDA /* SegmentedControlView.swift in Sources */,
+				7529955B2A731111006854F3 /* DateTimeService.swift in Sources */,
 				75C5A59F2A5FAC9800B66067 /* AppFont.swift in Sources */,
 				7523AAB52A409DEA006DB270 /* Ext+Double.swift in Sources */,
 				7503B91F2A60867900E83093 /* NavigationService.swift in Sources */,
@@ -808,6 +815,7 @@
 				75AB52BD2A4352B5001E086E /* HomePageView.swift in Sources */,
 				75F575BF2A69C22A0060F764 /* WStackViewPreview.swift in Sources */,
 				759383CC2A3622F20016EA29 /* SwiftUITestApp.swift in Sources */,
+				7529955D2A7312C7006854F3 /* DateTimeTestView.swift in Sources */,
 				75ABC6942A52360A00633F78 /* SplashScreenItem.swift in Sources */,
 				75D5111B2A6DAF1D00D671E0 /* BoomView.swift in Sources */,
 				75E0F4512A55DE34000AAC5A /* CombineInputView.swift in Sources */,
