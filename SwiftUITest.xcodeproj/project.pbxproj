@@ -16,6 +16,7 @@
 		7512BF892A5B4183001EEB93 /* CardFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7512BF882A5B4183001EEB93 /* CardFlipView.swift */; };
 		7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523AAB22A409448006DB270 /* PlaygroundView.swift */; };
 		7523AAB52A409DEA006DB270 /* Ext+Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7523AAB42A409DEA006DB270 /* Ext+Double.swift */; };
+		752995592A730EC0006854F3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752995582A730EC0006854F3 /* PhotoPickerView.swift */; };
 		753356152A3D7CC000A42D6C /* GridContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356142A3D7CC000A42D6C /* GridContentView.swift */; };
 		753356172A3E157E00A42D6C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753356162A3E157E00A42D6C /* Colors.xcassets */; };
 		753356192A3E16F700A42D6C /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356182A3E16F700A42D6C /* AppColor.swift */; };
@@ -142,6 +143,7 @@
 		7512BF882A5B4183001EEB93 /* CardFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlipView.swift; sourceTree = "<group>"; };
 		7523AAB22A409448006DB270 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		7523AAB42A409DEA006DB270 /* Ext+Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Double.swift"; sourceTree = "<group>"; };
+		752995582A730EC0006854F3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		753356142A3D7CC000A42D6C /* GridContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContentView.swift; sourceTree = "<group>"; };
 		753356162A3E157E00A42D6C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		753356182A3E16F700A42D6C /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 				75CE29672A70D81400FD5F05 /* CurrencyTextField.swift */,
 				75BA44722A71A253003A260D /* MeshGradientView.swift */,
 				756A35EE2A71A8E8007BBFDA /* SegmentedControlView.swift */,
+				752995582A730EC0006854F3 /* PhotoPickerView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				75E138562A7050EC006194F9 /* CustomWebView.swift in Sources */,
 				759CFADF2A3924DD006C0DC4 /* GridView.swift in Sources */,
 				75016BC32A52A7B1001AE249 /* CenterContentView.swift in Sources */,
+				752995592A730EC0006854F3 /* PhotoPickerView.swift in Sources */,
 				75AB52BD2A4352B5001E086E /* HomePageView.swift in Sources */,
 				75F575BF2A69C22A0060F764 /* WStackViewPreview.swift in Sources */,
 				759383CC2A3622F20016EA29 /* SwiftUITestApp.swift in Sources */,
