@@ -28,6 +28,10 @@ struct BlurContentView: View {
 
 struct BlurRepresentableView: View {
     
+    // TODO: - This should take a content view as a parameter and pass it in...
+    // Pass dismiss action and successAction to the contentView
+    // Might not need it i guess...
+    
     let dismissAction: (() -> ())?
     let successAction: (() -> ())?
 

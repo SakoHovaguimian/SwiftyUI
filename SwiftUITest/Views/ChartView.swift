@@ -21,14 +21,18 @@ struct ChartData: Identifiable {
 
 struct BarChartExampleView: View {
     
-    let data = [ChartData(type: "fish", count: 10),
-                ChartData(type: "reptils", count: 21),
-                ChartData(type: "bird", count: 18), ChartData(type: "dog", count: 40),
-                ChartData (type: "cat", count: 65)]
+    let data = [ChartData(type: "Sako H", count: 100),
+                ChartData(type: "Michael C", count: 100),
+                ChartData(type: "KC G", count: 18),
+                ChartData(type: "Shaun P", count: 40),
+                ChartData (type: "Jorge G", count: 65)]
+    
     var body: some View {
         
-        Chart(self.data) { data in
-            
+        let sortedData = data.sorted(by: { $0.count > $1.count })
+        
+        Chart(sortedData) { data in
+
             BarMark(
                 x: .value("Type", data.type),
                 y: .value("Population", data.count)
