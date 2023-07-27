@@ -99,3 +99,8 @@ struct MatchedGeoView: View {
         }
     }
 }
+
+
+#Preview {
+    MatchedGeoView()
+}

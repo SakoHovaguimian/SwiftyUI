@@ -40,6 +40,7 @@
 		7558F8642A4DF846008486A0 /* LongPressContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7558F8632A4DF845008486A0 /* LongPressContentView.swift */; };
 		755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */; };
 		7565E9AF2A3A0EA60076A362 /* SuperCustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */; };
+		756A35EF2A71A8E8007BBFDA /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A35EE2A71A8E8007BBFDA /* SegmentedControlView.swift */; };
 		756B39AA2A58CA380067F9BB /* GradientCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B39A92A58CA380067F9BB /* GradientCardView.swift */; };
 		756D74412A571F1B00DBDBBA /* TimerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D74402A571F1B00DBDBBA /* TimerManager.swift */; };
 		756D74432A571FDF00DBDBBA /* DashProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756D74422A571FDF00DBDBBA /* DashProgressCircle.swift */; };
@@ -165,6 +166,7 @@
 		7558F8632A4DF845008486A0 /* LongPressContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressContentView.swift; sourceTree = "<group>"; };
 		755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
 		7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperCustomTabBarView.swift; sourceTree = "<group>"; };
+		756A35EE2A71A8E8007BBFDA /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		756B39A92A58CA380067F9BB /* GradientCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientCardView.swift; sourceTree = "<group>"; };
 		756D74402A571F1B00DBDBBA /* TimerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerManager.swift; sourceTree = "<group>"; };
 		756D74422A571FDF00DBDBBA /* DashProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashProgressCircle.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 				75CE29652A7099FE00FD5F05 /* BadgeView.swift */,
 				75CE29672A70D81400FD5F05 /* CurrencyTextField.swift */,
 				75BA44722A71A253003A260D /* MeshGradientView.swift */,
+				756A35EE2A71A8E8007BBFDA /* SegmentedControlView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -790,6 +793,7 @@
 				75B2DA7A2A57592E00A52E22 /* NewStretchyHeaderView.swift in Sources */,
 				75C5A59C2A5F85F600B66067 /* FirebaseTestView.swift in Sources */,
 				750D45DD2A3CF69900756005 /* HorizontalPagingView.swift in Sources */,
+				756A35EF2A71A8E8007BBFDA /* SegmentedControlView.swift in Sources */,
 				75C5A59F2A5FAC9800B66067 /* AppFont.swift in Sources */,
 				7523AAB52A409DEA006DB270 /* Ext+Double.swift in Sources */,
 				7503B91F2A60867900E83093 /* NavigationService.swift in Sources */,

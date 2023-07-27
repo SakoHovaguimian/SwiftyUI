@@ -13,6 +13,7 @@ struct WStackExamplesView: View {
     
     let fruits = [
         "🍎 Red Apple",
+        "🥑 Guac",
         "🍐 Pear",
         "🍊 Tangerine",
         "🍋 Lemon",

@@ -53,8 +53,8 @@ struct SwiftUITestApp: App {
 //            ZStack {
 //                
 //                // MARK: Replace this with initial ContentView
-//                DevToolsView()
-//                    .environmentObject(NavSettings())
+                DevToolsView()
+                    .environmentObject(NavSettings())
 //                
 //                SplashScreenView()
 //                    .opacity(self.opacity)
@@ -99,7 +99,8 @@ struct SwiftUITestApp: App {
             
 //            ProductionTabBarContentView()
             
-            MeshGradientView()
+//            MeshGradientView()
+//            SegmentedControlTestView()
             
         }
     }
