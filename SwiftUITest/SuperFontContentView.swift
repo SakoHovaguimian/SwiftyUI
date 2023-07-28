@@ -99,7 +99,7 @@ struct SuperFormContentView: View {
                 }
             }
 
-            .tint(.pink)
+            .tint(.indigo)
             .navigationBarTitle("Settings")
         }
     }

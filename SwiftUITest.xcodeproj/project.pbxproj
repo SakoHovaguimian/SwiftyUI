@@ -54,6 +54,7 @@
 		757DE9742A4E2CB00099FE6E /* TikTokSideWaysContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757DE9732A4E2CB00099FE6E /* TikTokSideWaysContentView.swift */; };
 		7582855E2A5E4B5900B30161 /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7582855D2A5E4B5900B30161 /* CodeInputView.swift */; };
 		758285602A5E504400B30161 /* Ext+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7582855F2A5E504400B30161 /* Ext+String.swift */; };
+		758552272A7319C4007757F9 /* SpacingTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758552262A7319C4007757F9 /* SpacingTestView.swift */; };
 		758B3FE72A4CC11C00C624A8 /* CurrentOffsetScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B3FE62A4CC11C00C624A8 /* CurrentOffsetScrollView.swift */; };
 		759383CC2A3622F20016EA29 /* SwiftUITestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */; };
 		759383CE2A3622F20016EA29 /* FirstPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383CD2A3622F20016EA29 /* FirstPlaygroundView.swift */; };
@@ -183,6 +184,7 @@
 		757DE9732A4E2CB00099FE6E /* TikTokSideWaysContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokSideWaysContentView.swift; sourceTree = "<group>"; };
 		7582855D2A5E4B5900B30161 /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
 		7582855F2A5E504400B30161 /* Ext+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+String.swift"; sourceTree = "<group>"; };
+		758552262A7319C4007757F9 /* SpacingTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingTestView.swift; sourceTree = "<group>"; };
 		758B3FE62A4CC11C00C624A8 /* CurrentOffsetScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOffsetScrollView.swift; sourceTree = "<group>"; };
 		759383C82A3622F20016EA29 /* SwiftUITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestApp.swift; sourceTree = "<group>"; };
@@ -485,6 +487,7 @@
 				756A35EE2A71A8E8007BBFDA /* SegmentedControlView.swift */,
 				752995582A730EC0006854F3 /* PhotoPickerView.swift */,
 				7529955C2A7312C7006854F3 /* DateTimeTestView.swift */,
+				758552262A7319C4007757F9 /* SpacingTestView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				75EE19382A5EF77A003CD5EB /* FirebaseService.swift in Sources */,
 				754B8B782A3B70D200409582 /* CustomButton.swift in Sources */,
 				75472E1C2A412B6100E822AC /* CustomAlertView.swift in Sources */,
+				758552272A7319C4007757F9 /* SpacingTestView.swift in Sources */,
 				75E8C1FB2A4A292B00C3A564 /* AnimationView.swift in Sources */,
 				7594FCBA2A474AAC00EBB605 /* Ext+UIApplication.swift in Sources */,
 				754B8B7B2A3B729A00409582 /* HapticOption.swift in Sources */,

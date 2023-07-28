@@ -10,17 +10,18 @@ import SwiftUI
 struct MeshGradientView: View {
     
     @State var gradientAngle: Double = 0
+    private var  shouldAnimate: Bool = false
+    private var colors: [Color]
     
-    let colors: [Color] = [
-        .pink,
-        .red,
-        .orange,
-        .yellow,
-        .green,
-        .blue,
-        .purple,
-        .pink
-    ]
+    init(gradientAngle: Double,
+         shouldAnimate: Bool = false,
+         colors: [Color]) {
+        
+        self.gradientAngle = gradientAngle
+        self.shouldAnimate = shouldAnimate
+        self.colors = colors
+        
+    }
     
     var body: some View {
         
@@ -53,5 +54,18 @@ struct MeshGradientView: View {
 }
 
 #Preview {
-    MeshGradientView(gradientAngle: 0)
+    
+    MeshGradientView(gradientAngle: 0,
+                     shouldAnimate: true,
+                     colors: [
+                        .pink,
+                        .red,
+                        .orange,
+                        .yellow,
+                        .green,
+                        .blue,
+                        .purple,
+                        .pink
+                     ])
+    
 }
