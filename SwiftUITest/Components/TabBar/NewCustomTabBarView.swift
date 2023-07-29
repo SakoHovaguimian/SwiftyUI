@@ -10,37 +10,39 @@
 import SwiftUI
 
 /// Customizable TabBar
-///
-///  ```swift
-///  // 'Default' style
-///  TabBarDefaultView(
-///     tabs: tabs,
-///     selection: $selection,
-///     accentColor: .blue,
-///     defaultColor: .gray,
-///     backgroundColor: .white,
-///     font: .caption,
-///     iconSize: 20,
-///     spacing: 6,
-///     insetPadding: 10,
-///     outerPadding: 0,
-///     cornerRadius: 0)
-///
-///  // 'Floating' style
-///  TabBarDefaultView(
-///     tabs: tabs,
-///     selection: $selection,
-///     accentColor: .blue,
-///     defaultColor: .gray,
-///     backgroundColor: .white,
-///     font: .caption,
-///     iconSize: 20,
-///     spacing: 6,
-///     insetPadding: 12,
-///     outerPadding: 12,
-///     cornerRadius: 30,
-///     shadowRadius: 8)
-///  ```
+//let floatingTabBar = TabBarDefaultView(
+//    tabs: self.tabs,
+//    selection: self.$selection,
+//    badges: self.badges,
+//    accentColor: .black,
+//    defaultColor: .gray,
+//    backgroundColor: .white,
+//    font: .system(size: 10, weight: .medium),
+//    iconSize: 18,
+//    spacing: 2,
+//    horizontalInsetPadding: 2,
+//    verticalInsetPadding: 16,
+//    outerPadding: 24,
+//    cornerRadius: 11, // 99 for full corner raidus
+//    shadowRadius: 23
+//)
+//
+//let standardTabBar = TabBarDefaultView(
+//    tabs: self.tabs,
+//    selection: self.$selection,
+//    badges: self.badges,
+//    accentColor: .black,
+//    defaultColor: .gray,
+//    backgroundColor: .white,
+//    font: .system(size: 10, weight: .medium),
+//    iconSize: 18,
+//    spacing: 4,
+//    horizontalInsetPadding: 16,
+//    verticalInsetPadding: 25,
+//    outerPadding: 0,
+//    cornerRadius: 0
+//)
+
 public struct TabBarDefaultView: View {
     
     let tabs: [TabBarStruct]
@@ -57,12 +59,16 @@ public struct TabBarDefaultView: View {
     let outerPadding: CGFloat
     let cornerRadius: CGFloat
     let shadowRadius: CGFloat
+    let tabBarAction: (TabBarOption) -> ()
     
     @State var localSelection: TabBarItem
+    
+    var shouldHideTabBar: Bool = false
     
     public init(
         tabs: [TabBarStruct],
         selection: Binding<TabBarItem>,
+        shouldHideTabBar: Bool = false,
         badges: [Int] = [],
         accentColor: Color = .blue,
         defaultColor: Color = .gray,
@@ -74,10 +80,12 @@ public struct TabBarDefaultView: View {
         verticalInsetPadding: CGFloat = 10,
         outerPadding: CGFloat = 0,
         cornerRadius: CGFloat = 0,
-        shadowRadius: CGFloat = 0
+        shadowRadius: CGFloat = 0,
+        tabBarAction: @escaping (TabBarOption) -> ()
     ) {
         self._selection = selection
         self.tabs = tabs
+        self.shouldHideTabBar = shouldHideTabBar
         self.badges = badges
         self.accentColor = accentColor
         self.defaultColor = defaultColor
@@ -90,6 +98,7 @@ public struct TabBarDefaultView: View {
         self.outerPadding = outerPadding
         self.cornerRadius = cornerRadius
         self.shadowRadius = shadowRadius
+        self.tabBarAction = tabBarAction
         
         self.localSelection = selection.wrappedValue
     }
@@ -127,9 +136,12 @@ public struct TabBarDefaultView: View {
                 tabView(tab.tabBarItem, badgeCount: badgeCountForTab)
                     .background(Color.black.opacity(0.001))
                     .onTapGesture {
+                        
+                        self.tabBarAction(tab)
                         switchToTab(tab: tab.tabBarItem)
+                        
                     }
-                 
+                
             }
             
         }
@@ -149,11 +161,13 @@ public struct TabBarDefaultView: View {
         .padding(self.outerPadding)
         .shadow(radius: self.shadowRadius)
         .edgesIgnoringSafeArea(.all)
-        .onChange(of: self.selection) { newTabSelection in
+        .onChange(of: self.selection) { _, newTabSelection in
             withAnimation(.easeIn(duration: 0.3)) {
                 self.localSelection = newTabSelection
             }
         }
+        .offset(y: self.shouldHideTabBar ? 100 : 0)
+        .animation(.bouncy, value: self.shouldHideTabBar)
         
     }
     
@@ -293,11 +307,13 @@ public struct TabBarItem: Hashable {
 }
 
 struct TabBarItemsPreferenceKey: PreferenceKey {
+    
     static var defaultValue: [AnyHashable] = []
     
     static func reduce(value: inout [AnyHashable], nextValue: () -> [AnyHashable]) {
         value += nextValue()
     }
+    
 }
 
 struct TabBarItemViewModifer: ViewModifier {
@@ -365,9 +381,14 @@ public struct TabBarViewBuilder<Content:View, TabBar: View>: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
                 tabBar
+                    .offset(y: 24)
             }
         case .zStack:
             ZStack(alignment: .bottom) {
+                
+                Color.clear
+                    .ignoresSafeArea()
+                
                 content
                 Spacer()
                 tabBar

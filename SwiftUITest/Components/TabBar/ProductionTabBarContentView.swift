@@ -15,7 +15,7 @@ import SwiftUI
 // Support custom in Enum...
 // Custom should take in Content as a param
 
-public class TabBarStruct {
+public class TabBarStruct: Identifiable {
     
     var tabBarOption: TabBarOption
     var badgeCount: Int = 0
@@ -29,9 +29,9 @@ public class TabBarStruct {
     
 }
 
-public enum TabBarOption: CaseIterable {
+public enum TabBarOption: Int, CaseIterable, Hashable {
     
-    case home
+    case home = 0
     case browse
     case discover
     case profile
@@ -50,76 +50,84 @@ public enum TabBarOption: CaseIterable {
 }
 
 struct ProductionTabBarContentView: View {
+    
+    // MainCoordinator should pass these @State objects in for selection && shouldHideTabBar that way it can manage it
+    // Navigation Service should receive a Binding<Bool> for shouldHideTabBarView so it could do it's thing...
+    // NOTE: If we nest this tab bar in a navStack will the fullScreenCover be topLevel or the tabbar?
 
     @State private var tabs: [TabBarStruct] = TabBarOption.allCases.map({ .init(tabBarOption: $0, badgeCount: 0) })
     @State private var badges: [Int] = [0,0,0,0]
     @State var selection = TabBarOption.home.tabBarItem
+    @State private var shouldHideTabBar: Bool = false
     
     var body: some View {
         
         TabBarViewBuilder(style: .zStack) {
             
-            RoundedRectangle(cornerRadius: 0)
-                .fill(Color.pink)
-                .tabBarItem(tab: tabs[0].tabBarOption.tabBarItem, selection: selection)
-                .edgesIgnoringSafeArea(.all)
-                .onTapGesture {
-                    badges[0] = 1
-                    badges[1] = 3
-                    badges[2] = 7
-                    badges[3] = 9
-                    Haptics.shared.vibrate(option: .heavy)
-                }
-                .onAppear {
-//                    resetBadgeCount(index: 0)
-                }
-            //                            .ignoresSafeArea()
-            
-            RoundedRectangle(cornerRadius: 0)
-                .fill(Color.green)
-                .onAppear {
-//                    resetBadgeCount(index: 1)
-                }
-                .tabBarItem(tab: tabs[1].tabBarOption.tabBarItem, selection: selection)
-                .edgesIgnoringSafeArea(.all)
-            
-            RoundedRectangle(cornerRadius: 0)
-                .fill(Color.orange)
-                .onAppear {
-//                    resetBadgeCount(index: 2)
-                }
-                .tabBarItem(tab: tabs[2].tabBarOption.tabBarItem, selection: selection)
-                .edgesIgnoringSafeArea(.all)
-            
-            RoundedRectangle(cornerRadius: 0)
-                .fill(Color.indigo)
-                .onAppear {
-//                    resetBadgeCount(index: 3)
-                }
-                .tabBarItem(tab: tabs[3].tabBarOption.tabBarItem, selection: selection)
-                .edgesIgnoringSafeArea(.all)
+            ForEach(self.tabs) { tab in
+                
+//                RoundedRectangle(cornerRadius: 0) // This is where the view goes
+                
+//                switch tab.tabBarOption {
+//                case .home: print("TEST")
+//                default: print("OTHER")
+//                }
+                MeshGradientView(colors: [
+                    .yellow,
+                    .red,
+                    .pink,
+                    .cyan
+                ])
+//                WStackExamplesView()
+//                PhotoPickerTestView()
+//                SideMenuTestView()
+                    .tabBarItem(tab: tab.tabBarOption.tabBarItem, selection: selection)
+//                    .edgesIgnoringSafeArea(.all)
+                    .onAppear {
+                        resetBadgeCount(index: 0)
+                    }
+                
+            }
             
         } tabBar: {
+            
             TabBarDefaultView(
                 tabs: self.tabs,
                 selection: self.$selection,
+                shouldHideTabBar: self.shouldHideTabBar,
                 badges: self.badges,
                 accentColor: .black,
                 defaultColor: .gray,
                 backgroundColor: .white,
-                font: .system(size: 10, weight: .medium),
+                font: .system(size: 10, weight: .medium), // Pass Custom Font
                 iconSize: 18,
                 spacing: 2,
                 horizontalInsetPadding: 2,
                 verticalInsetPadding: 16,
                 outerPadding: 24,
-                cornerRadius: 11, // 99 for full corner raidus
-                shadowRadius: 23
+                cornerRadius: 11,
+                shadowRadius: 23, tabBarAction: { tab in
+                    
+                    // Handle Tab Bar Tap Here
+                    
+//                    badges[0] = 1
+//                    badges[1] = 3
+//                    badges[2] = 7
+//                    badges[3] = 9
+                    Haptics.shared.vibrate(option: .heavy)
+                    print("TAPPING THE TAB BAR")
+                    
+                }
             )
+            
         }
-        .onChange(of: self.selection) { newValue in
+        .onChange(of: self.selection) { _, newValue in
+            
+            // MARK: - This just resets badge count, doesn't need to be here
         
-            let indexForTab = self.tabs.firstIndex(where: { $0.tabBarOption.tabBarItem == newValue })
+            let indexForTab = self.tabs
+                .firstIndex(where: { $0.tabBarOption.tabBarItem == newValue })
+            
             resetBadgeCount(index: indexForTab ?? 0)
             
         }
@@ -133,40 +141,9 @@ struct ProductionTabBarContentView: View {
 }
 
 struct ProductionTabBarContentView_Previews: PreviewProvider {
+    
     static var previews: some View {
         ProductionTabBarContentView()
     }
+    
 }
-
-//let floatingTabBar = TabBarDefaultView(
-//    tabs: self.tabs,
-//    selection: self.$selection,
-//    badges: self.badges,
-//    accentColor: .black,
-//    defaultColor: .gray,
-//    backgroundColor: .white,
-//    font: .system(size: 10, weight: .medium),
-//    iconSize: 18,
-//    spacing: 2,
-//    horizontalInsetPadding: 2,
-//    verticalInsetPadding: 16,
-//    outerPadding: 24,
-//    cornerRadius: 11, // 99 for full corner raidus
-//    shadowRadius: 23
-//)
-//
-//let standardTabBar = TabBarDefaultView(
-//    tabs: self.tabs,
-//    selection: self.$selection,
-//    badges: self.badges,
-//    accentColor: .black,
-//    defaultColor: .gray,
-//    backgroundColor: .white,
-//    font: .system(size: 10, weight: .medium),
-//    iconSize: 18,
-//    spacing: 4,
-//    horizontalInsetPadding: 16,
-//    verticalInsetPadding: 25,
-//    outerPadding: 0,
-//    cornerRadius: 0
-//)

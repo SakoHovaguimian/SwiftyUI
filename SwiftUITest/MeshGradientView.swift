@@ -13,7 +13,7 @@ struct MeshGradientView: View {
     private var  shouldAnimate: Bool = false
     private var colors: [Color]
     
-    init(gradientAngle: Double,
+    init(gradientAngle: Double = 0,
          shouldAnimate: Bool = false,
          colors: [Color]) {
         
@@ -25,30 +25,36 @@ struct MeshGradientView: View {
     
     var body: some View {
         
-        ZStack {
+        GeometryReader { proxy in
             
-            Rectangle()
-            .fill(
-                AngularGradient(
-                    gradient: Gradient(colors: colors),
-                    center: .center, angle: .degrees(gradientAngle)
-                ))
-            .frame(width: UIScreen.main.bounds.width + 50, height: UIScreen.main.bounds.height + 50)
-            .brightness(0.2)
-            .saturation(0.7)
-            .blur(radius: 35)
-            
-        }
-        .edgesIgnoringSafeArea(.all)
-        .onAppear {
-            
-            withAnimation(Animation.linear(duration: 12).repeatForever(autoreverses: false)) {
+            ZStack {
                 
-                self.gradientAngle = 360
+                Rectangle()
+                .fill(
+                    AngularGradient(
+                        gradient: Gradient(colors: colors),
+                        center: .center, angle: .degrees(gradientAngle)
+                    ))
+                .brightness(0.2)
+                .saturation(0.7)
+                .blur(radius: 10)
+                .edgesIgnoringSafeArea(.all)
+                
+            }
+//            .frame(width: proxy.size.width + 55, height: proxy.size.height + 55)
+            .edgesIgnoringSafeArea(.all)
+            .onAppear {
+                
+                withAnimation(Animation.linear(duration: 12).repeatForever(autoreverses: false)) {
+                    
+                    self.gradientAngle = 360
+                    
+                }
                 
             }
             
         }
+        
     }
     
 }
