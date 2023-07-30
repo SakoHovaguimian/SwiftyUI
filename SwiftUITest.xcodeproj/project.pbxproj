@@ -19,6 +19,10 @@
 		752995592A730EC0006854F3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752995582A730EC0006854F3 /* PhotoPickerView.swift */; };
 		7529955B2A731111006854F3 /* DateTimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529955A2A731111006854F3 /* DateTimeService.swift */; };
 		7529955D2A7312C7006854F3 /* DateTimeTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529955C2A7312C7006854F3 /* DateTimeTestView.swift */; };
+		7529C6712A76FA8D001F325D /* SuperCustomTabBar1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C6702A76FA8D001F325D /* SuperCustomTabBar1.swift */; };
+		7529C6732A76FAA3001F325D /* Tabs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C6722A76FAA3001F325D /* Tabs.swift */; };
+		7529C6752A76FB26001F325D /* SuperCustomTabBar2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C6742A76FB26001F325D /* SuperCustomTabBar2.swift */; };
+		7529C6772A76FB2A001F325D /* SuperCustomTabBar3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7529C6762A76FB2A001F325D /* SuperCustomTabBar3.swift */; };
 		753356152A3D7CC000A42D6C /* GridContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356142A3D7CC000A42D6C /* GridContentView.swift */; };
 		753356172A3E157E00A42D6C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 753356162A3E157E00A42D6C /* Colors.xcassets */; };
 		753356192A3E16F700A42D6C /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753356182A3E16F700A42D6C /* AppColor.swift */; };
@@ -29,6 +33,8 @@
 		754215212A6ED77800162BF8 /* WaterFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754215202A6ED77800162BF8 /* WaterFillView.swift */; };
 		75472E1C2A412B6100E822AC /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75472E1B2A412B6100E822AC /* CustomAlertView.swift */; };
 		7549FB412A37C875002AEDC5 /* WildButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7549FB402A37C875002AEDC5 /* WildButtonView.swift */; };
+		754A23B42A76E590009AD08E /* MotionManagerTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A23B32A76E590009AD08E /* MotionManagerTestView.swift */; };
+		754A23B62A76E5B1009AD08E /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A23B52A76E5B1009AD08E /* MotionManager.swift */; };
 		754B8B6C2A3B685500409582 /* TypewriterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B6B2A3B685500409582 /* TypewriterContentView.swift */; };
 		754B8B702A3B69B200409582 /* ProductionTabBarContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B6F2A3B69B200409582 /* ProductionTabBarContentView.swift */; };
 		754B8B722A3B6B3800409582 /* GradientLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B712A3B6B3800409582 /* GradientLabel.swift */; };
@@ -151,6 +157,10 @@
 		752995582A730EC0006854F3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		7529955A2A731111006854F3 /* DateTimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeService.swift; sourceTree = "<group>"; };
 		7529955C2A7312C7006854F3 /* DateTimeTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeTestView.swift; sourceTree = "<group>"; };
+		7529C6702A76FA8D001F325D /* SuperCustomTabBar1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperCustomTabBar1.swift; sourceTree = "<group>"; };
+		7529C6722A76FAA3001F325D /* Tabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabs.swift; sourceTree = "<group>"; };
+		7529C6742A76FB26001F325D /* SuperCustomTabBar2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperCustomTabBar2.swift; sourceTree = "<group>"; };
+		7529C6762A76FB2A001F325D /* SuperCustomTabBar3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperCustomTabBar3.swift; sourceTree = "<group>"; };
 		753356142A3D7CC000A42D6C /* GridContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridContentView.swift; sourceTree = "<group>"; };
 		753356162A3E157E00A42D6C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		753356182A3E16F700A42D6C /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
@@ -161,6 +171,8 @@
 		754215202A6ED77800162BF8 /* WaterFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFillView.swift; sourceTree = "<group>"; };
 		75472E1B2A412B6100E822AC /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		7549FB402A37C875002AEDC5 /* WildButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildButtonView.swift; sourceTree = "<group>"; };
+		754A23B32A76E590009AD08E /* MotionManagerTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManagerTestView.swift; sourceTree = "<group>"; };
+		754A23B52A76E5B1009AD08E /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		754B8B6B2A3B685500409582 /* TypewriterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypewriterContentView.swift; sourceTree = "<group>"; };
 		754B8B6F2A3B69B200409582 /* ProductionTabBarContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionTabBarContentView.swift; sourceTree = "<group>"; };
 		754B8B712A3B6B3800409582 /* GradientLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLabel.swift; sourceTree = "<group>"; };
@@ -376,6 +388,17 @@
 			path = Sandbox;
 			sourceTree = "<group>";
 		};
+		7529C66F2A76FA75001F325D /* SuperCustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7529C6722A76FAA3001F325D /* Tabs.swift */,
+				7529C6702A76FA8D001F325D /* SuperCustomTabBar1.swift */,
+				7529C6742A76FB26001F325D /* SuperCustomTabBar2.swift */,
+				7529C6762A76FB2A001F325D /* SuperCustomTabBar3.swift */,
+			);
+			path = SuperCustomTabBar;
+			sourceTree = "<group>";
+		};
 		754B8B6D2A3B686000409582 /* TabBarPlayground */ = {
 			isa = PBXGroup;
 			children = (
@@ -495,6 +518,8 @@
 				752995582A730EC0006854F3 /* PhotoPickerView.swift */,
 				7529955C2A7312C7006854F3 /* DateTimeTestView.swift */,
 				758552262A7319C4007757F9 /* SpacingTestView.swift */,
+				754A23B32A76E590009AD08E /* MotionManagerTestView.swift */,
+				7529C66F2A76FA75001F325D /* SuperCustomTabBar */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -585,6 +610,7 @@
 				7503B91E2A60867900E83093 /* NavigationService.swift */,
 				7529955A2A731111006854F3 /* DateTimeService.swift */,
 				75868F7D2A75B5C50064BB1F /* AppStorageService.swift */,
+				754A23B52A76E5B1009AD08E /* MotionManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -756,9 +782,11 @@
 				75B5A8852A3BD96700378C7B /* ZoomView.swift in Sources */,
 				756B39AA2A58CA380067F9BB /* GradientCardView.swift in Sources */,
 				7523AAB32A409448006DB270 /* PlaygroundView.swift in Sources */,
+				7529C6772A76FB2A001F325D /* SuperCustomTabBar3.swift in Sources */,
 				75C5EE3A2A49E79B00FA9056 /* OnboardingViewCarousel.swift in Sources */,
 				754B8B7D2A3B72B100409582 /* HapticViewModifier.swift in Sources */,
 				75BA44732A71A253003A260D /* MeshGradientView.swift in Sources */,
+				7529C6732A76FAA3001F325D /* Tabs.swift in Sources */,
 				756F0A572A67370C0075C04C /* DemoFitnessCardView.swift in Sources */,
 				7570703D2A5874FC00BD4098 /* PintrestLayout.swift in Sources */,
 				7512BF892A5B4183001EEB93 /* CardFlipView.swift in Sources */,
@@ -795,6 +823,7 @@
 				755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */,
 				754B8B6C2A3B685500409582 /* TypewriterContentView.swift in Sources */,
 				756DB1992A40BCFB009D5D01 /* Ext+View.swift in Sources */,
+				754A23B42A76E590009AD08E /* MotionManagerTestView.swift in Sources */,
 				756D74432A571FDF00DBDBBA /* DashProgressCircle.swift in Sources */,
 				75DD42B12A4BA615002E9E92 /* Ext+NavigationController.swift in Sources */,
 				7593A1382A6A002C00446ADE /* BaseCardView.swift in Sources */,
@@ -802,10 +831,12 @@
 				753DF0842A5A630E000AC3EC /* MeshGradientCardView.swift in Sources */,
 				757DE9722A4E2C810099FE6E /* GradientButtonContentView.swift in Sources */,
 				75ACB9042A3BB77C0007338E /* SafariWebView.swift in Sources */,
+				7529C6712A76FA8D001F325D /* SuperCustomTabBar1.swift in Sources */,
 				754B8B742A3B6D1900409582 /* StyledLabelButton.swift in Sources */,
 				75F575BD2A69C2190060F764 /* WStack.swift in Sources */,
 				75B85B7A2A452B5B0014112F /* BackgroundTestView.swift in Sources */,
 				757DE9742A4E2CB00099FE6E /* TikTokSideWaysContentView.swift in Sources */,
+				7529C6752A76FB26001F325D /* SuperCustomTabBar2.swift in Sources */,
 				75ED4F0E2A38D81D00B7091C /* SocialMediaView.swift in Sources */,
 				753356192A3E16F700A42D6C /* AppColor.swift in Sources */,
 				75E888BC2A41FFB900F6B52A /* MenuOption.swift in Sources */,
@@ -824,6 +855,7 @@
 				75E138562A7050EC006194F9 /* CustomWebView.swift in Sources */,
 				759CFADF2A3924DD006C0DC4 /* GridView.swift in Sources */,
 				75016BC32A52A7B1001AE249 /* CenterContentView.swift in Sources */,
+				754A23B62A76E5B1009AD08E /* MotionManager.swift in Sources */,
 				752995592A730EC0006854F3 /* PhotoPickerView.swift in Sources */,
 				75AB52BD2A4352B5001E086E /* HomePageView.swift in Sources */,
 				75F575BF2A69C22A0060F764 /* WStackViewPreview.swift in Sources */,
