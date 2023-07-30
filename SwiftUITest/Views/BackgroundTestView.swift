@@ -185,7 +185,7 @@ struct CustomTextField: View {
     
     var body: some View {
         
-        let _ = print(self.isFocused)
+        let _ = print("is field focused: ", self.isFocused)
         
         TextField(text: self.$text) {
             Text(verbatim: self.placeholder).foregroundColor(.gray.opacity(1))

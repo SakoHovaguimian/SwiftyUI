@@ -31,8 +31,8 @@ struct FinalNavTabTest: View {
             
             NavigationStack(path: self.$homeNavigationService.pathItems) {
                 
-                RoundedRectangle(cornerRadius: 0)
-                    .fill(Color.red.opacity(0.5).gradient)
+                TestEmbedView()
+//                    .fill(Color.red.opacity(0.8).gradient)
                     .ignoresSafeArea()
                     .onTapGesture {
                         self.homeNavigationService.push(.redView)
