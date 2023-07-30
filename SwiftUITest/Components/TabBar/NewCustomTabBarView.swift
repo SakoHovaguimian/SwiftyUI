@@ -266,6 +266,15 @@ private extension TabBarDefaultView {
                     
                 }
                 
+                //            ZStack(alignment: .top) {
+                
+                //                Color.clear.ignoresSafeArea()
+                // Fun line
+                //                    RoundedRectangle(cornerRadius: 99)
+                //                        .fill(self.localSelection.color?.opacity(0.2) ?? .yellow.opacity(0.2))
+                //                        .frame(width: 50, height: 2)
+                //                        .matchedGeometryEffect(id: "background_rectangle", in: self.namespace)
+                
             }
             .padding(8)
         )

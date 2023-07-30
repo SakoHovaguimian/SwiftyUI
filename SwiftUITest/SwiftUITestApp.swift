@@ -15,6 +15,7 @@ struct SwiftUITestApp: App {
     @State private var launchService = LaunchScreenService()
     @State private var opacity: Double = 1
     
+    @StateObject var appStorageService = AppStorageService()
     @StateObject var navigationService = NavigationService()
     
     init() {
@@ -61,12 +62,67 @@ struct SwiftUITestApp: App {
             let discoverNavigationService = NavigationService()
             let profileNavigationService = NavigationService()
             
-            FinalNavTabTest(
+            let finalNavBarTestView = FinalNavTabTest(
                 homeNavigationService: homeNavigationService,
                 searchNavigationService: searchNavigationService,
                 discoverNavigationService: discoverNavigationService,
                 profileNavigationService: profileNavigationService
             )
+                            
+            ZStack {
+                
+                // STEPS
+                
+                // MARK: - MainView
+                // MARK: - Login // Check for user... user = opacity for this view... if not the transition is slide and opacity to MainView
+                // MARK: - Onboarding // Check for appStorage flag
+                // MARK: - SplashScreen // Every Launch
+                                    
+                    
+                    finalNavBarTestView
+                    .opacity(self.appStorageService.didCompleteOnboarding ? 1 : 0)
+                    .animation(.easeIn(duration: 0.3), value: self.appStorageService.didCompleteOnboarding)
+                
+                // Do custom iris transitions
+                // https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-a-custom-transition
+                
+                if !self.appStorageService.didCompleteOnboarding {
+                    
+                    ZStack {
+                        Color.green
+                            .ignoresSafeArea()
+                            .opacity(self.appStorageService.didCompleteOnboarding ? 0 : 1)
+                            .animation(.easeIn(duration: 0.3), value: self.appStorageService.didCompleteOnboarding)
+                    }
+                    
+                }
+//                
+                Button(action: {
+                    
+                    DispatchQueue.main.async {
+                        withAnimation {
+                    self.appStorageService.set(didCompleteOnboarding: !self.appStorageService.didCompleteOnboarding)
+                        }
+                    }
+                    
+                }, label: {
+                    Text("Press me")
+                })
+//                
+                                SplashScreenView()
+                                    .opacity(self.opacity)
+                                    .animation(.easeIn(duration: 0.3), value: self.opacity)
+                                    .environment(self.launchService)
+                                    .onChange(of: self.launchService.didFinishLaunching) { _, didFinishNewValue in
+                                        self.opacity = didFinishNewValue ? 0 : 1
+                                    }
+                
+            }
+//            .ignoresSafeArea()
+            .animation(.easeIn(duration: 0.3), value: self.appStorageService.didCompleteOnboarding)
+
+//            }
+//            .animation(.bouncy(duration: 3), value: self.appStorageService.didCompleteOnboarding)
 //
 //                SplashScreenView()
 //                    .opacity(self.opacity)

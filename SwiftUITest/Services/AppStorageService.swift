@@ -30,13 +30,31 @@ enum Theme: String, CaseIterable {
     
 }
 
-@MainActor
 class AppStorageService: ObservableObject {
     
-    @AppStorage(Setting.theme.rawValue) private(set) var theme: Theme = .light
-    @AppStorage(Setting.email.rawValue) private(set) var email: String = "email"
-    @AppStorage(Setting.token.rawValue) private(set) var token: String = "token"
-    @AppStorage(Setting.didCompleteOnboarding.rawValue) private(set) var didCompleteOnboarding: Bool = false
+    @AppStorage(Setting.theme.rawValue) private(set) var theme: Theme = .light  {
+        didSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @AppStorage(Setting.email.rawValue) private(set) var email: String = "email" {
+        didSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @AppStorage(Setting.token.rawValue) private(set) var token: String = "token" {
+        didSet {
+            objectWillChange.send()
+        }
+    }
+    
+    @AppStorage(Setting.didCompleteOnboarding.rawValue) private(set) var didCompleteOnboarding: Bool = false {
+        didSet {
+            objectWillChange.send()
+        }
+    }
     
     func set(theme: Theme) {
         self.theme = theme
@@ -83,7 +101,6 @@ struct AppStorageTestView: View {
                 }
             
         }
-        
         
     }
     

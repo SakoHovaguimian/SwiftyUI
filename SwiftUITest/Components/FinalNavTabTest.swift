@@ -141,6 +141,7 @@ struct FinalNavTabTest: View {
                 })
             
         }
+        .ignoresSafeArea(.keyboard, edges: .bottom)
         .onAppear(perform: {
             
             self.homeNavigationService.bindTabBarVisibility(self.$shouldHideTabBar)
