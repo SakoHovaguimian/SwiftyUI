@@ -53,9 +53,21 @@ struct SwiftUITestApp: App {
 //            ZStack {
 //                
 //                // MARK: Replace this with initial ContentView
-                DevToolsView()
-                    .environmentObject(NavSettings())
-//                
+//                DevToolsView()
+//                    .environmentObject(NavSettings())
+            
+            let homeNavigationService = NavigationService()
+            let searchNavigationService = NavigationService()
+            let discoverNavigationService = NavigationService()
+            let profileNavigationService = NavigationService()
+            
+            FinalNavTabTest(
+                homeNavigationService: homeNavigationService,
+                searchNavigationService: searchNavigationService,
+                discoverNavigationService: discoverNavigationService,
+                profileNavigationService: profileNavigationService
+            )
+//
 //                SplashScreenView()
 //                    .opacity(self.opacity)
 //                    .animation(.easeIn(duration: 0.3), value: self.opacity)

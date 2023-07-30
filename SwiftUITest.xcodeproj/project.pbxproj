@@ -39,6 +39,7 @@
 		754B8B7F2A3B72CD00409582 /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B7E2A3B72CD00409582 /* Haptics.swift */; };
 		754DDFC32A58827D00609569 /* AnimatedSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754DDFC22A58827D00609569 /* AnimatedSearchBarView.swift */; };
 		75543D202A4605A9008805BD /* ScrollViewPagingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */; };
+		7556EC052A75C5CB00B2602C /* FinalNavTabTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556EC042A75C5CB00B2602C /* FinalNavTabTest.swift */; };
 		755790502A6E31CD000E63EA /* PresentationHeightContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557904F2A6E31CD000E63EA /* PresentationHeightContentView.swift */; };
 		7558F8642A4DF846008486A0 /* LongPressContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7558F8632A4DF845008486A0 /* LongPressContentView.swift */; };
 		755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */; };
@@ -55,6 +56,7 @@
 		7582855E2A5E4B5900B30161 /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7582855D2A5E4B5900B30161 /* CodeInputView.swift */; };
 		758285602A5E504400B30161 /* Ext+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7582855F2A5E504400B30161 /* Ext+String.swift */; };
 		758552272A7319C4007757F9 /* SpacingTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758552262A7319C4007757F9 /* SpacingTestView.swift */; };
+		75868F7E2A75B5C50064BB1F /* AppStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75868F7D2A75B5C50064BB1F /* AppStorageService.swift */; };
 		758B3FE72A4CC11C00C624A8 /* CurrentOffsetScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758B3FE62A4CC11C00C624A8 /* CurrentOffsetScrollView.swift */; };
 		759383CC2A3622F20016EA29 /* SwiftUITestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */; };
 		759383CE2A3622F20016EA29 /* FirstPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759383CD2A3622F20016EA29 /* FirstPlaygroundView.swift */; };
@@ -169,6 +171,7 @@
 		754B8B7E2A3B72CD00409582 /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		754DDFC22A58827D00609569 /* AnimatedSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSearchBarView.swift; sourceTree = "<group>"; };
 		75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewPagingAPI.swift; sourceTree = "<group>"; };
+		7556EC042A75C5CB00B2602C /* FinalNavTabTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalNavTabTest.swift; sourceTree = "<group>"; };
 		7557904F2A6E31CD000E63EA /* PresentationHeightContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationHeightContentView.swift; sourceTree = "<group>"; };
 		7558F8632A4DF845008486A0 /* LongPressContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressContentView.swift; sourceTree = "<group>"; };
 		755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
@@ -185,6 +188,7 @@
 		7582855D2A5E4B5900B30161 /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
 		7582855F2A5E504400B30161 /* Ext+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+String.swift"; sourceTree = "<group>"; };
 		758552262A7319C4007757F9 /* SpacingTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacingTestView.swift; sourceTree = "<group>"; };
+		75868F7D2A75B5C50064BB1F /* AppStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageService.swift; sourceTree = "<group>"; };
 		758B3FE62A4CC11C00C624A8 /* CurrentOffsetScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentOffsetScrollView.swift; sourceTree = "<group>"; };
 		759383C82A3622F20016EA29 /* SwiftUITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUITestApp.swift; sourceTree = "<group>"; };
@@ -393,6 +397,7 @@
 		754B8B752A3B6D2100409582 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				7556EC042A75C5CB00B2602C /* FinalNavTabTest.swift */,
 				75F575BB2A69C20F0060F764 /* WStack */,
 				754B8B792A3B729000409582 /* Haptic */,
 				7523AAB92A40A332006DB270 /* TabBar */,
@@ -577,6 +582,7 @@
 				75EE19372A5EF77A003CD5EB /* FirebaseService.swift */,
 				7503B91E2A60867900E83093 /* NavigationService.swift */,
 				7529955A2A731111006854F3 /* DateTimeService.swift */,
+				75868F7D2A75B5C50064BB1F /* AppStorageService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -728,6 +734,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75868F7E2A75B5C50064BB1F /* AppStorageService.swift in Sources */,
 				75B2DA782A5752B500A52E22 /* AdaptiveGridView.swift in Sources */,
 				75E138582A70511A006194F9 /* WebView.swift in Sources */,
 				754B8B7F2A3B72CD00409582 /* Haptics.swift in Sources */,
@@ -773,6 +780,7 @@
 				75E1385B2A70547E006194F9 /* SideMenu.swift in Sources */,
 				75FA49972A6CECF300BC9BCB /* MatchedGeoView.swift in Sources */,
 				758285602A5E504400B30161 /* Ext+String.swift in Sources */,
+				7556EC052A75C5CB00B2602C /* FinalNavTabTest.swift in Sources */,
 				7594FCB82A4734FE00EBB605 /* CustomTextView.swift in Sources */,
 				75E888B42A41F75600F6B52A /* SideMenuView.swift in Sources */,
 				75E888BA2A41FAD200F6B52A /* SideMenuOptionView.swift in Sources */,

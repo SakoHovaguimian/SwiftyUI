@@ -62,7 +62,6 @@ public struct TabBarDefaultView: View {
     let tabBarAction: (TabBarOption) -> ()
     
     @State var localSelection: TabBarItem
-    
     var shouldHideTabBar: Bool = false
     
     public init(
