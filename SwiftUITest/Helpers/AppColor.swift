@@ -9,6 +9,10 @@ import SwiftUI
 
 struct AppColor {
     
+    enum ButtonStyle {
+        case primary
+    }
+    
     enum BackgroundStyle {
         
         case primary
@@ -33,6 +37,16 @@ struct AppColor {
         return Color("charcoal")
     }
     
+    /// #E5FD54
+    static var brandGreen: Color {
+        return Color("brand_green")
+    }
+    
+    /// #FD659E
+    static var brandPink: Color {
+        return Color("brand_pink")
+    }
+    
     static func background(_ backgroundStyle: BackgroundStyle) -> Color {
         
         switch backgroundStyle {
@@ -51,5 +65,12 @@ struct AppColor {
 
     }
     
+    static func button(_ backgroundStyle: ButtonStyle) -> Color {
+        
+        switch backgroundStyle {
+        case .primary: return Color(light: AppColor.brandGreen, dark: AppColor.brandPink)
+        }
+        
+    }
     
 }
