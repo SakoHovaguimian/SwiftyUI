@@ -234,7 +234,11 @@ class NavigationService: ObservableObject {
     @Published var pathItems: [Route] = []
     @Published var sheet: Sheet?
     @Published var fullScreenCover : FullScreenCover?
-//    @Binding var dismiss: Bool = false
+    @Binding var shouldHideTabBar: Bool
+    
+    init() {
+        self._shouldHideTabBar = .constant(false)
+    }
     
     func push(_ route: Route) {
         self.pathItems.append(route)
@@ -283,6 +287,10 @@ class NavigationService: ObservableObject {
             
         }
         
+    }
+    
+    func bindTabBarVisibility(_ shouldHideTabBar: Binding<Bool>) {
+        self._shouldHideTabBar = shouldHideTabBar
     }
     
 //    @ViewBuilder
@@ -358,12 +366,26 @@ struct TestEmbedView: View {
     
     var body: some View {
         
-        VStack {
+        ZStack {
             
-            Button("Test") {
-                self.navigationService.push(.blueView)
+            Color.mint
+                .opacity(0.5)
+                .ignoresSafeArea()
+            
+            VStack {
+                
+                Button("Test") {
+                    self.navigationService.push(.blueView)
+                }
+                
             }
             
+        }
+        .onAppear {
+            self.navigationService.shouldHideTabBar = true
+        }
+        .onDisappear {
+            self.navigationService.shouldHideTabBar = false
         }
         
     }
@@ -376,8 +398,8 @@ extension View {
         navigationDestination(for: NavigationService.Route.self) { route in
             
             switch route {
-            case .redView: ZStack { TestEmbedView() }
-            case .blueView: ZStack { TestEmbedView() }
+            case .redView: TestEmbedView()
+            case .blueView: TestEmbedView()
             }
             
         }
