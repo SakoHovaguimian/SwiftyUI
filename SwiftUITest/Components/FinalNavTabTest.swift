@@ -7,9 +7,9 @@
 
 import SwiftUI
 
-// TODO
+// TODO: -
 // 1. There is no way to know when views are dismissed
-// We can add onChange to all the paths from the services, but we have no way to know the last view that was presented...
+//    We can add onChange to all the paths from the services, but we have no way to know the last view that was presented...
 
 struct FinalNavTabTest: View {
     
@@ -149,7 +149,52 @@ struct FinalNavTabTest: View {
             self.profileNavigationService.bindTabBarVisibility(self.$shouldHideTabBar)
             
         })
+        .onOpenURL { url in
+            
+            // TODO: - Deeplink
+            // Handle nested navigation + more ...
+            
+            guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else { return }
+            
+            if let host = components.host,
+               let tabBarOption = TabBarOption(rawValue: host) {
+                
+                let paths = components.path.components(separatedBy: "/").dropFirst()
+                
+                if let deepLink = Deeplink(rawValue: paths.first ?? "") {
+                    
+                    switch deepLink {
+                    case .redView: self.homeNavigationService.sheet = .purpleView
+                    case .blueView: self.homeNavigationService.push(.blueView)
+                    }
+                    
+                    return
+                    
+                }
+
+                self.selection = getTabBarItemForOption(tabBarOption)
+                
+                
+            }
+            
+        }
         
     }
+    
+    private func getTabBarItemForOption(_ option: TabBarOption) -> TabBarItem {
+        
+        let indexForTab = self.tabs
+            .firstIndex(where: { $0.tabBarOption == option })
+        
+        return self.tabs[indexForTab ?? 0].tabBarOption.tabBarItem
+        
+    }
+    
+}
+
+enum Deeplink: String {
+    
+    case redView
+    case blueView
     
 }

@@ -364,6 +364,8 @@ struct TestEmbedView: View {
     
     @EnvironmentObject var navigationService: NavigationService
     
+    @State private var sampleText: String = ""
+    
     var body: some View {
         
         ZStack {
@@ -374,19 +376,26 @@ struct TestEmbedView: View {
             
             VStack {
                 
+                CustomTextField(
+                    placeholder: "Password",
+                    text: self.$sampleText,
+                    isFocused: false
+                )
+                
                 Button("Test") {
                     self.navigationService.push(.blueView)
                 }
                 
+                
             }
             
         }
-        .onAppear {
-            self.navigationService.shouldHideTabBar = true
-        }
-        .onDisappear {
-            self.navigationService.shouldHideTabBar = false
-        }
+//        .onAppear {
+//            self.navigationService.shouldHideTabBar = true
+//        }
+//        .onDisappear {
+//            self.navigationService.shouldHideTabBar = false
+//        }
         
     }
 }

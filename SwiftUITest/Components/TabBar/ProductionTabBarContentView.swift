@@ -29,9 +29,9 @@ public class TabBarStruct: Identifiable {
     
 }
 
-public enum TabBarOption: Int, CaseIterable, Hashable {
+public enum TabBarOption: String, CaseIterable, Hashable {
     
-    case home = 0
+    case home
     case browse
     case discover
     case profile

@@ -12,6 +12,7 @@ extension UINavigationController: UIGestureRecognizerDelegate {
     override open func viewDidLoad() {
         
         super.viewDidLoad()
+        interactivePopGestureRecognizer?.isEnabled = true
         interactivePopGestureRecognizer?.delegate = self
         
     }

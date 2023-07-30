@@ -172,6 +172,7 @@
 		754DDFC22A58827D00609569 /* AnimatedSearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedSearchBarView.swift; sourceTree = "<group>"; };
 		75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewPagingAPI.swift; sourceTree = "<group>"; };
 		7556EC042A75C5CB00B2602C /* FinalNavTabTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalNavTabTest.swift; sourceTree = "<group>"; };
+		7556EC062A76168B00B2602C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7557904F2A6E31CD000E63EA /* PresentationHeightContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationHeightContentView.swift; sourceTree = "<group>"; };
 		7558F8632A4DF845008486A0 /* LongPressContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressContentView.swift; sourceTree = "<group>"; };
 		755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
@@ -470,6 +471,7 @@
 		759383CA2A3622F20016EA29 /* SwiftUITest */ = {
 			isa = PBXGroup;
 			children = (
+				7556EC062A76168B00B2602C /* Info.plist */,
 				75C5A59D2A5F896200B66067 /* SwiftUITest.entitlements */,
 				759383CB2A3622F20016EA29 /* SwiftUITestApp.swift */,
 				75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */,
@@ -1002,6 +1004,7 @@
 				DEVELOPMENT_TEAM = QNK29NH27H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUITest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1033,6 +1036,7 @@
 				DEVELOPMENT_TEAM = QNK29NH27H;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SwiftUITest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
