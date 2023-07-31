@@ -234,18 +234,20 @@ struct FirebaseTestView: View {
 
 struct AppButtonStyle: ButtonStyle {
     
-    var height: CGFloat = 50
+    var height: CGFloat = 48
     
     func makeBody(configuration: Configuration) -> some View {
         
         configuration.label
             .frame(maxWidth: .infinity)
             .frame(height: self.height)
-            .background(.blue)
-            .foregroundStyle(.white)
-            .clipShape(Capsule())
+            .background(AppColor.brandGreen)
+            .foregroundStyle(.black)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
             .scaleEffect(configuration.isPressed ? 0.9 : 1)
+            .opacity(configuration.isPressed ? 0.8 : 1)
             .animation(.spring(duration: 0.2), value: configuration.isPressed)
+            .appShadow()
             .appFont(with: .heading(.h5))
         
     }

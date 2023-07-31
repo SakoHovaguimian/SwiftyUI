@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BaseCardView: View {
+struct BaseCardView2: View {
     
     var body: some View {
     
@@ -84,7 +84,7 @@ extension View {
 }
 
 #Preview {
-    BaseCardView()
+    BaseCardView2()
 }
 
 

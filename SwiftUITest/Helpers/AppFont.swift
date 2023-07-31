@@ -38,7 +38,7 @@ enum AppFont {
             
             switch style {
             case .h1: return UIFont.systemFont(ofSize: 10, weight: .medium)
-            case .h5: return UIFont.systemFont(ofSize: 20, weight: .heavy)
+            case .h5: return UIFont.systemFont(ofSize: 14, weight: .semibold)
             case .h10: return UIFont.systemFont(ofSize: 45, weight: .black)
             }
             

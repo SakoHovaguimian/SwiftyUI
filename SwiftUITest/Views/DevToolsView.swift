@@ -22,7 +22,6 @@ enum DevToolsNavigationRoute: Hashable {
     case tikTokView
     case signupContentView
     case grid
-    case safari
     case zoomView
     case typewriterView
     case wildView
@@ -37,7 +36,6 @@ enum DevToolsNavigationRoute: Hashable {
         switch self {
         case .signupContentView: return "Create Account"
         case .grid: return "Grid"
-        case .safari: return "Safari"
         case .tabBarView: return "Tab Bar View"
         case .progressBar: return "Progress Bar"
         case .zoomView: return "Pinch To Zoom"
@@ -63,7 +61,6 @@ enum DevToolsNavigationRoute: Hashable {
         switch self {
         case .signupContentView: return "person.fill"
         case .grid: return "square.grid.3x2.fill"
-        case .safari: return "safari.fill"
         case .tabBarView: return "chart.bar.fill"
         case .progressBar: return "sun.haze.fill"
         case .zoomView: return "magnifyingglass.circle.fill"
@@ -89,7 +86,6 @@ enum DevToolsNavigationRoute: Hashable {
         switch self {
         case .signupContentView: return .teal.opacity(0.5)
         case .grid: return .green.opacity(0.4)
-        case .safari: return .blue
         case .tabBarView: return .pink
         case .progressBar: return .green
         case .zoomView: return .orange
@@ -134,7 +130,6 @@ enum DevToolsNavigationRoute: Hashable {
             .tikTokView,
             .signupContentView,
             .grid,
-            .safari,
             .zoomView,
             .typewriterView,
             .wildView,
@@ -375,7 +370,6 @@ struct DevToolsView: View {
         case .chip: selectedView = ChipDemoContentView()
         case .textView: selectedView = CustomTextView()
         case .grid: selectedView = GridContentView()
-        case .safari: selectedView = (SafariWebContentView(url: URL(string: "https://www.google.com")!))
         case .zoomView: selectedView = ZoomView(image: Image("sunset"), cornerRadius: 24).padding(.horizontal, 24)
         case .typewriterView: selectedView = (TypewriterContentView())
         case .wildView: selectedView = (WildButtonView())
