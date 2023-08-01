@@ -130,6 +130,7 @@
 		75F9F96A2A5725260073F61A /* NuemorphicProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F9F9692A5725260073F61A /* NuemorphicProgressCircleView.swift */; };
 		75FA49952A6CE8B800BC9BCB /* TransitionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA49942A6CE8B800BC9BCB /* TransitionTestView.swift */; };
 		75FA49972A6CECF300BC9BCB /* MatchedGeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA49962A6CECF300BC9BCB /* MatchedGeoView.swift */; };
+		75FEF8E92A79AE860046793C /* TestCustomAlertOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FEF8E82A79AE860046793C /* TestCustomAlertOverlayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -277,6 +278,7 @@
 		75F9F9692A5725260073F61A /* NuemorphicProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuemorphicProgressCircleView.swift; sourceTree = "<group>"; };
 		75FA49942A6CE8B800BC9BCB /* TransitionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionTestView.swift; sourceTree = "<group>"; };
 		75FA49962A6CECF300BC9BCB /* MatchedGeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoView.swift; sourceTree = "<group>"; };
+		75FEF8E82A79AE860046793C /* TestCustomAlertOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCustomAlertOverlayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -543,6 +545,7 @@
 				754A23B32A76E590009AD08E /* MotionManagerTestView.swift */,
 				7529C6782A771481001F325D /* BaseView.swift */,
 				75C058492A7862CF00B81A15 /* WelcomeView.swift */,
+				75FEF8E82A79AE860046793C /* TestCustomAlertOverlayView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 				759B8B5C2A6F3AD4008B19D7 /* SuperFontContentView.swift in Sources */,
 				754215212A6ED77800162BF8 /* WaterFillView.swift in Sources */,
 				7582855E2A5E4B5900B30161 /* CodeInputView.swift in Sources */,
+				75FEF8E92A79AE860046793C /* TestCustomAlertOverlayView.swift in Sources */,
 				758B3FE72A4CC11C00C624A8 /* CurrentOffsetScrollView.swift in Sources */,
 				75CB8C372A3A716600CE192D /* TypewriterView.swift in Sources */,
 				755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */,

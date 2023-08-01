@@ -113,7 +113,7 @@ struct SideMenuTestView: View {
 //                HStack(alignment: .top) {
                     
                     ZStack(alignment: .top) {
-                        Color.yellow
+                        Color.purple
                             .ignoresSafeArea()
 //                    }
                     
