@@ -71,7 +71,11 @@ struct DashProgressCircleView: View {
                         width: self.size,
                         height: self.size
                     )
-                    .foregroundColor(Color.green)
+                    .foregroundStyle(LinearGradient(
+                        colors: [.indigo, .purple],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    ))
                 
                 Circle()
                     .trim(
@@ -87,7 +91,11 @@ struct DashProgressCircleView: View {
                         width: self.size,
                         height: self.size
                     )
-                    .foregroundColor(Color.green)
+                    .foregroundStyle(LinearGradient(
+                        colors: [.indigo, .purple],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    ))
                     .blur (radius: 15)
                 
             }
@@ -150,7 +158,7 @@ struct NumValue: View {
         
         Text ("\(Int(self.displayedValue * 100))%")
             .bold()
-            .font (.largeTitle)
+            .appFont(with: .heading(.h10))
             .foregroundColor (self.color)
         
     }

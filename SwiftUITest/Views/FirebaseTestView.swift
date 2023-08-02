@@ -232,6 +232,9 @@ struct FirebaseTestView: View {
 //    FirebaseTestView(firebaseService: FirebaseService())
 //}
 
+// Have this accept color, font, text, corner radius, all with default values
+// that match the most common button from design...
+
 struct AppButtonStyle: ButtonStyle {
     
     var height: CGFloat = 48
@@ -254,6 +257,9 @@ struct AppButtonStyle: ButtonStyle {
     
 }
 
+// Pass every possible parameter from above into this too
+// Make it configurable...
+
 struct AppButton: View {
     
     var title: String
@@ -265,7 +271,6 @@ struct AppButton: View {
         Button(self.title) {
             self.action()
         }
-        .padding(.horizontal, 64)
         .buttonStyle(AppButtonStyle(height: self.height))
         
     }

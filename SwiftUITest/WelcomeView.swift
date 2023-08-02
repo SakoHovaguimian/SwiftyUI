@@ -39,7 +39,8 @@ struct WelcomeView: View {
         
         ZStack(alignment: .top) {
             
-            Color(uiColor: .systemGray6)
+            Color.black
+                .opacity(0.8)
                 .ignoresSafeArea()
             
             VStack(spacing: 16) {
@@ -47,11 +48,11 @@ struct WelcomeView: View {
                 Image(systemName: "bell")
                     .resizable()
                     .frame(width: 85, height: 85)
-                    .foregroundStyle(.blue.gradient)
+                    .foregroundStyle(AppColor.brandGreen.gradient)
                     .padding(.top, 32)
                 
                 Text("Welcome to Rival")
-                    .foregroundStyle(.black)
+                    .foregroundStyle(.white)
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .fontDesign(.default)
@@ -65,17 +66,18 @@ struct WelcomeView: View {
                     welcomeItem(item: item)
                 }
                 
-                Spacer()
-                
-                Button("Continue") {
-                    
-                }
-                .buttonStyle(AppButtonStyle())
-                
             }
             .padding(.horizontal, 32)
             
-
+        }
+        .safeAreaInset(edge: .bottom) {
+            
+            Button("Continue") {
+                
+            }
+            .buttonStyle(AppButtonStyle())
+            .padding(.horizontal, 32)
+            .customSafeAreaPadding(padding: 16)
             
         }
         
@@ -86,13 +88,13 @@ struct WelcomeView: View {
         VStack(alignment: .leading) {
             
             Text(item.title)
-                .foregroundStyle(.black)
+                .foregroundStyle(.white)
                 .font(.subheadline)
                 .fontWeight(.semibold)
                 .fontDesign(.rounded)
             
             Text(item.message)
-                .foregroundStyle(.gray)
+                .foregroundStyle(Color(uiColor: .lightGray))
                 .font(.subheadline)
                 .fontWeight(.regular)
                 .fontDesign(.rounded)
@@ -109,7 +111,7 @@ struct WelcomeView: View {
             Image(systemName: item.image)
                 .resizable()
                 .frame(width: 24, height: 20)
-                .foregroundStyle(.blue.gradient)
+                .foregroundStyle(AppColor.brandGreen.gradient)
             
             textStack(item: item)
             

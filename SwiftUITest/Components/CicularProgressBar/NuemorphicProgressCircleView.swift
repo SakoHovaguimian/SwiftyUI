@@ -85,7 +85,11 @@ struct NuemorphicProgressCircleView: View {
                         width: self.size,
                         height: self.size
                     )
-                    .foregroundColor(Color.green)
+                    .foregroundStyle(LinearGradient(
+                        colors: [.indigo, .purple],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    ))
                 
                 Circle()
                     .trim(
@@ -100,7 +104,11 @@ struct NuemorphicProgressCircleView: View {
                         width: self.size,
                         height: self.size
                     )
-                    .foregroundColor(Color.green)
+                    .foregroundStyle(LinearGradient(
+                        colors: [.indigo, .purple],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    ))
                     .blur (radius: 15)
                 
             }
@@ -108,7 +116,7 @@ struct NuemorphicProgressCircleView: View {
             
             NumValue(
                 displayedValue: self.timerManager.displayedValue,
-                color: AppColor.charcoal
+                color: AppColor.eggShell
             )
             
         }

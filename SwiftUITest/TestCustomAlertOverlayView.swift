@@ -15,6 +15,7 @@ import SwiftUI
 // TODO: - BuildViewModifier for simple ErrorAlert
 // TODO: - BuildViewModifier for custom Content Error Alert
 
+
 struct TestCustomAlertOverlayView: View {
     
     @State private var isPresented: Bool = false
@@ -23,7 +24,7 @@ struct TestCustomAlertOverlayView: View {
             
         ZStack {
             
-            Color.indigo
+            AppColor.charcoal
                 .ignoresSafeArea()
             
         }
@@ -34,12 +35,7 @@ struct TestCustomAlertOverlayView: View {
             isPresented: self.$isPresented,
             customView: {
                 
-                Image(systemName: "heart.fill")
-                    .resizable()
-                    .frame(width: 100, height: 100)
-                    .onTapGesture {
-                        self.isPresented = false
-                    }
+                AppAlertView(isPresented: self.$isPresented)
                 
             }
             
@@ -75,17 +71,19 @@ struct AlertViewModifier<CustomView: View>: ViewModifier {
                 
                 ZStack {
                     
-                    Color.black
-                        .opacity(self.isPresented ? 0.2 : 0)
-                        .ignoresSafeArea()
+                    if self.isPresented {
                         
-                
-                    if self.isPresented{
+                        Color.black
+                            .opacity(0.2)
+                            .ignoresSafeArea()
+                        
+                        
                         self.customView
+                        
                     }
                     
                 }
-                .animation(.easeInOut, value: self.isPresented)
+                .animation(.easeOut(duration: 0.3), value: self.isPresented)
                 
             }
         
@@ -99,6 +97,126 @@ extension View {
                                   @ViewBuilder customView: @escaping () -> Content) -> some View {
         
         self.modifier(AlertViewModifier(isPresented: isPresented, customView: customView))
+        
+    }
+    
+}
+
+struct AppAlert {
+    
+    typealias ButtonAction = () -> ()
+    
+    let title: String
+    let message: String?
+
+    let primaryButtonTitle: String
+    let primaryButtonAction: ButtonAction?
+    
+    let secondaryButtonTitle: String?
+    let secondaryButtonAction: ButtonAction?
+    
+    init(title: String,
+         message: String? = nil,
+         primaryButtonTitle: String,
+         primaryButtonAction: @escaping ButtonAction,
+         secondaryButtonTitle: String? = nil,
+         secondaryButtonAction: ButtonAction? = nil) {
+        
+        self.title = title
+        self.message = message
+        self.primaryButtonTitle = primaryButtonTitle
+        self.primaryButtonAction = primaryButtonAction
+        self.secondaryButtonTitle = secondaryButtonTitle
+        self.secondaryButtonAction = secondaryButtonAction
+        
+    }
+    
+}
+
+struct AppAlertView: View {
+    
+    @Binding var isPresented: Bool
+    
+    var tintColor: Color = .indigo.opacity(0.4) // AppColor.brandPink
+    
+    var body: some View {
+        
+        VStack(spacing: 16) {
+            
+            Group {
+                
+                Text("Oh No! 🙃")
+                    .font(.title3)
+                    .fontWeight(.bold)
+                    .fontDesign(.rounded)
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                
+                Text("Please check that your are logged in and try again")
+                    .font(.headline)
+                    .fontWeight(.medium)
+                    .fontDesign(.rounded)
+                    .foregroundStyle(.white)
+                    .multilineTextAlignment(.center)
+                
+            }
+            .padding(.horizontal, 24)
+
+            buttonStackView()
+            
+        }
+        .padding(.top, 24)
+        .background(AppColor.charcoal)
+        .clipShape(RoundedRectangle(cornerRadius: 18))
+        .padding(.horizontal, 48)
+        .shadow(color: self.tintColor, radius: 23)
+        
+    }
+    
+    @ViewBuilder
+    func button(title: String) -> some View {
+        
+        Text(title)
+            .frame(maxWidth: .infinity)
+            .frame(height: 48)
+            .background(self.tintColor)
+            .foregroundStyle(.white)
+            .font(.headline)
+            .fontWeight(.semibold)
+            .fontDesign(.rounded)
+            .clipShape(RoundedRectangle(cornerRadius: 6))
+            .shadow(color: self.tintColor, radius: 11)
+//            .overlay {
+//                RoundedRectangle(cornerRadius: 8)
+//                    .stroke(self.tintColor, lineWidth: 2)
+//                    .shadow(color: self.tintColor, radius: 11)
+//            }
+        
+    }
+    
+    @ViewBuilder
+    func buttonStackView() -> some View {
+        
+        HStack(spacing: 16) {
+            
+            Button(action: {
+                self.isPresented = false
+            },
+                   label: {
+                self.button(title: "No")
+            })
+            
+            Button(action: {
+                self.isPresented = false
+            },
+                   label: {
+                self.button(title: "Yes")
+            })
+            
+        }
+        .padding(.top, 8)
+        .padding(.horizontal, 24)
+        .padding(.bottom, 24)
         
     }
     

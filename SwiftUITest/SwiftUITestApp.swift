@@ -36,8 +36,9 @@ struct SwiftUITestApp: App {
     var body: some Scene {
         
         WindowGroup {
-            TestBaseView()
+//            TestBaseView()
 //            mainViewStack
+            WelcomeView()
         }
         
     }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HashtagText: View {
+struct HashtagTextView: View {
     
     private var text: String
     private var font: UIFont
@@ -67,7 +67,7 @@ struct HashtagText: View {
 
 #Preview {
     
-    HashtagText(
+    HashtagTextView(
         text: "Go my fellow #Airbuds and follow me into the #Dark",
         color: .cyan.opacity(1)
     )

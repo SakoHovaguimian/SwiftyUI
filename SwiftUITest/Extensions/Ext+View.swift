@@ -13,7 +13,7 @@ extension View {
     
     func centerHorizontally() -> some View {
         
-        HStack(alignment: .center) {
+        HStack(alignment: .center, spacing: 0) {
             
             Spacer()
             self
@@ -25,7 +25,7 @@ extension View {
     
     func centerVertically() -> some View {
         
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 0) {
             
             Spacer()
             self

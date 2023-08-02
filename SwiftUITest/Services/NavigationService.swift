@@ -189,8 +189,13 @@ extension View {
         navigationDestination(for: NavigationService.Route.self) { route in
             
             switch route {
+                
             case .redView: TestEmbedView()
+                    .navigationBarBackButtonHidden()
+                
             case .blueView: TestEmbedView()
+                    .navigationBarBackButtonHidden()
+                
             }
             
         }
