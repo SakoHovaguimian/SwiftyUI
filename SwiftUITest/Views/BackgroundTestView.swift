@@ -178,6 +178,9 @@ struct SignUpContentView: View {
 
 struct CustomTextField: View {
     
+    // Make this a view modifier
+    // Take keyboard type, Take border color,
+    
     @State var placeholder: String
     @Binding var text: String
     

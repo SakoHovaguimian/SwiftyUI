@@ -7,33 +7,39 @@
 
 import SwiftUI
 
-struct WelcomItem: Hashable {
-    
-    var title: String
-    var message: String
-    var image: String
-    
-}
-
 struct WelcomeView: View {
     
-    let items: [WelcomItem] = [
-        .init(
-            title: "Your recordings",
-            message: "Welcome to the new app where we have a bunch of cool things",
-            image: "heart.fill"
-        ),
-        .init(
-            title: "Your recordings",
-            message: "Welcome to the new app where we have a bunch of cool things. Welcome to the new app where we have a bunch of cool things. Welcome to the new app where we have a bunch of cool things",
-            image: "heart.fill"
-        ),
-        .init(
-            title: "Your recordings",
-            message: "Welcome to the new app where we have a bunch of cool things",
-            image: "heart.fill"
-        ),
-    ]
+    struct ListItem: Hashable {
+        
+        var title: String
+        var message: String
+        var image: String
+        
+        static var DUMMY_DATA: [ListItem] {
+            
+            return [
+                .init(
+                    title: "Your recordings",
+                    message: "Welcome to the new app where we have a bunch of cool things",
+                    image: "bell.fill"
+                ),
+                .init(
+                    title: "Your recordings",
+                    message: "Welcome to the new app where we have a bunch of cool things. Welcome to the new app where we have a bunch of cool things.",
+                    image: "dollarsign.circle.fill"
+                ),
+                .init(
+                    title: "Your recordings",
+                    message: "Welcome to the new app where we have a bunch of cool things",
+                    image: "trophy.fill"
+                ),
+            ]
+            
+        }
+        
+    }
+    
+    let items: [ListItem]
     
     var body: some View {
         
@@ -87,34 +93,30 @@ struct WelcomeView: View {
         
     }
     
-    private func textStack(item: WelcomItem) -> some View {
+    private func textStack(item: ListItem) -> some View {
         
         VStack(alignment: .leading) {
             
             Text(item.title)
                 .foregroundStyle(.white)
-                .font(.subheadline)
-                .fontWeight(.semibold)
-                .fontDesign(.rounded)
+                .font(.system(size: 18, weight: .semibold, design: .rounded))
             
             Text(item.message)
                 .foregroundStyle(Color(uiColor: .lightGray))
-                .font(.subheadline)
-                .fontWeight(.regular)
-                .fontDesign(.rounded)
+                .font(.system(size: 18, weight: .regular, design: .rounded))
             
             
         }
         
     }
     
-    private func welcomeItem(item: WelcomItem) -> some View {
+    private func welcomeItem(item: ListItem) -> some View {
         
         HStack(spacing: 16) {
         
             Image(systemName: item.image)
                 .resizable()
-                .frame(width: 24, height: 20)
+                .frame(width: 28, height: 28)
                 .foregroundStyle(AppColor.brandGreen.gradient)
             
             textStack(item: item)
@@ -126,5 +128,5 @@ struct WelcomeView: View {
 }
 
 #Preview {
-    WelcomeView()
+    WelcomeView(items: WelcomeView.ListItem.DUMMY_DATA)
 }

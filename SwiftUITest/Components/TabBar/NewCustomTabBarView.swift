@@ -314,15 +314,15 @@ public struct TabBarItem: Hashable {
     
 }
 
-struct TabBarItemsPreferenceKey: PreferenceKey {
-    
-    static var defaultValue: [AnyHashable] = []
-    
-    static func reduce(value: inout [AnyHashable], nextValue: () -> [AnyHashable]) {
-        value += nextValue()
-    }
-    
-}
+//struct TabBarItemsPreferenceKey: PreferenceKey {
+//    
+//    static var defaultValue: [AnyHashable] = []
+//    
+//    static func reduce(value: inout [AnyHashable], nextValue: () -> [AnyHashable]) {
+//        value += nextValue()
+//    }
+//    
+//}
 
 struct TabBarItemViewModifer: ViewModifier {
     
@@ -334,7 +334,7 @@ struct TabBarItemViewModifer: ViewModifier {
         ZStack {
             if didLoad || selection == tab {
                 content
-                    .preference(key: TabBarItemsPreferenceKey.self, value: [tab])
+//                    .preference(key: TabBarItemsPreferenceKey.self, value: [tab])
                     .opacity(selection == tab ? 1 : 0)
                     .onAppear {
                         didLoad = true

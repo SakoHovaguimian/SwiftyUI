@@ -43,7 +43,7 @@ struct SpotifyCollectionLayoutView: View {
                 
             }
             .scrollIndicators(.hidden)
-            .safeAreaPadding(.horizontal, (proxy.size.width - itemWidth) / 2)
+            .safeAreaPadding(.horizontal, self.hSpacing)
             .scrollTargetLayout()
         }
         .scrollTargetBehavior(.viewAligned)

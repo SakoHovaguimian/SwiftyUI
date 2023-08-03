@@ -20,7 +20,6 @@ struct PhotoPickerView<Content: View>: View {
     private var mediaType: PHPickerFilter = .images
     private var onError: ((Error) -> ())
     
-    
     let content: Content
     
     init(avatarImage: Binding<Image?>,

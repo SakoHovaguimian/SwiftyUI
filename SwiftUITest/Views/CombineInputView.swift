@@ -79,7 +79,7 @@ class TextFieldObserver : ObservableObject {
     
 }
 
-struct TextFieldWithDebounce : View {
+struct TextFieldWithDebounce: View {
     
     @Binding var debouncedText : String
     @StateObject private var textObserver = TextFieldObserver()

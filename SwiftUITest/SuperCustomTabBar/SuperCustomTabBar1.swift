@@ -24,6 +24,7 @@ struct TabBarView1: View {
 }
 
 fileprivate struct TabsLayoutView: View {
+    
     @State var selectedTab: Tab = .home
     @Namespace var namespace
     
@@ -39,8 +40,6 @@ fileprivate struct TabsLayoutView: View {
             }
         }
     }
-    
-    
     
     private struct TabButton: View {
         let tab: Tab

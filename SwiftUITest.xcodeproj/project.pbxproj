@@ -100,6 +100,7 @@
 		75B5A8872A3C0EB600378C7B /* DevToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B5A8862A3C0EB600378C7B /* DevToolsView.swift */; };
 		75B85B7A2A452B5B0014112F /* BackgroundTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B85B792A452B5B0014112F /* BackgroundTestView.swift */; };
 		75BA44732A71A253003A260D /* MeshGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA44722A71A253003A260D /* MeshGradientView.swift */; };
+		75BBBADF2A7BF29F006BB434 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BBBADE2A7BF29F006BB434 /* Misc.swift */; };
 		75BBCBFA2A4C6D7300DD03C2 /* BlurContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BBCBF92A4C6D7300DD03C2 /* BlurContentView.swift */; };
 		75C0584A2A7862CF00B81A15 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C058492A7862CF00B81A15 /* WelcomeView.swift */; };
 		75C29F692A4A9F71003859B7 /* TikTokView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C29F682A4A9F71003859B7 /* TikTokView.swift */; };
@@ -134,7 +135,7 @@
 		75F9F96A2A5725260073F61A /* NuemorphicProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F9F9692A5725260073F61A /* NuemorphicProgressCircleView.swift */; };
 		75FA49952A6CE8B800BC9BCB /* TransitionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA49942A6CE8B800BC9BCB /* TransitionTestView.swift */; };
 		75FA49972A6CECF300BC9BCB /* MatchedGeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA49962A6CECF300BC9BCB /* MatchedGeoView.swift */; };
-		75FEF8E92A79AE860046793C /* TestCustomAlertOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FEF8E82A79AE860046793C /* TestCustomAlertOverlayView.swift */; };
+		75FEF8E92A79AE860046793C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FEF8E82A79AE860046793C /* Alerts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +253,7 @@
 		75B5A8862A3C0EB600378C7B /* DevToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevToolsView.swift; sourceTree = "<group>"; };
 		75B85B792A452B5B0014112F /* BackgroundTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTestView.swift; sourceTree = "<group>"; };
 		75BA44722A71A253003A260D /* MeshGradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeshGradientView.swift; sourceTree = "<group>"; };
+		75BBBADE2A7BF29F006BB434 /* Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		75BBCBF92A4C6D7300DD03C2 /* BlurContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurContentView.swift; sourceTree = "<group>"; };
 		75C058492A7862CF00B81A15 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		75C29F682A4A9F71003859B7 /* TikTokView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TikTokView.swift; sourceTree = "<group>"; };
@@ -286,7 +288,7 @@
 		75F9F9692A5725260073F61A /* NuemorphicProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuemorphicProgressCircleView.swift; sourceTree = "<group>"; };
 		75FA49942A6CE8B800BC9BCB /* TransitionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionTestView.swift; sourceTree = "<group>"; };
 		75FA49962A6CECF300BC9BCB /* MatchedGeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoView.swift; sourceTree = "<group>"; };
-		75FEF8E82A79AE860046793C /* TestCustomAlertOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCustomAlertOverlayView.swift; sourceTree = "<group>"; };
+		75FEF8E82A79AE860046793C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,13 +333,10 @@
 		7523AAB72A40A2D6006DB270 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				75ABC6902A51EAC000633F78 /* SplashScreen */,
 				75E888B22A41F74700F6B52A /* SideMenu */,
 				7523AABA2A40A36B006DB270 /* Sandbox */,
 				75472E1B2A412B6100E822AC /* CustomAlertView.swift */,
 				75AB52BC2A4352B5001E086E /* HomePageView.swift */,
-				75B85B792A452B5B0014112F /* BackgroundTestView.swift */,
-				75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */,
 				7594FCB72A4734FE00EBB605 /* CustomTextView.swift */,
 				75C5EE392A49E79B00FA9056 /* OnboardingViewCarousel.swift */,
 				75E8C1FA2A4A292B00C3A564 /* AnimationView.swift */,
@@ -357,7 +356,6 @@
 				750D45DA2A3CCED500756005 /* RedactedView.swift */,
 				750D45DC2A3CF69900756005 /* HorizontalPagingView.swift */,
 				75D122672A3F62050024E60C /* TokenView.swift */,
-				75016BC22A52A7B1001AE249 /* CenterContentView.swift */,
 				75E0F4502A55DE34000AAC5A /* CombineInputView.swift */,
 				75B2DA772A5752B500A52E22 /* AdaptiveGridView.swift */,
 				75B2DA792A57592E00A52E22 /* NewStretchyHeaderView.swift */,
@@ -377,6 +375,9 @@
 				75FA49942A6CE8B800BC9BCB /* TransitionTestView.swift */,
 				75FA49962A6CECF300BC9BCB /* MatchedGeoView.swift */,
 				759B8B5D2A6F5468008B19D7 /* MaterialUITextField.swift */,
+				75543D1F2A4605A9008805BD /* ScrollViewPagingAPI.swift */,
+				75016BC22A52A7B1001AE249 /* CenterContentView.swift */,
+				75B85B792A452B5B0014112F /* BackgroundTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -389,6 +390,8 @@
 				75C5A59E2A5FAC9800B66067 /* AppFont.swift */,
 				758FC3202A7825FA00BE206E /* AppSpacing.swift */,
 				75808CD42A7B667B00D21270 /* CornerRadius.swift */,
+				75BBBADE2A7BF29F006BB434 /* Misc.swift */,
+				75FEF8E82A79AE860046793C /* Alerts.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -446,6 +449,9 @@
 			children = (
 				75CE29632A70935500FD5F05 /* HashtagTextView.swift */,
 				7556EC042A75C5CB00B2602C /* FinalNavTabTest.swift */,
+				752995582A730EC0006854F3 /* PhotoPickerView.swift */,
+				75ABC6902A51EAC000633F78 /* SplashScreen */,
+				75E138542A7050D7006194F9 /* WebView */,
 				758FC3192A78254700BE206E /* Base */,
 				75F575BB2A69C20F0060F764 /* WStack */,
 				754B8B792A3B729000409582 /* Haptic */,
@@ -539,7 +545,6 @@
 				75CE29622A70931200FD5F05 /* ViewModifiers */,
 				759383D12A3622F30016EA29 /* Preview Content */,
 				75E138592A705469006194F9 /* Sidebar */,
-				75E138542A7050D7006194F9 /* WebView */,
 				7529C66F2A76FA75001F325D /* SuperCustomTabBar */,
 				75D5111A2A6DAF1D00D671E0 /* BoomView.swift */,
 				7557904F2A6E31CD000E63EA /* PresentationHeightContentView.swift */,
@@ -549,13 +554,11 @@
 				75CE29672A70D81400FD5F05 /* CurrencyTextField.swift */,
 				75BA44722A71A253003A260D /* MeshGradientView.swift */,
 				756A35EE2A71A8E8007BBFDA /* SegmentedControlView.swift */,
-				752995582A730EC0006854F3 /* PhotoPickerView.swift */,
 				7529955C2A7312C7006854F3 /* DateTimeTestView.swift */,
 				758552262A7319C4007757F9 /* SpacingTestView.swift */,
 				754A23B32A76E590009AD08E /* MotionManagerTestView.swift */,
 				7529C6782A771481001F325D /* BaseView.swift */,
 				75C058492A7862CF00B81A15 /* WelcomeView.swift */,
-				75FEF8E82A79AE860046793C /* TestCustomAlertOverlayView.swift */,
 				75F8DB472A7B04DA006C5149 /* ChartTestView.swift */,
 			);
 			path = SwiftUITest;
@@ -816,6 +819,7 @@
 				754DDFC32A58827D00609569 /* AnimatedSearchBarView.swift in Sources */,
 				758FC31D2A7825A400BE206E /* BaseCardView.swift in Sources */,
 				75988F752A3A543C007EF7C6 /* NewCustomTabBarView.swift in Sources */,
+				75BBBADF2A7BF29F006BB434 /* Misc.swift in Sources */,
 				75ABC68F2A51E8DF00633F78 /* SplashScreenView.swift in Sources */,
 				75ABC6922A51EBCB00633F78 /* LaunchScreenService.swift in Sources */,
 				75ED82622A6C662E00A2CF0A /* ChartView.swift in Sources */,
@@ -859,7 +863,7 @@
 				759B8B5C2A6F3AD4008B19D7 /* SuperFontContentView.swift in Sources */,
 				754215212A6ED77800162BF8 /* WaterFillView.swift in Sources */,
 				7582855E2A5E4B5900B30161 /* CodeInputView.swift in Sources */,
-				75FEF8E92A79AE860046793C /* TestCustomAlertOverlayView.swift in Sources */,
+				75FEF8E92A79AE860046793C /* Alerts.swift in Sources */,
 				758B3FE72A4CC11C00C624A8 /* CurrentOffsetScrollView.swift in Sources */,
 				75CB8C372A3A716600CE192D /* TypewriterView.swift in Sources */,
 				75808CD52A7B667B00D21270 /* CornerRadius.swift in Sources */,
