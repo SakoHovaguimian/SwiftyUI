@@ -32,7 +32,7 @@ struct GradientLabel: View {
     var endPoint: UnitPoint
     
     init(text: String,
-         gradient: Gradient = Gradient(colors: [.purple, .indigo.opacity(0.1)]),
+         gradient: Gradient = Gradient(colors: [.red, .red.opacity(0.3)]),
          startPoint: UnitPoint = .topLeading,
          endPoint: UnitPoint = .bottomTrailing) {
         

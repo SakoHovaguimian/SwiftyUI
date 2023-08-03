@@ -37,7 +37,7 @@ class NavigationService: ObservableObject {
     enum Route: Navigation {
         
         case redView
-        case blueView
+        case blueView // (Product) We can pass values with this...
         
     }
     
@@ -167,6 +167,7 @@ struct TestEmbedView: View {
                 Button("Test") {
                     self.navigationService.push(.blueView)
                 }
+                .buttonStyle(.borderedProminent)
                 
                 
             }

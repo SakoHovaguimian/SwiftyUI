@@ -24,9 +24,10 @@ struct StyledLabel: View {
             .padding(.horizontal, 24)
             .foregroundColor(.white)
             .background(self.color)
-            .clipShape(RoundedRectangle(cornerRadius: 11))
+            .cornerRadius(.medium)
             .shadow(radius: 12)
             .onTapGesture {
+                print("Tapping")
                 self.action()
             }
         

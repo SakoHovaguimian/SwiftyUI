@@ -19,6 +19,7 @@ import SwiftUI
 struct TestCustomAlertOverlayView: View {
     
     @State private var isPresented: Bool = false
+    @State private var isLoading: Bool = true
     
     var body: some View {
             
@@ -26,6 +27,38 @@ struct TestCustomAlertOverlayView: View {
             
             AppColor.charcoal
                 .ignoresSafeArea()
+            
+            VStack {
+                
+                Rectangle()
+                    .fill(Color.red)
+                    .frame(height: 100)
+                
+                Text("Woah this is cool")
+                
+                Rectangle()
+                    .fill(Color.red)
+                    .frame(width: 150, height: 30)
+                
+                Text("Woah this is cool")
+                
+                HStack {
+                    
+                    Rectangle()
+                        .fill(Color.red)
+                        .frame(height: 30)
+                    Rectangle()
+                        .fill(Color.red)
+                        .frame(height: 30)
+                    Rectangle()
+                        .fill(Color.red)
+                        .frame(height: 30)
+                    
+                }
+                
+            }
+            .redactShimmer(condition: self.isLoading)
+            .padding(.horizontal, 32)
             
         }
         .onTapGesture {

@@ -39,13 +39,16 @@ struct WelcomeView: View {
         
         ZStack(alignment: .top) {
             
-            Color.black
-                .opacity(0.8)
-                .ignoresSafeArea()
+            LinearGradient(
+                colors: [Color(hex: "#1C2227"), AppColor.charcoal],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
             
             VStack(spacing: 16) {
                 
-                Image(systemName: "bell")
+                Image(.iconLogo)
                     .resizable()
                     .frame(width: 85, height: 85)
                     .foregroundStyle(AppColor.brandGreen.gradient)
@@ -54,7 +57,7 @@ struct WelcomeView: View {
                 Text("Welcome to Rival")
                     .foregroundStyle(.white)
                     .font(.largeTitle)
-                    .fontWeight(.heavy)
+                    .fontWeight(.black)
                     .fontDesign(.default)
                     .multilineTextAlignment(.center)
                 
@@ -76,6 +79,7 @@ struct WelcomeView: View {
                 
             }
             .buttonStyle(AppButtonStyle())
+            .appShadow(style: .neon(AppColor.brandGreen))
             .padding(.horizontal, 32)
             .customSafeAreaPadding(padding: 16)
             

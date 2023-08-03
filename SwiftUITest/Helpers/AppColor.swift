@@ -37,7 +37,7 @@ struct AppColor {
         return Color("charcoal")
     }
     
-    /// #E0FE10
+    /// #95FE11
     static var brandGreen: Color {
         return Color("brand_green")
     }

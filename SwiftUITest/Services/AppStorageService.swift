@@ -94,11 +94,13 @@ struct AppStorageTestView: View {
                 .onTapGesture {
                     self.appStorageService.set(email: "Custom Stored Email")
                 }
+                .transition(.slide)
             
             Text(self.appStorageService.token)
                 .onTapGesture {
                     self.appStorageService.set(token: "Custom Stored Token")
                 }
+                .transition(.slide)
             
         }
         

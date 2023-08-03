@@ -23,7 +23,7 @@ struct BarChartExampleView: View {
     
     let data = [ChartData(type: "Sako H", count: 100),
                 ChartData(type: "Michael C", count: 100),
-                ChartData(type: "KC G", count: 18),
+                ChartData(type: "KC G", count: 111),
                 ChartData(type: "Shaun P", count: 40),
                 ChartData (type: "Jorge G", count: 65)]
     

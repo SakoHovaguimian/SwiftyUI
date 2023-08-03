@@ -39,6 +39,17 @@ struct SwiftUITestApp: App {
 //            TestBaseView()
 //            mainViewStack
             WelcomeView()
+//            TestCustomAlertOverlayView()
+//            DemoChartTest()
+            
+//            StyledLabel(
+//                title: "Favorites",
+//                systemImageName: "heart.fill",
+//                color: .red.opacity(1)) {
+//                    print("Clicked the favorited button")
+//                }
+//                .padding(24)
+            
         }
         
     }
@@ -112,10 +123,10 @@ struct SwiftUITestApp: App {
     var tabBarView: some View {
         
         FinalNavTabTest(
-            homeNavigationService: self.homeNavigationService,
-            searchNavigationService: self.searchNavigationService,
-            discoverNavigationService: self.discoverNavigationService,
-            profileNavigationService: self.profileNavigationService
+//            homeNavigationService: self.homeNavigationService,
+//            searchNavigationService: self.searchNavigationService,
+//            discoverNavigationService: self.discoverNavigationService,
+//            profileNavigationService: self.profileNavigationService
         )
         .opacity(self.appStorageService.didCompleteOnboarding ? 1 : 0)
         .animation(.easeIn(duration: 0.3), value: self.appStorageService.didCompleteOnboarding)

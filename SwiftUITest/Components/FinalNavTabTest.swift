@@ -13,10 +13,10 @@ import SwiftUI
 
 struct FinalNavTabTest: View {
     
-    @ObservedObject var homeNavigationService: NavigationService
-    @ObservedObject var searchNavigationService: NavigationService
-    @ObservedObject var discoverNavigationService: NavigationService
-    @ObservedObject var profileNavigationService: NavigationService
+    @ObservedObject var homeNavigationService = NavigationService()
+    @ObservedObject var searchNavigationService = NavigationService()
+    @ObservedObject var discoverNavigationService = NavigationService()
+    @ObservedObject var profileNavigationService = NavigationService()
     
     @State private var tabs: [TabBarStruct] = TabBarOption.allCases.map({ .init(tabBarOption: $0, badgeCount: 0) })
     @State private var badges: [Int] = [0,0,0,0]
@@ -33,7 +33,7 @@ struct FinalNavTabTest: View {
                 
                 TestEmbedView()
 //                    .fill(Color.red.opacity(0.8).gradient)
-                    .ignoresSafeArea()
+                    .ignoresSafeArea() // Might not need this.. Wait and see.
                     .onTapGesture {
                         self.homeNavigationService.push(.redView)
                     }

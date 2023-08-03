@@ -250,7 +250,7 @@ struct AppButtonStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.9 : 1)
             .opacity(configuration.isPressed ? 0.8 : 1)
             .animation(.spring(duration: 0.2), value: configuration.isPressed)
-            .appShadow()
+//            .appShadow()
             .appFont(with: .heading(.h5))
         
     }

@@ -56,7 +56,6 @@ public struct Shimmer: ViewModifier {
 
         func body(content: Content) -> some View {
             content
-                .mask(Rectangle().fill(Color.green).background(Color.green))
                 .mask(GradientMask(phase: phase).scaleEffect(3))
         }
     }
@@ -65,8 +64,8 @@ public struct Shimmer: ViewModifier {
     /// The `phase` parameter shifts the gradient, moving the opaque band.
     struct GradientMask: View {
         let phase: CGFloat
-        let centerColor = Color.blue
-        let edgeColor = Color.green.opacity(0.3)
+        let centerColor = Color.black
+        let edgeColor = Color.black.opacity(0.3)
         @Environment(\.layoutDirection) private var layoutDirection
 
         var body: some View {
@@ -138,3 +137,36 @@ struct Shimmer_Previews: PreviewProvider {
     }
 }
 #endif
+
+public struct RedactAndShimmerViewModifier: ViewModifier {
+    
+    private let condition: Bool
+    
+    init(condition: Bool) {
+        self.condition = condition
+    }
+    
+    public func body(content: Content) -> some View {
+        
+        if self.condition {
+            
+            content
+                .redacted(reason: .placeholder)
+                .shimmering()
+            
+        }
+        else {
+            content
+        }
+        
+    }
+    
+}
+
+extension View {
+    
+    public func redactShimmer(condition: Bool) -> some View {
+        modifier(RedactAndShimmerViewModifier(condition: condition))
+    }
+    
+}
