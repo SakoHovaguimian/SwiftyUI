@@ -131,6 +131,7 @@
 		75EE19382A5EF77A003CD5EB /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EE19372A5EF77A003CD5EB /* FirebaseService.swift */; };
 		75F575BD2A69C2190060F764 /* WStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F575BC2A69C2190060F764 /* WStack.swift */; };
 		75F575BF2A69C22A0060F764 /* WStackViewPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F575BE2A69C22A0060F764 /* WStackViewPreview.swift */; };
+		75F6FBAF2A7CA7FD00B0578B /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F6FBAE2A7CA7FD00B0578B /* AppButton.swift */; };
 		75F8DB482A7B04DA006C5149 /* ChartTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8DB472A7B04DA006C5149 /* ChartTestView.swift */; };
 		75F9F96A2A5725260073F61A /* NuemorphicProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F9F9692A5725260073F61A /* NuemorphicProgressCircleView.swift */; };
 		75FA49952A6CE8B800BC9BCB /* TransitionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA49942A6CE8B800BC9BCB /* TransitionTestView.swift */; };
@@ -284,6 +285,7 @@
 		75EE19372A5EF77A003CD5EB /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		75F575BC2A69C2190060F764 /* WStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WStack.swift; sourceTree = "<group>"; };
 		75F575BE2A69C22A0060F764 /* WStackViewPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WStackViewPreview.swift; sourceTree = "<group>"; };
+		75F6FBAE2A7CA7FD00B0578B /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
 		75F8DB472A7B04DA006C5149 /* ChartTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTestView.swift; sourceTree = "<group>"; };
 		75F9F9692A5725260073F61A /* NuemorphicProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NuemorphicProgressCircleView.swift; sourceTree = "<group>"; };
 		75FA49942A6CE8B800BC9BCB /* TransitionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionTestView.swift; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				754B8B732A3B6D1900409582 /* StyledLabelButton.swift */,
 				754B8B772A3B70D200409582 /* CustomButton.swift */,
 				750D45D82A3CCD4B00756005 /* ShimmerView.swift */,
+				75F6FBAE2A7CA7FD00B0578B /* AppButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				753DF0842A5A630E000AC3EC /* MeshGradientCardView.swift in Sources */,
 				757DE9722A4E2C810099FE6E /* GradientButtonContentView.swift in Sources */,
 				7529C6712A76FA8D001F325D /* SuperCustomTabBar1.swift in Sources */,
+				75F6FBAF2A7CA7FD00B0578B /* AppButton.swift in Sources */,
 				754B8B742A3B6D1900409582 /* StyledLabelButton.swift in Sources */,
 				75F575BD2A69C2190060F764 /* WStack.swift in Sources */,
 				75B85B7A2A452B5B0014112F /* BackgroundTestView.swift in Sources */,

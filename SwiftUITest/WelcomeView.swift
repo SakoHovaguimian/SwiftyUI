@@ -46,7 +46,7 @@ struct WelcomeView: View {
         ZStack(alignment: .top) {
             
             LinearGradient(
-                colors: [Color(hex: "#1C2227"), AppColor.charcoal],
+                colors: [Color(hex: "#1C2227"), .black],//AppColor.charcoal],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
@@ -81,10 +81,11 @@ struct WelcomeView: View {
         }
         .safeAreaInset(edge: .bottom) {
             
-            Button("Continue") {
-                
-            }
-            .buttonStyle(AppButtonStyle())
+            AppButton(
+                title: "Welcome",
+                action: {
+                    print("Something clicked")
+                })
             .appShadow(style: .neon(AppColor.brandGreen))
             .padding(.horizontal, 32)
             .customSafeAreaPadding(padding: 16)

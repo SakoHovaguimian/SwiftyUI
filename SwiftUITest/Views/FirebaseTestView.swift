@@ -232,50 +232,6 @@ struct FirebaseTestView: View {
 //    FirebaseTestView(firebaseService: FirebaseService())
 //}
 
-// Have this accept color, font, text, corner radius, all with default values
-// that match the most common button from design...
-
-struct AppButtonStyle: ButtonStyle {
-    
-    var height: CGFloat = 48
-    
-    func makeBody(configuration: Configuration) -> some View {
-        
-        configuration.label
-            .frame(maxWidth: .infinity)
-            .frame(height: self.height)
-            .background(AppColor.brandGreen)
-            .foregroundStyle(.black)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-            .scaleEffect(configuration.isPressed ? 0.9 : 1)
-            .opacity(configuration.isPressed ? 0.8 : 1)
-            .animation(.spring(duration: 0.2), value: configuration.isPressed)
-//            .appShadow()
-            .appFont(with: .heading(.h5))
-        
-    }
-    
-}
-
-// Pass every possible parameter from above into this too
-// Make it configurable...
-
-struct AppButton: View {
-    
-    var title: String
-    var height: CGFloat = 50
-    var action: (() -> ())
-    
-    var body: some View {
-        
-        Button(self.title) {
-            self.action()
-        }
-        .buttonStyle(AppButtonStyle(height: self.height))
-        
-    }
-    
-}
 
 //#Preview {
 //    

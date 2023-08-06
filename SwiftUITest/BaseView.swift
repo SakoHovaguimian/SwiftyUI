@@ -133,11 +133,9 @@ struct TestBaseView: View {
                         }
                     
                     
-                    Button("Random Button") {
-                        // Ignore
+                    AppButton(title: "Button") {
+                        print("Clicked button")
                     }
-                    .buttonStyle(AppButtonStyle())
-                    .padding(.horizontal, .medium)
                     
                 }
                 .padding(.horizontal, .large)
