@@ -13,7 +13,7 @@ class TimerManager {
     
     var displayedValue = 0.0
     var shouldIncrement = false
-    var value = 0.75
+    var value = 0.0
     
     func startTimer() {
         
