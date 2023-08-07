@@ -37,11 +37,38 @@ struct WaterFillView: View {
             
             Button {
                 withAnimation {
-                    self.percent += 10
+                    for i in 0...9 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + (0.06 * Double(i)), execute: {
+                            self.percent += 1
+                        })
+                    }
                 }
+                
             } label: {
                 
                 Text("Update Progress")
+                
+                    .frame(width: 200)
+                    .padding(.all, 12)
+                    .foregroundColor(.white)
+                    .background(Color.blue.gradient)
+                    .clipShape(RoundedRectangle(cornerRadius: 4))
+                    .shadow(color: Color.blue.opacity(0.4), radius: 2, x: 0, y: 0)
+                
+            }
+            
+            Button {
+                withAnimation {
+                    for i in 0...9 {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + (0.06 * Double(i)), execute: {
+                            self.percent -= 1
+                        })
+                    }
+                }
+                
+            } label: {
+                
+                Text("Subtract Progress")
                 
                     .frame(width: 200)
                     .padding(.all, 12)
