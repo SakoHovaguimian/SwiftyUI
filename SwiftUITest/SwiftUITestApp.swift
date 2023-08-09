@@ -38,7 +38,8 @@ struct SwiftUITestApp: App {
         WindowGroup {
 //            TestBaseView()
 //            mainViewStack
-            WelcomeView(items: WelcomeView.ListItem.DUMMY_DATA)
+//            WelcomeView(items: WelcomeView.ListItem.DUMMY_DATA)
+            TitleScrollingView()
 //            TestCustomAlertOverlayView()
 //            DemoChartTest()
             

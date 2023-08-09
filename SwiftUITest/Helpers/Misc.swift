@@ -44,7 +44,7 @@ struct CircularIconView: View {
             
             Circle()
                 .fill(self.backgroundColor)
-                .frame(width: 48, height: 48)
+                .frame(width: self.size, height: size)
             
             if let systemImage {
                 
