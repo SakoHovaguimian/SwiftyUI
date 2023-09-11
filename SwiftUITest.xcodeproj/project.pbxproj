@@ -35,6 +35,7 @@
 		754215212A6ED77800162BF8 /* WaterFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754215202A6ED77800162BF8 /* WaterFillView.swift */; };
 		75472E1C2A412B6100E822AC /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75472E1B2A412B6100E822AC /* CustomAlertView.swift */; };
 		7549FB412A37C875002AEDC5 /* WildButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7549FB402A37C875002AEDC5 /* WildButtonView.swift */; };
+		7549FFD02A86922F00F4456B /* ScrollOnlyOnOverflowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7549FFCF2A86922F00F4456B /* ScrollOnlyOnOverflowView.swift */; };
 		754A23B42A76E590009AD08E /* MotionManagerTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A23B32A76E590009AD08E /* MotionManagerTestView.swift */; };
 		754A23B62A76E5B1009AD08E /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754A23B52A76E5B1009AD08E /* MotionManager.swift */; };
 		754B8B6C2A3B685500409582 /* TypewriterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754B8B6B2A3B685500409582 /* TypewriterContentView.swift */; };
@@ -186,6 +187,7 @@
 		754215202A6ED77800162BF8 /* WaterFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFillView.swift; sourceTree = "<group>"; };
 		75472E1B2A412B6100E822AC /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		7549FB402A37C875002AEDC5 /* WildButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildButtonView.swift; sourceTree = "<group>"; };
+		7549FFCF2A86922F00F4456B /* ScrollOnlyOnOverflowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOnlyOnOverflowView.swift; sourceTree = "<group>"; };
 		754A23B32A76E590009AD08E /* MotionManagerTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManagerTestView.swift; sourceTree = "<group>"; };
 		754A23B52A76E5B1009AD08E /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		754B8B6B2A3B685500409582 /* TypewriterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypewriterContentView.swift; sourceTree = "<group>"; };
@@ -566,6 +568,7 @@
 				75C058492A7862CF00B81A15 /* WelcomeView.swift */,
 				75F8DB472A7B04DA006C5149 /* ChartTestView.swift */,
 				7510EBB72A82FE5D005425D6 /* TitleScrollingView.swift */,
+				7549FFCF2A86922F00F4456B /* ScrollOnlyOnOverflowView.swift */,
 			);
 			path = SwiftUITest;
 			sourceTree = "<group>";
@@ -811,6 +814,7 @@
 			files = (
 				75868F7E2A75B5C50064BB1F /* AppStorageService.swift in Sources */,
 				75B2DA782A5752B500A52E22 /* AdaptiveGridView.swift in Sources */,
+				7549FFD02A86922F00F4456B /* ScrollOnlyOnOverflowView.swift in Sources */,
 				75E138582A70511A006194F9 /* WebView.swift in Sources */,
 				754B8B7F2A3B72CD00409582 /* Haptics.swift in Sources */,
 				754B8B722A3B6B3800409582 /* GradientLabel.swift in Sources */,
