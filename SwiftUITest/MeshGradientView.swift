@@ -64,14 +64,8 @@ struct MeshGradientView: View {
     MeshGradientView(gradientAngle: 0,
                      shouldAnimate: true,
                      colors: [
-                        .pink,
-                        .red,
-                        .orange,
-                        .yellow,
-                        .green,
                         .blue,
-                        .purple,
-                        .pink
+                        .green
                      ])
     
 }

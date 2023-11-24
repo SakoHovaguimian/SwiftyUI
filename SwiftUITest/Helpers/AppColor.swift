@@ -17,6 +17,8 @@ struct AppColor {
         
         case primary
         case secondary
+        case tertiary
+        case quad
         
     }
     
@@ -47,11 +49,28 @@ struct AppColor {
         return Color("brand_pink")
     }
     
+    /// #15161A
+    static var appGray: Color {
+        return Color("background")
+    }
+    
+    /// #1A1E23
+    static var appGray2: Color {
+        return Color("background_2")
+    }
+    
+    /// #2E353f
+    static var appGray3: Color {
+        return Color("background_3")
+    }
+    
     static func background(_ backgroundStyle: BackgroundStyle) -> Color {
         
         switch backgroundStyle {
-        case .primary: return Color(light: AppColor.eggShell, dark: AppColor.charcoal)
-        case .secondary: return Color(light: AppColor.charcoal, dark: AppColor.eggShell)
+        case .primary: return Color(light: AppColor.appGray, dark: AppColor.appGray)
+        case .secondary: return Color(light: AppColor.appGray2, dark: AppColor.appGray2)
+        case .tertiary: return .black.opacity(0.5)
+        case .quad: return self.appGray3
         }
         
     }
