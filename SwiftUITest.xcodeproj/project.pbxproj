@@ -35,6 +35,7 @@
 		75409B402A4E9F2100347352 /* ViewBuilderExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */; };
 		7540D62C2A5F3C1F00A5E8A6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7540D62B2A5F3C1F00A5E8A6 /* GoogleService-Info.plist */; };
 		754215212A6ED77800162BF8 /* WaterFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754215202A6ED77800162BF8 /* WaterFillView.swift */; };
+		7544DB1B2B3CC22D00D526B5 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7544DB1A2B3CC22D00D526B5 /* DropDownView.swift */; };
 		75472E1C2A412B6100E822AC /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75472E1B2A412B6100E822AC /* CustomAlertView.swift */; };
 		7549FB412A37C875002AEDC5 /* WildButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7549FB402A37C875002AEDC5 /* WildButtonView.swift */; };
 		7549FFD02A86922F00F4456B /* ScrollOnlyOnOverflowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7549FFCF2A86922F00F4456B /* ScrollOnlyOnOverflowView.swift */; };
@@ -56,6 +57,7 @@
 		755790502A6E31CD000E63EA /* PresentationHeightContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7557904F2A6E31CD000E63EA /* PresentationHeightContentView.swift */; };
 		7558F8642A4DF846008486A0 /* LongPressContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7558F8632A4DF845008486A0 /* LongPressContentView.swift */; };
 		755CCA892A4BA1B60050E7F1 /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */; };
+		755FBDF62B128CBF00933D17 /* HeightPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755FBDF52B128CBF00933D17 /* HeightPicker.swift */; };
 		7565E9AF2A3A0EA60076A362 /* SuperCustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */; };
 		756A35EF2A71A8E8007BBFDA /* SegmentedControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A35EE2A71A8E8007BBFDA /* SegmentedControlView.swift */; };
 		756B39AA2A58CA380067F9BB /* GradientCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B39A92A58CA380067F9BB /* GradientCardView.swift */; };
@@ -190,6 +192,7 @@
 		75409B3F2A4E9F2100347352 /* ViewBuilderExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilderExample.swift; sourceTree = "<group>"; };
 		7540D62B2A5F3C1F00A5E8A6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		754215202A6ED77800162BF8 /* WaterFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFillView.swift; sourceTree = "<group>"; };
+		7544DB1A2B3CC22D00D526B5 /* DropDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
 		75472E1B2A412B6100E822AC /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		7549FB402A37C875002AEDC5 /* WildButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WildButtonView.swift; sourceTree = "<group>"; };
 		7549FFCF2A86922F00F4456B /* ScrollOnlyOnOverflowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollOnlyOnOverflowView.swift; sourceTree = "<group>"; };
@@ -212,6 +215,7 @@
 		7557904F2A6E31CD000E63EA /* PresentationHeightContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationHeightContentView.swift; sourceTree = "<group>"; };
 		7558F8632A4DF845008486A0 /* LongPressContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongPressContentView.swift; sourceTree = "<group>"; };
 		755CCA882A4BA1B60050E7F1 /* ToggleStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
+		755FBDF52B128CBF00933D17 /* HeightPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeightPicker.swift; sourceTree = "<group>"; };
 		7565E9AE2A3A0EA60076A362 /* SuperCustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperCustomTabBarView.swift; sourceTree = "<group>"; };
 		756A35EE2A71A8E8007BBFDA /* SegmentedControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControlView.swift; sourceTree = "<group>"; };
 		756B39A92A58CA380067F9BB /* GradientCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientCardView.swift; sourceTree = "<group>"; };
@@ -392,6 +396,7 @@
 				75B85B792A452B5B0014112F /* BackgroundTestView.swift */,
 				7523EAE32B030092004AC3C2 /* JoeTEst.swift */,
 				75A443892B1044C5006690FF /* ChecklistView.swift */,
+				755FBDF52B128CBF00933D17 /* HeightPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 				750D45D82A3CCD4B00756005 /* ShimmerView.swift */,
 				75F6FBAE2A7CA7FD00B0578B /* AppButton.swift */,
 				750C80122B03FD59000BA691 /* BlobTest.swift */,
+				7544DB1A2B3CC22D00D526B5 /* DropDownView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -857,6 +863,7 @@
 				75409B402A4E9F2100347352 /* ViewBuilderExample.swift in Sources */,
 				75BBCBFA2A4C6D7300DD03C2 /* BlurContentView.swift in Sources */,
 				755790502A6E31CD000E63EA /* PresentationHeightContentView.swift in Sources */,
+				755FBDF62B128CBF00933D17 /* HeightPicker.swift in Sources */,
 				75F9F96A2A5725260073F61A /* NuemorphicProgressCircleView.swift in Sources */,
 				759CFAE12A39897B006C0DC4 /* CustomProgressBar.swift in Sources */,
 				75FA49952A6CE8B800BC9BCB /* TransitionTestView.swift in Sources */,
@@ -867,6 +874,7 @@
 				75C29F692A4A9F71003859B7 /* TikTokView.swift in Sources */,
 				750D45D92A3CCD4B00756005 /* ShimmerView.swift in Sources */,
 				759383CE2A3622F20016EA29 /* FirstPlaygroundView.swift in Sources */,
+				7544DB1B2B3CC22D00D526B5 /* DropDownView.swift in Sources */,
 				750D45D72A3CCAE000756005 /* GradientLabelView.swift in Sources */,
 				75F8DB482A7B04DA006C5149 /* ChartTestView.swift in Sources */,
 				75E888B82A41F8D200F6B52A /* SideMenuHeaderView.swift in Sources */,

@@ -23,6 +23,8 @@ struct SwiftUITestApp: App {
     let discoverNavigationService = NavigationService()
     let profileNavigationService = NavigationService()
     
+    @State var selectedPokemon: String? = nil
+    
     init() {
         FirebaseApp.configure()
     }
@@ -39,7 +41,25 @@ struct SwiftUITestApp: App {
 //            TestBaseView()
 //            mainViewStack
 //            WelcomeView(items: WelcomeView.ListItem.DUMMY_DATA)
-            TitleScrollingView()
+            
+            DropDownViewV2(
+                title: "Pokemon",
+                placeholder: "Starter",
+                options: [
+                    "Charmander",
+                    "Bulbasaur",
+                    "Squirtle",
+                    "Pickachu",
+                    "Pidgey",
+                    "Caterpie",
+                    "Weedle",
+                    "Diglet"
+                ],
+                selection: $selectedPokemon
+            )
+            .frame(width: 180)
+            .frame(height: 180)
+//            TitleScrollingView()
 //            TestCustomAlertOverlayView()
 //            DemoChartTest()
             
