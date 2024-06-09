@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct SwiftyUIApp: App {
+    
+    @State private var homeViewModel = HomeViewModel()
+    @State private var envService = EnvService()
+    
     var body: some Scene {
+        
         WindowGroup {
-            ContentView()
+            
+            HomeView(homeViewModel: self.homeViewModel)
+                .environment(self.envService)
+                .environment(self.homeViewModel)
+            
         }
+        
     }
+    
 }
