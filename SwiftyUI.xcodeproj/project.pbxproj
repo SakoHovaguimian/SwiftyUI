@@ -106,6 +106,8 @@
 		75BA2D432C0E79600089B70F /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2A2C0E79600089B70F /* Shake.swift */; };
 		75BA2D442C0E79600089B70F /* ScratcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2B2C0E79600089B70F /* ScratcherView.swift */; };
 		75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2C2C0E79600089B70F /* SearchBar.swift */; };
+		75E008812C17BC7D00A2F9BE /* ios18View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E008802C17BC7500A2F9BE /* ios18View.swift */; };
+		75E008832C17C9EF00A2F9BE /* ios18Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E008822C17C9E900A2F9BE /* ios18Transition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -228,6 +230,8 @@
 		75BA2D2A2C0E79600089B70F /* Shake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
 		75BA2D2B2C0E79600089B70F /* ScratcherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratcherView.swift; sourceTree = "<group>"; };
 		75BA2D2C2C0E79600089B70F /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		75E008802C17BC7500A2F9BE /* ios18View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios18View.swift; sourceTree = "<group>"; };
+		75E008822C17C9E900A2F9BE /* ios18Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios18Transition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -577,8 +581,11 @@
 		75BA2CE32C0E780A0089B70F /* SwiftyUI */ = {
 			isa = PBXGroup;
 			children = (
+				75E008822C17C9E900A2F9BE /* ios18Transition.swift */,
+				75E008802C17BC7500A2F9BE /* ios18View.swift */,
 				75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */,
 				75BA2CE62C0E780A0089B70F /* ContentView.swift */,
+				75E0087D2C17B09B00A2F9BE /* Models */,
 				7571902D2C120CA600989D41 /* Managers */,
 				75718FD12C120B3B00989D41 /* UI */,
 				75718FD22C120B4D00989D41 /* ViewModifiers */,
@@ -628,6 +635,13 @@
 				756C9B272C1207C400E438D6 /* TextFields */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		75E0087D2C17B09B00A2F9BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -775,6 +789,7 @@
 				75BA2D442C0E79600089B70F /* ScratcherView.swift in Sources */,
 				757190502C120F4400989D41 /* SampleScrollAnimationView.swift in Sources */,
 				75718F8B2C120A2500989D41 /* SegmentedControlView.swift in Sources */,
+				75E008832C17C9EF00A2F9BE /* ios18Transition.swift in Sources */,
 				75BA2D322C0E79600089B70F /* ScrollFilters.swift in Sources */,
 				753116862C12C34A00C7FBF6 /* ToggleStyles.swift in Sources */,
 				7571900B2C120BF100989D41 /* GPWebView.swift in Sources */,
@@ -806,6 +821,7 @@
 				753116682C12C22B00C7FBF6 /* ZoomView.swift in Sources */,
 				753116552C12C18600C7FBF6 /* AnimatedSearchBarView.swift in Sources */,
 				7571900D2C120BF500989D41 /* Toast.swift in Sources */,
+				75E008812C17BC7D00A2F9BE /* ios18View.swift in Sources */,
 				7571900E2C120BF500989D41 /* ToastView.swift in Sources */,
 				7580B1502C12BF8A0029EF84 /* TypewriterContentView.swift in Sources */,
 				757190562C1212B000989D41 /* HeightPicker.swift in Sources */,
@@ -1033,7 +1049,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
@@ -1071,7 +1087,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
