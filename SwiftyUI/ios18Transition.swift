@@ -86,13 +86,40 @@ struct ParentView: View {
 
 struct ParentDetailView: View {
     
+    @Environment(\.dismiss) private var dismiss
+    
     var id: String
     
     var body: some View {
         
-        AppCardView {
+        ZStack {
             
-            Text(self.id)
+            Color.darkBlue
+                .ignoresSafeArea()
+            
+            VStack {
+                
+                AppCardView {
+                    
+                    Text(self.id)
+                    
+                }
+                .onTapGesture {
+                    dismiss()
+                }
+                .frame(height: 400)
+                .background(.white)
+                .clipShape(.rect(cornerRadii: .init(
+                    topLeading: 0,
+                    bottomLeading: 32,
+                    bottomTrailing: 32,
+                    topTrailing: 0
+                )))
+                .ignoresSafeArea()
+                
+                Spacer()
+                
+            }
             
         }
         
