@@ -26,6 +26,7 @@
 		753FD8602C0E8CA200C20D1A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85F2C0E8CA200C20D1A /* SplashView.swift */; };
 		7540F7B22C18BAD6007DC97F /* ios18Subviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540F7B12C18BACF007DC97F /* ios18Subviews.swift */; };
 		7540F7B42C18BCA9007DC97F /* ios18TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540F7B32C18BCA5007DC97F /* ios18TabBar.swift */; };
+		7540F7B62C18C4AA007DC97F /* ios18Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540F7B52C18C4A7007DC97F /* ios18Animation.swift */; };
 		75718F832C1209C200989D41 /* BoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F822C1209C200989D41 /* BoomView.swift */; };
 		75718F852C1209DF00989D41 /* WaterFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F842C1209DF00989D41 /* WaterFillView.swift */; };
 		75718F872C120A0000989D41 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F862C120A0000989D41 /* BadgeView.swift */; };
@@ -149,6 +150,7 @@
 		753FD85F2C0E8CA200C20D1A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		7540F7B12C18BACF007DC97F /* ios18Subviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios18Subviews.swift; sourceTree = "<group>"; };
 		7540F7B32C18BCA5007DC97F /* ios18TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios18TabBar.swift; sourceTree = "<group>"; };
+		7540F7B52C18C4A7007DC97F /* ios18Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios18Animation.swift; sourceTree = "<group>"; };
 		75718F802C12085D00989D41 /* AnimatedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedPicker.swift; sourceTree = "<group>"; };
 		75718F822C1209C200989D41 /* BoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomView.swift; sourceTree = "<group>"; };
 		75718F842C1209DF00989D41 /* WaterFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFillView.swift; sourceTree = "<group>"; };
@@ -585,6 +587,7 @@
 		75BA2CE32C0E780A0089B70F /* SwiftyUI */ = {
 			isa = PBXGroup;
 			children = (
+				7540F7B52C18C4A7007DC97F /* ios18Animation.swift */,
 				7540F7B32C18BCA5007DC97F /* ios18TabBar.swift */,
 				7540F7B12C18BACF007DC97F /* ios18Subviews.swift */,
 				75E008822C17C9E900A2F9BE /* ios18Transition.swift */,
@@ -856,6 +859,7 @@
 				7571903A2C120CE300989D41 /* Ext+UIApplication.swift in Sources */,
 				75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */,
 				757190222C120C1100989D41 /* CornerRadius.swift in Sources */,
+				7540F7B62C18C4AA007DC97F /* ios18Animation.swift in Sources */,
 				757190232C120C1100989D41 /* AppSpacing.swift in Sources */,
 				757190242C120C1100989D41 /* AppShadow.swift in Sources */,
 				757190252C120C1100989D41 /* AppFont.swift in Sources */,
