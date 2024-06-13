@@ -78,7 +78,20 @@ struct ParentView: View {
                 )
             )
         }
-        .matchedTransitionSource(id: self.id, in: self.namespace)
+        .matchedTransitionSource(id: self.id, in: self.namespace, configuration: { config in
+            
+            config
+                .clipShape(.rect(cornerRadius: CornerRadius.small2.rawValue))
+                .shadow(
+                    color: Color.black.opacity(0.3),
+                    radius: 5,
+                    x: 0,
+                    y: 0
+                )
+                .background(.clear)
+            
+        })
+        .padding(.horizontal, .medium)
         
     }
     
@@ -104,6 +117,7 @@ struct ParentDetailView: View {
                     Text(self.id)
                     
                 }
+                .padding(.horizontal, .medium)
                 .onTapGesture {
                     dismiss()
                 }
