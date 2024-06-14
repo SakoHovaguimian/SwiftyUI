@@ -235,13 +235,15 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				iOS18AnimatedMeshGradient.swift,
-				ios18Animation.swift,
+				iOS18Animation.swift,
 				iOS18MeshGradient.swift,
 				iOS18ScrollVisibility.swift,
-				ios18Subviews.swift,
-				ios18TabBar.swift,
-				ios18Transition.swift,
-				ios18View.swift,
+				iOS18Subviews.swift,
+				iOS18TabBar.swift,
+				iOS18TextSuggestions.swift,
+				iOS18Transition.swift,
+				iOSBlendColors.swift,
+				iOSScrollTracking.swift,
 			);
 			target = 75BA2CE02C0E780A0089B70F /* SwiftyUI */;
 		};

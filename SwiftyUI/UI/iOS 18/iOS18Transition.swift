@@ -14,7 +14,7 @@ struct Item: Hashable {
     
 }
 
-struct ios18Transition: View {
+struct iOS18Transition: View {
     
     @State private var routes: [Item] = []
     @State private var items: [String] = [
@@ -142,5 +142,5 @@ struct ParentDetailView: View {
 }
 
 #Preview {
-    ios18Transition()
+    iOS18Transition()
 }

@@ -8,10 +8,12 @@
 import SwiftUI
 
 enum Pages: Hashable {
+    
     case home
     case search
     case settings
     case trends
+    
 }
 
 struct NewTabBar: View {

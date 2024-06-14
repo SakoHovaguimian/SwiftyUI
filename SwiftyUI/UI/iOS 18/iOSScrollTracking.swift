@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ios18View: View {
+struct iOS18View: View {
     
     @State private var currentOffset: CGRect = .zero
     
@@ -68,6 +68,6 @@ struct ios18View: View {
 }
 
 #Preview {
-    ios18View()
+    iOS18View()
 }
 
