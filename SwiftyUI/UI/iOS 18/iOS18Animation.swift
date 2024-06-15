@@ -39,6 +39,7 @@ struct iOS18Animation: View {
     
     @State private var selectedImageStyle = ImageStyle.checkmark
     @State private var shouldAnimate: Bool = false
+    @State private var notificationsEnabled = false
     
     var body: some View {
         
@@ -71,6 +72,27 @@ struct iOS18Animation: View {
                     .foregroundStyle(self.selectedImageStyle.accentColor)
                     .frame(width: 64, height: 64)
                     .symbolEffect(.rotate, options: .speed(0.1) ,value: self.shouldAnimate)
+                
+                Button {
+                    withAnimation {
+                        
+                        self.notificationsEnabled.toggle()
+                        self.shouldAnimate.toggle()
+                        
+                    }
+                } label: {
+                    Label(
+                        "Toggle notifications",
+                        systemImage: self.notificationsEnabled ? "bell" : "bell.slash"
+                    )
+                }
+                .foregroundStyle(self.selectedImageStyle.accentColor)
+//                .contentTransition(
+//                    .symbolEffect(.replace)
+//                )
+                .contentTransition(
+                    .symbolEffect(.replace.magic(fallback: .replace))
+                )
                 
             }
             

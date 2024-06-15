@@ -243,7 +243,9 @@
 				iOS18TextSuggestions.swift,
 				iOS18Transition.swift,
 				iOSBlendColors.swift,
+				iOSFormSheet.swift,
 				iOSScrollTracking.swift,
+				WWDC2024.swift,
 			);
 			target = 75BA2CE02C0E780A0089B70F /* SwiftyUI */;
 		};
