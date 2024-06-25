@@ -51,12 +51,11 @@ struct WWDC2024_ScrollViewPagination: View {
 
 struct WWDC2024_ScrollViewParallax: View {
     
-    @State private var colors: [Color] = [
-        .darkRed,
-        .darkBlue,
-        .darkPurple,
-        .darkYellow,
-        .darkGreen
+    @State private var images: [String] = [
+        "image_1",
+        "image_2",
+        "image_3",
+        "image_4"
     ]
     
     var body: some View {
@@ -65,14 +64,15 @@ struct WWDC2024_ScrollViewParallax: View {
             
             LazyHStack(spacing: 16) {
                 
-                ForEach(colors, id: \.self) { color in
+                ForEach(images, id: \.self) { image in
                     
                     VStack(spacing: 8) {
                         
                         ZStack {
                             
-                            Image(.prize)
+                            Image(image)
                                 .resizable()
+                                .aspectRatio(contentMode: .fit)
                                 .scrollTransition(
                                     axis: .horizontal
                                 ) { content, phase in

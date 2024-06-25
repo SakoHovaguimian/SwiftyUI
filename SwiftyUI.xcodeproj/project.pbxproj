@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */; };
 		7531164F2C12C11D00C7FBF6 /* GrowingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531164E2C12C11D00C7FBF6 /* GrowingTextField.swift */; };
 		753116552C12C18600C7FBF6 /* AnimatedSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753116502C12C18600C7FBF6 /* AnimatedSearchBarView.swift */; };
 		753116562C12C18600C7FBF6 /* GradientCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753116512C12C18600C7FBF6 /* GradientCardView.swift */; };
@@ -126,6 +127,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
 		7531164E2C12C11D00C7FBF6 /* GrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextField.swift; sourceTree = "<group>"; };
 		753116502C12C18600C7FBF6 /* AnimatedSearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedSearchBarView.swift; sourceTree = "<group>"; };
 		753116512C12C18600C7FBF6 /* GradientCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientCardView.swift; sourceTree = "<group>"; };
@@ -605,6 +607,7 @@
 			children = (
 				75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */,
 				75BA2CE62C0E780A0089B70F /* ContentView.swift */,
+				751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */,
 				75E0087D2C17B09B00A2F9BE /* Models */,
 				7571902D2C120CA600989D41 /* Managers */,
 				75718FD12C120B3B00989D41 /* UI */,
@@ -857,6 +860,7 @@
 				7571903E2C120CE600989D41 /* PlainList.swift in Sources */,
 				7571903F2C120CE600989D41 /* CenterIconStyle.swift in Sources */,
 				757190472C120E7900989D41 /* OrientationChangeModifier.swift in Sources */,
+				751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */,
 				757190402C120CE600989D41 /* SafeAreaPadding.swift in Sources */,
 				757190342C120CE300989D41 /* Ext+View.swift in Sources */,
 				757190352C120CE300989D41 /* Ext+UImage.swift in Sources */,
