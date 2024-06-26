@@ -17,9 +17,11 @@ struct SwiftyUIApp: App {
         
         WindowGroup {
             
-            HomeView(homeViewModel: self.homeViewModel)
-                .environment(self.envService)
-                .environment(self.homeViewModel)
+//            HomeView(homeViewModel: self.homeViewModel)
+//                .environment(self.envService)
+//                .environment(self.homeViewModel)
+            
+            SomeTestView()
             
         }
         

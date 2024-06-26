@@ -25,6 +25,7 @@
 		753FD85C2C0E896C00C20D1A /* IconAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85B2C0E896C00C20D1A /* IconAnimation.swift */; };
 		753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85D2C0E8B4F00C20D1A /* HueView.swift */; };
 		753FD8602C0E8CA200C20D1A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85F2C0E8CA200C20D1A /* SplashView.swift */; };
+		756F46442C2BD15200D14425 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F46432C2BD15200D14425 /* MessageView.swift */; };
 		75718F832C1209C200989D41 /* BoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F822C1209C200989D41 /* BoomView.swift */; };
 		75718F852C1209DF00989D41 /* WaterFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F842C1209DF00989D41 /* WaterFillView.swift */; };
 		75718F872C120A0000989D41 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F862C120A0000989D41 /* BadgeView.swift */; };
@@ -145,6 +146,7 @@
 		753FD85B2C0E896C00C20D1A /* IconAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAnimation.swift; sourceTree = "<group>"; };
 		753FD85D2C0E8B4F00C20D1A /* HueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueView.swift; sourceTree = "<group>"; };
 		753FD85F2C0E8CA200C20D1A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		756F46432C2BD15200D14425 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		75718F802C12085D00989D41 /* AnimatedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedPicker.swift; sourceTree = "<group>"; };
 		75718F822C1209C200989D41 /* BoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomView.swift; sourceTree = "<group>"; };
 		75718F842C1209DF00989D41 /* WaterFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFillView.swift; sourceTree = "<group>"; };
@@ -351,6 +353,14 @@
 			path = Random;
 			sourceTree = "<group>";
 		};
+		756F46422C2BD14000D14425 /* GentlePathIdeas */ = {
+			isa = PBXGroup;
+			children = (
+				756F46432C2BD15200D14425 /* MessageView.swift */,
+			);
+			path = GentlePathIdeas;
+			sourceTree = "<group>";
+		};
 		75718F7F2C12085500989D41 /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,6 +391,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				756F46422C2BD14000D14425 /* GentlePathIdeas */,
 				75BA2D112C0E781C0089B70F /* Components */,
 				7571904C2C120F0D00989D41 /* Views */,
 				7540F7B72C18F0CF007DC97F /* iOS 18 */,
@@ -848,6 +859,7 @@
 				757190562C1212B000989D41 /* HeightPicker.swift in Sources */,
 				7571900F2C120BF500989D41 /* ToastManager.swift in Sources */,
 				757190102C120BF500989D41 /* ToastViewModifier.swift in Sources */,
+				756F46442C2BD15200D14425 /* MessageView.swift in Sources */,
 				753116662C12C22B00C7FBF6 /* AdaptiveGridView.swift in Sources */,
 				757190322C120CE300989D41 /* Ext+Dict.swift in Sources */,
 				757190332C120CE300989D41 /* Ext+Date.swift in Sources */,

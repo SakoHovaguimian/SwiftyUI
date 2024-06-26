@@ -191,7 +191,7 @@ struct NavBarView: View {
                 case .color(let color):
                     color
                 case .material(let material):
-                    AnyView(Rectangle().fill(material))
+                    AnyView(Rectangle().fill(material)).ignoresSafeArea()
                 case .linearGradient(let linearGradient):
                     linearGradient
                 }
