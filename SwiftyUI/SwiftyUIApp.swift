@@ -21,7 +21,7 @@ struct SwiftyUIApp: App {
 //                .environment(self.envService)
 //                .environment(self.homeViewModel)
             
-            SomeTestView()
+            SomeTestView2()
             
         }
         

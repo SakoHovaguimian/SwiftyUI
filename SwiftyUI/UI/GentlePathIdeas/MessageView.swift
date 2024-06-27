@@ -82,7 +82,6 @@ struct MessageView: View {
                 )),
             backgroundStyle: .material(.ultraThinMaterial)
         )
-        .offset(y: -currentOffset.minY)
         
         ScrollView {
             
@@ -213,6 +212,9 @@ struct SomeTestView: View {
                             .background(.darkBlue)
                             .clipShape(.circle)
                             .contentTransition(.symbolEffect(.replace))
+                            .asButton {
+                                print("Tapping Something")
+                            }
                             .asAnyView()
                         
                         
@@ -323,6 +325,236 @@ struct SomeTestView: View {
                 Text("\(currentOffset.minY)")
                 
             }
+            
+        }
+        
+    }
+    
+}
+
+import SwiftUI
+
+struct SomeTestView2: View {
+    
+    var body: some View {
+    
+        BaseHeaderScrollView(horizontalPadding: .none) {
+            
+            NavBarView(
+                navBarStyle: .standard(
+                    .init(
+                        title: "GentlePath",
+                        leftButtonView:
+                            
+                            Image(systemName: "arrow.left")
+                            .foregroundStyle(.white)
+                            .padding(.small)
+                            .background(.black)
+                            .clipShape(.circle)
+                            .contentTransition(.symbolEffect(.replace))
+                            .asButton {
+                                print("Tapping Something")
+                            }
+                            .asAnyView()
+                        
+                        
+                    )),
+                backgroundStyle: .color(.white)
+            )
+            
+        } scrollViewContent: {
+            
+            VStack {
+                
+                SearchBar()
+                
+                VStack(spacing: .appMedium) {
+                    
+                    section(title: "Videos")
+                    section(title: "Photos")
+                    section(title: "Links")
+                    section(title: "Blogs")
+                    
+                }
+                .padding(.top, .medium)
+                
+            }
+            
+        }
+
+    }
+    
+    private func section(title: String) -> some View {
+        
+        VStack(alignment: .leading) {
+            
+            Text(title)
+                .fontWeight(.semibold)
+                .font(.body)
+                .fontDesign(.rounded)
+            
+            ScrollView(.horizontal) {
+                
+                HStack(spacing: .appSmall) {
+                    
+                    RoundedRectangle(cornerRadius: .appLarge)
+                        .fill(.darkGreen)
+                        .frame(width: 300, height: 200)
+                    
+                    RoundedRectangle(cornerRadius: .appLarge)
+                        .fill(.darkBlue)
+                        .frame(width: 300, height: 200)
+                    
+                    RoundedRectangle(cornerRadius: .appLarge)
+                        .fill(.darkPurple)
+                        .frame(width: 300, height: 200)
+                    
+                    RoundedRectangle(cornerRadius: .appLarge)
+                        .fill(.darkYellow)
+                        .frame(width: 300, height: 200)
+                    
+                }
+                
+            }
+            
+        }
+        .safeAreaPadding(.horizontal, .appMedium)
+        
+    }
+    
+}
+
+#Preview {
+    SomeTestView2()
+}
+
+#Preview {
+    
+    @Previewable @State var currentOffset: CGRect = .zero
+    
+    VStack(spacing: .zero) {
+        
+        NavBarView(
+            navBarStyle: .standard(
+                .init(
+                    title: "NavBar",
+                    leftButtonView:
+                        
+                        Image(systemName: currentOffset.minY > 100 ? "person.fill" : "person" )
+                        .foregroundStyle(.white)
+                        .padding(.small)
+                        .background(.darkBlue)
+                        .clipShape(.circle)
+                        .contentTransition(.symbolEffect(.replace))
+                        .asAnyView()
+                        
+                        
+                )),
+            backgroundStyle: .material(.ultraThinMaterial)
+        )
+        
+        ScrollView {
+            
+            VStack {
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: true
+                )
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: false
+                )
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: false
+                )
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: false
+                )
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: false
+                )
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: false
+                )
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: false
+                )
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: false
+                )
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: false
+                )
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: false
+                )
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: false
+                )
+                
+                MessageView(
+                    username: "Sako Hovaguimian",
+                    message: "Does anyone know how to remove some stains from the carpet?",
+                    avatarImage: Image(.image3),
+                    isSender: false
+                )
+                
+            }
+            .padding(.top, .large)
+            .padding(.horizontal, .medium)
+            
+        }
+        .onScrollGeometryChange(for: CGRect.self) { geo in
+            return geo.bounds
+        } action: { oldValue, newValue in
+            currentOffset = newValue
+        }
+        .animation(.spring, value: currentOffset)
+        .overlay {
+            
+            Text("\(currentOffset.minY)")
             
         }
         
