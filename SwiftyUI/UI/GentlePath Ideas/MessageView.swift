@@ -336,6 +336,8 @@ import SwiftUI
 
 struct SomeTestView2: View {
     
+    @State private var selectedFilter: String?
+    
     var body: some View {
     
         BaseHeaderScrollView(horizontalPadding: .none) {
@@ -368,12 +370,26 @@ struct SomeTestView2: View {
                 
                 SearchBar()
                 
+                FiltersViewPreview2(
+                    filters: [
+                        "Behavioral",
+                        "Speech",
+                        "Spectrum",
+                        "Autism",
+                        "Feeding",
+                        "Teaching",
+                        "Skills"
+                    ],
+                    selectedFilter: self.$selectedFilter
+                )
+                .padding(.top, .xSmall)
+                
                 VStack(spacing: .appMedium) {
                     
+                    section(title: "Blogs", smallSize: true)
+                    section(title: "Links", smallSize: true)
                     section(title: "Videos")
                     section(title: "Photos")
-                    section(title: "Links")
-                    section(title: "Blogs")
                     
                 }
                 .padding(.top, .medium)
@@ -384,9 +400,14 @@ struct SomeTestView2: View {
 
     }
     
-    private func section(title: String) -> some View {
+    private func section(title: String,
+                         smallSize: Bool = false) -> some View {
         
-        VStack(alignment: .leading) {
+        let size: CGSize = smallSize
+        ? CGSize(width: 150, height: 200)
+        : CGSize(width: 300, height: 200)
+        
+        return VStack(alignment: .leading) {
             
             Text(title)
                 .fontWeight(.semibold)
@@ -399,19 +420,19 @@ struct SomeTestView2: View {
                     
                     RoundedRectangle(cornerRadius: .appLarge)
                         .fill(.darkGreen)
-                        .frame(width: 300, height: 200)
+                        .frame(width: size.width, height: size.height)
                     
                     RoundedRectangle(cornerRadius: .appLarge)
                         .fill(.darkBlue)
-                        .frame(width: 300, height: 200)
+                        .frame(width: size.width, height: size.height)
                     
                     RoundedRectangle(cornerRadius: .appLarge)
                         .fill(.darkPurple)
-                        .frame(width: 300, height: 200)
+                        .frame(width: size.width, height: size.height)
                     
                     RoundedRectangle(cornerRadius: .appLarge)
                         .fill(.darkYellow)
-                        .frame(width: 300, height: 200)
+                        .frame(width: size.width, height: size.height)
                     
                 }
                 
@@ -428,136 +449,152 @@ struct SomeTestView2: View {
     SomeTestView2()
 }
 
-#Preview {
+// THIS IS A LOCAL VERSION OF FILTERS VIEW
+
+//
+//  ScrollFilters.swift
+//  SwiftUIDemo
+//
+//  Created by Sako Hovaguimian on 4/8/24.
+//
+
+import SwiftUI
+
+struct FilterView2: View {
     
-    @Previewable @State var currentOffset: CGRect = .zero
+    let title: String
+    let isSelected: Bool
     
-    VStack(spacing: .zero) {
+    var body: some View {
         
-        NavBarView(
-            navBarStyle: .standard(
-                .init(
-                    title: "NavBar",
-                    leftButtonView:
-                        
-                        Image(systemName: currentOffset.minY > 100 ? "person.fill" : "person" )
-                        .foregroundStyle(.white)
-                        .padding(.small)
-                        .background(.darkBlue)
-                        .clipShape(.circle)
-                        .contentTransition(.symbolEffect(.replace))
-                        .asAnyView()
-                        
-                        
-                )),
-            backgroundStyle: .material(.ultraThinMaterial)
-        )
-        
-        ScrollView {
+        HStack {
             
-            VStack {
+            Text(self.title)
+                .font(.caption)
+                .foregroundStyle(self.isSelected ? .white : .black)
+            
+        }
+        .padding(.vertical, 8)
+        .padding(.horizontal, 16)
+        .background {
+            
+            ZStack {
                 
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: true
-                )
+                Capsule(style: .circular)
+                    .fill(.black.opacity(0.8))
+                    .opacity(self.isSelected ? 1 : 0)
                 
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: false
-                )
-                
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: false
-                )
-                
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: false
-                )
-                
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: false
-                )
-                
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: false
-                )
-                
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: false
-                )
-                
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: false
-                )
-                
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: false
-                )
-                
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: false
-                )
-                
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: false
-                )
-                
-                MessageView(
-                    username: "Sako Hovaguimian",
-                    message: "Does anyone know how to remove some stains from the carpet?",
-                    avatarImage: Image(.image3),
-                    isSender: false
-                )
-                
+                Capsule(style: .circular)
+                    .strokeBorder(self.isSelected ? .black : .black.opacity(0.3), lineWidth: 1)
+
             }
-            .padding(.top, .large)
-            .padding(.horizontal, .medium)
-            
-        }
-        .onScrollGeometryChange(for: CGRect.self) { geo in
-            return geo.bounds
-        } action: { oldValue, newValue in
-            currentOffset = newValue
-        }
-        .animation(.spring, value: currentOffset)
-        .overlay {
-            
-            Text("\(currentOffset.minY)")
             
         }
         
     }
     
 }
+
+struct FiltersView2: View {
+    
+    var filters: [String]
+    var selectedFilter: String? = nil
+    var onFilterTapped: (String) -> ()
+    var onCloseTapped: () -> ()
+    
+    @State private var isUserInteractionEnabled: Bool = true
+    
+    var body: some View {
+        
+        ScrollView(.horizontal) {
+            
+            HStack {
+                
+                if self.selectedFilter != nil {
+                    
+                    Image(systemName: "xmark")
+                        .padding(6)
+                        .background {
+                            Circle()
+                                .stroke(.black)
+                        }
+                        .transition(AnyTransition(.move(edge: .leading)).combined(with: .opacity))
+                        .onTapGesture {
+                            
+                            withAnimation(.smooth) {
+                                onCloseTapped()
+                            }
+                            
+                        }
+                    
+                }
+                
+                ForEach(self.filters, id: \.self) { filter in
+                    
+                    if selectedFilter == nil || selectedFilter == filter {
+                        
+                        FilterView2(
+                            title: filter,
+                            isSelected: selectedFilter == filter
+                        )
+                        .onTapGesture {
+                            
+                            throttleTouch()
+                            onFilterTapped(filter)
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            }
+            .allowsHitTesting(self.isUserInteractionEnabled)
+            .animation(.bouncy(duration: 0.5), value: selectedFilter)
+            .padding(.leading, 16)
+            
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        
+    }
+    
+    private func throttleTouch() {
+        
+        self.isUserInteractionEnabled = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6, execute: {
+            self.isUserInteractionEnabled = true
+        })
+        
+    }
+
+}
+
+struct FiltersViewPreview2: View {
+    
+    var filters = ["Sako", "Mitch", "KC", "Michael"]
+    @Binding var selectedFilter: String?
+    
+    var body: some View {
+        
+        ZStack {
+            
+            Color.white
+                .ignoresSafeArea()
+            
+            VStack {
+                FiltersView2(filters: filters,
+                selectedFilter: selectedFilter) { filter in
+                    self.selectedFilter = filter
+                } onCloseTapped: {
+                    self.selectedFilter = nil
+                }
+
+            }
+            
+        }
+        
+    }
+    
+}
+

@@ -25,6 +25,7 @@
 		753FD85C2C0E896C00C20D1A /* IconAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85B2C0E896C00C20D1A /* IconAnimation.swift */; };
 		753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85D2C0E8B4F00C20D1A /* HueView.swift */; };
 		753FD8602C0E8CA200C20D1A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85F2C0E8CA200C20D1A /* SplashView.swift */; };
+		7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551B86B2C2E29540003A0F8 /* DashProgressView.swift */; };
 		756F46442C2BD15200D14425 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F46432C2BD15200D14425 /* MessageView.swift */; };
 		75718F832C1209C200989D41 /* BoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F822C1209C200989D41 /* BoomView.swift */; };
 		75718F852C1209DF00989D41 /* WaterFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F842C1209DF00989D41 /* WaterFillView.swift */; };
@@ -94,6 +95,7 @@
 		7580AFEA2C12BF5F0029EF84 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580AFE92C12BF5F0029EF84 /* ChartView.swift */; };
 		7580B0AC2C12BF8A0029EF84 /* TypewriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580AFEB2C12BF890029EF84 /* TypewriterView.swift */; };
 		7580B1502C12BF8A0029EF84 /* TypewriterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */; };
+		75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F802C12085D00989D41 /* AnimatedPicker.swift */; };
 		75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */; };
 		75BA2CE72C0E780A0089B70F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2CE62C0E780A0089B70F /* ContentView.swift */; };
 		75BA2CE92C0E780B0089B70F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75BA2CE82C0E780B0089B70F /* Assets.xcassets */; };
@@ -146,6 +148,7 @@
 		753FD85B2C0E896C00C20D1A /* IconAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAnimation.swift; sourceTree = "<group>"; };
 		753FD85D2C0E8B4F00C20D1A /* HueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueView.swift; sourceTree = "<group>"; };
 		753FD85F2C0E8CA200C20D1A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		7551B86B2C2E29540003A0F8 /* DashProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashProgressView.swift; sourceTree = "<group>"; };
 		756F46432C2BD15200D14425 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		75718F802C12085D00989D41 /* AnimatedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedPicker.swift; sourceTree = "<group>"; };
 		75718F822C1209C200989D41 /* BoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomView.swift; sourceTree = "<group>"; };
@@ -286,6 +289,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7551B86A2C2E29400003A0F8 /* ProgressBars */ = {
+			isa = PBXGroup;
+			children = (
+				7551B86B2C2E29540003A0F8 /* DashProgressView.swift */,
+			);
+			path = ProgressBars;
+			sourceTree = "<group>";
+		};
 		756C9B262C1207BF00E438D6 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,12 +364,12 @@
 			path = Random;
 			sourceTree = "<group>";
 		};
-		756F46422C2BD14000D14425 /* GentlePathIdeas */ = {
+		756F46422C2BD14000D14425 /* GentlePath Ideas */ = {
 			isa = PBXGroup;
 			children = (
 				756F46432C2BD15200D14425 /* MessageView.swift */,
 			);
-			path = GentlePathIdeas;
+			path = "GentlePath Ideas";
 			sourceTree = "<group>";
 		};
 		75718F7F2C12085500989D41 /* Pickers */ = {
@@ -391,7 +402,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				756F46422C2BD14000D14425 /* GentlePathIdeas */,
+				756F46422C2BD14000D14425 /* GentlePath Ideas */,
 				75BA2D112C0E781C0089B70F /* Components */,
 				7571904C2C120F0D00989D41 /* Views */,
 				7540F7B72C18F0CF007DC97F /* iOS 18 */,
@@ -498,6 +509,7 @@
 				75718FF32C120B9900989D41 /* BaseViews */,
 				75718FF72C120B9900989D41 /* Haptics */,
 				75718FFB2C120B9900989D41 /* ImageViews */,
+				7551B86A2C2E29400003A0F8 /* ProgressBars */,
 			);
 			name = Base;
 			path = ../Base;
@@ -878,6 +890,7 @@
 				757190352C120CE300989D41 /* Ext+UImage.swift in Sources */,
 				757190362C120CE300989D41 /* Ext+NavigationController.swift in Sources */,
 				757190372C120CE300989D41 /* Ext+Color.swift in Sources */,
+				7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */,
 				757190382C120CE300989D41 /* Ext+String.swift in Sources */,
 				757190392C120CE300989D41 /* Ext+Combine.swift in Sources */,
 				7571903A2C120CE300989D41 /* Ext+UIApplication.swift in Sources */,
@@ -896,6 +909,7 @@
 				757190122C120BFC00989D41 /* AppButton.swift in Sources */,
 				753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */,
 				7571904B2C120E9F00989D41 /* StetchyHeaderViewModifier.swift in Sources */,
+				75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */,
 				757190132C120BFF00989D41 /* CameraPickerView.swift in Sources */,
 				757190142C120BFF00989D41 /* PhotoPickerView.swift in Sources */,
 				753116592C12C18600C7FBF6 /* CardFlipView.swift in Sources */,

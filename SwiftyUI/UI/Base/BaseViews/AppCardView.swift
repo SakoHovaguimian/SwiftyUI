@@ -18,7 +18,7 @@ struct AppCardView<Content>: View where Content: View {
                 horizontalPadding: Spacing = .medium,
                 backgroundColor: Color = ThemeManager.shared.background(.secondary),
                 @ViewBuilder content: () -> Content) {
-        
+    
         self.verticalPadding = verticalPadding
         self.horizontalPadding = horizontalPadding
         self.backgroundColor = backgroundColor
@@ -43,7 +43,7 @@ struct AppCardView<Content>: View where Content: View {
         }
         .background(self.backgroundColor)
         .cornerRadius(CornerRadius.small2.value)
-        .appShadow()
+        .appShadow(style: .card)
         
     }
     

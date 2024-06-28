@@ -11,11 +11,13 @@ enum Shadow {
     
     case card
     case neon(Color)
+    case subtle
     
     var color: Color {
         switch self {
         case .card: return Color.black.opacity(0.3)
         case .neon(let color): return color
+        case .subtle: return Color.black.opacity(0.25)
         }
     }
     
@@ -23,6 +25,7 @@ enum Shadow {
         switch self {
         case .card: return 5
         case .neon: return 11
+        case .subtle: return 2
         }
     }
     
@@ -30,6 +33,7 @@ enum Shadow {
         switch self {
         case .card: return 0
         case .neon: return 0
+        case .subtle: return 0
         }
     }
     
@@ -37,7 +41,7 @@ enum Shadow {
 
 struct AppShadow: ViewModifier {
     
-    var shadowStyle: Shadow = .card
+    let shadowStyle: Shadow
     
     func body(content: Content) -> some View {
         
