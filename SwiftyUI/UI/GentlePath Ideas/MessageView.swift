@@ -551,9 +551,9 @@ struct FiltersView2: View {
             }
             .allowsHitTesting(self.isUserInteractionEnabled)
             .animation(.bouncy(duration: 0.5), value: selectedFilter)
-            .padding(.leading, 16)
             
         }
+        .safeAreaPadding(.horizontal, .appMedium)
         .frame(maxWidth: .infinity, alignment: .leading)
         
     }

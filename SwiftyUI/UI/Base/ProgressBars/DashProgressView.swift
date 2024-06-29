@@ -96,7 +96,7 @@ private struct DashParentView: View {
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
                     withAnimation(.spring) {
-                        self.progress = 0.1
+                        self.progress = 1
                     }
                 })
             }

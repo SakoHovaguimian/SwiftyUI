@@ -73,6 +73,7 @@ struct WWDC2024_ScrollViewParallax: View {
                             Image(image)
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
+                            /// Aspect preventing height from occuring due to container relevant frame
                                 .scrollTransition(
                                     axis: .horizontal
                                 ) { content, phase in
@@ -164,39 +165,46 @@ struct WWDC2024_Transition: View {
     
     var body: some View {
         
-        VStack {
+        ZStack {
             
-            if self.shouldShowOtherView {
+            Color.blackedGray
+                .ignoresSafeArea()
+            
+            VStack {
                 
-                Rectangle()
-                    .fill(.darkBlue)
-                    .transition(SpinAndZoom())
-                
-            } else {
-                
-                Rectangle()
-                    .fill(.darkPurple)
-                    .transition(SpinAndZoom())
+                if self.shouldShowOtherView {
+                    
+                    Rectangle()
+                        .fill(.darkBlue)
+                        .transition(ExpandAndFade())
+                    
+                } else {
+                    
+                    Rectangle()
+                        .fill(.darkPurple)
+                        .transition(ExpandAndFade())
+                    
+                }
                 
             }
-            
-        }
-        .ignoresSafeArea()
-        .onTapGesture {
-            
-            withAnimation(.smooth(duration: 2)) {
-                self.shouldShowOtherView.toggle()
+            .ignoresSafeArea()
+            .onTapGesture {
+                
+                withAnimation(.smooth(duration: 2)) {
+                    self.shouldShowOtherView.toggle()
+                }
+                
             }
-            
-        }
-        .overlay {
-            
-            Text("Tap To Twirl")
-                .foregroundStyle(.white)
-                .font(.title)
-                .fontWeight(.black)
-                .fontDesign(.rounded)
-                .allowsHitTesting(false)
+            .overlay {
+                
+                Text("Tap To Twirl")
+                    .foregroundStyle(.white)
+                    .font(.title)
+                    .fontWeight(.black)
+                    .fontDesign(.rounded)
+                    .allowsHitTesting(false)
+                
+            }
             
         }
         
