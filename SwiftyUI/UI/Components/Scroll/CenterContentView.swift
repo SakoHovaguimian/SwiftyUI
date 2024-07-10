@@ -24,7 +24,7 @@ struct SpotifyCollectionLayoutView: View {
     
     var body: some View {
         
-        GeometryReader { proxy in
+//        GeometryReader { proxy in
             
             ScrollView(.horizontal) {
                 
@@ -36,6 +36,7 @@ struct SpotifyCollectionLayoutView: View {
                             .fill(color .gradient)
                             .containerRelativeFrame(.horizontal)
                             .frame(height: 300)
+                            .appShadow(style: .card)
                         
                     }
                     
@@ -45,7 +46,7 @@ struct SpotifyCollectionLayoutView: View {
             }
             .scrollIndicators(.hidden)
             .safeAreaPadding(.horizontal, self.hSpacing)
-        }
+//        }
         .scrollTargetBehavior(.viewAligned)
         
     }

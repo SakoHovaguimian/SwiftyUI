@@ -118,3 +118,64 @@ struct MilestonesView: View {
 #Preview {
     MilestonesView()
 }
+
+internal struct FontView: View {
+    
+    let text: String = "GentlePath"
+    let fontStyle: Font.Design = .rounded
+    
+    var body: some View {
+    
+        ZStack {
+            
+            Color.white
+                .ignoresSafeArea()
+            
+            VStack {
+                
+                Text(self.text)
+                    .fontDesign(self.fontStyle)
+                    .fontWeight(.ultraLight)
+                
+                Text(self.text)
+                    .fontDesign(self.fontStyle)
+                    .fontWeight(.light)
+                
+                Text(self.text)
+                    .fontDesign(self.fontStyle)
+                    .fontWeight(.regular)
+                
+                Text(self.text)
+                    .fontDesign(self.fontStyle)
+                    .fontWeight(.medium)
+                
+                Text(self.text)
+                    .fontDesign(self.fontStyle)
+                    .fontWeight(.semibold)
+                
+                Text(self.text)
+                    .fontDesign(self.fontStyle)
+                    .fontWeight(.bold)
+                
+                Text(self.text)
+                    .fontDesign(self.fontStyle)
+                    .fontWeight(.heavy)
+                
+                Text(self.text)
+                    .fontDesign(self.fontStyle)
+                    .fontWeight(.black)
+                
+            }
+            .font(.largeTitle)
+            .foregroundStyle(.black)
+            .padding(.horizontal, .spacing(.xLarge))
+            
+        }
+        
+    }
+    
+}
+
+#Preview {
+    FontView()
+}

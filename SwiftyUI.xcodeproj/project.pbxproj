@@ -98,6 +98,7 @@
 		7580B0AC2C12BF8A0029EF84 /* TypewriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580AFEB2C12BF890029EF84 /* TypewriterView.swift */; };
 		7580B1502C12BF8A0029EF84 /* TypewriterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */; };
 		75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F802C12085D00989D41 /* AnimatedPicker.swift */; };
+		75B9C6922C35206800F434EE /* OldMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B9C6912C35206400F434EE /* OldMessageView.swift */; };
 		75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */; };
 		75BA2CE72C0E780A0089B70F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2CE62C0E780A0089B70F /* ContentView.swift */; };
 		75BA2CE92C0E780B0089B70F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75BA2CE82C0E780B0089B70F /* Assets.xcassets */; };
@@ -221,6 +222,7 @@
 		7580AFE92C12BF5F0029EF84 /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		7580AFEB2C12BF890029EF84 /* TypewriterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterView.swift; sourceTree = "<group>"; };
 		7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterContentView.swift; sourceTree = "<group>"; };
+		75B9C6912C35206400F434EE /* OldMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldMessageView.swift; sourceTree = "<group>"; };
 		75BA2CE12C0E780A0089B70F /* SwiftyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyUIApp.swift; sourceTree = "<group>"; };
 		75BA2CE62C0E780A0089B70F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -371,6 +373,8 @@
 		756F46422C2BD14000D14425 /* GentlePath Ideas */ = {
 			isa = PBXGroup;
 			children = (
+				75B9C6912C35206400F434EE /* OldMessageView.swift */,
+				7578B27E2C3057D1006BE789 /* SwiftUIView.swift */,
 				756F46432C2BD15200D14425 /* MessageView.swift */,
 			);
 			path = "GentlePath Ideas";
@@ -596,7 +600,6 @@
 				753116522C12C18600C7FBF6 /* MeshGradientCardView.swift */,
 				753116532C12C18600C7FBF6 /* PintrestLayout.swift */,
 				7556CB562C2F227E0084A130 /* SizingView.swift */,
-				7578B27E2C3057D1006BE789 /* SwiftUIView.swift */,
 			);
 			path = "Need To Organize";
 			sourceTree = "<group>";
@@ -921,6 +924,7 @@
 				757190132C120BFF00989D41 /* CameraPickerView.swift in Sources */,
 				757190142C120BFF00989D41 /* PhotoPickerView.swift in Sources */,
 				753116592C12C18600C7FBF6 /* CardFlipView.swift in Sources */,
+				75B9C6922C35206800F434EE /* OldMessageView.swift in Sources */,
 				7580AFEA2C12BF5F0029EF84 /* ChartView.swift in Sources */,
 				75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */,
 				753FD85A2C0E859900C20D1A /* CustomEnvironment.swift in Sources */,

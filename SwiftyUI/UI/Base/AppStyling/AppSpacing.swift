@@ -63,6 +63,10 @@ extension View {
 
 extension CGFloat {
     
+    static func spacing(_ spacing: Spacing) -> CGFloat {
+        return spacing.value
+    }
+    
     /// Represents a spacing of 0.
     static let appNone = Spacing.none.value
     

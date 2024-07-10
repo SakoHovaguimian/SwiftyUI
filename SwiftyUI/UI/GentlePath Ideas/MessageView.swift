@@ -181,7 +181,8 @@ struct MessageView: View {
         } action: { oldValue, newValue in
             currentOffset = newValue
         }
-        .animation(.spring, value: currentOffset)
+        /// This breaks scroll linear-ness. Makes it jump-y
+//        .animation(.spring, value: currentOffset)
         .overlay {
             
             Text("\(currentOffset.minY)")
