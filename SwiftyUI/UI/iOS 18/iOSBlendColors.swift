@@ -35,7 +35,7 @@ struct iOSBlendColors: View {
                 
                 blendedRowItem(
                     title: "Green + Pink (0.2)",
-                    color: .brandGreen.mix(with: .brandPink, by: 0.2)
+                    color: .red.mix(with: .blue, by: 0.5)
                 )
                 
                 blendedRowItem(

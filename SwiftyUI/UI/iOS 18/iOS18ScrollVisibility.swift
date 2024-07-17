@@ -47,7 +47,7 @@ struct iOS18ScrollVisibility: View {
         RoundedRectangle(cornerRadius: .appNone)
             .fill(color.gradient)
             .containerRelativeFrame(.vertical)
-            .onScrollVisibilityChange(threshold: 1) { isVisible in
+            .onScrollVisibilityChange(threshold: 0.3) { isVisible in
                 
                 if isVisible {
                     print("\(color.hashValue) Is Visibile")

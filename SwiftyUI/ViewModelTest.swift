@@ -21,9 +21,9 @@ class FirebaseService: ObservableObject {
     // Other properties and methods
 }
 
-class AnalyticsService: ObservableObject {
-    // Properties and methods
-}
+//class AnalyticsService: ObservableObject {
+//    // Properties and methods
+//}
 
 class GentlePathAPIService: ObservableObject {
     // Properties and methods
@@ -32,7 +32,7 @@ class GentlePathAPIService: ObservableObject {
 class MainViewModel: ObservableObject {
     @Published private(set) var apiService: GentlePathAPIService
     @Published private(set) var firebaseService: FirebaseService
-    @Published private(set) var analyticsService: AnalyticsService
+//    @Published private(set) var analyticsService: AnalyticsService
     @Published private(set) var authService: AuthService
     
     var shouldShowWelcomeScreen: Bool {
@@ -41,12 +41,12 @@ class MainViewModel: ObservableObject {
     
     init(apiService: GentlePathAPIService,
          firebaseService: FirebaseService,
-         analyticsService: AnalyticsService,
+//         analyticsService: AnalyticsService,
          authService: AuthService) {
         
         self.apiService = apiService
         self.firebaseService = firebaseService
-        self.analyticsService = analyticsService
+//        self.analyticsService = analyticsService
         self.authService = authService
                 
         // Additional setup if needed
@@ -65,7 +65,7 @@ class MainViewModel: ObservableObject {
 struct MainView: View {
     @EnvironmentObject private var authService: AuthService
     @EnvironmentObject private var firebaseService: FirebaseService
-    @EnvironmentObject private var analyticsService: AnalyticsService
+//    @EnvironmentObject private var analyticsService: AnalyticsService
     @EnvironmentObject private var apiService: GentlePathAPIService
     
     @StateObject private var mainViewModel: MainViewModel
@@ -77,7 +77,7 @@ struct MainView: View {
         let authService = AuthService()
         _mainViewModel = StateObject(wrappedValue: MainViewModel(apiService: apiService,
                                                                  firebaseService: firebaseService,
-                                                                 analyticsService: analyticsService,
+//                                                                 analyticsService: analyticsService,
                                                                  authService: authService))
     }
         
@@ -109,7 +109,7 @@ struct MainView: View {
     MainView()
         .environmentObject(AuthService())
         .environmentObject(FirebaseService())
-        .environmentObject(AnalyticsService())
+//        .environmentObject(AnalyticsService())
         .environmentObject(GentlePathAPIService())
 //        .environmentObject(UserDefaultsService())
 }

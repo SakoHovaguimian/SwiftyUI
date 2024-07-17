@@ -8,6 +8,15 @@
 import Combine
 import Dispatch
 
+/// A subject that outputs an initial value, and all future values to downstream subscribers, and cannot fail.
+public typealias GuaranteeValueSubject<Output> = CurrentValueSubject<Output, Never>
+
+/// A publisher that can never fail.
+public typealias GuaranteePublisher<Output> = AnyPublisher<Output, Never>
+
+/// A subject that outputs elements to downstream subscribers, and can never fail.
+public typealias GuaranteePassthroughSubject<Output> = PassthroughSubject<Output, Never>
+
 public extension Publisher where Failure == Never /* Value */ {
     
     /// Latest value of the publisher's output sequence.

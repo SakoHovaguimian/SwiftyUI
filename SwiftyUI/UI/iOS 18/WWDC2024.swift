@@ -176,13 +176,13 @@ struct WWDC2024_Transition: View {
                     
                     Rectangle()
                         .fill(.darkBlue)
-                        .transition(ExpandAndFade())
+                        .transition(Twirl())
                     
                 } else {
                     
                     Rectangle()
                         .fill(.darkPurple)
-                        .transition(ExpandAndFade())
+                        .transition(Twirl())
                     
                 }
                 
