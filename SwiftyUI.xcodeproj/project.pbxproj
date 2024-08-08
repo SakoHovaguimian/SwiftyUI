@@ -124,6 +124,7 @@
 		75BA2D432C0E79600089B70F /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2A2C0E79600089B70F /* Shake.swift */; };
 		75BA2D442C0E79600089B70F /* ScratcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2B2C0E79600089B70F /* ScratcherView.swift */; };
 		75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2C2C0E79600089B70F /* SearchBar.swift */; };
+		75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB42AD2C6412B000179078 /* NeonGlowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -261,6 +262,7 @@
 		75BA2D2A2C0E79600089B70F /* Shake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
 		75BA2D2B2C0E79600089B70F /* ScratcherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratcherView.swift; sourceTree = "<group>"; };
 		75BA2D2C2C0E79600089B70F /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		75BB42AD2C6412B000179078 /* NeonGlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonGlowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -594,6 +596,7 @@
 		7571904C2C120F0D00989D41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				75BB42AD2C6412B000179078 /* NeonGlowView.swift */,
 				75718F8E2C120AA300989D41 /* Sidebar */,
 				757190062C120B9900989D41 /* Camera */,
 				756C9B2A2C1207D900E438D6 /* Animations */,
@@ -960,6 +963,7 @@
 				757190562C1212B000989D41 /* HeightPicker.swift in Sources */,
 				7571900F2C120BF500989D41 /* ToastManager.swift in Sources */,
 				757190102C120BF500989D41 /* ToastViewModifier.swift in Sources */,
+				75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */,
 				756F46442C2BD15200D14425 /* MessageView.swift in Sources */,
 				753116662C12C22B00C7FBF6 /* AdaptiveGridView.swift in Sources */,
 				757190322C120CE300989D41 /* Ext+Dict.swift in Sources */,

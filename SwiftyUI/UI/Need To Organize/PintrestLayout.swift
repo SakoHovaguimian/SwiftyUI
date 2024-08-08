@@ -29,7 +29,7 @@ struct PintrestLayout: View {
             HStack(alignment: .top, spacing: 5) {
                 
                 ForEach(PintrestColumnModel.DUMMY_DATA, id: \.id)  { _ in
-                    PintrestViewItemView()
+                    PintrestViewItemView() 
                 }
                 
             }
