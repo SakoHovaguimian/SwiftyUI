@@ -73,3 +73,69 @@ struct NeonGlowView_Previews: PreviewProvider {
         NeonGlowView()
     }
 }
+
+struct MyListView: View {
+    
+    var body: some View {
+            
+//        NavigationStack {
+            
+            List {
+                
+                Section {
+                    
+                    Text("Woah")
+                        .swipeActions {
+                            Button("Order") {
+                                print("Awesome!")
+                            }
+                            .tint(.green)
+                        }
+                    Text("Woah")
+                        .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                            Text("123123")
+                        }
+                    Text("Woah")
+                        .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                            Text("123123")
+                        }
+                    Text("Woah")
+                        .swipeActions(edge: .leading, allowsFullSwipe: true) {
+                            Text("123123")
+                        }
+                    
+                }
+                .background(.red)
+                .plainListRowStyle()
+                
+                Section {
+                    
+                    Text("Woah")
+                    Text("Woah")
+                    Text("Woah")
+                    Text("Woah")
+                    
+                }
+                .padding(.horizontal, 64)
+                .background(.red)
+                .plainListRowStyle()
+                .listRowBackground(EmptyView())
+                .cornerRadius(0)
+                .listRowSpacing(0)
+                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                    Text("123123")
+                }
+                
+            }
+            .padding(.horizontal, -20)
+//            .plainListStyle()
+            
+//        }
+        
+    }
+    
+}
+
+#Preview {
+    MyListView()
+}

@@ -125,6 +125,7 @@
 		75BA2D442C0E79600089B70F /* ScratcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2B2C0E79600089B70F /* ScratcherView.swift */; };
 		75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2C2C0E79600089B70F /* SearchBar.swift */; };
 		75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB42AD2C6412B000179078 /* NeonGlowView.swift */; };
+		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -263,6 +264,7 @@
 		75BA2D2B2C0E79600089B70F /* ScratcherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratcherView.swift; sourceTree = "<group>"; };
 		75BA2D2C2C0E79600089B70F /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		75BB42AD2C6412B000179078 /* NeonGlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonGlowView.swift; sourceTree = "<group>"; };
+		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -596,6 +598,7 @@
 		7571904C2C120F0D00989D41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */,
 				75BB42AD2C6412B000179078 /* NeonGlowView.swift */,
 				75718F8E2C120AA300989D41 /* Sidebar */,
 				757190062C120B9900989D41 /* Camera */,
@@ -953,6 +956,7 @@
 				757190412C120CE900989D41 /* AppTextFieldPreview.swift in Sources */,
 				757190422C120CE900989D41 /* AppTextField.swift in Sources */,
 				7571900C2C120BF500989D41 /* ToastListView.swift in Sources */,
+				75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */,
 				753116682C12C22B00C7FBF6 /* ZoomView.swift in Sources */,
 				753116552C12C18600C7FBF6 /* AnimatedSearchBarView.swift in Sources */,
 				7578B1552C41F77A006F07E7 /* EnvironmentService.swift in Sources */,
