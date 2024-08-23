@@ -125,6 +125,7 @@
 		75BA2D442C0E79600089B70F /* ScratcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2B2C0E79600089B70F /* ScratcherView.swift */; };
 		75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2C2C0E79600089B70F /* SearchBar.swift */; };
 		75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB42AD2C6412B000179078 /* NeonGlowView.swift */; };
+		75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2675A2C78EC720064EA6B /* DropDownTextField.swift */; };
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -264,6 +265,7 @@
 		75BA2D2B2C0E79600089B70F /* ScratcherView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScratcherView.swift; sourceTree = "<group>"; };
 		75BA2D2C2C0E79600089B70F /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		75BB42AD2C6412B000179078 /* NeonGlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonGlowView.swift; sourceTree = "<group>"; };
+		75C2675A2C78EC720064EA6B /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -410,6 +412,7 @@
 		75718F7F2C12085500989D41 /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
+				75C2675A2C78EC720064EA6B /* DropDownTextField.swift */,
 				757190552C1212B000989D41 /* HeightPicker.swift */,
 				75718F802C12085D00989D41 /* AnimatedPicker.swift */,
 				75718F862C120A0000989D41 /* BadgeView.swift */,
@@ -1003,6 +1006,7 @@
 				757190252C120C1100989D41 /* AppFont.swift in Sources */,
 				75718F872C120A0000989D41 /* BadgeView.swift in Sources */,
 				753116822C12C34A00C7FBF6 /* BlurContentView.swift in Sources */,
+				75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */,
 				7531166C2C12C22B00C7FBF6 /* CombineInputView.swift in Sources */,
 				757190152C120C0800989D41 /* CircularIconView.swift in Sources */,
 				757190162C120C0800989D41 /* AppImageView.swift in Sources */,

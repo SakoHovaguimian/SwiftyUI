@@ -68,6 +68,54 @@ struct NeonGlowView: View {
     
 }
 
+struct NeonGlowViewBlendMode: View {
+    
+    @State private var index = 0
+    
+    private let colors: [Color] = [.green, .pink, .blue, .orange, .purple]
+    private let titles: [String] = ["NEON", "GLOW", "LIGHT", "SHINE", "BRIGHT"]
+    
+    var body: some View {
+        
+        ZStack {
+            
+            LinearGradient(
+                colors: [
+                    .teal,
+                    .purple
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
+            
+            VStack {
+                
+                Text(titles[index])
+                    .font(.system(size: 70, weight: .ultraLight))
+                    .frame(width: 250)
+                    .addNeonEffect(color: colors[index])
+                    .contentTransition(.numericText())
+                    .onAppear {
+                        
+                        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+                            withAnimation(.smooth(duration: 2)) {
+                                index = (index + 1) % colors.count
+                            }
+                            
+                        }
+                        
+                    }
+                
+            }
+            .blendMode(.colorDodge)
+            
+        }
+        
+    }
+    
+}
+
 struct NeonGlowView_Previews: PreviewProvider {
     static var previews: some View {
         NeonGlowView()
