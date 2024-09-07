@@ -1,5 +1,5 @@
 //
-//  that.swift
+//  SlideButtonStyling.swift
 //  SwiftyUI
 //
 //  Created by Sako Hovaguimian on 9/2/24.

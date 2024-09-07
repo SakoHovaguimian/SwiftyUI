@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7519741A2C8ABD0800173F15 /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751974192C8ABD0300173F15 /* TimelineView.swift */; };
 		751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */; };
 		75287A942C4365C700787C50 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75287A932C4365C200787C50 /* AnalyticsService.swift */; };
 		75287A972C43662700787C50 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 75287A962C43662700787C50 /* Amplitude */; };
@@ -126,7 +127,12 @@
 		75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2C2C0E79600089B70F /* SearchBar.swift */; };
 		75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB42AD2C6412B000179078 /* NeonGlowView.swift */; };
 		75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2675A2C78EC720064EA6B /* DropDownTextField.swift */; };
+		75C7DAAB2C85F6D2009A5093 /* SlideToUnlockButton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAA2C85F6AC009A5093 /* SlideToUnlockButton2.swift */; };
+		75C7DAAE2C85F700009A5093 /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAD2C85F6FF009A5093 /* Shimmer.swift */; };
+		75C7DAB02C85F767009A5093 /* SlideButtonStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */; };
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
+		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
+		75FE274A2C7EE73B0097C68F /* FlapperSean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FE27492C7EE6B40097C68F /* FlapperSean.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +153,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		751974192C8ABD0300173F15 /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
 		75287A932C4365C200787C50 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		7531164E2C12C11D00C7FBF6 /* GrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextField.swift; sourceTree = "<group>"; };
@@ -266,7 +273,12 @@
 		75BA2D2C2C0E79600089B70F /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		75BB42AD2C6412B000179078 /* NeonGlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonGlowView.swift; sourceTree = "<group>"; };
 		75C2675A2C78EC720064EA6B /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
+		75C7DAAA2C85F6AC009A5093 /* SlideToUnlockButton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton2.swift; sourceTree = "<group>"; };
+		75C7DAAD2C85F6FF009A5093 /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
+		75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideButtonStyling.swift; sourceTree = "<group>"; };
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
+		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
+		75FE27492C7EE6B40097C68F /* FlapperSean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlapperSean.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -440,6 +452,10 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				751974192C8ABD0300173F15 /* TimelineView.swift */,
+				75E6085A2C8A1F7F00505203 /* Bedar.swift */,
+				75C7DAAC2C85F6F8009A5093 /* Slide To Unlock */,
+				75FE27492C7EE6B40097C68F /* FlapperSean.swift */,
 				756F46422C2BD14000D14425 /* GentlePath Ideas */,
 				75BA2D112C0E781C0089B70F /* Components */,
 				7571904C2C120F0D00989D41 /* Views */,
@@ -773,6 +789,16 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		75C7DAAC2C85F6F8009A5093 /* Slide To Unlock */ = {
+			isa = PBXGroup;
+			children = (
+				75C7DAAD2C85F6FF009A5093 /* Shimmer.swift */,
+				75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */,
+				75C7DAAA2C85F6AC009A5093 /* SlideToUnlockButton2.swift */,
+			);
+			path = "Slide To Unlock";
+			sourceTree = "<group>";
+		};
 		75E0087D2C17B09B00A2F9BE /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -941,6 +967,7 @@
 				757190112C120BF700989D41 /* TextEditView.swift in Sources */,
 				75718F892C120A1600989D41 /* CurrencyTextField.swift in Sources */,
 				7571900A2C120BE900989D41 /* NavBarView.swift in Sources */,
+				75C7DAAE2C85F700009A5093 /* Shimmer.swift in Sources */,
 				753116572C12C18600C7FBF6 /* MeshGradientCardView.swift in Sources */,
 				757190302C120CB100989D41 /* KeyboardManager.swift in Sources */,
 				757190312C120CB100989D41 /* ThemeManager.swift in Sources */,
@@ -967,6 +994,7 @@
 				7571900D2C120BF500989D41 /* Toast.swift in Sources */,
 				7571900E2C120BF500989D41 /* ToastView.swift in Sources */,
 				7580B1502C12BF8A0029EF84 /* TypewriterContentView.swift in Sources */,
+				7519741A2C8ABD0800173F15 /* TimelineView.swift in Sources */,
 				757190562C1212B000989D41 /* HeightPicker.swift in Sources */,
 				7571900F2C120BF500989D41 /* ToastManager.swift in Sources */,
 				757190102C120BF500989D41 /* ToastViewModifier.swift in Sources */,
@@ -990,6 +1018,7 @@
 				751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */,
 				757190402C120CE600989D41 /* SafeAreaPadding.swift in Sources */,
 				757190342C120CE300989D41 /* Ext+View.swift in Sources */,
+				75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */,
 				757190352C120CE300989D41 /* Ext+UImage.swift in Sources */,
 				757190362C120CE300989D41 /* Ext+NavigationController.swift in Sources */,
 				757190372C120CE300989D41 /* Ext+Color.swift in Sources */,
@@ -998,6 +1027,7 @@
 				7578B15C2C41F810006F07E7 /* ServiceAssembly.swift in Sources */,
 				757190392C120CE300989D41 /* Ext+Combine.swift in Sources */,
 				7571903A2C120CE300989D41 /* Ext+UIApplication.swift in Sources */,
+				75C7DAAB2C85F6D2009A5093 /* SlideToUnlockButton2.swift in Sources */,
 				75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */,
 				757190222C120C1100989D41 /* CornerRadius.swift in Sources */,
 				7578B15A2C41F7EC006F07E7 /* HomeViewModel.swift in Sources */,
@@ -1017,6 +1047,7 @@
 				7571904B2C120E9F00989D41 /* StetchyHeaderViewModifier.swift in Sources */,
 				75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */,
 				757190132C120BFF00989D41 /* CameraPickerView.swift in Sources */,
+				75C7DAB02C85F767009A5093 /* SlideButtonStyling.swift in Sources */,
 				757190142C120BFF00989D41 /* PhotoPickerView.swift in Sources */,
 				753116592C12C18600C7FBF6 /* CardFlipView.swift in Sources */,
 				75B9C6922C35206800F434EE /* OldMessageView.swift in Sources */,
@@ -1024,6 +1055,7 @@
 				75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */,
 				753FD85A2C0E859900C20D1A /* CustomEnvironment.swift in Sources */,
 				757190492C120E8E00989D41 /* ScrollViewWithOnScrollChanged.swift in Sources */,
+				75FE274A2C7EE73B0097C68F /* FlapperSean.swift in Sources */,
 				7578B1612C41FBE1006F07E7 /* CancelBag.swift in Sources */,
 				75BA2D402C0E79600089B70F /* FrameReader.swift in Sources */,
 				75718F8F2C120AA300989D41 /* SideMenu.swift in Sources */,

@@ -8,6 +8,17 @@
 import SwiftUI
 
 @main
+struct MyApp: App {
+    
+    var body: some Scene {
+        WindowGroup {
+            UnlockButton()
+        }
+    }
+    
+}
+
+//@main
 struct SwiftyUIApp: App {
     
     private let appAssembler: AppAssembler = AppAssembler()

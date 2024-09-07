@@ -84,7 +84,7 @@ public struct DraggingComponent: View {
             .fill(Color.darkBlue)
             .opacity(width / maxWidth)
             .frame(width: width)
-            .overlay(
+            .overlay(alignment: isLocked ? .trailing : .center) {
                 
                 Button(action: {} ) {
                     ZStack {
@@ -98,9 +98,8 @@ public struct DraggingComponent: View {
                     
                 }
                 .buttonStyle(BaseButtonStyle())
-                .disabled(!isLocked || isLoading),
-                alignment: .trailing
-            )
+                .disabled(!isLocked || isLoading)
+            }
         
             .simultaneousGesture(
                 DragGesture()
@@ -133,7 +132,17 @@ public struct DraggingComponent: View {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.75, execute: {
                                     
                                     withAnimation(.spring) {
+                                        
                                         isLoading = true
+                                        
+                                    }
+                                    
+                                })
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                                    
+                                    withAnimation(.spring) {
+                                        width = 50
                                     }
                                     
                                 })
@@ -183,18 +192,41 @@ struct UnlockButton: View {
             
             ZStack(alignment: .leading) {
                 
-                BackgroundComponent()
+                if isLocked {
+                    BackgroundComponent()
+                        .transition(.opacity.combined(with: .blurReplace))
+                }
                 
-                DraggingComponent(
-                    isLocked: $isLocked,
-                    isLoading: false,
-                    maxWidth: geometry.size.width
-                )
+                HStack {
+                    
+                    if !isLocked {
+                        
+                        Spacer()
+                            .transition(.move(edge: .leading))
+                        
+                    }
+                    
+                    DraggingComponent(
+                        isLocked: $isLocked,
+                        isLoading: false,
+                        maxWidth: geometry.size.width
+                    )
+                    
+                    if !isLocked {
+                        
+                        Spacer()
+                            .transition(.move(edge: .trailing))
+                        
+                    }
+                    
+                }
                 
             }
+            .frame(maxWidth: isLocked ? nil : .infinity, alignment: isLocked ? .leading : .center)
             
         }
         .frame(height: 50)
+        .animation(.bouncy, value: isLocked)
         .padding()
     }
 

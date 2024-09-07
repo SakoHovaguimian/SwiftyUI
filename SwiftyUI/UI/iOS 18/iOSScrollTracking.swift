@@ -71,3 +71,33 @@ struct iOS18View: View {
     iOS18View()
 }
 
+struct CurrencyView: View {
+    
+    @State var currentNumber: Double = 0
+    
+    var body: some View {
+        
+        VStack {
+            
+            Text(currentNumber, format: .currency(code: "USD"))
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .minimumScaleFactor(0.5)
+                .contentTransition(.numericText(value: currentNumber))
+            
+        }
+        .frame(maxWidth: .infinity)
+        .onTapGesture {
+            
+            withAnimation(.spring(duration: 0.3)) {
+                currentNumber += 1
+            }
+        }
+        
+    }
+    
+}
+
+
+let vc = UIHostingController(rootView: CurrencyView())
+let swiftuiView = vc.view!

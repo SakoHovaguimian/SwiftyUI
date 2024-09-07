@@ -117,7 +117,7 @@ public struct SlideButton<Label: View>: View {
                                 .tint(.white)
                                 .opacity(swipeState == .end ? 1 : 0)
                             Image(systemName: isEnabled ? styling.indicatorSystemName : styling.indicatorDisabledSystemName)
-                                .foregroundColor(.white)
+                                .foregroundColor(.gray)
                                 .font(.system(size: max(0.4 * styling.indicatorSize, 0.5 * styling.indicatorSize - 2 * styling.indicatorSpacing), weight: .semibold))
                                 .opacity(swipeState == .end ? 0 : 1)
                                 .rotationEffect(Angle(degrees: styling.indicatorRotatesForRTL && self.layoutDirection == .rightToLeft ? 180 : 0))
@@ -224,20 +224,26 @@ public extension SlideButton where Label == Text {
 
 #Preview {
     
-    ScrollView {
+    return ScrollView {
         VStack(spacing: 25) {
-            SlideButton("Centered text and lorem ipsum dolor sit", action: sliderCallback)
-            SlideButton("Leading text and no fade", styling: .init(textAlignment: .leading, textFadesOpacity: false), action: sliderCallback)
-            SlideButton("Center text and no mask", styling: .init(textHiddenBehindIndicator: false), action: sliderCallback)
-            SlideButton("Remaining space center", styling: .init(indicatorColor: .red, indicatorSystemName: "trash"), action: sliderCallback)
-            SlideButton("Trailing and immediate response", styling: .init(textAlignment: .trailing), action: sliderCallback)
-            SlideButton("Global center", styling: .init(indicatorColor: .red, indicatorSystemName: "trash", textAlignment: .globalCenter, textShimmers: true), action: sliderCallback)
-            SlideButton("Spacing 15", styling: .init(indicatorSpacing: 15), action: sliderCallback)
-            SlideButton("Big", styling: .init(indicatorSize: 100), action: sliderCallback)
-            SlideButton("disabled green", styling: .init(indicatorColor: .green), action: sliderCallback)
-                .disabled(true)
-            SlideButton("disabled", action: sliderCallback)
-                .disabled(true)
+
+            SlideButton("Purchase", styling: SlideButtonStyling(
+                indicatorSize: 50,
+                indicatorSpacing: 5,
+                indicatorColor: .black,
+                indicatorShape: .rectangular(cornerRadius: 22),
+                indicatorRotatesForRTL: false,
+                indicatorBrightness: 1,
+                backgroundColor: ThemeManager.shared.accentColor(),
+                textColor: .black,
+                indicatorSystemName: "house.fill",
+                indicatorDisabledSystemName: "house",
+                textAlignment: .globalCenter,
+                textFadesOpacity: true,
+                textHiddenBehindIndicator: false,
+                textShimmers: true
+            ), action: sliderCallback)
+            
         }.padding(.horizontal)
     }
     
