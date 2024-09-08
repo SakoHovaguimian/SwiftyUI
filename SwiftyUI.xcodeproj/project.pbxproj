@@ -132,6 +132,7 @@
 		75C7DAB02C85F767009A5093 /* SlideButtonStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */; };
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
+		75FB1C552C8CEF5C003028B8 /* HorizontalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB1C542C8CEF55003028B8 /* HorizontalTimelineView.swift */; };
 		75FE274A2C7EE73B0097C68F /* FlapperSean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FE27492C7EE6B40097C68F /* FlapperSean.swift */; };
 /* End PBXBuildFile section */
 
@@ -278,6 +279,7 @@
 		75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideButtonStyling.swift; sourceTree = "<group>"; };
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
+		75FB1C542C8CEF55003028B8 /* HorizontalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTimelineView.swift; sourceTree = "<group>"; };
 		75FE27492C7EE6B40097C68F /* FlapperSean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlapperSean.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -452,6 +454,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				75FB1C542C8CEF55003028B8 /* HorizontalTimelineView.swift */,
 				751974192C8ABD0300173F15 /* TimelineView.swift */,
 				75E6085A2C8A1F7F00505203 /* Bedar.swift */,
 				75C7DAAC2C85F6F8009A5093 /* Slide To Unlock */,
@@ -1065,6 +1068,7 @@
 				753FD85C2C0E896C00C20D1A /* IconAnimation.swift in Sources */,
 				753FD8602C0E8CA200C20D1A /* SplashView.swift in Sources */,
 				75718F832C1209C200989D41 /* BoomView.swift in Sources */,
+				75FB1C552C8CEF5C003028B8 /* HorizontalTimelineView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,8 +38,10 @@ struct TimelineView: View {
         GeometryReader { geometry in
             
             itemListView()
-                .padding(.horizontal)
-                .frame(width: geometry.size.width, height: geometry.size.height)
+                .frame(
+                    width: geometry.size.width,
+                    height: geometry.size.height
+                )
                 .onAppear {
                     
                     initializeProgresses()
@@ -55,7 +57,7 @@ struct TimelineView: View {
         
         VStack(spacing: 0) {
             
-            ForEach(Array(items.enumerated()), id: \.element.id) { index, item in
+            ForEach(Array(self.items.enumerated()), id: \.element.id) { index, item in
                                                 
                 itemView(
                     item: item,
@@ -267,11 +269,15 @@ struct LineView: View {
 
 #Preview {
     
-    TimelineView(items: [
+    @Previewable @State var items: [TimelineView.Item] = [
         .init(title: "First Item", duration: 2),
         .init(title: "Second Item", duration: 2),
-        .init(title: "Third Item", duration: 2)
-    ])
+        .init(title: "Third Item", duration: 2),
+        .init(title: "Fourth Item", duration: 2),
+        .init(title: "Fifth Item", duration: 2),
+    ]
+    
+    TimelineView(items: items)
     .frame(width: 350, height: 500)
     .border(.red)
     
