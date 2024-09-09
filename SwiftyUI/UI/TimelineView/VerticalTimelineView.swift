@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct TimelineView: View {
+// Add completion
+
+struct VerticalTimelineView: View {
     
     struct Item: Equatable, Identifiable {
         
@@ -82,6 +84,8 @@ struct TimelineView: View {
                         
                         ProgressCircleView(
                             progress: itemProgresses[item.id]?.circle ?? 0,
+                            inactiveColor: self.inactiveColor,
+                            activeColor: self.activeColor,
                             shouldPulse: itemProgresses[item.id]?.pulse ?? false
                         )
                         .frame(width: self.iconSize, height: self.iconSize)
@@ -110,7 +114,12 @@ struct TimelineView: View {
                                     .fill(.clear)
                                     .frame(width: self.iconSize, height: self.iconSize)
                                     .overlay(alignment: .top) {
-                                        LineView(progress: itemProgresses[item.id]?.line ?? 0)
+                                        
+                                        LineView(
+                                            activeColor: self.activeColor,
+                                            progress: itemProgresses[item.id]?.line ?? 0
+                                        )
+                                        
                                     }
                                 
                                 Spacer(minLength: 0)
@@ -147,26 +156,28 @@ struct TimelineView: View {
         
         currentIndex += 1
         let currentItem = items[currentIndex]
+        let duration = currentItem.duration
+        let halfDuration = duration / 2
         
-        withAnimation(.easeInOut(duration: 1.5)) {
+        withAnimation(.easeInOut(duration: currentItem.duration)) {
             
             itemProgresses[currentItem.id]?.circle = 1
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + currentItem.duration, execute: {
                 
-                withAnimation(.bouncy(duration: 0.8, extraBounce: 0.20)) {
+                withAnimation(.bouncy(duration: halfDuration, extraBounce: 0.20)) {
                     
                     itemProgresses[currentItem.id]?.pulse = true
                     
                 } completion: {
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                        withAnimation(.easeInOut(duration: 0.8)) {
+                    DispatchQueue.main.asyncAfter(deadline: .now()) {
+                        withAnimation(.easeInOut(duration: halfDuration)) {
                             itemProgresses[currentItem.id]?.line = 1
                         }
                     }
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.6) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + halfDuration) {
                         startNextItem()
                     }
                     
@@ -204,7 +215,7 @@ struct ProgressCircleView: View {
             if shouldPulse {
                 
                 Circle()
-                    .fill(.blue)
+                    .fill(self.activeColor)
                     .transition(.opacity.combined(with: .blurReplace()))
                 
             }
@@ -234,7 +245,7 @@ struct LineView: View {
     var lineLength: CGFloat = 32
     var lineWidth: CGFloat = 4
     var inactiveColor: Color = .gray
-    var activeColor: Color = .blue
+    var activeColor: Color = .brandPink
     var progress: Double = 0
     
     var body: some View {
@@ -269,16 +280,15 @@ struct LineView: View {
 
 #Preview {
     
-    @Previewable @State var items: [TimelineView.Item] = [
-        .init(title: "First Item", duration: 2),
-        .init(title: "Second Item", duration: 2),
-        .init(title: "Third Item", duration: 2),
-        .init(title: "Fourth Item", duration: 2),
-        .init(title: "Fifth Item", duration: 2),
+    @Previewable @State var items: [VerticalTimelineView.Item] = [
+        .init(title: "First Item", duration: 1),
+        .init(title: "Second Item", duration: 1),
+        .init(title: "Third Item", duration: 1),
+        .init(title: "Fourth Item", duration: 1),
+        .init(title: "Fifth Item", duration: 1),
     ]
     
-    TimelineView(items: items)
-    .frame(width: 350, height: 500)
-    .border(.red)
+    VerticalTimelineView(items: items, activeColor: .darkPurple)
+        .frame(width: 350, height: 500)
     
 }

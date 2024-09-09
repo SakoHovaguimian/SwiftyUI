@@ -14,7 +14,7 @@ struct Step {
 struct HorizontalTimelineView: View {
     
     let steps: [Step]
-    
+
     @Binding var currentStep: Int
     
     var activeColor: Color = .green
@@ -24,7 +24,7 @@ struct HorizontalTimelineView: View {
     var iconSize: CGFloat = 32
     var lineWidth: CGFloat = 3
     
-    var animationDuration: CGFloat = 0.8
+    var animationDuration: CGFloat = 0.5
     
     var body: some View {
         
