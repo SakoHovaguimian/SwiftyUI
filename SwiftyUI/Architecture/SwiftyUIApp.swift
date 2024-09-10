@@ -10,9 +10,18 @@ import SwiftUI
 @main
 struct MyApp: App {
     
+    @State var items: [VerticalTimelineView.Item] = [
+        .init(title: "First Item", duration: 1),
+        .init(title: "Second Item", duration: 1),
+        .init(title: "Third Item", duration: 1),
+        .init(title: "Fourth Item", duration: 1),
+        .init(title: "Fifth Item", duration: 1),
+    ]
+    
     var body: some Scene {
         WindowGroup {
-            UnlockButton()
+            VerticalTimelineView(items: items, activeColor: .darkPurple)
+                .frame(width: 350, height: 500)
         }
     }
     

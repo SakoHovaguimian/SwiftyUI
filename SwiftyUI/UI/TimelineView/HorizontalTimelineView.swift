@@ -126,7 +126,7 @@ struct HorizontalTimelineView: View {
     
 }
 
-fileprivate struct HorizontalTimelineViewTest: View {
+struct HorizontalTimelineViewTest: View {
     
     @State private var currentStep = 0
     

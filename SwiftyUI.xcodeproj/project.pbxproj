@@ -32,6 +32,7 @@
 		7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551B86B2C2E29540003A0F8 /* DashProgressView.swift */; };
 		7556CB572C2F227E0084A130 /* SizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CB562C2F227E0084A130 /* SizingView.swift */; };
 		756F46442C2BD15200D14425 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F46432C2BD15200D14425 /* MessageView.swift */; };
+		757026992C8F9B790096AEAC /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757026982C8F9B770096AEAC /* TestViewModel.swift */; };
 		75718F832C1209C200989D41 /* BoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F822C1209C200989D41 /* BoomView.swift */; };
 		75718F852C1209DF00989D41 /* WaterFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F842C1209DF00989D41 /* WaterFillView.swift */; };
 		75718F872C120A0000989D41 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F862C120A0000989D41 /* BadgeView.swift */; };
@@ -179,6 +180,7 @@
 		7551B86B2C2E29540003A0F8 /* DashProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashProgressView.swift; sourceTree = "<group>"; };
 		7556CB562C2F227E0084A130 /* SizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingView.swift; sourceTree = "<group>"; };
 		756F46432C2BD15200D14425 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		757026982C8F9B770096AEAC /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		75718F802C12085D00989D41 /* AnimatedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedPicker.swift; sourceTree = "<group>"; };
 		75718F822C1209C200989D41 /* BoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomView.swift; sourceTree = "<group>"; };
 		75718F842C1209DF00989D41 /* WaterFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFillView.swift; sourceTree = "<group>"; };
@@ -669,6 +671,7 @@
 		7578B14D2C41F751006F07E7 /* Architecture */ = {
 			isa = PBXGroup;
 			children = (
+				757026982C8F9B770096AEAC /* TestViewModel.swift */,
 				75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */,
 				7578B15D2C41F817006F07E7 /* DI */,
 				7578B15F2C41F825006F07E7 /* Services */,
@@ -968,6 +971,7 @@
 				7571901D2C120C0D00989D41 /* BaseHeaderScrollView.swift in Sources */,
 				75BA2D442C0E79600089B70F /* ScratcherView.swift in Sources */,
 				75421A582C8EAC120078A36E /* TimelineView.swift in Sources */,
+				757026992C8F9B790096AEAC /* TestViewModel.swift in Sources */,
 				757190502C120F4400989D41 /* SampleScrollAnimationView.swift in Sources */,
 				75718F8B2C120A2500989D41 /* SegmentedControlView.swift in Sources */,
 				7578B1582C41F7AD006F07E7 /* ViewModel.swift in Sources */,
