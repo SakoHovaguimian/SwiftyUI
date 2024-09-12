@@ -135,6 +135,7 @@
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
 		75FB1C552C8CEF5C003028B8 /* HorizontalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB1C542C8CEF55003028B8 /* HorizontalTimelineView.swift */; };
+		75FD1DAE2C914E9E004AC287 /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FD1DAD2C914E9E004AC287 /* AppText.swift */; };
 		75FE274A2C7EE73B0097C68F /* FlapperSean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FE27492C7EE6B40097C68F /* FlapperSean.swift */; };
 /* End PBXBuildFile section */
 
@@ -284,6 +285,7 @@
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
 		75FB1C542C8CEF55003028B8 /* HorizontalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTimelineView.swift; sourceTree = "<group>"; };
+		75FD1DAD2C914E9E004AC287 /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
 		75FE27492C7EE6B40097C68F /* FlapperSean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlapperSean.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -671,6 +673,7 @@
 		7578B14D2C41F751006F07E7 /* Architecture */ = {
 			isa = PBXGroup;
 			children = (
+				75FD1DAD2C914E9E004AC287 /* AppText.swift */,
 				757026982C8F9B770096AEAC /* TestViewModel.swift */,
 				75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */,
 				7578B15D2C41F817006F07E7 /* DI */,
@@ -1077,6 +1080,7 @@
 				75FE274A2C7EE73B0097C68F /* FlapperSean.swift in Sources */,
 				7578B1612C41FBE1006F07E7 /* CancelBag.swift in Sources */,
 				75BA2D402C0E79600089B70F /* FrameReader.swift in Sources */,
+				75FD1DAE2C914E9E004AC287 /* AppText.swift in Sources */,
 				75718F8F2C120AA300989D41 /* SideMenu.swift in Sources */,
 				7531164F2C12C11D00C7FBF6 /* GrowingTextField.swift in Sources */,
 				753116812C12C34A00C7FBF6 /* LongPressContentView.swift in Sources */,
