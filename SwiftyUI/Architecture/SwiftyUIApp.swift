@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct MyApp: App {
     
+    @State var email: String = ""
+    
     @State var items: [VerticalTimelineView.Item] = [
         .init(title: "First Item", duration: 1),
         .init(title: "Second Item", duration: 1),
@@ -22,7 +24,7 @@ struct MyApp: App {
         WindowGroup {
 //            VerticalTimelineView(items: items, activeColor: .darkPurple)
 //                .frame(width: 350, height: 500)
-            iOSStrechyHeader()
+            iOS18TextSuggestions(email: $email)
         }
     }
     

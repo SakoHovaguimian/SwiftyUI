@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751974192C8ABD0300173F15 /* VerticalTimelineView.swift */; };
+		751B4D642C93EDEE006239EC /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B4D632C93EDE6006239EC /* RichText.swift */; };
 		751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */; };
 		75287A942C4365C700787C50 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75287A932C4365C200787C50 /* AnalyticsService.swift */; };
 		75287A972C43662700787C50 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 75287A962C43662700787C50 /* Amplitude */; };
@@ -158,6 +159,7 @@
 
 /* Begin PBXFileReference section */
 		751974192C8ABD0300173F15 /* VerticalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTimelineView.swift; sourceTree = "<group>"; };
+		751B4D632C93EDE6006239EC /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
 		751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
 		75287A932C4365C200787C50 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		7531164E2C12C11D00C7FBF6 /* GrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextField.swift; sourceTree = "<group>"; };
@@ -634,6 +636,7 @@
 		7571904C2C120F0D00989D41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				751B4D632C93EDE6006239EC /* RichText.swift */,
 				75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */,
 				75BB42AD2C6412B000179078 /* NeonGlowView.swift */,
 				7571904F2C120F4100989D41 /* SampleScrollAnimationView.swift */,
@@ -989,6 +992,7 @@
 				75718F852C1209DF00989D41 /* WaterFillView.swift in Sources */,
 				757190112C120BF700989D41 /* TextEditView.swift in Sources */,
 				75718F892C120A1600989D41 /* CurrencyTextField.swift in Sources */,
+				751B4D642C93EDEE006239EC /* RichText.swift in Sources */,
 				7571900A2C120BE900989D41 /* NavBarView.swift in Sources */,
 				75C7DAAE2C85F700009A5093 /* Shimmer.swift in Sources */,
 				753116572C12C18600C7FBF6 /* MeshGradientCardView.swift in Sources */,
