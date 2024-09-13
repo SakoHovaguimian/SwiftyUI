@@ -304,6 +304,7 @@
 				iOSBlendColors.swift,
 				iOSFormSheet.swift,
 				iOSScrollTracking.swift,
+				iOSStrechyHeader.swift,
 				NavBarScolling.swift,
 				WWDC2024.swift,
 			);

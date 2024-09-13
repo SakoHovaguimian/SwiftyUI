@@ -20,10 +20,17 @@ struct MyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            VerticalTimelineView(items: items, activeColor: .darkPurple)
-                .frame(width: 350, height: 500)
+//            VerticalTimelineView(items: items, activeColor: .darkPurple)
+//                .frame(width: 350, height: 500)
+            iOSStrechyHeader()
         }
     }
+    
+//        var body: some Scene {
+//            WindowGroup {
+//                ItemListView()
+//            }
+//        }
     
 }
 

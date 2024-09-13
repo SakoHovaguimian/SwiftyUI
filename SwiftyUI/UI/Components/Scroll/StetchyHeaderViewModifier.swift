@@ -79,6 +79,7 @@ public extension View {
                     .overlay(
                         ZStack {
                             AsyncImage(url: URL(string: "https://picsum.photos/800/800"))
+                                .aspectRatio(contentMode: .fit)
                         }
                         //                        Image(systemName: "heart.fill")
                         //                            .resizable()
@@ -86,6 +87,10 @@ public extension View {
                         //                            .padding(100)
                     )
                     .asStretchyHeader(startingHeight: 300, shouldScaleOnStrech: true)
+                
+                Rectangle()
+                    .fill(Color.green)
+                    .frame(height: 500)
             }
         }
     }
