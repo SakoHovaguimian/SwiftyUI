@@ -281,11 +281,11 @@ struct LineView: View {
 #Preview {
     
     @Previewable @State var items: [VerticalTimelineView.Item] = [
-        .init(title: "First Item", duration: 10),
-        .init(title: "Second Item", duration: 2),
-        .init(title: "Third Item", duration: 1),
-        .init(title: "Fourth Item", duration: 1),
-        .init(title: "Fifth Item", duration: 0.5),
+        .init(title: "Verifying Information", duration: 1),
+        .init(title: "Creating Account", duration: 2),
+        .init(title: "Generating Assets", duration: 0.5),
+        .init(title: "Stealing Your Social", duration: 1),
+        .init(title: "💵 Profit", duration: 0.5),
     ]
     
     VerticalTimelineView(items: items, activeColor: .darkPurple)

@@ -50,10 +50,11 @@ struct NeonGlowView: View {
                 .font(.system(size: 70, weight: .ultraLight))
                 .frame(width: 250)
                 .addNeonEffect(color: colors[index])
+                .foregroundStyle(.black.opacity(1))
                 .contentTransition(.numericText())
                 .onAppear {
                     
-                    Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+                    Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { timer in
                         withAnimation(.smooth(duration: 2)) {
                             index = (index + 1) % colors.count
                         }
@@ -117,9 +118,21 @@ struct NeonGlowViewBlendMode: View {
 }
 
 struct NeonGlowView_Previews: PreviewProvider {
+    
     static var previews: some View {
-        NeonGlowView()
+        
+        ZStack {
+            
+            Color.black
+                .opacity(1)
+                .ignoresSafeArea()
+            
+            NeonGlowView()
+            
+        }
+        
     }
+    
 }
 
 struct MyListView: View {
@@ -185,5 +198,8 @@ struct MyListView: View {
 }
 
 #Preview {
-    MyListView()
+    ZStack {
+        Color.black.opacity(0.9)
+        MyListView()
+    }
 }

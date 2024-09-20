@@ -22,6 +22,11 @@ class TestViewModel2 {
     
     init(title: String) {
         self.title = title
+        print("CREATED: \(title)")
+    }
+    
+    func myPrint() {
+        print("PRINTING FOR FUNSIES")
     }
     
     func set(title: String) {
@@ -92,12 +97,9 @@ struct ViewModelView: View {
     @State var viewModel: TestViewModel2
     
     init(viewModel: TestViewModel2) {
-        
-        self._viewModel = State(initialValue: viewModel)
-        print("VIEW MODEL IS BEING CALLED: \(viewModel.title)")
-        
-        self.viewModel.set(title: "UPDATED TITLE")
-        
+        self._viewModel = .init(initialValue: viewModel)
+        viewModel.myPrint()
+        viewModel.set(title: "123")
     }
     
     var body: some View {

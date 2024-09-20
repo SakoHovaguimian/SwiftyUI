@@ -168,7 +168,7 @@ struct CustomMarkupView: View {
     var body: some View {
         let components = parsingService.parseCustomMarkup(text)
         
-        return VStack(alignment: .leading, spacing: 10) {
+        return VStack(alignment: .leading, spacing: 32) {
             ForEach(Array(components.enumerated()), id: \.offset) { _, component in
                 renderComponent(component)
             }
@@ -182,11 +182,13 @@ struct CustomMarkupView: View {
             Text(string)
         case .rectangleOverlay(let string):
             VStack {
-                Rectangle()
+                RoundedRectangle(cornerRadius: 12.5)
                     .fill(Color.red)
                     .frame(height: 200)
-                    .overlay(Text("Hello"))
+                    .overlay(Text(string))
+                
                 Text(string)
+                    .appFont(with: .header(.h5))
             }
         case .circleOverlay(let string):
             AppButton(
