@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		750B1B3A2CA88ECF007F93E2 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757382C42CA88B00007ACA27 /* RatingView.swift */; };
+		750B1B582CA89037007F93E2 /* GestureFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750B1B572CA8902C007F93E2 /* GestureFillView.swift */; };
 		7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751974192C8ABD0300173F15 /* VerticalTimelineView.swift */; };
 		751B4D642C93EDEE006239EC /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B4D632C93EDE6006239EC /* RichText.swift */; };
 		751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */; };
@@ -33,6 +35,7 @@
 		7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551B86B2C2E29540003A0F8 /* DashProgressView.swift */; };
 		7556CB572C2F227E0084A130 /* SizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CB562C2F227E0084A130 /* SizingView.swift */; };
 		756F46442C2BD15200D14425 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F46432C2BD15200D14425 /* MessageView.swift */; };
+		757006172CAC807C005FBCB7 /* CloudWithDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757006162CAC807C005FBCB7 /* CloudWithDotsView.swift */; };
 		757026992C8F9B790096AEAC /* TestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757026982C8F9B770096AEAC /* TestViewModel.swift */; };
 		75718F832C1209C200989D41 /* BoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F822C1209C200989D41 /* BoomView.swift */; };
 		75718F852C1209DF00989D41 /* WaterFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F842C1209DF00989D41 /* WaterFillView.swift */; };
@@ -158,6 +161,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		750B1B572CA8902C007F93E2 /* GestureFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureFillView.swift; sourceTree = "<group>"; };
 		751974192C8ABD0300173F15 /* VerticalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTimelineView.swift; sourceTree = "<group>"; };
 		751B4D632C93EDE6006239EC /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
 		751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 		7551B86B2C2E29540003A0F8 /* DashProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashProgressView.swift; sourceTree = "<group>"; };
 		7556CB562C2F227E0084A130 /* SizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingView.swift; sourceTree = "<group>"; };
 		756F46432C2BD15200D14425 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		757006162CAC807C005FBCB7 /* CloudWithDotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudWithDotsView.swift; sourceTree = "<group>"; };
 		757026982C8F9B770096AEAC /* TestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewModel.swift; sourceTree = "<group>"; };
 		75718F802C12085D00989D41 /* AnimatedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedPicker.swift; sourceTree = "<group>"; };
 		75718F822C1209C200989D41 /* BoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomView.swift; sourceTree = "<group>"; };
@@ -248,6 +253,7 @@
 		757190592C1212FC00989D41 /* TransitionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionTestView.swift; sourceTree = "<group>"; };
 		7571905B2C1212FC00989D41 /* CenterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterContentView.swift; sourceTree = "<group>"; };
 		7571905C2C1212FC00989D41 /* MatchedGeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoView.swift; sourceTree = "<group>"; };
+		757382C42CA88B00007ACA27 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		7578B14E2C41F760006F07E7 /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
 		7578B1502C41F765006F07E7 /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
 		7578B1522C41F76D006F07E7 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -473,6 +479,9 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				757006162CAC807C005FBCB7 /* CloudWithDotsView.swift */,
+				750B1B572CA8902C007F93E2 /* GestureFillView.swift */,
+				757382C42CA88B00007ACA27 /* RatingView.swift */,
 				75421A562C8EAB850078A36E /* TimelineView */,
 				75C7DAAC2C85F6F8009A5093 /* Slide To Unlock */,
 				756F46422C2BD14000D14425 /* GentlePath Ideas */,
@@ -984,6 +993,7 @@
 				7578B1582C41F7AD006F07E7 /* ViewModel.swift in Sources */,
 				75BA2D322C0E79600089B70F /* ScrollFilters.swift in Sources */,
 				753116862C12C34A00C7FBF6 /* ToggleStyles.swift in Sources */,
+				750B1B3A2CA88ECF007F93E2 /* RatingView.swift in Sources */,
 				7571900B2C120BF100989D41 /* GPWebView.swift in Sources */,
 				75BA2CE72C0E780A0089B70F /* ContentView.swift in Sources */,
 				75BA2D352C0E79600089B70F /* CustomToggle.swift in Sources */,
@@ -1000,6 +1010,7 @@
 				757190312C120CB100989D41 /* ThemeManager.swift in Sources */,
 				757190182C120C0B00989D41 /* HapticViewModifier.swift in Sources */,
 				757190192C120C0B00989D41 /* Haptics.swift in Sources */,
+				757006172CAC807C005FBCB7 /* CloudWithDotsView.swift in Sources */,
 				7571905E2C12131300989D41 /* CenterContentView.swift in Sources */,
 				7571905F2C12131300989D41 /* BackgroundTestView.swift in Sources */,
 				757190602C12131300989D41 /* MatchedGeoView.swift in Sources */,
@@ -1015,6 +1026,7 @@
 				7571900C2C120BF500989D41 /* ToastListView.swift in Sources */,
 				75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */,
 				753116682C12C22B00C7FBF6 /* ZoomView.swift in Sources */,
+				750B1B582CA89037007F93E2 /* GestureFillView.swift in Sources */,
 				753116552C12C18600C7FBF6 /* AnimatedSearchBarView.swift in Sources */,
 				7578B1552C41F77A006F07E7 /* EnvironmentService.swift in Sources */,
 				7578B27F2C3057D1006BE789 /* SwiftUIView.swift in Sources */,

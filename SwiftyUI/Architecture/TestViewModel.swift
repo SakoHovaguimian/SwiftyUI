@@ -15,8 +15,7 @@ enum Route {
     
 }
 
-@Observable
-class TestViewModel2 {
+class TestViewModel2: ObservableObject {
     
     var title: String
     
@@ -94,12 +93,12 @@ struct TestView: View {
 
 struct ViewModelView: View {
     
-    @State var viewModel: TestViewModel2
+    @StateObject var viewModel: TestViewModel2
     
     init(viewModel: TestViewModel2) {
-        self._viewModel = .init(initialValue: viewModel)
-        viewModel.myPrint()
-        viewModel.set(title: "123")
+        
+        let saf = viewModel
+        self._viewModel = .init(wrappedValue: saf)
     }
     
     var body: some View {
