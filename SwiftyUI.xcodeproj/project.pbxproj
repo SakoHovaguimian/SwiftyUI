@@ -115,6 +115,10 @@
 		7580AFEA2C12BF5F0029EF84 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580AFE92C12BF5F0029EF84 /* ChartView.swift */; };
 		7580B0AC2C12BF8A0029EF84 /* TypewriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580AFEB2C12BF890029EF84 /* TypewriterView.swift */; };
 		7580B1502C12BF8A0029EF84 /* TypewriterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */; };
+		75A6DB742CB8243100055E0E /* FannedCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB732CB8242E00055E0E /* FannedCarouselView.swift */; };
+		75A6DB762CB8290300055E0E /* TextBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB752CB8290200055E0E /* TextBlurView.swift */; };
+		75A6DB782CB82A7300055E0E /* ExpandingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */; };
+		75A6DB7A2CB82CD200055E0E /* HalfCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */; };
 		75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F802C12085D00989D41 /* AnimatedPicker.swift */; };
 		75B9C6922C35206800F434EE /* OldMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B9C6912C35206400F434EE /* OldMessageView.swift */; };
 		75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */; };
@@ -266,6 +270,10 @@
 		7580AFE92C12BF5F0029EF84 /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		7580AFEB2C12BF890029EF84 /* TypewriterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterView.swift; sourceTree = "<group>"; };
 		7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterContentView.swift; sourceTree = "<group>"; };
+		75A6DB732CB8242E00055E0E /* FannedCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FannedCarouselView.swift; sourceTree = "<group>"; };
+		75A6DB752CB8290200055E0E /* TextBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlurView.swift; sourceTree = "<group>"; };
+		75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingCardView.swift; sourceTree = "<group>"; };
+		75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircleView.swift; sourceTree = "<group>"; };
 		75B9C6912C35206400F434EE /* OldMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldMessageView.swift; sourceTree = "<group>"; };
 		75BA2CE12C0E780A0089B70F /* SwiftyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyUIApp.swift; sourceTree = "<group>"; };
@@ -479,6 +487,10 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */,
+				75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */,
+				75A6DB752CB8290200055E0E /* TextBlurView.swift */,
+				75A6DB732CB8242E00055E0E /* FannedCarouselView.swift */,
 				757006162CAC807C005FBCB7 /* CloudWithDotsView.swift */,
 				750B1B572CA8902C007F93E2 /* GestureFillView.swift */,
 				757382C42CA88B00007ACA27 /* RatingView.swift */,
@@ -1021,6 +1033,7 @@
 				757190282C120C1400989D41 /* BaseAppAlertView.swift in Sources */,
 				75BA2D432C0E79600089B70F /* Shake.swift in Sources */,
 				7531167F2C12C34A00C7FBF6 /* GradientButtonContentView.swift in Sources */,
+				75A6DB742CB8243100055E0E /* FannedCarouselView.swift in Sources */,
 				757190412C120CE900989D41 /* AppTextFieldPreview.swift in Sources */,
 				757190422C120CE900989D41 /* AppTextField.swift in Sources */,
 				7571900C2C120BF500989D41 /* ToastListView.swift in Sources */,
@@ -1077,6 +1090,9 @@
 				753116822C12C34A00C7FBF6 /* BlurContentView.swift in Sources */,
 				75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */,
 				7531166C2C12C22B00C7FBF6 /* CombineInputView.swift in Sources */,
+				75A6DB762CB8290300055E0E /* TextBlurView.swift in Sources */,
+				75A6DB7A2CB82CD200055E0E /* HalfCircleView.swift in Sources */,
+				75A6DB782CB82A7300055E0E /* ExpandingCardView.swift in Sources */,
 				757190152C120C0800989D41 /* CircularIconView.swift in Sources */,
 				757190162C120C0800989D41 /* AppImageView.swift in Sources */,
 				757190172C120C0800989D41 /* AvatarView.swift in Sources */,
