@@ -142,6 +142,7 @@
 		75C7DAB02C85F767009A5093 /* SlideButtonStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */; };
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
+		75F56E372CCA03270055A437 /* LogChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F56E362CCA03270055A437 /* LogChartData.swift */; };
 		75FB1C552C8CEF5C003028B8 /* HorizontalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB1C542C8CEF55003028B8 /* HorizontalTimelineView.swift */; };
 		75FD1DAE2C914E9E004AC287 /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FD1DAD2C914E9E004AC287 /* AppText.swift */; };
 		75FE274A2C7EE73B0097C68F /* FlapperSean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FE27492C7EE6B40097C68F /* FlapperSean.swift */; };
@@ -300,6 +301,7 @@
 		75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideButtonStyling.swift; sourceTree = "<group>"; };
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
+		75F56E362CCA03270055A437 /* LogChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogChartData.swift; sourceTree = "<group>"; };
 		75FB1C542C8CEF55003028B8 /* HorizontalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTimelineView.swift; sourceTree = "<group>"; };
 		75FD1DAD2C914E9E004AC287 /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
 		75FE27492C7EE6B40097C68F /* FlapperSean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlapperSean.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				75F56E362CCA03270055A437 /* LogChartData.swift */,
 				75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */,
 				75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */,
 				75A6DB752CB8290200055E0E /* TextBlurView.swift */,
@@ -1091,6 +1094,7 @@
 				75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */,
 				7531166C2C12C22B00C7FBF6 /* CombineInputView.swift in Sources */,
 				75A6DB762CB8290300055E0E /* TextBlurView.swift in Sources */,
+				75F56E372CCA03270055A437 /* LogChartData.swift in Sources */,
 				75A6DB7A2CB82CD200055E0E /* HalfCircleView.swift in Sources */,
 				75A6DB782CB82A7300055E0E /* ExpandingCardView.swift in Sources */,
 				757190152C120C0800989D41 /* CircularIconView.swift in Sources */,
