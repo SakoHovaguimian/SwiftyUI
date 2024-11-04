@@ -137,6 +137,7 @@
 		75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2C2C0E79600089B70F /* SearchBar.swift */; };
 		75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB42AD2C6412B000179078 /* NeonGlowView.swift */; };
 		75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2675A2C78EC720064EA6B /* DropDownTextField.swift */; };
+		75C641D42CD56CCC00CDD777 /* MentionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C641D32CD56CCC00CDD777 /* MentionPickerView.swift */; };
 		75C7DAAB2C85F6D2009A5093 /* SlideToUnlockButton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAA2C85F6AC009A5093 /* SlideToUnlockButton2.swift */; };
 		75C7DAAE2C85F700009A5093 /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAD2C85F6FF009A5093 /* Shimmer.swift */; };
 		75C7DAB02C85F767009A5093 /* SlideButtonStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */; };
@@ -296,6 +297,7 @@
 		75BA2D2C2C0E79600089B70F /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		75BB42AD2C6412B000179078 /* NeonGlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonGlowView.swift; sourceTree = "<group>"; };
 		75C2675A2C78EC720064EA6B /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
+		75C641D32CD56CCC00CDD777 /* MentionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentionPickerView.swift; sourceTree = "<group>"; };
 		75C7DAAA2C85F6AC009A5093 /* SlideToUnlockButton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton2.swift; sourceTree = "<group>"; };
 		75C7DAAD2C85F6FF009A5093 /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideButtonStyling.swift; sourceTree = "<group>"; };
@@ -489,6 +491,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				75C641D32CD56CCC00CDD777 /* MentionPickerView.swift */,
 				75F56E362CCA03270055A437 /* LogChartData.swift */,
 				75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */,
 				75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */,
@@ -1052,6 +1055,7 @@
 				7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */,
 				757190562C1212B000989D41 /* HeightPicker.swift in Sources */,
 				7571900F2C120BF500989D41 /* ToastManager.swift in Sources */,
+				75C641D42CD56CCC00CDD777 /* MentionPickerView.swift in Sources */,
 				757190102C120BF500989D41 /* ToastViewModifier.swift in Sources */,
 				75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */,
 				756F46442C2BD15200D14425 /* MessageView.swift in Sources */,
