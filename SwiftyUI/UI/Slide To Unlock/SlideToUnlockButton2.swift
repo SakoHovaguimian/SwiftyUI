@@ -78,7 +78,7 @@ public struct SlideButton<Label: View>: View {
                             .foregroundColor(styling.textColor)
                             .frame(maxWidth: max(0, reading.size.width - 2 * styling.indicatorSpacing), alignment: .center)
                             .padding(.horizontal, styling.indicatorSize)
-                            .shimmerEffect(isEnabled && styling.textShimmers)
+//                            .shimmerEffect(isEnabled && styling.textShimmers)
                     } else {
                         title
                             .multilineTextAlignment(styling.textAlignment.textAlignment)
@@ -86,7 +86,7 @@ public struct SlideButton<Label: View>: View {
                             .frame(maxWidth: max(0, reading.size.width - 2 * styling.indicatorSpacing), alignment: Alignment(horizontal: styling.textAlignment.horizontalAlignment, vertical: .center))
                             .padding(.trailing, styling.indicatorSpacing)
                             .padding(.leading, styling.indicatorSize)
-                            .shimmerEffect(isEnabled && styling.textShimmers)
+//                            .shimmerEffect(isEnabled && styling.textShimmers)
                     }
                 }
                 .opacity(styling.textFadesOpacity ? (1 - progress(from: styling.indicatorSpacing, to: reading.size.width - styling.indicatorSize + styling.indicatorSpacing, current: calculatedOffset)) : 1)
