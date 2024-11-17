@@ -17,7 +17,7 @@ struct TextEditView: View {
     var body: some View {
     
         TextField(self.placehoderText, text: self.$text, axis: .vertical)
-            .lineLimit(5, reservesSpace: true)
+            .lineLimit(5...10)
             .padding(16)
             .background(ThemeManager.shared.background(.secondary))
             .foregroundStyle(ThemeManager.shared.accentColor())
@@ -37,7 +37,9 @@ struct TextEditView: View {
 
 #Preview {
     
-    TextEditView(text: .constant(""), placehoderText: "Some Placeholder", isFocused: false)
+    @Previewable @State var text: String = ""
+    
+    TextEditView(text: $text, placehoderText: "Some Placeholder", isFocused: false)
         .padding(.horizontal, 32)
     
 }

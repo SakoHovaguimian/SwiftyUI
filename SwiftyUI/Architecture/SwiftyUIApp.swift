@@ -14,35 +14,40 @@ struct MyApp2: App {
         
         WindowGroup {
             
-            ScrollView {
-                
-                PieChartView(logChartData: [
-                    .init(logType: "Info", totalCount: 100),
-                    .init(logType: "Error", totalCount: 150),
-                    .init(logType: "Success", totalCount: 200),
-                    .init(logType: "Debug", totalCount: 250),
-                    .init(logType: "Fault", totalCount: 300),
-                ])
-                
-                LineChartView(logChartData: [
-                    .init(logType: "Info", totalCount: 100),
-                    .init(logType: "Error", totalCount: 150),
-                    .init(logType: "Success", totalCount: 200),
-                    .init(logType: "Debug", totalCount: 250),
-                    .init(logType: "Fault", totalCount: 300),
-                    .init(logType: "Info", totalCount: 500)
-                ])
-                
-                BarChartView(logChartData: [
-                    .init(logType: "Info", totalCount: 100),
-                    .init(logType: "Error", totalCount: 150),
-                    .init(logType: "Success", totalCount: 200),
-                    .init(logType: "Debug", totalCount: 250),
-                    .init(logType: "Fault", totalCount: 300),
-                    .init(logType: "Info", totalCount: 500)
-                ])
-                
-            }
+            AccelerometerBallView()
+            
+//            ScrollView {
+//                
+//                AccelerometerBallView()
+//                    .padding(.top, 48)
+//                
+//                PieChartView(logChartData: [
+//                    .init(logType: "Info", totalCount: 100),
+//                    .init(logType: "Error", totalCount: 150),
+//                    .init(logType: "Success", totalCount: 200),
+//                    .init(logType: "Debug", totalCount: 250),
+//                    .init(logType: "Fault", totalCount: 300),
+//                ])
+//                
+//                LineChartView(logChartData: [
+//                    .init(logType: "Info", totalCount: 100),
+//                    .init(logType: "Error", totalCount: 150),
+//                    .init(logType: "Success", totalCount: 200),
+//                    .init(logType: "Debug", totalCount: 250),
+//                    .init(logType: "Fault", totalCount: 300),
+//                    .init(logType: "Info", totalCount: 500)
+//                ])
+//                
+//                BarChartView(logChartData: [
+//                    .init(logType: "Info", totalCount: 100),
+//                    .init(logType: "Error", totalCount: 150),
+//                    .init(logType: "Success", totalCount: 200),
+//                    .init(logType: "Debug", totalCount: 250),
+//                    .init(logType: "Fault", totalCount: 300),
+//                    .init(logType: "Info", totalCount: 500)
+//                ])
+//                
+//            }
             
         }
         
