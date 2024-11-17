@@ -17,18 +17,21 @@ struct AppProgressBar: View {
     @Binding var value: Double
     
     private var thumbRadius: CGFloat = 15
+    private var thumbHeight: CGFloat = 32
     
     init(value: Binding<Double>,
          trackStyle: AppForegroundStyle,
          fillStyle: AppForegroundStyle,
          thumbStyle: AppForegroundStyle = .color(.white),
-         thumbCircleStyle: AppForegroundStyle = .color(.brandGreen)) {
+         thumbCircleStyle: AppForegroundStyle = .color(.brandGreen),
+         thumbHeight: CGFloat = 32) {
         
         self._value = value
         self.trackStyle = trackStyle
         self.fillStyle = fillStyle
         self.thumbStyle = thumbStyle
         self.thumbCircleStyle = thumbCircleStyle
+        self.thumbHeight = thumbHeight
         
     }
     
@@ -91,13 +94,19 @@ struct AppProgressBar: View {
             ZStack {
                 
                 Circle()
-                    .frame(width: 32, height: 32)
+                    .frame(
+                        width: self.thumbHeight,
+                        height: self.thumbHeight
+                    )
                     .foregroundStyle(self.thumbStyle.foregroundStyle())
                     .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 4)
                 
                 Circle()
                     .stroke(self.thumbStyle.foregroundStyle(), lineWidth: 1)
-                    .frame(width: 32, height: 32)
+                    .frame(
+                        width: self.thumbHeight,
+                        height: self.thumbHeight
+                    )
                     .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 4)
                 
             }
@@ -139,8 +148,18 @@ struct AppProgressBar: View {
     @Previewable @State var progress: Double = 0.0
     
     Text("\(progress, format: .percent.precision(.fractionLength(2)))")
+        .appFont(with: .header(.h1))
     
-    VStack {
+    VStack(spacing: .appLarge) {
+        
+        AppProgressBar(
+            value: $progress,
+            trackStyle: .color(Color(UIColor.systemGray6)),
+            fillStyle: .color(.brandPink),
+            thumbCircleStyle: .color(.brandPink),
+            thumbHeight: 24
+        )
+        .frame(maxWidth: .infinity)
         
         AppProgressBar(
             value: $progress,
@@ -191,5 +210,4 @@ struct AppProgressBar: View {
     }
     .padding(.horizontal, .large)
 
-    
 }
