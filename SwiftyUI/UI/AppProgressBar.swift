@@ -9,9 +9,9 @@ import SwiftUI
 
 struct AppProgressBar: View {
     
-    private var trackStyle: AppForegroundStyle
+    private var trackStyle: AppBackgroundStyle
     private var fillStyle: AppForegroundStyle
-    private var thumbStyle: AppForegroundStyle
+    private var thumbStyle: AppBackgroundStyle
     private var thumbCircleStyle: AppForegroundStyle
     
     @Binding var value: Double
@@ -20,9 +20,9 @@ struct AppProgressBar: View {
     private var thumbHeight: CGFloat = 32
     
     init(value: Binding<Double>,
-         trackStyle: AppForegroundStyle,
+         trackStyle: AppBackgroundStyle,
          fillStyle: AppForegroundStyle,
-         thumbStyle: AppForegroundStyle = .color(.white),
+         thumbStyle: AppBackgroundStyle = .color(.white),
          thumbCircleStyle: AppForegroundStyle = .color(.brandGreen),
          thumbHeight: CGFloat = 32) {
         
@@ -98,11 +98,11 @@ struct AppProgressBar: View {
                         width: self.thumbHeight,
                         height: self.thumbHeight
                     )
-                    .foregroundStyle(self.thumbStyle.foregroundStyle())
+                    .foregroundStyle(self.thumbStyle.backgroundStyle())
                     .shadow(color: .black.opacity(0.2), radius: 8, x: 0, y: 4)
                 
                 Circle()
-                    .stroke(self.thumbStyle.foregroundStyle(), lineWidth: 1)
+                    .stroke(self.thumbStyle.backgroundStyle(), lineWidth: 1)
                     .frame(
                         width: self.thumbHeight,
                         height: self.thumbHeight
