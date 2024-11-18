@@ -147,67 +147,104 @@ struct AppProgressBar: View {
     
     @Previewable @State var progress: Double = 0.0
     
-    Text("\(progress, format: .percent.precision(.fractionLength(2)))")
-        .appFont(with: .header(.h1))
-    
-    VStack(spacing: .appLarge) {
+    AppBaseView {
         
-        AppProgressBar(
-            value: $progress,
-            trackStyle: .color(Color(UIColor.systemGray6)),
-            fillStyle: .color(.brandPink),
-            thumbCircleStyle: .color(.brandPink),
-            thumbHeight: 24
-        )
-        .frame(maxWidth: .infinity)
-        
-        AppProgressBar(
-            value: $progress,
-            trackStyle: .color(Color(UIColor.systemGray6)),
-            fillStyle: .color(.brandGreen)
-        )
-        .frame(maxWidth: .infinity)
-        
-        AppProgressBar(
-            value: $progress,
-            trackStyle: .color(Color(uiColor: .charcoal)),
-            fillStyle: .linearGradient(.linearGradient(
-                colors: [
-                    .indigo,
-                    .purple
-                ],
-                startPoint: .leading,
-                endPoint: .trailing
-            )),
-            thumbStyle: .linearGradient(.linearGradient(
-                colors: [
-                    .indigo,
-                    .purple
-                ],
-                startPoint: .leading,
-                endPoint: .trailing
-            )),
-            thumbCircleStyle: .color(.white)
-        )
-        .frame(maxWidth: .infinity)
-        
-        AppProgressBar(
-            value: $progress,
-            trackStyle: .color(Color(uiColor: .lightGray).opacity(0.2)),
-            fillStyle: .linearGradient(.linearGradient(
-                colors: [
-                    .green,
-                    .mint
-                ],
-                startPoint: .leading,
-                endPoint: .trailing
-            )),
-            thumbStyle: .color(.mint),
-            thumbCircleStyle: .color(.white)
-        )
-        .frame(maxWidth: .infinity)
+        VStack {
+            
+            Text("\(progress, format: .percent.precision(.fractionLength(2)))")
+                .appFont(with: .header(.h1))
+            
+            VStack(spacing: .appLarge) {
+                
+                AppProgressBar(
+                    value: $progress,
+                    trackStyle: .color(Color(UIColor.systemGray6)),
+                    fillStyle: .color(.brandPink),
+                    thumbCircleStyle: .color(.brandPink),
+                    thumbHeight: 24
+                )
+                .frame(maxWidth: .infinity)
+                
+                AppProgressBar(
+                    value: $progress,
+                    trackStyle: .color(Color(UIColor.systemGray6)),
+                    fillStyle: .color(.brandGreen)
+                )
+                .frame(maxWidth: .infinity)
+                
+                AppProgressBar(
+                    value: $progress,
+                    trackStyle: .color(Color(uiColor: .charcoal)),
+                    fillStyle: .linearGradient(.linearGradient(
+                        colors: [
+                            .indigo,
+                            .purple
+                        ],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )),
+                    thumbStyle: .linearGradient(.linearGradient(
+                        colors: [
+                            .indigo,
+                            .purple
+                        ],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )),
+                    thumbCircleStyle: .color(.white)
+                )
+                .frame(maxWidth: .infinity)
+                
+                AppProgressBar(
+                    value: $progress,
+                    trackStyle: .color(Color(uiColor: .lightGray).opacity(0.2)),
+                    fillStyle: .linearGradient(.linearGradient(
+                        colors: [
+                            .green,
+                            .mint
+                        ],
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )),
+                    thumbStyle: .color(.mint),
+                    thumbCircleStyle: .color(.white)
+                )
+                .frame(maxWidth: .infinity)
+                
+                AppCardView(backgroundColor: .white) {
+                    
+                    VStack {
+                        
+                        HStack {
+                            
+                            Text("\(progress, format: .percent.precision(.fractionLength(2)))")
+                                .appFont(with: .body(.b4))
+                            
+                            Spacer()
+                            
+                            Text("\(progress, format: .percent.precision(.fractionLength(2)))")
+                                .appFont(with: .body(.b4))
+                            
+                        }
+                        
+                        AppProgressBar(
+                            value: $progress,
+                            trackStyle: .color(Color(UIColor.systemGray6)),
+                            fillStyle: .color(.brandGreen),
+                            thumbHeight: 24
+                        )
+                        .frame(maxWidth: .infinity)
+                        .padding(.leading, .appSmall)
+                        
+                    }
+                    
+                }
+                
+            }
+            .padding(.horizontal, .large)
+            
+        }
         
     }
-    .padding(.horizontal, .large)
 
 }
