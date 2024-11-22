@@ -99,7 +99,7 @@ struct AccelerometerBallView: View {
             
             title()
             ball()
-            
+
         }
         
     }

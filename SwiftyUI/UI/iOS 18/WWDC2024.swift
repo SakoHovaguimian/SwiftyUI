@@ -167,7 +167,7 @@ struct WWDC2024_Transition: View {
         
         ZStack {
             
-            Color.blackedGray
+            Color.black.opacity(0.8)
                 .ignoresSafeArea()
             
             VStack {
@@ -176,13 +176,13 @@ struct WWDC2024_Transition: View {
                     
                     Rectangle()
                         .fill(.darkBlue)
-                        .transition(Twirl())
+                        .transition(Ripple())
                     
                 } else {
                     
                     Rectangle()
-                        .fill(.darkPurple)
-                        .transition(Twirl())
+                        .fill(.blue)
+                        .transition(Ripple())
                     
                 }
                 
