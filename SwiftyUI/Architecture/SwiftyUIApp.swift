@@ -14,7 +14,8 @@ struct MyApp2: App {
         
         WindowGroup {
             
-            AccelerometerBallView()
+            ScrollBannerViewPreview()
+//            AccelerometerBallView()
             
 //            ScrollView {
 //                

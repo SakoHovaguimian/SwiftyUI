@@ -144,6 +144,7 @@
 		75C7DAAE2C85F700009A5093 /* Shimmer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAD2C85F6FF009A5093 /* Shimmer2.swift */; };
 		75C7DAB02C85F767009A5093 /* SlideButtonStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */; };
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
+		75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */; };
 		75D8B34F2CE5487800681141 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B34E2CE5487800681141 /* PulseAnimation.swift */; };
 		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
 		75F430172CE5569E008484E6 /* AccelerometerBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F430162CE5569E008484E6 /* AccelerometerBallView.swift */; };
@@ -310,6 +311,7 @@
 		75C7DAAD2C85F6FF009A5093 /* Shimmer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer2.swift; sourceTree = "<group>"; };
 		75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideButtonStyling.swift; sourceTree = "<group>"; };
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
+		75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBannerView.swift; sourceTree = "<group>"; };
 		75D8B34E2CE5487800681141 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
 		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
 		75F430162CE5569E008484E6 /* AccelerometerBallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerometerBallView.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
 				75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */,
 				75ABE6E02CE98005000DC32B /* AppProgressBar.swift */,
 				75F430162CE5569E008484E6 /* AccelerometerBallView.swift */,
@@ -1077,6 +1080,7 @@
 				75C641D42CD56CCC00CDD777 /* MentionPickerView.swift in Sources */,
 				757190102C120BF500989D41 /* ToastViewModifier.swift in Sources */,
 				75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */,
+				75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */,
 				756F46442C2BD15200D14425 /* MessageView.swift in Sources */,
 				753116662C12C22B00C7FBF6 /* AdaptiveGridView.swift in Sources */,
 				75ABE6E32CE98347000DC32B /* AppBackgroundStyle.swift in Sources */,
