@@ -115,6 +115,7 @@
 		7580AFEA2C12BF5F0029EF84 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580AFE92C12BF5F0029EF84 /* ChartView.swift */; };
 		7580B0AC2C12BF8A0029EF84 /* TypewriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580AFEB2C12BF890029EF84 /* TypewriterView.swift */; };
 		7580B1502C12BF8A0029EF84 /* TypewriterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */; };
+		758421AD2D010694007A9F6E /* ProgressIndicatorNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */; };
 		75A6DB742CB8243100055E0E /* FannedCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB732CB8242E00055E0E /* FannedCarouselView.swift */; };
 		75A6DB762CB8290300055E0E /* TextBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB752CB8290200055E0E /* TextBlurView.swift */; };
 		75A6DB782CB82A7300055E0E /* ExpandingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */; };
@@ -139,6 +140,7 @@
 		75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2C2C0E79600089B70F /* SearchBar.swift */; };
 		75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB42AD2C6412B000179078 /* NeonGlowView.swift */; };
 		75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2675A2C78EC720064EA6B /* DropDownTextField.swift */; };
+		75C5F8A42CFE4433003446CC /* AnimatedIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */; };
 		75C641D42CD56CCC00CDD777 /* MentionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C641D32CD56CCC00CDD777 /* MentionPickerView.swift */; };
 		75C7DAAB2C85F6D2009A5093 /* SlideToUnlockButton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAA2C85F6AC009A5093 /* SlideToUnlockButton2.swift */; };
 		75C7DAAE2C85F700009A5093 /* Shimmer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAD2C85F6FF009A5093 /* Shimmer2.swift */; };
@@ -279,6 +281,7 @@
 		7580AFE92C12BF5F0029EF84 /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		7580AFEB2C12BF890029EF84 /* TypewriterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterView.swift; sourceTree = "<group>"; };
 		7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterContentView.swift; sourceTree = "<group>"; };
+		758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorNew.swift; sourceTree = "<group>"; };
 		75A6DB732CB8242E00055E0E /* FannedCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FannedCarouselView.swift; sourceTree = "<group>"; };
 		75A6DB752CB8290200055E0E /* TextBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlurView.swift; sourceTree = "<group>"; };
 		75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingCardView.swift; sourceTree = "<group>"; };
@@ -306,6 +309,7 @@
 		75BA2D2C2C0E79600089B70F /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		75BB42AD2C6412B000179078 /* NeonGlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonGlowView.swift; sourceTree = "<group>"; };
 		75C2675A2C78EC720064EA6B /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
+		75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedIntroView.swift; sourceTree = "<group>"; };
 		75C641D32CD56CCC00CDD777 /* MentionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentionPickerView.swift; sourceTree = "<group>"; };
 		75C7DAAA2C85F6AC009A5093 /* SlideToUnlockButton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton2.swift; sourceTree = "<group>"; };
 		75C7DAAD2C85F6FF009A5093 /* Shimmer2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer2.swift; sourceTree = "<group>"; };
@@ -505,6 +509,8 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */,
+				75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */,
 				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
 				75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */,
 				75ABE6E02CE98005000DC32B /* AppProgressBar.swift */,
@@ -1036,6 +1042,7 @@
 				7571900B2C120BF100989D41 /* GPWebView.swift in Sources */,
 				75BA2CE72C0E780A0089B70F /* ContentView.swift in Sources */,
 				75BA2D352C0E79600089B70F /* CustomToggle.swift in Sources */,
+				758421AD2D010694007A9F6E /* ProgressIndicatorNew.swift in Sources */,
 				75BA2D412C0E79600089B70F /* ButtonStyles.swift in Sources */,
 				75287A942C4365C700787C50 /* AnalyticsService.swift in Sources */,
 				75718F852C1209DF00989D41 /* WaterFillView.swift in Sources */,
@@ -1083,6 +1090,7 @@
 				75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */,
 				756F46442C2BD15200D14425 /* MessageView.swift in Sources */,
 				753116662C12C22B00C7FBF6 /* AdaptiveGridView.swift in Sources */,
+				75C5F8A42CFE4433003446CC /* AnimatedIntroView.swift in Sources */,
 				75ABE6E32CE98347000DC32B /* AppBackgroundStyle.swift in Sources */,
 				757190322C120CE300989D41 /* Ext+Dict.swift in Sources */,
 				757190332C120CE300989D41 /* Ext+Date.swift in Sources */,
