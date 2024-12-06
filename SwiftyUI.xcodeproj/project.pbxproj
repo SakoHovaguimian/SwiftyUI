@@ -32,6 +32,7 @@
 		753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85D2C0E8B4F00C20D1A /* HueView.swift */; };
 		753FD8602C0E8CA200C20D1A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85F2C0E8CA200C20D1A /* SplashView.swift */; };
 		75421A582C8EAC120078A36E /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75421A572C8EAC0F0078A36E /* TimelineView.swift */; };
+		754AF6AD2D02492D00042BA8 /* SafeAreaGradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */; };
 		7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551B86B2C2E29540003A0F8 /* DashProgressView.swift */; };
 		7556CB572C2F227E0084A130 /* SizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CB562C2F227E0084A130 /* SizingView.swift */; };
 		756F46442C2BD15200D14425 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F46432C2BD15200D14425 /* MessageView.swift */; };
@@ -123,6 +124,7 @@
 		75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F802C12085D00989D41 /* AnimatedPicker.swift */; };
 		75ABE6E12CE9800A000DC32B /* AppProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE6E02CE98005000DC32B /* AppProgressBar.swift */; };
 		75ABE6E32CE98347000DC32B /* AppBackgroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */; };
+		75B99DAB2D0343260088E9BC /* FinalStrechyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */; };
 		75B9C6922C35206800F434EE /* OldMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B9C6912C35206400F434EE /* OldMessageView.swift */; };
 		75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */; };
 		75BA2CE72C0E780A0089B70F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2CE62C0E780A0089B70F /* ContentView.swift */; };
@@ -199,6 +201,7 @@
 		753FD85D2C0E8B4F00C20D1A /* HueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueView.swift; sourceTree = "<group>"; };
 		753FD85F2C0E8CA200C20D1A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		75421A572C8EAC0F0078A36E /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaGradientModifier.swift; sourceTree = "<group>"; };
 		7551B86B2C2E29540003A0F8 /* DashProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashProgressView.swift; sourceTree = "<group>"; };
 		7556CB562C2F227E0084A130 /* SizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingView.swift; sourceTree = "<group>"; };
 		756F46432C2BD15200D14425 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
@@ -288,6 +291,7 @@
 		75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircleView.swift; sourceTree = "<group>"; };
 		75ABE6E02CE98005000DC32B /* AppProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProgressBar.swift; sourceTree = "<group>"; };
 		75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundStyle.swift; sourceTree = "<group>"; };
+		75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStrechyHeader.swift; sourceTree = "<group>"; };
 		75B9C6912C35206400F434EE /* OldMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldMessageView.swift; sourceTree = "<group>"; };
 		75BA2CE12C0E780A0089B70F /* SwiftyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyUIApp.swift; sourceTree = "<group>"; };
@@ -509,6 +513,8 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */,
+				754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */,
 				758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */,
 				75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */,
 				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
@@ -1131,6 +1137,7 @@
 				75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */,
 				7531166C2C12C22B00C7FBF6 /* CombineInputView.swift in Sources */,
 				75A6DB762CB8290300055E0E /* TextBlurView.swift in Sources */,
+				754AF6AD2D02492D00042BA8 /* SafeAreaGradientModifier.swift in Sources */,
 				75F56E372CCA03270055A437 /* LogChartData.swift in Sources */,
 				75A6DB7A2CB82CD200055E0E /* HalfCircleView.swift in Sources */,
 				75A6DB782CB82A7300055E0E /* ExpandingCardView.swift in Sources */,
@@ -1138,6 +1145,7 @@
 				757190162C120C0800989D41 /* AppImageView.swift in Sources */,
 				757190172C120C0800989D41 /* AvatarView.swift in Sources */,
 				7580B0AC2C12BF8A0029EF84 /* TypewriterView.swift in Sources */,
+				75B99DAB2D0343260088E9BC /* FinalStrechyHeader.swift in Sources */,
 				757190122C120BFC00989D41 /* AppButton.swift in Sources */,
 				753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */,
 				75F430172CE5569E008484E6 /* AccelerometerBallView.swift in Sources */,
