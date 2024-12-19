@@ -12,6 +12,7 @@
 		7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751974192C8ABD0300173F15 /* VerticalTimelineView.swift */; };
 		751B4D642C93EDEE006239EC /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B4D632C93EDE6006239EC /* RichText.swift */; };
 		751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */; };
+		752563FE2D14C0D0009AFC34 /* IconAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */; };
 		75287A942C4365C700787C50 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75287A932C4365C200787C50 /* AnalyticsService.swift */; };
 		75287A972C43662700787C50 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 75287A962C43662700787C50 /* Amplitude */; };
 		7531164F2C12C11D00C7FBF6 /* GrowingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531164E2C12C11D00C7FBF6 /* GrowingTextField.swift */; };
@@ -183,6 +184,7 @@
 		751974192C8ABD0300173F15 /* VerticalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTimelineView.swift; sourceTree = "<group>"; };
 		751B4D632C93EDE6006239EC /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
 		751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
+		752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAnimationTest.swift; sourceTree = "<group>"; };
 		75287A932C4365C200787C50 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		7531164E2C12C11D00C7FBF6 /* GrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextField.swift; sourceTree = "<group>"; };
 		753116502C12C18600C7FBF6 /* AnimatedSearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedSearchBarView.swift; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */,
 				75EC17FE2D03A4EB00942F10 /* Mirror.swift */,
 				75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */,
 				754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */,
@@ -1113,6 +1116,7 @@
 				7571903D2C120CE600989D41 /* asButton.swift in Sources */,
 				7571903E2C120CE600989D41 /* PlainList.swift in Sources */,
 				7571903F2C120CE600989D41 /* CenterIconStyle.swift in Sources */,
+				752563FE2D14C0D0009AFC34 /* IconAnimationTest.swift in Sources */,
 				757190472C120E7900989D41 /* OrientationChangeModifier.swift in Sources */,
 				7578B1512C41F76A006F07E7 /* ViewModelAssembly.swift in Sources */,
 				7578B1532C41F772006F07E7 /* APIService.swift in Sources */,
