@@ -29,32 +29,32 @@ struct IconAnimationTest: View {
                 .foregroundStyle(.white)
                 .contentTransition(.symbolEffect(.replace))
                 .padding(32)
-                .modifier(IconAnimationTestModifier(color: .brandGreen, size: 72))
-//                .overlay {
-//                    
-//                    Circle()
-//                        .trim(from: 0, to: 0.5)
-//                        .stroke(.white.opacity(isPlaying ? 1 : 0), lineWidth: 2)
-//                        .scaleEffect(self.isPlaying ? 1 : 0.8)
-//                        .rotationEffect(.degrees(360 * Double(animation)))
-//                        .animation(.bouncy, value: self.isPlaying)
-//                    
-//                }
-//                .onChange(of: isPlaying) {
-//                    
-//                    withAnimation(.linear(duration: 3)
-//                        .repeatForever(autoreverses: false)) {
-//                            animation = 1
-//                        }
-//                    
-//                }
-//                .appOnTapGesture {
-//                    
-//                    withAnimation(.linear(duration: 0.3)) {
-//                        isPlaying.toggle()
-//                    }
-//                    
-//                }
+//                .modifier(IconAnimationTestModifier(color: .brandGreen, size: 72))
+                .overlay {
+                    
+                    Circle()
+                        .trim(from: 0, to: 0.5)
+                        .stroke(.white.opacity(isPlaying ? 1 : 0), lineWidth: 2)
+                        .scaleEffect(self.isPlaying ? 1 : 0.8)
+                        .rotationEffect(.degrees(360 * Double(animation)))
+                        .animation(.bouncy, value: self.isPlaying)
+                    
+                }
+                .onChange(of: isPlaying) {
+                    
+                    withAnimation(.linear(duration: 3)
+                        .repeatForever(autoreverses: false)) {
+                            animation = 1
+                        }
+                    
+                }
+                .appOnTapGesture {
+                    
+                    withAnimation(.linear(duration: 0.3)) {
+                        isPlaying.toggle()
+                    }
+                    
+                }
             
         }
         
