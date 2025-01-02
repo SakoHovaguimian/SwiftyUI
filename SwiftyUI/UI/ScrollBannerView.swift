@@ -8,6 +8,14 @@ struct ScrollBannerView: View {
     @State private var scrollOffset: CGFloat = 0
     @State private var currentIndexFrame: CGRect = .init(x: 0, y: 0, width: 0, height: 100)
     
+    private var colors: [AppForegroundStyle] = [
+        
+        .color(.indigo),
+        .color(.mint),
+        .color(.teal)
+        
+    ]
+    
     var onPageChanged: ((Int) -> Void)?
     
     init(views: [AnyView],
@@ -20,49 +28,69 @@ struct ScrollBannerView: View {
     
     var body: some View {
         
-        HStack {
+        VStack {
             
-            ScrollView(.horizontal) {
+            HStack {
                 
-                LazyHStack(spacing: 0) {
+                scrollBox()
+                
+            }
+            .background(self.colors[currentIndex ?? 0].foregroundStyle())
+            .cornerRadius(.medium)
+            .frame(minHeight: 100)
+            .padding(.horizontal, 24)
+            .frame(minHeight: self.currentIndexFrame.height)
+            .animation(.bouncy, value: self.currentIndex)
+            .animation(.bouncy, value: self.currentIndexFrame)
+            
+            
+            ProgressIndicatorNew(
+                selectedIndex: currentIndex ?? 0,
+                numberOfItems: 3,
+                foregroundStyle: self.colors[currentIndex ?? 0]
+            )
+            
+        }
+        
+    }
+    
+    private func scrollBox() -> some View {
+        
+        ScrollView(.horizontal) {
+            
+            HStack(spacing: 0) {
+                
+                ForEach(0..<views.count, id: \.self) { index in
                     
-                    ForEach(0..<views.count, id: \.self) { index in
-                        
-                        views[index]
-                            .containerRelativeFrame(.horizontal)
-                            .readingFrame { frame in
+                    views[index]
+                        .containerRelativeFrame(.horizontal)
+                        .readingFrame { frame in
+                            
+                            if index == currentIndex {
                                 
-                                if index == currentIndex {
+                                withAnimation(.bouncy) {
                                     currentIndexFrame = frame
-                                    print(frame.height)
                                 }
                                 
                             }
-                        
-                    }
+                            
+                        }
                     
                 }
-                .scrollTargetLayout()
-                .frame(minHeight: self.currentIndexFrame.height)
-                .frame(maxHeight: self.currentIndexFrame.height)
                 
             }
-            .scrollTargetBehavior(.viewAligned)
-            .scrollPosition(id: self.$currentIndex, anchor: .center)
-            .scrollIndicators(.hidden)
-//            .onChange(of: currentIndex) { oldValue, newValue in
-//                onPageChanged?(newValue)
-//            }
-            .animation(.linear, value: self.currentIndex)
+            .scrollTargetLayout()
+            .frame(minHeight: self.currentIndexFrame.height)
+            .frame(maxHeight: self.currentIndexFrame.height)
             
         }
-        .background(.blue)
-        .cornerRadius(.medium)
-        .frame(minHeight: 100)
-        .padding(.horizontal, 24)
-        .frame(minHeight: self.currentIndexFrame.height)
-        .animation(.smooth, value: self.currentIndex)
-        .animation(.smooth, value: self.currentIndexFrame)
+        .scrollTargetBehavior(.paging)
+        .scrollPosition(id: self.$currentIndex, anchor: .center)
+        .scrollIndicators(.hidden)
+        .onChange(of: currentIndex) { oldValue, newValue in
+            print(newValue)
+        }
+        .animation(.bouncy, value: self.currentIndex)
         
     }
     
@@ -95,7 +123,7 @@ struct ScrollBannerViewPreview: View {
         
         Text("Page \(height)")
             .frame(height: height)
-            .frame(maxWidth: .infinity)
+            .containerRelativeFrame(.horizontal)
             .foregroundStyle(.white)
             .cornerRadius(.medium)
         

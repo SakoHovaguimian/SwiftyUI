@@ -11,6 +11,15 @@ struct ProgressIndicatorNew: View {
     
     var selectedIndex: Int = 0
     var numberOfItems: Int = 5
+    var foregroundStyle: AppForegroundStyle = .color(.indigo)
+    
+    func fillColor(isSelected: Bool) -> AnyShapeStyle {
+        
+        return isSelected
+        ? self.foregroundStyle.foregroundStyle()
+        : AppForegroundStyle.color(.blackedGray).foregroundStyle()
+        
+    }
     
     var body: some View {
         
@@ -19,7 +28,7 @@ struct ProgressIndicatorNew: View {
             ForEach(0..<numberOfItems, id: \.self) { index in
                 
                 Capsule()
-                    .fill(selectedIndex == index ? .indigo : .blackedGray)
+                    .fill(fillColor(isSelected: selectedIndex == index))
                     .frame(width: selectedIndex == index ? 50 : 8, height: 8)
                 
             }
@@ -40,7 +49,8 @@ struct ProgressIndicatorNew: View {
         
         ProgressIndicatorNew(
             selectedIndex: selectedIndex,
-            numberOfItems: numberOfItems
+            numberOfItems: numberOfItems,
+            foregroundStyle: .color(.indigo)
         )
         
     }
