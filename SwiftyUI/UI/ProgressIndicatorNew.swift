@@ -11,13 +11,13 @@ struct ProgressIndicatorNew: View {
     
     var selectedIndex: Int = 0
     var numberOfItems: Int = 5
-    var foregroundStyle: AppForegroundStyle = .color(.indigo)
+    var backgroundStyle: AppBackgroundStyle = .color(.indigo)
     
     func fillColor(isSelected: Bool) -> AnyShapeStyle {
         
         return isSelected
-        ? self.foregroundStyle.foregroundStyle()
-        : AppForegroundStyle.color(.blackedGray).foregroundStyle()
+        ? self.backgroundStyle.backgroundStyle()
+        : AppBackgroundStyle.color(.blackedGray).backgroundStyle()
         
     }
     
@@ -50,7 +50,7 @@ struct ProgressIndicatorNew: View {
         ProgressIndicatorNew(
             selectedIndex: selectedIndex,
             numberOfItems: numberOfItems,
-            foregroundStyle: .color(.indigo)
+            backgroundStyle: .color(.indigo)
         )
         
     }

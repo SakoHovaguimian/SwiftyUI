@@ -2,26 +2,18 @@ import SwiftUI
 
 struct ScrollBannerView: View {
     
-    let views: [AnyView]
+    @State private var scrollBannerViewItems: [ScrollViewBannerViewItem]
     
     @State private var currentIndex: Int? = 0
     @State private var scrollOffset: CGFloat = 0
     @State private var currentIndexFrame: CGRect = .init(x: 0, y: 0, width: 0, height: 100)
     
-    private var colors: [AppForegroundStyle] = [
-        
-        .color(.indigo),
-        .color(.mint),
-        .color(.teal)
-        
-    ]
-    
     var onPageChanged: ((Int) -> Void)?
     
-    init(views: [AnyView],
+    init(items: [ScrollViewBannerViewItem],
          onPageChanged: ((Int) -> Void)? = nil) {
         
-        self.views = views
+        self._scrollBannerViewItems = .init(initialValue: items)
         self.onPageChanged = onPageChanged
         
     }
@@ -35,7 +27,7 @@ struct ScrollBannerView: View {
                 scrollBox()
                 
             }
-            .background(self.colors[currentIndex ?? 0].foregroundStyle())
+            .background(self.scrollBannerViewItems[currentIndex ?? 0].backgroundColor.backgroundStyle())
             .cornerRadius(.medium)
             .frame(minHeight: 100)
             .padding(.horizontal, 24)
@@ -46,8 +38,8 @@ struct ScrollBannerView: View {
             
             ProgressIndicatorNew(
                 selectedIndex: currentIndex ?? 0,
-                numberOfItems: 3,
-                foregroundStyle: self.colors[currentIndex ?? 0]
+                numberOfItems: self.scrollBannerViewItems.count,
+                backgroundStyle: self.scrollBannerViewItems[currentIndex ?? 0].backgroundColor
             )
             
         }
@@ -60,9 +52,9 @@ struct ScrollBannerView: View {
             
             HStack(spacing: 0) {
                 
-                ForEach(0..<views.count, id: \.self) { index in
+                ForEach(0..<scrollBannerViewItems.count, id: \.self) { index in
                     
-                    views[index]
+                    page(height: scrollBannerViewItems[index].height)
                         .containerRelativeFrame(.horizontal)
                         .readingFrame { frame in
                             
@@ -94,31 +86,6 @@ struct ScrollBannerView: View {
         
     }
     
-}
-
-struct ScrollBannerViewPreview: View {
-    
-    @State private var pages = [AnyView]()
-    
-    var body: some View {
-        
-        ScrollBannerView(views: pages) { pageIndex in
-            print("Scrolled to page: \(pageIndex)")
-        }
-        .onAppear {
-            
-            self.pages = [
-                
-                page(height: 100).asAnyView(),
-                page(height: 200).asAnyView(),
-                page(height: 150).asAnyView()
-                
-            ]
-            
-        }
-        
-    }
-    
     func page(height: CGFloat) -> some View {
         
         Text("Page \(height)")
@@ -126,6 +93,44 @@ struct ScrollBannerViewPreview: View {
             .containerRelativeFrame(.horizontal)
             .foregroundStyle(.white)
             .cornerRadius(.medium)
+        
+    }
+    
+}
+
+struct ScrollViewBannerViewItem: Identifiable {
+    
+    let id: String = UUID().uuidString
+    let backgroundColor: AppBackgroundStyle
+    let height: CGFloat
+    
+}
+
+struct ScrollBannerViewPreview: View {
+    
+    @State private var items: [ScrollViewBannerViewItem] = [
+        .init(backgroundColor: .color(.indigo), height: 100),
+        .init(backgroundColor: .color(.blue), height: 200),
+//        .init(backgroundColor: .linearGradient(.linearGradient(
+//            colors: [
+//                .mint,
+//                .indigo
+//            ],
+//            startPoint: .topLeading,
+//            endPoint: .bottomTrailing
+//        )), height: 150),
+        .init(backgroundColor: .color(.green), height: 400)
+    ]
+    
+    var body: some View {
+        
+        AppBaseView {
+            
+            ScrollBannerView(items: items) { pageIndex in
+                print("Scrolled to page: \(pageIndex)")
+            }
+            
+        }
         
     }
     
