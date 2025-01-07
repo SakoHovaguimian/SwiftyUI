@@ -6,7 +6,7 @@ struct ScrollBannerView: View {
     
     @State private var currentIndex: Int? = 0
     @State private var scrollOffset: CGFloat = 0
-    @State private var currentIndexFrame: CGRect = .init(x: 0, y: 0, width: 0, height: 100)
+    @State private var currentIndexFrame: CGRect = .init(x: 0, y: 0, width: 0, height: 52)
     
     var onPageChanged: ((Int) -> Void)?
     
@@ -22,22 +22,10 @@ struct ScrollBannerView: View {
         
         VStack {
             
-            HStack {
-                
-                scrollBox()
-                
-            }
-            .background(self.scrollBannerViewItems[currentIndex ?? 0].backgroundColor.backgroundStyle())
-            .cornerRadius(.medium)
-            .frame(minHeight: 100)
-            .padding(.horizontal, 24)
-            .frame(minHeight: self.currentIndexFrame.height)
-            .animation(.bouncy, value: self.currentIndex)
-            .animation(.bouncy, value: self.currentIndexFrame)
-            
+            scrollBox()
             
             ProgressIndicatorNew(
-                selectedIndex: currentIndex ?? 0,
+                selectedIndex: self.currentIndex ?? 0,
                 numberOfItems: self.scrollBannerViewItems.count,
                 backgroundStyle: self.scrollBannerViewItems[currentIndex ?? 0].backgroundColor
             )
@@ -52,18 +40,13 @@ struct ScrollBannerView: View {
             
             HStack(spacing: 0) {
                 
-                ForEach(0..<scrollBannerViewItems.count, id: \.self) { index in
+                ForEach(0..<self.scrollBannerViewItems.count, id: \.self) { index in
                     
-                    page(height: scrollBannerViewItems[index].height)
-                        .containerRelativeFrame(.horizontal)
+                    page(item: self.scrollBannerViewItems[index])
                         .readingFrame { frame in
                             
-                            if index == currentIndex {
-                                
-                                withAnimation(.bouncy) {
-                                    currentIndexFrame = frame
-                                }
-                                
+                            if index == self.currentIndex {
+                                calculateFrameForCurrentItem(frame)
                             }
                             
                         }
@@ -76,23 +59,47 @@ struct ScrollBannerView: View {
             .frame(maxHeight: self.currentIndexFrame.height)
             
         }
+        .background(self.scrollBannerViewItems[currentIndex ?? 0].backgroundColor.backgroundStyle())
+        .cornerRadius(.medium)
+        .padding(.horizontal, 24)
         .scrollTargetBehavior(.paging)
         .scrollPosition(id: self.$currentIndex, anchor: .center)
         .scrollIndicators(.hidden)
-        .onChange(of: currentIndex) { oldValue, newValue in
-            print(newValue)
-        }
-        .animation(.bouncy, value: self.currentIndex)
+        .animation(.bouncy, value: self.currentIndexFrame)
         
     }
     
-    func page(height: CGFloat) -> some View {
+    private func page(item: ScrollViewBannerViewItem) -> some View {
         
-        Text("Page \(height)")
-            .frame(height: height)
-            .containerRelativeFrame(.horizontal)
-            .foregroundStyle(.white)
-            .cornerRadius(.medium)
+        HStack {
+            
+            Text(item.message)
+                .appFont(with: .title(.t5))
+                .foregroundStyle(.white)
+                .transaction { transaction in
+                    transaction.animation = nil
+                }
+                .padding(.horizontal, .small)
+            
+        }
+        .containerRelativeFrame(.horizontal)
+        
+    }
+    
+    private func calculateFrameForCurrentItem(_ frame: CGRect) {
+        
+        withAnimation(.bouncy) {
+            
+            let frameWithVerticalPadding: CGRect = .init(
+                x: 0,
+                y: 0,
+                width: 0,
+                height: frame.height + (Spacing.medium.value * 2)
+            )
+            
+            self.currentIndexFrame = frameWithVerticalPadding
+            
+        }
         
     }
     
@@ -102,24 +109,27 @@ struct ScrollViewBannerViewItem: Identifiable {
     
     let id: String = UUID().uuidString
     let backgroundColor: AppBackgroundStyle
-    let height: CGFloat
+    let message: String
     
 }
 
 struct ScrollBannerViewPreview: View {
     
     @State private var items: [ScrollViewBannerViewItem] = [
-        .init(backgroundColor: .color(.indigo), height: 100),
-        .init(backgroundColor: .color(.blue), height: 200),
-//        .init(backgroundColor: .linearGradient(.linearGradient(
-//            colors: [
-//                .mint,
-//                .indigo
-//            ],
-//            startPoint: .topLeading,
-//            endPoint: .bottomTrailing
-//        )), height: 150),
-        .init(backgroundColor: .color(.green), height: 400)
+        
+        .init(
+            backgroundColor: .color(.darkPurple),
+            message: "This is some test"
+        ),
+        .init(
+            backgroundColor: .color(.darkBlue),
+            message: "This is some paragraph. This is some paragraph. This is some paragraph. This is some paragraph. This is some paragraph."
+        ),
+        .init(
+            backgroundColor: .color(.darkGreen),
+            message: "This is some paragraph. This is some paragraph"
+        ),
+        
     ]
     
     var body: some View {
