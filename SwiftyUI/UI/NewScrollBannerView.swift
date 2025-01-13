@@ -1,35 +1,26 @@
+////
+////  NewScrollBannerView.swift
+////  SwiftyUI
+////
+////  Created by Sako Hovaguimian on 1/13/25.
+////
+//
 import SwiftUI
 
-struct BannerItem: Identifiable {
+struct BannerItem2: Identifiable {
     
     let id = UUID()
     let title: String
+    let height: CGFloat
     let color: Color
     
     static func FAKE_TITLE_ITEMS() -> [Self] {
             
         return [
-            
-            BannerItem(
-                title: "Page 1",
-                color: .blue
-            ),
-            
-            BannerItem(
-                title: "Page 2",
-                color: .red
-            ),
-            
-            BannerItem(
-                title: "Page 3",
-                color: .green
-            ),
-            
-            BannerItem(
-                title: "Page 4",
-                color: .purple
-            )
-            
+            BannerItem2(title: "Page 1", height: 80, color: .blue),
+            BannerItem2(title: "Page 2", height: 165, color: .red),
+            BannerItem2(title: "Page 3", height: 60, color: .green),
+            BannerItem2(title: "Page 4", height: 200, color: .purple)
         ]
         
     }
@@ -37,47 +28,29 @@ struct BannerItem: Identifiable {
     static func FAKE_MESSAGE_ITEMS() -> [Self] {
             
         return [
-            
-            BannerItem(
-                title: "5 out of 10 people don't read this message",
-                color: .blue
-            ),
-            
-            BannerItem(
-                title: "This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner.",
-                color: .red
-            ),
-            
-            BannerItem(
-                title: "This is going to be a full screen banner.",
-                color: .green
-            ),
-            
-            BannerItem(
-                title: "Page 4",
-                color: .purple
-            )
-            
+            BannerItem2(title: "5 out of 10 people don't read this message", height: 120, color: .blue),
+            BannerItem2(title: "This is going to be a full screen banner. This is going to be a full screen banner.", height: 165, color: .red),
+            BannerItem2(title: "This is going to be a full screen banner.", height: 60, color: .green),
+            BannerItem2(title: "Page 4", height: 200, color: .purple)
         ]
         
     }
     
 }
 
-struct ScrollBannerView: View {
+struct ScrollBannerView2: View {
     
     // MARK: - Properties -
     
-    @State private var containerHeight: CGFloat = 0
+    @State private var containerHeight: CGFloat = 50
     @State private var scrollOffsetX: CGFloat
     @State private var currentIndex: Int
     @State private var currentWidth: CGFloat
     
-    @State private var bannerFrames: [Int: CGFloat] = [:]
+    private let items: [BannerItem2]
     
-    private let items: [BannerItem]
-    
-    init(items: [BannerItem],
+    init(items: [BannerItem2],
+         containerHeight: CGFloat = 50,
          scrollOffsetX: CGFloat = 0,
          currentIndex: Int = 0,
          currentWidth: CGFloat = 0) {
@@ -86,7 +59,7 @@ struct ScrollBannerView: View {
         self.scrollOffsetX = scrollOffsetX
         self.currentIndex = currentIndex
         self.currentWidth = currentWidth
-        self.containerHeight = containerHeight
+        self.containerHeight = items.first?.height ?? containerHeight
         
     }
     
@@ -116,51 +89,51 @@ struct ScrollBannerView: View {
                     
                     bannerPage(for: items[index])
                         .frame(width: UIScreen.main.bounds.width - 64)
-                        .onGeometryChange(for: CGRect.self, of: { proxy in
-                            return proxy.frame(in: .local)
-                        }, action: { newValue in
-                            
-                            bannerFrames[index] = newValue.height
-                            
-                            if containerHeight == 0 && index == 0 {
-                                containerHeight = newValue.height
-                            }
+                        .onAppear {
                             
                             if currentWidth == 0 {
                                 currentWidth = UIScreen.main.bounds.width - 64
                             }
                             
-                        })
+                        }
                     
                 }
                 
             }
-            .frame(height: containerHeight)
             .scrollTargetLayout()
             
         }
-        .scrollTargetBehavior(.viewAligned)
+        .scrollTargetBehavior(.paging)
         .onScrollGeometryChange(for: CGFloat.self) { geometry in
             return geometry.contentOffset.x
         } action: { oldValue, newValue in
             handleScrollChange(oldOffset: oldValue, newOffset: newValue)
         }
-        .background(items[currentIndex].color)
         .clipShape(.rect(cornerRadius: 8))
+        .frame(minHeight: containerHeight)
+        .frame(maxHeight: containerHeight)
         .animation(.linear(duration: 0.1), value: containerHeight)
         .padding(.horizontal, 32)
+        .onFirstAppear {
+            self.containerHeight = items.first?.height ?? containerHeight
+        }
         
     }
     
-    private func bannerPage(for item: BannerItem) -> some View {
+    private func bannerPage(for item: BannerItem2) -> some View {
         
-        Text(item.title)
-            .font(.body)
-            .foregroundColor(.white)
-            .padding(16)
-            .frame(maxWidth: .infinity, alignment: .center)
-            .fixedSize(horizontal: false, vertical: true)
-            .lineLimit(nil)
+        ZStack {
+            
+            item.color
+            
+            Text(item.title)
+                .font(.body)
+                .foregroundColor(.white)
+                .minimumScaleFactor(0.6)
+                .padding(.horizontal, 16)
+                .frame(maxWidth: .infinity, alignment: .center)
+            
+        }
         
     }
     
@@ -210,8 +183,8 @@ struct ScrollBannerView: View {
         fraction = min(max(fraction, 0), 1)
 
         // 7) Interpolate the heights
-        let fromHeight = bannerFrames[fromIndex] ?? 0
-        let toHeight = bannerFrames[targetIndex] ?? 0
+        let fromHeight = items[fromIndex].height
+        let toHeight   = items[targetIndex].height
         let interpolatedHeight = fromHeight + (toHeight - fromHeight) * fraction
         
         self.containerHeight = interpolatedHeight
@@ -221,24 +194,24 @@ struct ScrollBannerView: View {
         self.currentIndex = (fraction > 0.8) ? targetIndex : fromIndex
         
         // Debug prints
-//        print("fromIndex: \(fromIndex), targetIndex: \(targetIndex), fraction: \(fraction)")
+        print("fromIndex: \(fromIndex), targetIndex: \(targetIndex), fraction: \(fraction)")
         
     }
     
 }
 
 #Preview("Title") {
-    return ScrollBannerView(items: BannerItem.FAKE_TITLE_ITEMS())
+    return ScrollBannerView2(items: BannerItem2.FAKE_TITLE_ITEMS())
 }
 
 #Preview("Message") {
-    return ScrollBannerView(items: BannerItem.FAKE_MESSAGE_ITEMS())
+    return ScrollBannerView2(items: BannerItem2.FAKE_MESSAGE_ITEMS())
 }
 
-struct SomePreviewView: View {
+struct SomePreviewView2: View {
     
     var body: some View {
-        ScrollBannerView(items: BannerItem.FAKE_TITLE_ITEMS())
+        ScrollBannerView2(items: BannerItem2.FAKE_TITLE_ITEMS())
     }
     
 }
