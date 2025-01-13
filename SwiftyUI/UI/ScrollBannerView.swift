@@ -238,7 +238,7 @@ struct ScrollBannerView: View {
 struct SomePreviewView: View {
     
     var body: some View {
-        ScrollBannerView(items: BannerItem.FAKE_TITLE_ITEMS())
+        ScrollBannerView(items: BannerItem.FAKE_MESSAGE_ITEMS())
     }
     
 }
