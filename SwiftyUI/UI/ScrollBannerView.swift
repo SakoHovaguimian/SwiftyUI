@@ -44,7 +44,7 @@ struct BannerItem: Identifiable {
             ),
             
             BannerItem(
-                title: "This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner.",
+                title: "This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner.",
                 color: .red
             ),
             
@@ -94,13 +94,21 @@ struct ScrollBannerView: View {
     
     var body: some View {
         
-        VStack(spacing: 16) {
+        VStack(spacing: 8) {
             
             scrollView()
             
-            Text("Current Page Index: \(currentIndex)")
-            
+            ProgressIndicatorNew(
+                selectedIndex: currentIndex,
+                numberOfItems: items.count,
+                backgroundStyle: .color(.white)
+            )
+            .padding(.bottom, 16)
+                        
         }
+        .background(.darkBlue)
+        .clipShape(.rect(cornerRadius: 8))
+        .padding(.horizontal, 24)
         
     }
     
@@ -108,47 +116,51 @@ struct ScrollBannerView: View {
     
     private func scrollView() -> some View {
         
-        ScrollView(.horizontal, showsIndicators: false) {
+        GeometryReader { geometry in
             
-            HStack(spacing: 0) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 
-                ForEach(items.indices, id: \.self) { index in
+                HStack(spacing: 0) {
                     
-                    bannerPage(for: items[index])
-                        .frame(width: UIScreen.main.bounds.width - 64)
-                        .onGeometryChange(for: CGRect.self, of: { proxy in
-                            return proxy.frame(in: .local)
-                        }, action: { newValue in
-                            
-                            bannerFrames[index] = newValue.height
-                            
-                            if containerHeight == 0 && index == 0 {
-                                containerHeight = newValue.height
-                            }
-                            
-                            if currentWidth == 0 {
-                                currentWidth = UIScreen.main.bounds.width - 64
-                            }
-                            
-                        })
+                    ForEach(items.indices, id: \.self) { index in
+                        
+                        bannerPage(for: items[index])
+                            .frame(width: geometry.size.width)
+                            .onGeometryChange(for: CGRect.self, of: { proxy in
+                                return proxy.frame(in: .local)
+                            }, action: { newValue in
+                                
+                                bannerFrames[index] = newValue.height
+                                
+                                if containerHeight == 0 && index == 0 {
+                                    containerHeight = newValue.height
+                                }
+                                
+                                if currentWidth == 0 {
+                                    currentWidth = geometry.size.width
+                                }
+                                
+                            })
+                        
+                    }
                     
                 }
+                .frame(maxHeight: containerHeight)
+                .scrollTargetLayout()
                 
             }
-            .frame(height: containerHeight)
-            .scrollTargetLayout()
+            .scrollTargetBehavior(.viewAligned)
+            .onScrollGeometryChange(for: CGFloat.self) { geometry in
+                return geometry.contentOffset.x
+            } action: { oldValue, newValue in
+                handleScrollChange(oldOffset: oldValue, newOffset: newValue)
+            }
+            .background(.darkBlue)
+            .clipShape(.rect(cornerRadius: 8))
+            .animation(.linear(duration: 0.1), value: containerHeight)
             
         }
-        .scrollTargetBehavior(.viewAligned)
-        .onScrollGeometryChange(for: CGFloat.self) { geometry in
-            return geometry.contentOffset.x
-        } action: { oldValue, newValue in
-            handleScrollChange(oldOffset: oldValue, newOffset: newValue)
-        }
-        .background(items[currentIndex].color)
-        .clipShape(.rect(cornerRadius: 8))
-        .animation(.linear(duration: 0.1), value: containerHeight)
-        .padding(.horizontal, 32)
+        .frame(height: containerHeight)
         
     }
     
@@ -157,10 +169,10 @@ struct ScrollBannerView: View {
         Text(item.title)
             .font(.body)
             .foregroundColor(.white)
-            .padding(16)
-            .frame(maxWidth: .infinity, alignment: .center)
             .fixedSize(horizontal: false, vertical: true)
             .lineLimit(nil)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding(16)
         
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7502D4052D38265700263263 /* ZigZagShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7502D4042D38265200263263 /* ZigZagShape.swift */; };
 		750B1B3A2CA88ECF007F93E2 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757382C42CA88B00007ACA27 /* RatingView.swift */; };
 		750B1B582CA89037007F93E2 /* GestureFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750B1B572CA8902C007F93E2 /* GestureFillView.swift */; };
 		7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751974192C8ABD0300173F15 /* VerticalTimelineView.swift */; };
@@ -35,6 +36,7 @@
 		75421A582C8EAC120078A36E /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75421A572C8EAC0F0078A36E /* TimelineView.swift */; };
 		754AF6AD2D02492D00042BA8 /* SafeAreaGradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */; };
 		7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551B86B2C2E29540003A0F8 /* DashProgressView.swift */; };
+		75533D462D380B8D001A5010 /* VariableBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75533D452D380B89001A5010 /* VariableBlur.swift */; };
 		7556CB572C2F227E0084A130 /* SizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CB562C2F227E0084A130 /* SizingView.swift */; };
 		7561DE752D3574E300F01C67 /* NewScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */; };
 		756F46442C2BD15200D14425 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F46432C2BD15200D14425 /* MessageView.swift */; };
@@ -182,6 +184,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7502D4042D38265200263263 /* ZigZagShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZigZagShape.swift; sourceTree = "<group>"; };
 		750B1B572CA8902C007F93E2 /* GestureFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureFillView.swift; sourceTree = "<group>"; };
 		751974192C8ABD0300173F15 /* VerticalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTimelineView.swift; sourceTree = "<group>"; };
 		751B4D632C93EDE6006239EC /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
@@ -208,6 +211,7 @@
 		75421A572C8EAC0F0078A36E /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaGradientModifier.swift; sourceTree = "<group>"; };
 		7551B86B2C2E29540003A0F8 /* DashProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashProgressView.swift; sourceTree = "<group>"; };
+		75533D452D380B89001A5010 /* VariableBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableBlur.swift; sourceTree = "<group>"; };
 		7556CB562C2F227E0084A130 /* SizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingView.swift; sourceTree = "<group>"; };
 		7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScrollBannerView.swift; sourceTree = "<group>"; };
 		756F46432C2BD15200D14425 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
@@ -521,6 +525,8 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7502D4042D38265200263263 /* ZigZagShape.swift */,
+				75533D452D380B89001A5010 /* VariableBlur.swift */,
 				7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */,
 				75E29E442D24AB140074DCD8 /* Snowfall.swift */,
 				752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */,
@@ -1155,6 +1161,7 @@
 				754AF6AD2D02492D00042BA8 /* SafeAreaGradientModifier.swift in Sources */,
 				75F56E372CCA03270055A437 /* LogChartData.swift in Sources */,
 				75A6DB7A2CB82CD200055E0E /* HalfCircleView.swift in Sources */,
+				7502D4052D38265700263263 /* ZigZagShape.swift in Sources */,
 				75A6DB782CB82A7300055E0E /* ExpandingCardView.swift in Sources */,
 				757190152C120C0800989D41 /* CircularIconView.swift in Sources */,
 				757190162C120C0800989D41 /* AppImageView.swift in Sources */,
@@ -1167,6 +1174,7 @@
 				75F430172CE5569E008484E6 /* AccelerometerBallView.swift in Sources */,
 				7571904B2C120E9F00989D41 /* StetchyHeaderViewModifier.swift in Sources */,
 				75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */,
+				75533D462D380B8D001A5010 /* VariableBlur.swift in Sources */,
 				757190132C120BFF00989D41 /* CameraPickerView.swift in Sources */,
 				75C7DAB02C85F767009A5093 /* SlideButtonStyling.swift in Sources */,
 				757190142C120BFF00989D41 /* PhotoPickerView.swift in Sources */,
