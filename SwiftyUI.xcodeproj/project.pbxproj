@@ -13,6 +13,7 @@
 		7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751974192C8ABD0300173F15 /* VerticalTimelineView.swift */; };
 		751B4D642C93EDEE006239EC /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B4D632C93EDE6006239EC /* RichText.swift */; };
 		751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */; };
+		7522F32C2D58600400276177 /* AppSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7522F32B2D58600400276177 /* AppSegmentedControl.swift */; };
 		752563FE2D14C0D0009AFC34 /* IconAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */; };
 		75287A942C4365C700787C50 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75287A932C4365C200787C50 /* AnalyticsService.swift */; };
 		75287A972C43662700787C50 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 75287A962C43662700787C50 /* Amplitude */; };
@@ -189,6 +190,7 @@
 		751974192C8ABD0300173F15 /* VerticalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTimelineView.swift; sourceTree = "<group>"; };
 		751B4D632C93EDE6006239EC /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
 		751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
+		7522F32B2D58600400276177 /* AppSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSegmentedControl.swift; sourceTree = "<group>"; };
 		752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAnimationTest.swift; sourceTree = "<group>"; };
 		75287A932C4365C200787C50 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		7531164E2C12C11D00C7FBF6 /* GrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextField.swift; sourceTree = "<group>"; };
@@ -525,6 +527,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				7522F32B2D58600400276177 /* AppSegmentedControl.swift */,
 				7502D4042D38265200263263 /* ZigZagShape.swift */,
 				75533D452D380B89001A5010 /* VariableBlur.swift */,
 				7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */,
@@ -1171,6 +1174,7 @@
 				757190122C120BFC00989D41 /* AppButton.swift in Sources */,
 				753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */,
 				75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */,
+				7522F32C2D58600400276177 /* AppSegmentedControl.swift in Sources */,
 				75F430172CE5569E008484E6 /* AccelerometerBallView.swift in Sources */,
 				7571904B2C120E9F00989D41 /* StetchyHeaderViewModifier.swift in Sources */,
 				75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */,
