@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-typealias Selectable = Identifiable & CustomStringConvertible & Equatable
-
-struct AppSegmentedControl<S: Selectable>: View {
+struct CommonSegmentedControl<S: Selectable>: View {
     
     @Namespace private var selectionNamespace
     @Binding var selectedOption: S?
@@ -98,7 +96,7 @@ fileprivate struct AppSegmentedControlTest: View {
             
             VStack {
                 
-                AppSegmentedControl(
+                CommonSegmentedControl(
                     selectedOption: self.$selectedPokemon,
                     options: Pokemon.allCases
                 )
@@ -158,7 +156,7 @@ fileprivate struct AppSegmentedControlTest2: View {
             
             VStack {
                 
-                AppSegmentedControl(
+                CommonSegmentedControl(
                     selectedOption: self.$selectedLoanType,
                     options: LoanType.allCases
                 )

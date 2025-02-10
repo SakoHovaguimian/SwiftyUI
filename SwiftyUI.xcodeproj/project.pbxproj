@@ -13,7 +13,7 @@
 		7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751974192C8ABD0300173F15 /* VerticalTimelineView.swift */; };
 		751B4D642C93EDEE006239EC /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B4D632C93EDE6006239EC /* RichText.swift */; };
 		751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */; };
-		7522F32C2D58600400276177 /* AppSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7522F32B2D58600400276177 /* AppSegmentedControl.swift */; };
+		7522F32C2D58600400276177 /* CommonSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7522F32B2D58600400276177 /* CommonSegmentedControl.swift */; };
 		752563FE2D14C0D0009AFC34 /* IconAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */; };
 		75287A942C4365C700787C50 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75287A932C4365C200787C50 /* AnalyticsService.swift */; };
 		75287A972C43662700787C50 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 75287A962C43662700787C50 /* Amplitude */; };
@@ -30,6 +30,7 @@
 		753116812C12C34A00C7FBF6 /* LongPressContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753116752C12C34A00C7FBF6 /* LongPressContentView.swift */; };
 		753116822C12C34A00C7FBF6 /* BlurContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753116762C12C34A00C7FBF6 /* BlurContentView.swift */; };
 		753116862C12C34A00C7FBF6 /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531167A2C12C34A00C7FBF6 /* ToggleStyles.swift */; };
+		75363B2E2D59766200FDC4ED /* CommonSelectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75363B2D2D59766200FDC4ED /* CommonSelectionSheet.swift */; };
 		753FD85A2C0E859900C20D1A /* CustomEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD8592C0E859900C20D1A /* CustomEnvironment.swift */; };
 		753FD85C2C0E896C00C20D1A /* IconAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85B2C0E896C00C20D1A /* IconAnimation.swift */; };
 		753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85D2C0E8B4F00C20D1A /* HueView.swift */; };
@@ -147,6 +148,7 @@
 		75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2C2C0E79600089B70F /* SearchBar.swift */; };
 		75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB42AD2C6412B000179078 /* NeonGlowView.swift */; };
 		75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2675A2C78EC720064EA6B /* DropDownTextField.swift */; };
+		75C2A02D2D597BC400E5B328 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A02C2D597BC400E5B328 /* Selectable.swift */; };
 		75C5F8A42CFE4433003446CC /* AnimatedIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */; };
 		75C641D42CD56CCC00CDD777 /* MentionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C641D32CD56CCC00CDD777 /* MentionPickerView.swift */; };
 		75C7DAAB2C85F6D2009A5093 /* SlideToUnlockButton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAA2C85F6AC009A5093 /* SlideToUnlockButton2.swift */; };
@@ -190,7 +192,7 @@
 		751974192C8ABD0300173F15 /* VerticalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTimelineView.swift; sourceTree = "<group>"; };
 		751B4D632C93EDE6006239EC /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
 		751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTest.swift; sourceTree = "<group>"; };
-		7522F32B2D58600400276177 /* AppSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSegmentedControl.swift; sourceTree = "<group>"; };
+		7522F32B2D58600400276177 /* CommonSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSegmentedControl.swift; sourceTree = "<group>"; };
 		752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAnimationTest.swift; sourceTree = "<group>"; };
 		75287A932C4365C200787C50 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		7531164E2C12C11D00C7FBF6 /* GrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextField.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		753116752C12C34A00C7FBF6 /* LongPressContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongPressContentView.swift; sourceTree = "<group>"; };
 		753116762C12C34A00C7FBF6 /* BlurContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurContentView.swift; sourceTree = "<group>"; };
 		7531167A2C12C34A00C7FBF6 /* ToggleStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
+		75363B2D2D59766200FDC4ED /* CommonSelectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSelectionSheet.swift; sourceTree = "<group>"; };
 		753FD8592C0E859900C20D1A /* CustomEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEnvironment.swift; sourceTree = "<group>"; };
 		753FD85B2C0E896C00C20D1A /* IconAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAnimation.swift; sourceTree = "<group>"; };
 		753FD85D2C0E8B4F00C20D1A /* HueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueView.swift; sourceTree = "<group>"; };
@@ -325,6 +328,7 @@
 		75BA2D2C2C0E79600089B70F /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		75BB42AD2C6412B000179078 /* NeonGlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonGlowView.swift; sourceTree = "<group>"; };
 		75C2675A2C78EC720064EA6B /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
+		75C2A02C2D597BC400E5B328 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedIntroView.swift; sourceTree = "<group>"; };
 		75C641D32CD56CCC00CDD777 /* MentionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentionPickerView.swift; sourceTree = "<group>"; };
 		75C7DAAA2C85F6AC009A5093 /* SlideToUnlockButton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton2.swift; sourceTree = "<group>"; };
@@ -401,6 +405,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75363B2C2D59765C00FDC4ED /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				75C2A02C2D597BC400E5B328 /* Selectable.swift */,
+				75363B2D2D59766200FDC4ED /* CommonSelectionSheet.swift */,
+				7522F32B2D58600400276177 /* CommonSegmentedControl.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		75421A562C8EAB850078A36E /* TimelineView */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,7 +541,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				7522F32B2D58600400276177 /* AppSegmentedControl.swift */,
+				75363B2C2D59765C00FDC4ED /* Common */,
 				7502D4042D38265200263263 /* ZigZagShape.swift */,
 				75533D452D380B89001A5010 /* VariableBlur.swift */,
 				7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */,
@@ -1154,6 +1168,7 @@
 				7578B15A2C41F7EC006F07E7 /* HomeViewModel.swift in Sources */,
 				757190232C120C1100989D41 /* AppSpacing.swift in Sources */,
 				757190242C120C1100989D41 /* AppShadow.swift in Sources */,
+				75363B2E2D59766200FDC4ED /* CommonSelectionSheet.swift in Sources */,
 				757190252C120C1100989D41 /* AppFont.swift in Sources */,
 				75718F872C120A0000989D41 /* BadgeView.swift in Sources */,
 				75EC17FF2D03A4ED00942F10 /* Mirror.swift in Sources */,
@@ -1172,9 +1187,10 @@
 				7580B0AC2C12BF8A0029EF84 /* TypewriterView.swift in Sources */,
 				75B99DAB2D0343260088E9BC /* FinalStrechyHeader.swift in Sources */,
 				757190122C120BFC00989D41 /* AppButton.swift in Sources */,
+				75C2A02D2D597BC400E5B328 /* Selectable.swift in Sources */,
 				753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */,
 				75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */,
-				7522F32C2D58600400276177 /* AppSegmentedControl.swift in Sources */,
+				7522F32C2D58600400276177 /* CommonSegmentedControl.swift in Sources */,
 				75F430172CE5569E008484E6 /* AccelerometerBallView.swift in Sources */,
 				7571904B2C120E9F00989D41 /* StetchyHeaderViewModifier.swift in Sources */,
 				75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */,
