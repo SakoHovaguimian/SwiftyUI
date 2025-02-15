@@ -292,7 +292,10 @@ enum DebtOptions: String, Identifiable, CaseIterable, CustomStringConvertible {
         
     }
     .onChange(of: assetSingleSelection) { oldValue, newValue in
-        print(newValue.description)
+        print(newValue.map(\.description).joined(separator: ", "))
+    }
+    .onChange(of: debtMultiSelection) { oldValue, newValue in
+        print(newValue.map(\.description).joined(separator: ", "))
     }
     
 }

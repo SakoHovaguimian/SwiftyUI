@@ -29,6 +29,7 @@ struct SettingsToggleStyle: ToggleStyle {
         .onTapGesture {
           configuration.isOn.toggle()
         }
+        .contentTransition(.symbolEffect(.replace))
     }
   }
 }
@@ -54,6 +55,7 @@ struct ReminderToggleStyle: ToggleStyle {
         .onTapGesture {
           configuration.isOn.toggle()
         }
+        .contentTransition(.symbolEffect(.replace))
     }
   }
 }

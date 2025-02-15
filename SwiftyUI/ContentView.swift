@@ -92,6 +92,7 @@ struct HomeView: View {
 
 #Preview {
     HomeView(homeViewModel: .init())
+        .environment(EnvService())
 }
 
 struct ChildHomeView: View {

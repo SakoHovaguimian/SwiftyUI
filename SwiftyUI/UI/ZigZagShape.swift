@@ -82,41 +82,36 @@ struct ZigZagBottom: Shape {
 //usage
 #Preview("Image") {
     
-    struct PreviewWrapper: View {
-
-        var body: some View {
-            
-            VStack {
+    @Previewable @State var zigZagDepth: CGFloat = 0
+    
+    VStack {
+        
+        Image(.image1)
+            .resizable()
+            .scaledToFill()
+            .frame(height: 300)
+            .mask {
                 
-                Image(.image1)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(height: 300)
-                    .mask {
-                        
-                        ZigZagBottom(depth: 12)
-                            .fill(.black)
-                            .frame(width: .infinity, height: .infinity)
-                            .animation(.smooth, value: 12)
-                        
-                    }
-
-                Spacer()
-
-                Text("Zig Zag border in SwiftUI")
-                    .font(.largeTitle)
-                    .bold().multilineTextAlignment(.center)
-                    .padding()
-
-                Spacer()
+                ZigZagBottom(depth: zigZagDepth)
+                    .fill(.black)
+                    .frame(width: .infinity, height: .infinity)
+                    .animation(.smooth, value: zigZagDepth)
                 
             }
-            .ignoresSafeArea(.all)
-            
-        }
+
+        Spacer()
+
+        Text("Zig Zag border in SwiftUI")
+            .font(.largeTitle)
+            .bold().multilineTextAlignment(.center)
+            .padding()
+        
+        Slider(value: $zigZagDepth, in: 0...24)
+            .padding(.horizontal, .large)
+
+        Spacer()
         
     }
-    
-    return PreviewWrapper()
+    .ignoresSafeArea(.all)
     
 }
