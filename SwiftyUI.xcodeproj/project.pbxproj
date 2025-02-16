@@ -130,6 +130,8 @@
 		75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F802C12085D00989D41 /* AnimatedPicker.swift */; };
 		75ABE6E12CE9800A000DC32B /* AppProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE6E02CE98005000DC32B /* AppProgressBar.swift */; };
 		75ABE6E32CE98347000DC32B /* AppBackgroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */; };
+		75B16CAD2D627B15002DC3F9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */; };
+		75B16CAF2D627B24002DC3F9 /* TextProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */; };
 		75B99DAB2D0343260088E9BC /* FinalStrechyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */; };
 		75B9C6922C35206800F434EE /* OldMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B9C6912C35206400F434EE /* OldMessageView.swift */; };
 		75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */; };
@@ -306,6 +308,8 @@
 		75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircleView.swift; sourceTree = "<group>"; };
 		75ABE6E02CE98005000DC32B /* AppProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProgressBar.swift; sourceTree = "<group>"; };
 		75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundStyle.swift; sourceTree = "<group>"; };
+		75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProgressBar.swift; sourceTree = "<group>"; };
 		75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStrechyHeader.swift; sourceTree = "<group>"; };
 		75B9C6912C35206400F434EE /* OldMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldMessageView.swift; sourceTree = "<group>"; };
 		75BA2CE12C0E780A0089B70F /* SwiftyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -408,6 +412,8 @@
 		75363B2C2D59765C00FDC4ED /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */,
+				75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */,
 				75C2A02C2D597BC400E5B328 /* Selectable.swift */,
 				75363B2D2D59766200FDC4ED /* CommonSelectionSheet.swift */,
 				7522F32B2D58600400276177 /* CommonSegmentedControl.swift */,
@@ -1188,6 +1194,7 @@
 				75B99DAB2D0343260088E9BC /* FinalStrechyHeader.swift in Sources */,
 				757190122C120BFC00989D41 /* AppButton.swift in Sources */,
 				75C2A02D2D597BC400E5B328 /* Selectable.swift in Sources */,
+				75B16CAD2D627B15002DC3F9 /* ProgressBar.swift in Sources */,
 				753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */,
 				75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */,
 				7522F32C2D58600400276177 /* CommonSegmentedControl.swift in Sources */,
@@ -1205,6 +1212,7 @@
 				753FD85A2C0E859900C20D1A /* CustomEnvironment.swift in Sources */,
 				757190492C120E8E00989D41 /* ScrollViewWithOnScrollChanged.swift in Sources */,
 				75FE274A2C7EE73B0097C68F /* FlapperSean.swift in Sources */,
+				75B16CAF2D627B24002DC3F9 /* TextProgressBar.swift in Sources */,
 				7578B1612C41FBE1006F07E7 /* CancelBag.swift in Sources */,
 				75BA2D402C0E79600089B70F /* FrameReader.swift in Sources */,
 				75FD1DAE2C914E9E004AC287 /* AppText.swift in Sources */,
