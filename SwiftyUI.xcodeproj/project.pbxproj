@@ -128,7 +128,7 @@
 		75A6DB782CB82A7300055E0E /* ExpandingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */; };
 		75A6DB7A2CB82CD200055E0E /* HalfCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */; };
 		75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F802C12085D00989D41 /* AnimatedPicker.swift */; };
-		75ABE6E12CE9800A000DC32B /* AppProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE6E02CE98005000DC32B /* AppProgressBar.swift */; };
+		75ABE6E12CE9800A000DC32B /* ProgressSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE6E02CE98005000DC32B /* ProgressSlider.swift */; };
 		75ABE6E32CE98347000DC32B /* AppBackgroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */; };
 		75B16CAD2D627B15002DC3F9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */; };
 		75B16CAF2D627B24002DC3F9 /* TextProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */; };
@@ -306,7 +306,7 @@
 		75A6DB752CB8290200055E0E /* TextBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlurView.swift; sourceTree = "<group>"; };
 		75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingCardView.swift; sourceTree = "<group>"; };
 		75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircleView.swift; sourceTree = "<group>"; };
-		75ABE6E02CE98005000DC32B /* AppProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppProgressBar.swift; sourceTree = "<group>"; };
+		75ABE6E02CE98005000DC32B /* ProgressSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSlider.swift; sourceTree = "<group>"; };
 		75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundStyle.swift; sourceTree = "<group>"; };
 		75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProgressBar.swift; sourceTree = "<group>"; };
@@ -412,8 +412,8 @@
 		75363B2C2D59765C00FDC4ED /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */,
-				75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */,
+				75B16CB12D6282C4002DC3F9 /* Shapes */,
+				75B16CB02D628276002DC3F9 /* Progress Bars */,
 				75C2A02C2D597BC400E5B328 /* Selectable.swift */,
 				75363B2D2D59766200FDC4ED /* CommonSelectionSheet.swift */,
 				7522F32B2D58600400276177 /* CommonSegmentedControl.swift */,
@@ -548,7 +548,6 @@
 			isa = PBXGroup;
 			children = (
 				75363B2C2D59765C00FDC4ED /* Common */,
-				7502D4042D38265200263263 /* ZigZagShape.swift */,
 				75533D452D380B89001A5010 /* VariableBlur.swift */,
 				7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */,
 				75E29E442D24AB140074DCD8 /* Snowfall.swift */,
@@ -560,7 +559,6 @@
 				75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */,
 				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
 				75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */,
-				75ABE6E02CE98005000DC32B /* AppProgressBar.swift */,
 				75F430162CE5569E008484E6 /* AccelerometerBallView.swift */,
 				75D8B34E2CE5487800681141 /* PulseAnimation.swift */,
 				75F8BADF2CDE926300A05C74 /* SkeletonView.swift */,
@@ -833,6 +831,24 @@
 				7580AFEB2C12BF890029EF84 /* TypewriterView.swift */,
 			);
 			path = Typewriter;
+			sourceTree = "<group>";
+		};
+		75B16CB02D628276002DC3F9 /* Progress Bars */ = {
+			isa = PBXGroup;
+			children = (
+				75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */,
+				75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */,
+				75ABE6E02CE98005000DC32B /* ProgressSlider.swift */,
+			);
+			path = "Progress Bars";
+			sourceTree = "<group>";
+		};
+		75B16CB12D6282C4002DC3F9 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				7502D4042D38265200263263 /* ZigZagShape.swift */,
+			);
+			path = Shapes;
 			sourceTree = "<group>";
 		};
 		75BA2CD82C0E780A0089B70F = {
@@ -1221,7 +1237,7 @@
 				753116812C12C34A00C7FBF6 /* LongPressContentView.swift in Sources */,
 				7578B14F2C41F762006F07E7 /* AppAssembler.swift in Sources */,
 				753FD85C2C0E896C00C20D1A /* IconAnimation.swift in Sources */,
-				75ABE6E12CE9800A000DC32B /* AppProgressBar.swift in Sources */,
+				75ABE6E12CE9800A000DC32B /* ProgressSlider.swift in Sources */,
 				753FD8602C0E8CA200C20D1A /* SplashView.swift in Sources */,
 				75718F832C1209C200989D41 /* BoomView.swift in Sources */,
 				75F8BADE2CDE924F00A05C74 /* Shimmer.swift in Sources */,

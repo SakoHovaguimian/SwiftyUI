@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AppProgressBar: View {
+struct ProgressSlider: View {
     
     private var trackStyle: AppBackgroundStyle
     private var fillStyle: AppForegroundStyle
@@ -156,7 +156,7 @@ struct AppProgressBar: View {
             
             VStack(spacing: .appLarge) {
                 
-                AppProgressBar(
+                ProgressSlider(
                     value: $progress,
                     trackStyle: .color(Color(UIColor.systemGray6)),
                     fillStyle: .color(.brandPink),
@@ -165,14 +165,14 @@ struct AppProgressBar: View {
                 )
                 .frame(maxWidth: .infinity)
                 
-                AppProgressBar(
+                ProgressSlider(
                     value: $progress,
                     trackStyle: .color(Color(UIColor.systemGray6)),
                     fillStyle: .color(.brandGreen)
                 )
                 .frame(maxWidth: .infinity)
                 
-                AppProgressBar(
+                ProgressSlider(
                     value: $progress,
                     trackStyle: .color(Color(uiColor: .charcoal)),
                     fillStyle: .linearGradient(.linearGradient(
@@ -195,7 +195,7 @@ struct AppProgressBar: View {
                 )
                 .frame(maxWidth: .infinity)
                 
-                AppProgressBar(
+                ProgressSlider(
                     value: $progress,
                     trackStyle: .color(Color(uiColor: .lightGray).opacity(0.2)),
                     fillStyle: .linearGradient(.linearGradient(
@@ -227,7 +227,7 @@ struct AppProgressBar: View {
                             
                         }
                         
-                        AppProgressBar(
+                        ProgressSlider(
                             value: $progress,
                             trackStyle: .color(Color(UIColor.systemGray6)),
                             fillStyle: .color(.brandGreen),
