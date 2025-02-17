@@ -124,6 +124,7 @@ struct RelativeBarView: View {
         : 0
         
         return segment.color
+            .viewStyle()
             .frame(width: segmentWidth, height: geometry.size.height)
             .overlay {
                 
@@ -196,7 +197,7 @@ fileprivate struct LegendView: View {
                     // Color Indicator
                     
                     Circle()
-                        .fill(segment.color)
+                        .fill(segment.color.foregroundStyle())
                         .frame(width: 12, height: 12)
                     
                     // Title
@@ -218,7 +219,7 @@ fileprivate struct LegendView: View {
                 }
                 .padding(.vertical, 4)
                 .padding(.horizontal, 6)
-                .background(segment.color.opacity(0.2))
+                .background(segment.color.foregroundStyle().opacity(0.2))
                 .clipShape(.capsule)
                 
             }
@@ -244,23 +245,52 @@ enum RelativeBarViewMode {
 
 struct RelativeBarViewSegment: Identifiable, Equatable {
     
+    static func == (lhs: RelativeBarViewSegment, rhs: RelativeBarViewSegment) -> Bool {
+        
+        lhs.id == rhs.id &&
+        lhs.value == rhs.value &&
+        lhs.title == rhs.title
+        
+    }
+    
+    
     let id = UUID()
     let value: CGFloat
     let title: String
-    let color: Color
+    let color: AppForegroundStyle
     
 }
 
 #Preview {
     
+    @Previewable @State var items: [RelativeBarViewSegment] = [
+        RelativeBarViewSegment(value: 300, title: "Apple", color: .color(.red)),
+        RelativeBarViewSegment(value: 600, title: "Microsoft", color: .color(.green)),
+        RelativeBarViewSegment(value: 200, title: "FNGU", color: .color(.blue))
+    ]
+    
+    @Previewable @State var itemsGradient: [RelativeBarViewSegment] = [
+        RelativeBarViewSegment(value: 300, title: "Apple", color: .linearGradient(.redColor())),
+        RelativeBarViewSegment(value: 600, title: "Microsoft", color: .linearGradient(.greenColor())),
+        RelativeBarViewSegment(value: 200, title: "FNGU", color: .linearGradient(.blueColor()))
+    ]
+    
+    @Previewable @State var items2: [RelativeBarViewSegment] = [
+        RelativeBarViewSegment(value: 300, title: "Apple", color: .color(.red)),
+        RelativeBarViewSegment(value: 600, title: "Microsoft", color: .color(.green)),
+        RelativeBarViewSegment(value: 200, title: "FNGU", color: .color(.blue)),
+        RelativeBarViewSegment(value: 200, title: "SOXL", color: .color(.indigo))
+    ]
+    
+    @Previewable @State var items3: [RelativeBarViewSegment] = [
+        RelativeBarViewSegment(value: 300, title: "Logic Pro X", color: .color(.red)),
+        RelativeBarViewSegment(value: 200, title: "XCode", color: .color(.blue))
+    ]
+    
     VStack(spacing: .appXLarge) {
         
         RelativeBarView(
-            segments: [
-                RelativeBarViewSegment(value: 300, title: "Apple", color: .red),
-                RelativeBarViewSegment(value: 600, title: "Microsoft", color: .green),
-                RelativeBarViewSegment(value: 200, title: "FNGU", color: .blue)
-            ],
+            segments: items,
             mode: .relativeFill,
             cornerRadius: .small,
             shouldShowTitles: false,
@@ -268,11 +298,7 @@ struct RelativeBarViewSegment: Identifiable, Equatable {
         )
         
         RelativeBarView(
-            segments: [
-                RelativeBarViewSegment(value: 300, title: "Apple", color: .red),
-                RelativeBarViewSegment(value: 600, title: "Microsoft", color: .green),
-                RelativeBarViewSegment(value: 200, title: "FNGU", color: .blue)
-            ],
+            segments: itemsGradient,
             mode: .relativeFill,
             cornerRadius: .small,
             shouldShowTitles: true,
@@ -280,22 +306,14 @@ struct RelativeBarViewSegment: Identifiable, Equatable {
         )
         
         RelativeBarView(
-            segments: [
-                RelativeBarViewSegment(value: 300, title: "Apple", color: .red),
-                RelativeBarViewSegment(value: 600, title: "Microsoft", color: .green),
-                RelativeBarViewSegment(value: 200, title: "FNGU", color: .blue),
-                RelativeBarViewSegment(value: 200, title: "SOXL", color: .indigo)
-            ],
+            segments: items2,
             mode: .relativeFill,
             cornerRadius: .small,
             showLegend: true
         )
         
         RelativeBarView(
-            segments: [
-                RelativeBarViewSegment(value: 300, title: "Logic Pro X", color: .red),
-                RelativeBarViewSegment(value: 200, title: "XCode", color: .blue)
-            ],
+            segments: items3,
             mode: .fixed(maxValue: 1000),
             cornerRadius: .small,
             showLegend: true
@@ -303,5 +321,69 @@ struct RelativeBarViewSegment: Identifiable, Equatable {
         
     }
     .padding(.horizontal, 24)
+    
+}
+
+extension LinearGradient {
+    
+    static func redColor() -> LinearGradient {
+        
+        LinearGradient(
+            gradient: Gradient(
+                colors: [
+                    .red,
+                    .purple
+                ]
+            ),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        
+    }
+    
+    static func blueColor() -> LinearGradient {
+        
+        LinearGradient(
+            gradient: Gradient(
+                colors: [
+                    .blue,
+                    .purple
+                ]
+            ),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        
+    }
+    
+    static func greenColor() -> LinearGradient {
+        
+        LinearGradient(
+            gradient: Gradient(
+                colors: [
+                    .green,
+                    .pink
+                ]
+            ),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        
+    }
+    
+    static func purpleColor() -> LinearGradient {
+        
+        LinearGradient(
+            gradient: Gradient(
+                colors: [
+                    .indigo,
+                    .yellow
+                ]
+            ),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        
+    }
     
 }
