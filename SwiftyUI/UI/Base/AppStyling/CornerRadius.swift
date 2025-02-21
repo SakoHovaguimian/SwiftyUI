@@ -9,6 +9,9 @@ import SwiftUI
 
 enum CornerRadius: CGFloat {
     
+    /// 0
+    case none = 0
+    
     /// 4
     case extraSmall = 4
     

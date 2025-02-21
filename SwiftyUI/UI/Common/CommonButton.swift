@@ -38,9 +38,26 @@ struct CommonButton: View {
 
 #Preview {
     
-    VStack {
+    VStack(spacing: .appLarge) {
         
         CommonButton()
+        
+        Image(systemName: "person.fill")
+            .fontWeight(.bold)
+            .padding(.medium)
+            .foregroundStyle(.white)
+            .background(.orange)
+            .clipShape(.circle)
+            .asButton {
+                print("Tapped")
+            }
+        
+        CircularIconView(
+            foregroundColor: .cyan,
+            backgroundColor: .cyan.opacity(0.3),
+            size: 50,
+            systemImage: "person.fill"
+        )
         
     }
     
