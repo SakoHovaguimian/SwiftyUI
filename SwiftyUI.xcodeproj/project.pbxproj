@@ -165,6 +165,7 @@
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 		75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */; };
 		75D8B34F2CE5487800681141 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B34E2CE5487800681141 /* PulseAnimation.swift */; };
+		75DDAA4D2D6F68AE0014DEB5 /* CalendarClone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */; };
 		75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E29E442D24AB140074DCD8 /* Snowfall.swift */; };
 		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
 		75EC17FF2D03A4ED00942F10 /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC17FE2D03A4EB00942F10 /* Mirror.swift */; };
@@ -353,6 +354,7 @@
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 		75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBannerView.swift; sourceTree = "<group>"; };
 		75D8B34E2CE5487800681141 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
+		75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarClone.swift; sourceTree = "<group>"; };
 		75E29E442D24AB140074DCD8 /* Snowfall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowfall.swift; sourceTree = "<group>"; };
 		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
 		75EC17FE2D03A4EB00942F10 /* Mirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mirror.swift; sourceTree = "<group>"; };
@@ -562,6 +564,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */,
 				7537DA6D2D6967F40050F0CE /* SexyTransition.swift */,
 				75363B2C2D59765C00FDC4ED /* Common */,
 				75A117BD2D62FBCC003011CA /* RelativeBarView.swift */,
@@ -1196,6 +1199,7 @@
 				751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */,
 				757190402C120CE600989D41 /* SafeAreaPadding.swift in Sources */,
 				757190342C120CE300989D41 /* Ext+View.swift in Sources */,
+				75DDAA4D2D6F68AE0014DEB5 /* CalendarClone.swift in Sources */,
 				75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */,
 				757190352C120CE300989D41 /* Ext+UImage.swift in Sources */,
 				757190362C120CE300989D41 /* Ext+NavigationController.swift in Sources */,
