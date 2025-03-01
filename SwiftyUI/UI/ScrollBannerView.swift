@@ -39,7 +39,7 @@ struct BannerItem: Identifiable {
         return [
             
             BannerItem(
-                title: "5 out of 10 people don't read this message",
+                title: "5 out of 10 people don't read this message, but we do have a way to do this shit in a cool way",
                 color: .blue
             ),
             
@@ -49,12 +49,12 @@ struct BannerItem: Identifiable {
             ),
             
             BannerItem(
-                title: "This is going to be a full screen banner.",
+                title: "This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner. This is going to be a full screen banner.",
                 color: .green
             ),
             
             BannerItem(
-                title: "Page 4",
+                title: "This is going to be a full screen banner.",
                 color: .purple
             )
             
@@ -169,10 +169,11 @@ struct ScrollBannerView: View {
         Text(item.title)
             .font(.body)
             .foregroundColor(.white)
-            .fixedSize(horizontal: false, vertical: true)
-            .lineLimit(nil)
             .frame(maxWidth: .infinity, alignment: .center)
+            .fixedSize(horizontal: false, vertical: true)
             .padding(16)
+            .lineLimit(nil)
+            .allowsTightening(true)
         
     }
     
