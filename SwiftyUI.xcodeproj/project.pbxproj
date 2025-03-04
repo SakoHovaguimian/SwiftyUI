@@ -112,6 +112,7 @@
 		7571905F2C12131300989D41 /* BackgroundTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757190572C1212FC00989D41 /* BackgroundTestView.swift */; };
 		757190602C12131300989D41 /* MatchedGeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571905C2C1212FC00989D41 /* MatchedGeoView.swift */; };
 		757190622C12131300989D41 /* TransitionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757190592C1212FC00989D41 /* TransitionTestView.swift */; };
+		757452A82D76623900866873 /* WingPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757452A72D76623700866873 /* WingPieChart.swift */; };
 		7578B14C2C41F73A006F07E7 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 7578B14B2C41F73A006F07E7 /* Swinject */; };
 		7578B14F2C41F762006F07E7 /* AppAssembler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578B14E2C41F760006F07E7 /* AppAssembler.swift */; };
 		7578B1512C41F76A006F07E7 /* ViewModelAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7578B1502C41F765006F07E7 /* ViewModelAssembly.swift */; };
@@ -299,6 +300,7 @@
 		7571905B2C1212FC00989D41 /* CenterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterContentView.swift; sourceTree = "<group>"; };
 		7571905C2C1212FC00989D41 /* MatchedGeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoView.swift; sourceTree = "<group>"; };
 		757382C42CA88B00007ACA27 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		757452A72D76623700866873 /* WingPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WingPieChart.swift; sourceTree = "<group>"; };
 		7578B14E2C41F760006F07E7 /* AppAssembler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembler.swift; sourceTree = "<group>"; };
 		7578B1502C41F765006F07E7 /* ViewModelAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelAssembly.swift; sourceTree = "<group>"; };
 		7578B1522C41F76D006F07E7 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7540F7B72C18F0CF007DC97F /* iOS 18 */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (7540F7B82C18F0D0007DC97F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "iOS 18"; sourceTree = "<group>"; };
+		75DC79382D760CA1006F3EBE /* Animations */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Animations; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -564,6 +567,8 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				757452A72D76623700866873 /* WingPieChart.swift */,
+				75DC79382D760CA1006F3EBE /* Animations */,
 				75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */,
 				7537DA6D2D6967F40050F0CE /* SexyTransition.swift */,
 				75363B2C2D59765C00FDC4ED /* Common */,
@@ -983,6 +988,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				75DC79382D760CA1006F3EBE /* Animations */,
+			);
 			name = SwiftyUI;
 			packageProductDependencies = (
 				7571902B2C120C7100989D41 /* Kingfisher */,
@@ -1230,6 +1238,7 @@
 				7502D4052D38265700263263 /* ZigZagShape.swift in Sources */,
 				75A6DB782CB82A7300055E0E /* ExpandingCardView.swift in Sources */,
 				757190152C120C0800989D41 /* CircularIconView.swift in Sources */,
+				757452A82D76623900866873 /* WingPieChart.swift in Sources */,
 				757190162C120C0800989D41 /* AppImageView.swift in Sources */,
 				757190172C120C0800989D41 /* AvatarView.swift in Sources */,
 				7580B0AC2C12BF8A0029EF84 /* TypewriterView.swift in Sources */,
