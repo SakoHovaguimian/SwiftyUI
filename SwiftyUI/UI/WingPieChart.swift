@@ -90,6 +90,7 @@ struct WingPieChartView: View {
         }
         
     }
+    
 }
  
 struct WingPieChart: View {
