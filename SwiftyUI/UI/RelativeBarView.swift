@@ -45,7 +45,7 @@ struct RelativeBarView: View {
                 self.animateSegments()
             }
         
-            .onChange(of: self.segments) { _ in
+            .onChange(of: self.segments) { _, _ in
                 self.animateSegments()
             }
         
