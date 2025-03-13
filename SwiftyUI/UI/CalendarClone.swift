@@ -18,6 +18,10 @@ struct Event: Identifiable {
     
 }
 
+// FILTER EVENTS BY DATE
+
+// MARK: - DUMMY_DATA
+
 var DUMMY_DATA: [Event] {
     
     return [
@@ -85,7 +89,7 @@ struct CalendarTimelineView: View {
         VStack(alignment: .leading, spacing: 0) {
             
             header()
-            timelineScrollView
+            timelineScrollView()
             
         }
         
@@ -114,7 +118,7 @@ struct CalendarTimelineView: View {
         
     }
     
-    private var timelineScrollView: some View {
+    private func timelineScrollView() -> some View {
         
         ScrollView {
             
