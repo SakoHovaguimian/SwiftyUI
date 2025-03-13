@@ -41,7 +41,7 @@ struct CalendarTimelineView: View {
     
     private let timelineStartHour: Int = 1
     private let timelineEndHour: Int = 24
-    private let timelineInterval: CGFloat = 1
+    private let timelineInterval: CGFloat = 15
     private let hourHeight: CGFloat = 75
     
     // Header
