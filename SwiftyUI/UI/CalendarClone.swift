@@ -18,15 +18,35 @@ struct Event: Identifiable {
     
 }
 
-var Events: [Event] {
+var DUMMY_DATA: [Event] {
     
     return [
         
-        Event(startDate: dateFrom(9, 5, 2023, 7, 0),  endDate: dateFrom(9, 5, 2023, 8, 0),  title: "Event 1"),
-        Event(startDate: dateFrom(9, 5, 2023, 9, 0),  endDate: dateFrom(9, 5, 2023, 10, 0), title: "Event 2"),
-        Event(startDate: dateFrom(9, 5, 2023, 11, 0), endDate: dateFrom(9, 5, 2023, 12, 0), title: "Event 3"),
-        Event(startDate: dateFrom(9, 5, 2023, 13, 0), endDate: dateFrom(9, 5, 2023, 14, 45), title: "Event 4"),
-        Event(startDate: dateFrom(9, 5, 2023, 15, 0), endDate: dateFrom(9, 5, 2023, 18, 30), title: "Event 5"),
+        Event(
+            startDate: dateFrom(9, 5, 2023, 7, 0),
+            endDate: dateFrom(9, 5, 2023, 8, 0),
+            title: "Event 1")
+        ,
+        Event(
+            startDate: dateFrom(9, 5, 2023, 9, 0),
+            endDate: dateFrom(9, 5, 2023, 10, 0),
+            title: "Event 2"
+        ),
+        Event(
+            startDate: dateFrom(9, 5, 2023, 11, 0),
+            endDate: dateFrom(9, 5, 2023, 12, 0),
+            title: "Event 3"
+        ),
+        Event(
+            startDate: dateFrom(9, 5, 2023, 13, 0),
+            endDate: dateFrom(9, 5, 2023, 14, 45),
+            title: "Event 4"
+        ),
+        Event(
+            startDate: dateFrom(9, 5, 2023, 15, 0),
+            endDate: dateFrom(9, 5, 2023, 18, 30),
+            title: "Event 5"
+        ),
         
     ]
     
@@ -200,7 +220,6 @@ struct CalendarTimelineView: View {
             
         }) {
             
-            print("INTERSECTS")
             self.showAlert = true
             
         } else if let index = self.events.firstIndex(where: { $0.id == proposedEvent.id }) {
@@ -253,7 +272,6 @@ struct DraggableEventView: View {
         .gesture(
             DragGesture()
                 .updating($dragOffset) { value, state, _ in
-                    print("value.translation.height: \(value.translation.height)")
                     state = value.translation.height
                 }
                 .onChanged { _ in
@@ -389,5 +407,5 @@ func dateFrom(_ day: Int,
 }
 
 #Preview {
-    CalendarTimelineView(events: Events)
+    CalendarTimelineView(events: DUMMY_DATA)
 }
