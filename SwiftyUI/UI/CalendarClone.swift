@@ -7,10 +7,8 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct Event: Identifiable {
-    let id = UUID()
+    var id = UUID().uuidString
     var startDate: Date
     var endDate: Date
     var title: String
@@ -26,9 +24,9 @@ struct CalendarTimelineView: View {
     ]
     
     let date: Date = dateFrom(9, 5, 2023)
-    let timelineStartHour = 7
+    let timelineStartHour = 1
     let timelineEndHour = 24
-    let hourHeight: CGFloat = 50
+    let hourHeight: CGFloat = 75
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -68,8 +66,32 @@ struct CalendarTimelineView: View {
                         DraggableEventView(
                             event: $event,
                             timelineStartHour: timelineStartHour,
-                            hourHeight: hourHeight
-                        )
+                            hourHeight: hourHeight) { proposedEvent in
+                                
+                                // Look for overlap
+                                
+                                let eventsWithoutSelf = self.events.filter({ $0.id != proposedEvent.id})
+                                let firstEvent = eventsWithoutSelf.first { event in
+                                    
+                                    let leftRange = proposedEvent.startDate...proposedEvent.endDate
+                                    let rightRange = event.startDate...event.endDate
+                                    
+                                    return leftRange.overlaps(rightRange)
+                                    
+                                }
+                                
+                                if let firstEvent {
+                                   
+                                    print("INTERSECTS")
+                                    
+                                } else {
+                                    
+                                    let index = self.events.firstIndex(where: { $0.id == proposedEvent.id }) ?? -1
+                                    self.events[index] = proposedEvent
+                                    
+                                }
+                                
+                            }
                     }
                 }
                 .frame(
@@ -85,9 +107,9 @@ struct CalendarTimelineView: View {
 
 struct DraggableEventView: View {
     @Binding var event: Event
-    
     let timelineStartHour: Int
     let hourHeight: CGFloat
+    let eventAction: (Event) -> Void
     
     /// Temporary drag offset (in points) while user is dragging
     @GestureState private var dragOffset: CGFloat = 0
@@ -142,28 +164,47 @@ struct DraggableEventView: View {
                 .onEnded { value in
                     // Convert final drag distance to minutes
                     let offsetInMinutes = value.translation.height * (60 / hourHeight)
-                    
+                    // Round to the nearest 15 minutes
+                    let roundedOffsetInMinutes = (offsetInMinutes / 15).rounded() * 15 // TODO: - rule
+
                     // Update the event’s start date by that many minutes
                     let newStartDate = calendar.date(
                         byAdding: .minute,
-                        value: Int(offsetInMinutes),
+                        value: Int(roundedOffsetInMinutes),
                         to: originalStartDate
                     ) ?? event.startDate
-                    
+
                     // Keep the same duration
-                    let newEndDate = calendar.date(byAdding: .minute,
-                                                   value: Int(durationMinutes),
-                                                   to: newStartDate)
+                    let newEndDate = calendar.date(
+                        byAdding: .minute,
+                        value: Int(durationMinutes),
+                        to: newStartDate
+                    )
                     
+                    // Check for overlap with another event
+                    
+
                     // Commit changes
-                    event.startDate = newStartDate
-                    event.endDate = newEndDate ?? event.endDate
+//                    event.startDate = newStartDate
+//                    event.endDate = newEndDate ?? event.endDate
                     
+                    let newFakeEvent = Event(
+                        id: event.id,
+                        startDate: newStartDate,
+                        endDate: newEndDate!,
+                        title: event.title
+                    )
+
                     // Reset for next drag
                     originalStartDate = .distantPast
+                    eventAction(newFakeEvent)
+                    
                 }
+            
         )
+        
     }
+    
 }
 
 /// Helper to create Date objects easily

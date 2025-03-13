@@ -10,12 +10,13 @@ import SwiftUI
 
 public struct Shimmer: ViewModifier {
     
-    @SwiftUI.Environment(\.layoutDirection) private var layoutDirection
+    @State private var leftToRight: Bool = true
     @State private var isInitialState: Bool = true
     
     private let animation: Animation
     private let gradient: Gradient
-    private let min, max: CGFloat
+    private let min: CGFloat
+    private let max: CGFloat
     
     public static let defaultGradient = Gradient(colors: [
         .black.opacity(0.4),
@@ -36,7 +37,7 @@ public struct Shimmer: ViewModifier {
     
     private var start: UnitPoint {
         
-        if self.layoutDirection == .rightToLeft {
+        if !self.leftToRight {
             
             return self.isInitialState ?
                 .init(x: self.max, y: self.min) :
@@ -55,7 +56,7 @@ public struct Shimmer: ViewModifier {
     
     private var end: UnitPoint {
      
-        if self.layoutDirection == .rightToLeft {
+        if !self.leftToRight {
             
             return self.isInitialState ?
                 .init(x: 1, y: 0) :
