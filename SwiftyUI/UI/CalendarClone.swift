@@ -23,6 +23,8 @@ struct CalendarTimelineView: View {
         Event(startDate: dateFrom(9,5,2023,15,0), endDate: dateFrom(9,5,2023,18,30), title: "Event 5"),
     ]
     
+    @State private var draggingEvent: Event?
+    
     let date: Date = dateFrom(9, 5, 2023)
     let timelineStartHour = 1
     let timelineEndHour = 24
@@ -61,37 +63,64 @@ struct CalendarTimelineView: View {
                         .offset(x: 0, y: yPos)
                     }
                     
+
+                    if let draggingEvent {
+                        
+                        DraggableEventView(
+                            event: .constant(draggingEvent),
+                            timelineStartHour: timelineStartHour,
+                            hourHeight: hourHeight,
+                            draggingEvent: { _, _ in},
+                            eventAction: { _ in })
+                        .opacity(0.6)
+                        
+                    }
+
                     // Draggable events
                     ForEach($events) { $event in
+                        
                         DraggableEventView(
                             event: $event,
                             timelineStartHour: timelineStartHour,
-                            hourHeight: hourHeight) { proposedEvent in
+                            hourHeight: hourHeight
+                        ) { draggableEvent, offset in
+                            
+                            self.draggingEvent = offset != 0 ? draggableEvent : nil
+                            
+                        } eventAction: { proposedEvent in
+                            
+                            // Look for overlap
+                            
+                            let eventsWithoutSelf = self.events.filter({ $0.id != proposedEvent.id})
+                            let firstEvent = eventsWithoutSelf.first { event in
                                 
-                                // Look for overlap
+                                let leftRange = proposedEvent.startDate...proposedEvent.endDate
+                                let rightRange = event.startDate...event.endDate
                                 
-                                let eventsWithoutSelf = self.events.filter({ $0.id != proposedEvent.id})
-                                let firstEvent = eventsWithoutSelf.first { event in
+                                if leftRange.upperBound == rightRange.lowerBound || leftRange.lowerBound == rightRange.upperBound {
                                     
-                                    let leftRange = proposedEvent.startDate...proposedEvent.endDate
-                                    let rightRange = event.startDate...event.endDate
+                                    return false
+                                    
+                                } else {
                                     
                                     return leftRange.overlaps(rightRange)
                                     
                                 }
                                 
-                                if let firstEvent {
-                                   
-                                    print("INTERSECTS")
-                                    
-                                } else {
-                                    
-                                    let index = self.events.firstIndex(where: { $0.id == proposedEvent.id }) ?? -1
-                                    self.events[index] = proposedEvent
-                                    
-                                }
+                            }
+                            
+                            if let firstEvent {
+                               
+                                print("INTERSECTS")
+                                
+                            } else {
+                                
+                                let index = self.events.firstIndex(where: { $0.id == proposedEvent.id }) ?? -1
+                                self.events[index] = proposedEvent
                                 
                             }
+                            
+                        }
                     }
                 }
                 .frame(
@@ -109,6 +138,7 @@ struct DraggableEventView: View {
     @Binding var event: Event
     let timelineStartHour: Int
     let hourHeight: CGFloat
+    let draggingEvent: (Event?, CGFloat) -> Void
     let eventAction: (Event) -> Void
     
     /// Temporary drag offset (in points) while user is dragging
@@ -137,7 +167,30 @@ struct DraggableEventView: View {
         let eventHeight = durationMinutes * (hourHeight / 60)
         
         VStack(alignment: .leading, spacing: 2) {
-            Text(event.startDate.formatted(.dateTime.hour().minute()))
+            
+            // startDate + offset
+            let normalStartDate = event.startDate.formatted(.dateTime.hour().minute())
+            var offsetDate: String {
+                
+                // Convert final drag distance to minutes
+                let offsetInMinutes = dragOffset * (60 / hourHeight)
+                // Round to the nearest 15 minutes
+                let roundedOffsetInMinutes = (offsetInMinutes / 15).rounded() * 15 // TODO: - rule
+
+                // Update the event’s start date by that many minutes
+                let newStartDate: String = calendar.date(
+                    byAdding: .minute,
+                    value: Int(roundedOffsetInMinutes),
+                    to: originalStartDate
+                )?.formatted(.dateTime.hour().minute()) ?? ""
+                
+                return newStartDate
+                
+            }
+            
+            let offsetDateIfNeeded = dragOffset != 0 ? offsetDate : normalStartDate
+            
+            Text(offsetDateIfNeeded)
             Text(event.title).bold()
         }
         .font(.caption)
@@ -160,8 +213,13 @@ struct DraggableEventView: View {
                     if originalStartDate == .distantPast {
                         originalStartDate = event.startDate
                     }
+                    
+                    draggingEvent(event, dragOffset)
                 }
                 .onEnded { value in
+                    
+                    draggingEvent(nil, 0)
+                    
                     // Convert final drag distance to minutes
                     let offsetInMinutes = value.translation.height * (60 / hourHeight)
                     // Round to the nearest 15 minutes
