@@ -27,7 +27,7 @@ var DUMMY_DATA: [Event] {
     return [
         
         Event(
-            startDate: dateFrom(9, 5, 2023, 7, 0),
+            startDate: dateFrom(9, 5, 2023, 4, 0),
             endDate: dateFrom(9, 5, 2023, 8, 0),
             title: "Event 1")
         ,
@@ -216,8 +216,11 @@ struct CalendarTimelineView: View {
             let leftRange = proposedEvent.startDate...proposedEvent.endDate
             let rightRange = event.startDate...event.endDate
             
-            if leftRange.upperBound == rightRange.lowerBound || leftRange.lowerBound == rightRange.upperBound {
+            if leftRange.upperBound == rightRange.lowerBound ||
+               leftRange.lowerBound == rightRange.upperBound {
+                
                 return false
+                
             }
             
             return leftRange.overlaps(rightRange)
@@ -320,7 +323,13 @@ struct DraggableEventView: View {
         .background {
             
             RoundedRectangle(cornerRadius: 8)
-                .fill(.teal.opacity(0.5))
+                .fill(.indigo.opacity(0.5))
+            
+        }
+        .overlay {
+            
+            RoundedRectangle(cornerRadius: 8)
+                .stroke(.black.opacity(0.5), lineWidth: 2)
             
         }
         
