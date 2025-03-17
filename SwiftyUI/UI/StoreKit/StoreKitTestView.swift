@@ -18,7 +18,7 @@ final class SubscriptionViewModel: ObservableObject {
     
     let subscriptionService: AppStoreSubscriptionServiceProtocol
     
-    init(subscriptionService: AppStoreSubscriptionServiceProtocol = AppStoreSubscriptionServiceLive()) {
+    init(subscriptionService: AppStoreSubscriptionServiceProtocol = AppStoreSubscriptionServiceMock()) {
         
         self.subscriptionService = subscriptionService
         
@@ -133,23 +133,27 @@ struct SubscriptionView: View {
                     
                 }
                 
-                // Subscription Status
-                switch viewModel.subscriptionStatus {
-                case .active(let expiryDate):
+                Group {
                     
-                    Text("Subscription active until \(expiryDate.formatted(date: .abbreviated, time: .omitted))")
+                    // Subscription Status
+                    
+                    var string: String {
+                        switch viewModel.subscriptionStatus {
+                        case .active(let expiryDate):
+                            
+                            return "Subscription active until \(expiryDate.formatted(date: .abbreviated, time: .omitted))"
+                            
+                        case .expired: return "Subscription expired"
+                        case .none: return "Not Subscribed"
+                        }
+                    }
+
+                    Text(string)
                         .font(.headline)
+                        .contentTransition(.numericText())
                     
-                case .expired:
-                    
-                    Text("Subscription expired")
-                        .font(.headline)
-                    
-                case .none:
-                    
-                    Text("Not subscribed")
-                        .font(.headline)
                 }
+                .animation(.spring, value: self.viewModel.subscriptionStatus)
                                 
                 ForEach(viewModel.offerings, id: \.id) { product in
                     

@@ -599,10 +599,10 @@
 			isa = PBXGroup;
 			children = (
 				7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */,
+				75DC79382D760CA1006F3EBE /* Animations */,
 				754BE1F62D80FC8F00C20CF7 /* StoreKit */,
 				75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */,
 				757452A72D76623700866873 /* WingPieChart.swift */,
-				75DC79382D760CA1006F3EBE /* Animations */,
 				75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */,
 				7537DA6D2D6967F40050F0CE /* SexyTransition.swift */,
 				75363B2C2D59765C00FDC4ED /* Common */,
