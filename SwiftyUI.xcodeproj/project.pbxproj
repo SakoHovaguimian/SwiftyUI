@@ -181,6 +181,8 @@
 		75F341A92D81058000B11355 /* StoreKitConfigurationFile.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 75F341A82D81058000B11355 /* StoreKitConfigurationFile.storekit */; };
 		75F430172CE5569E008484E6 /* AccelerometerBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F430162CE5569E008484E6 /* AccelerometerBallView.swift */; };
 		75F56E372CCA03270055A437 /* LogChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F56E362CCA03270055A437 /* LogChartData.swift */; };
+		75F7897C2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7897B2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift */; };
+		75F7897E2D8919A800FEBED8 /* UserDefaultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7897D2D8919A500FEBED8 /* UserDefaultsView.swift */; };
 		75F8BADE2CDE924F00A05C74 /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8BADD2CDE924F00A05C74 /* Shimmer.swift */; };
 		75F8BAE02CDE926900A05C74 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8BADF2CDE926300A05C74 /* SkeletonView.swift */; };
 		75FB1C552C8CEF5C003028B8 /* HorizontalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB1C542C8CEF55003028B8 /* HorizontalTimelineView.swift */; };
@@ -380,6 +382,8 @@
 		75F341A82D81058000B11355 /* StoreKitConfigurationFile.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfigurationFile.storekit; sourceTree = "<group>"; };
 		75F430162CE5569E008484E6 /* AccelerometerBallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerometerBallView.swift; sourceTree = "<group>"; };
 		75F56E362CCA03270055A437 /* LogChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogChartData.swift; sourceTree = "<group>"; };
+		75F7897B2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeyProtocol.swift; sourceTree = "<group>"; };
+		75F7897D2D8919A500FEBED8 /* UserDefaultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsView.swift; sourceTree = "<group>"; };
 		75F8BADD2CDE924F00A05C74 /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		75F8BADF2CDE926300A05C74 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		75FB1C542C8CEF55003028B8 /* HorizontalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTimelineView.swift; sourceTree = "<group>"; };
@@ -598,6 +602,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				75F7897A2D89199900FEBED8 /* UserDefaults */,
 				7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */,
 				75DC79382D760CA1006F3EBE /* Animations */,
 				754BE1F62D80FC8F00C20CF7 /* StoreKit */,
@@ -1009,6 +1014,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		75F7897A2D89199900FEBED8 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				75F7897D2D8919A500FEBED8 /* UserDefaultsView.swift */,
+				75F7897B2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1238,6 +1252,7 @@
 				756A5F2C2D684D6200082154 /* CommonImageView.swift in Sources */,
 				753116582C12C18600C7FBF6 /* PintrestLayout.swift in Sources */,
 				757190522C120F7900989D41 /* ColorDemoView.swift in Sources */,
+				75F7897C2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift in Sources */,
 				7571903D2C120CE600989D41 /* asButton.swift in Sources */,
 				7571903E2C120CE600989D41 /* PlainList.swift in Sources */,
 				7571903F2C120CE600989D41 /* CenterIconStyle.swift in Sources */,
@@ -1269,6 +1284,7 @@
 				75363B2E2D59766200FDC4ED /* CommonSelectionSheet.swift in Sources */,
 				757190252C120C1100989D41 /* AppFont.swift in Sources */,
 				75718F872C120A0000989D41 /* BadgeView.swift in Sources */,
+				75F7897E2D8919A800FEBED8 /* UserDefaultsView.swift in Sources */,
 				75EC17FF2D03A4ED00942F10 /* Mirror.swift in Sources */,
 				753116822C12C34A00C7FBF6 /* BlurContentView.swift in Sources */,
 				75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */,
