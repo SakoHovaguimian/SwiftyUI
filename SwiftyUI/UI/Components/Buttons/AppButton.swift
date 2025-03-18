@@ -127,7 +127,8 @@ struct AppButton: View {
                     
                     if let systemImage {
                         Image(systemName: systemImage)
-                    } 
+                            .contentTransition(.interpolate)
+                    }
                     else if let image {
                         
                         image
@@ -137,11 +138,13 @@ struct AppButton: View {
                                 width: 20,
                                 height: 20
                             )
+                            .contentTransition(.interpolate)
                         
                     }
                     
                     if !self.title.isEmpty {
                         Text(self.title)
+                            .contentTransition(.interpolate)
                     }
                     
                 }
