@@ -170,6 +170,7 @@
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 		75D1A7E52D7A8A3E0025C5EC /* BottomTransitionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */; };
 		75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */; };
+		75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */; };
 		75D8B34F2CE5487800681141 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B34E2CE5487800681141 /* PulseAnimation.swift */; };
 		75DDAA4D2D6F68AE0014DEB5 /* CalendarClone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */; };
 		75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E29E442D24AB140074DCD8 /* Snowfall.swift */; };
@@ -372,6 +373,7 @@
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 		75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTransitionTest.swift; sourceTree = "<group>"; };
 		75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBannerView.swift; sourceTree = "<group>"; };
+		75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTestView.swift; sourceTree = "<group>"; };
 		75D8B34E2CE5487800681141 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
 		75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarClone.swift; sourceTree = "<group>"; };
 		75E29E442D24AB140074DCD8 /* Snowfall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowfall.swift; sourceTree = "<group>"; };
@@ -604,6 +606,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */,
 				751CBB452D8A10CC00C89EAC /* ButtonAnimationState.swift */,
 				75F7897A2D89199900FEBED8 /* UserDefaults */,
 				7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */,
@@ -1191,6 +1194,7 @@
 				7571900B2C120BF100989D41 /* GPWebView.swift in Sources */,
 				75BA2CE72C0E780A0089B70F /* ContentView.swift in Sources */,
 				75BA2D352C0E79600089B70F /* CustomToggle.swift in Sources */,
+				75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */,
 				758421AD2D010694007A9F6E /* ProgressIndicatorNew.swift in Sources */,
 				75BA2D412C0E79600089B70F /* ButtonStyles.swift in Sources */,
 				75287A942C4365C700787C50 /* AnalyticsService.swift in Sources */,
