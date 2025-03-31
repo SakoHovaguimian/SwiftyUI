@@ -12,6 +12,7 @@ protocol APIServiceProtocol: AnyObject {
         
     func getString() -> String
     func getValueFromEnvService() -> AppEnvironment
+    func getImage(url: URL) async throws -> Data?
     
 }
 
@@ -48,6 +49,25 @@ class APIService: APIServiceProtocol {
                 
             }
             .store(in: &self.cancelBag)
+        
+    }
+    
+    func getImage(url: URL) async throws -> Data? {
+        
+        return nil
+//        do {
+//         
+//            let data = try await buildRequest(
+//                method: .get,
+//                path: url.absoluteString
+//            )
+//        
+//            return data
+//            
+//        }
+//        catch {
+//            throw error
+//        }
         
     }
     

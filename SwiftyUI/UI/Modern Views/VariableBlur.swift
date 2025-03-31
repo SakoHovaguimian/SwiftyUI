@@ -152,7 +152,7 @@ open class VariableBlurUIView: UIVisualEffectView {
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.top, 32)
-                .padding(.bottom, 8)
+                .padding(.bottom, 16)
                 .background {
                     
                     LinearGradient(

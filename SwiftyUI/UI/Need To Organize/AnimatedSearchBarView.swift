@@ -59,6 +59,7 @@ struct AnimatedSearchBarView: View {
                         Color.gray.opacity(0.1)
                     }
                     .opacity(self.opacity)
+                    .transition(.opacity.combined(with: .move(edge: .trailing)))
                     
                 }
                 
