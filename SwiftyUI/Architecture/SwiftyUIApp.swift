@@ -61,35 +61,6 @@ struct MyApp2: App {
 }
 
 //@main
-struct MyApp: App {
-    
-    @State var email: String = ""
-    
-    @State var items: [VerticalTimelineView.Item] = [
-        .init(title: "First Item", duration: 1),
-        .init(title: "Second Item", duration: 1),
-        .init(title: "Third Item", duration: 1),
-        .init(title: "Fourth Item", duration: 1),
-        .init(title: "Fifth Item", duration: 1),
-    ]
-    
-    var body: some Scene {
-        WindowGroup {
-//            VerticalTimelineView(items: items, activeColor: .darkPurple)
-//                .frame(width: 350, height: 500)
-            iOS18TextSuggestions(email: $email)
-        }
-    }
-    
-//        var body: some Scene {
-//            WindowGroup {
-//                ItemListView()
-//            }
-//        }
-    
-}
-
-//@main
 struct SwiftyUIApp: App {
     
     private let appAssembler: AppAssembler = AppAssembler()

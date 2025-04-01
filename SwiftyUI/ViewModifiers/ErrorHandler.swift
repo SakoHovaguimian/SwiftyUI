@@ -13,16 +13,17 @@ struct ErrorHandlerModifier: ViewModifier {
     var alertStyle: AlertStyle!
     
     private var shouldShowErrorView: Binding<Bool> {
-        Binding<Bool>(
-            get: {
-                return self.error != nil
-            },
-            set: { newValue in
-                if !newValue {
-                    self.error = nil
-                }
+        
+        return .init {
+            return self.error != nil
+        } set: { newValue in
+            
+            if !newValue {
+                self.error = nil
             }
-        )
+            
+        }
+        
     }
     
     func body(content: Content) -> some View {

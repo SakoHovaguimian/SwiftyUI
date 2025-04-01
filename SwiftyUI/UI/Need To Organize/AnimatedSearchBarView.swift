@@ -28,23 +28,9 @@ struct AnimatedSearchBarView: View {
             Color.black
                 .ignoresSafeArea()
             
-            HStack {
+            HStack(spacing: 0) {
                 
-                if !isExpanded {
-                    
-                    Spacer()
-                    
-                    Image(systemName: "magnifyingglass")
-                        .resizable()
-                        .scaledToFill()
-                        .foregroundStyle(.white)
-                        .frame(width: 24, height: 24)
-                        .padding(.vertical, 12)
-                    
-                    Spacer()
-                    
-                }
-                else {
+                if isExpanded {
                     
                     TextField(text: self.$text) {
                         Text(verbatim: "Search").foregroundColor(.gray.opacity(1))
@@ -53,25 +39,37 @@ struct AnimatedSearchBarView: View {
                     .fontWeight(.semibold)
                     .font(.body)
                     .padding(.vertical, 12)
-                    .padding(.leading, 16)
+                    .padding(.horizontal, 16)
                     .fontDesign(.rounded)
-                    .background {
-                        Color.gray.opacity(0.1)
-                    }
                     .opacity(self.opacity)
-                    .transition(.opacity.combined(with: .move(edge: .trailing)))
+                    .transition(.blurReplace.combined(with: .move(edge: .trailing)))
                     
                 }
+                
+                Image(systemName: "magnifyingglass")
+                    .resizable()
+                    .scaledToFill()
+                    .foregroundStyle(.white)
+                    .frame(width: 24, height: 24)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal, 12)
+//                    .frame(maxWidth: isExpanded ? nil : .infinity, alignment: .center)
+                
+            }
+            .background {
+                
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(Color.gray.opacity(0.1))
                 
             }
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(Color.blue, lineWidth: 2)
             )
-            .frame(width: self.isExpanded ? UIScreen.main.bounds.width : 48)
+            .frame(width: self.isExpanded ? UIScreen.main.bounds.width - 16 : 48)
             
         }
-        .onTapGesture {
+        .asButton {
             
             withAnimation {
                 self.isExpanded.toggle()
