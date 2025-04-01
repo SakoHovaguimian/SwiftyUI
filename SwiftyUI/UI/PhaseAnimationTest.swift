@@ -36,64 +36,96 @@ enum UpShakePhaseAnimation {
         switch self {
         case .initial: 0
         case .lift: 0
-        case .shakeLeft: -15
-        case .shakeRight: 15
+        case .shakeLeft: -30
+        case .shakeRight: 30
         }
     }
     
     var animation: Animation {
         switch self {
-        case .initial: .spring(response: 0.4, dampingFraction: 0.6, blendDuration: 0)
-        case .lift: .spring(response: 0.4, dampingFraction: 0.6, blendDuration: 0)
-        case .shakeLeft: .easeInOut
-        case .shakeRight: .easeInOut
+        case .initial: .spring(bounce: 0.5)
+        case .lift: .spring(bounce: 0.5)
+        case .shakeLeft: .easeInOut(duration: 0.15)
+        case .shakeRight: .easeInOut(duration: 0.15)
         }
+    }
+    
+}
+
+struct UpShakeEffect<T: Equatable>: ViewModifier {
+    
+    var trigger: T
+    
+    var phases: [UpShakePhaseAnimation] = [
+        .initial,
+        .lift,
+        .shakeLeft,
+        .shakeRight,
+        .shakeLeft,
+        .shakeRight,
+        .lift
+    ]
+
+    func body(content: Content) -> some View {
+        
+        content
+            .phaseAnimator(self.phases,
+                           trigger: trigger ) { view, phase in
+                
+                view
+                    .scaleEffect(phase.scale)
+                    .offset(y: phase.offsetY)
+                    .rotationEffect(.degrees(phase.rotationDegrees), anchor: .top)
+                
+            } animation: { phase in
+                phase.animation
+            }
+        
+    }
+    
+}
+
+extension View {
+    
+    func upShakeEffect<T: Equatable>(trigger: T) -> some View {
+        self.modifier(UpShakeEffect(trigger: trigger))
     }
     
 }
 
 struct PhaseAnimationTest: View {
     
-    @State private var increment: Int = 0
-    
+    @State private var increment = 0
+
     var body: some View {
         
-        Image(systemName: "bell.fill")
-            .resizable()
-            .foregroundStyle(.indigo)
-            .frame(
-                width: 120,
-                height: 120
-            )
-            .phaseAnimator([
-                UpShakePhaseAnimation.initial,
-                UpShakePhaseAnimation.lift,
-                UpShakePhaseAnimation.shakeLeft,
-                UpShakePhaseAnimation.shakeRight,
-                UpShakePhaseAnimation.shakeLeft,
-                UpShakePhaseAnimation.shakeRight,
-                UpShakePhaseAnimation.lift,
-            ], trigger: self.increment) { view, phase in
-                
-                view
-                    .scaleEffect(phase.scale)
-                    .offset(y: phase.offsetY)
-                    .rotationEffect(.degrees(phase.rotationDegrees))
-                
-            } animation: { phase in
-                return phase.animation
-            }
-        
-        
-        AppButton(title: "Increment",
-                  titleColor: .white,
-                  backgroundColor: .indigo) {
+        VStack {
             
-            self.increment += 1
+            HStack {
+                
+                Image(systemName: "bell.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundStyle(.indigo)
+                    .frame(width: 128, height: 128)
+                    .upShakeEffect(trigger: increment)
+                
+                Image(systemName: "person.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundStyle(.indigo)
+                    .frame(width: 128, height: 128)
+                    .upShakeEffect(trigger: increment)
+                
+            }
+
+            AppButton(title: "Trigger", titleColor: .white, backgroundColor: .indigo) {
+                increment += 1
+            }
+            .padding(.top, 32)
+            .padding(.horizontal, 32)
             
         }
-        .padding(.top, 32)
-        .padding(.horizontal, 32)
         
     }
     
