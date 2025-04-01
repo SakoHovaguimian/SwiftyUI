@@ -37,7 +37,7 @@ struct TextProgressBar: View {
                 animateValue(to: self.value)
             }
         
-            .onChange(of: self.value) { newValue in
+            .onChange(of: self.value) { _, newValue in
                 animateValue(to: newValue)
             }
         

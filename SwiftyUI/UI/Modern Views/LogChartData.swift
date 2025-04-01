@@ -235,6 +235,7 @@ struct PieChartView: View {
                         .font(.title2.bold())
                         .foregroundColor(.primary)
                         .transition(.opacity.combined(with: .move(edge: .bottom)))
+                        .contentTransition(.numericText())
                     
                     Text("\(selectedLogChartData?.totalCount ?? 0)")
                         .font(.caption)

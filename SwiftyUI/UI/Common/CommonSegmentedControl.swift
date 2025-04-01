@@ -15,48 +15,52 @@ struct CommonSegmentedControl<S: Selectable>: View {
     
     var body: some View {
         
-        HStack(spacing: 8) {
-            
-            ForEach(options) { option in
+        Group {
+        
+            HStack(spacing: 0) {
                 
-                let isSelected = (self.selectedOption == option)
-                
-                Button(action: {
+                ForEach(options) { option in
                     
-                    withAnimation(.spring) {
-                        self.selectedOption = option
-                    }
+                    let isSelected = (self.selectedOption == option)
                     
-                }, label: {
-                    
-                    Text(option.description)
-                        .font(.body)
-                        .fontWeight(.semibold)
-                        .padding(.vertical, 12)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                        .foregroundColor(isSelected ? .white : .black)
-                    
-                })
-                .background {
-                    
-                    if isSelected {
+                    Button(action: {
                         
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.blue)
-                            .matchedGeometryEffect(id: "selection", in: self.selectionNamespace)
-                            .frame(maxWidth: .infinity)
-                            .padding(6)
+                        withAnimation(.spring) {
+                            self.selectedOption = option
+                        }
+                        
+                    }, label: {
+                        
+                        Text(option.description)
+                            .font(.body)
+                            .fontWeight(.semibold)
+                            .padding(.vertical, 12)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                            .foregroundColor(isSelected ? .white : .black)
+                        
+                    })
+                    .background {
+                        
+                        if isSelected {
+                            
+                            RoundedRectangle(cornerRadius: 6)
+                                .fill(Color.blue)
+                                .padding(.vertical, 6)
+                                .matchedGeometryEffect(id: "selection", in: self.selectionNamespace)
+                            
+                        }
                         
                     }
                     
                 }
                 
             }
+            .padding(.horizontal, 4)
             
         }
         .frame(maxWidth: .infinity, alignment: .center)
         .background(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: 12)
                 .fill(Color(uiColor: .white))
         )
         .shadow(radius: 8)

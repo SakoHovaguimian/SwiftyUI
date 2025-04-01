@@ -16,14 +16,12 @@ struct NormalHalfCircleProgressView: View {
         ZStack {
             
             HalfCircleShape()
-                .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
+                .stroke(style: StrokeStyle(lineWidth: 24, lineCap: .round, lineJoin: .round))
                 .foregroundStyle(.gray.opacity(0.3))
-                .frame(width: 200, height: 100)
-            
+
             HalfCircleShape().trim(from: 0.0, to: self.progress)
-                .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
+                .stroke(style: StrokeStyle(lineWidth: 24, lineCap: .round, lineJoin: .round))
                 .foregroundStyle(LinearGradient(gradient: Gradient(colors: [.blue, .indigo]), startPoint: .leading, endPoint: .trailing))
-                .frame(width: 200, height: 100)
             
             Text("\(Int(self.progress * 100))%")
                 .font(.largeTitle.bold())
@@ -45,6 +43,7 @@ struct NormalHalfCirclePreviewView: View {
         VStack {
             
             NormalHalfCircleProgressView(progress: self.progress)
+                .padding(.horizontal, .custom(64))
             
             Button("Randomize Progress") {
                 let newProgress = CGFloat.random(in: 0...1)

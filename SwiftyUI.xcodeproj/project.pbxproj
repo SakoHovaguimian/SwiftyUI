@@ -33,6 +33,7 @@
 		753116862C12C34A00C7FBF6 /* ToggleStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531167A2C12C34A00C7FBF6 /* ToggleStyles.swift */; };
 		75363B2E2D59766200FDC4ED /* CommonSelectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75363B2D2D59766200FDC4ED /* CommonSelectionSheet.swift */; };
 		7537DA6E2D6967FF0050F0CE /* SexyTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7537DA6D2D6967F40050F0CE /* SexyTransition.swift */; };
+		753DB4162D9B4D4800F1E6C6 /* Ext+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753DB4152D9B4D4300F1E6C6 /* Ext+Sequence.swift */; };
 		753FD85A2C0E859900C20D1A /* CustomEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD8592C0E859900C20D1A /* CustomEnvironment.swift */; };
 		753FD85C2C0E896C00C20D1A /* IconAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85B2C0E896C00C20D1A /* IconAnimation.swift */; };
 		753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85D2C0E8B4F00C20D1A /* HueView.swift */; };
@@ -241,6 +242,7 @@
 		7531167A2C12C34A00C7FBF6 /* ToggleStyles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToggleStyles.swift; sourceTree = "<group>"; };
 		75363B2D2D59766200FDC4ED /* CommonSelectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonSelectionSheet.swift; sourceTree = "<group>"; };
 		7537DA6D2D6967F40050F0CE /* SexyTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexyTransition.swift; sourceTree = "<group>"; };
+		753DB4152D9B4D4300F1E6C6 /* Ext+Sequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+Sequence.swift"; sourceTree = "<group>"; };
 		753FD8592C0E859900C20D1A /* CustomEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEnvironment.swift; sourceTree = "<group>"; };
 		753FD85B2C0E896C00C20D1A /* IconAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAnimation.swift; sourceTree = "<group>"; };
 		753FD85D2C0E8B4F00C20D1A /* HueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HueView.swift; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				iOSScrollTracking.swift,
 				iOSStrechyHeader.swift,
 				NavBarScolling.swift,
+				SequenceTest.swift,
 				WWDC2024.swift,
 			);
 			target = 75BA2CE02C0E780A0089B70F /* SwiftyUI */;
@@ -470,13 +473,14 @@
 		75363B2C2D59765C00FDC4ED /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				756A5F2B2D684D5F00082154 /* CommonImageView.swift */,
 				756A5F292D6846EA00082154 /* CommonButton.swift */,
+				756A5F2B2D684D5F00082154 /* CommonImageView.swift */,
 				75B16CB12D6282C4002DC3F9 /* Shapes */,
 				75B16CB02D628276002DC3F9 /* Progress Bars */,
 				75C2A02C2D597BC400E5B328 /* Selectable.swift */,
 				75363B2D2D59766200FDC4ED /* CommonSelectionSheet.swift */,
 				7522F32B2D58600400276177 /* CommonSegmentedControl.swift */,
+				75718FE32C120B6C00989D41 /* TextField */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -549,7 +553,6 @@
 				7597E66B2D63E1B00056AAC2 /* MatchedGeoView2.swift */,
 				7571905C2C1212FC00989D41 /* MatchedGeoView.swift */,
 				757190592C1212FC00989D41 /* TransitionTestView.swift */,
-				753FD85B2C0E896C00C20D1A /* IconAnimation.swift */,
 				753FD85F2C0E8CA200C20D1A /* SplashView.swift */,
 			);
 			path = Animations;
@@ -621,10 +624,10 @@
 			isa = PBXGroup;
 			children = (
 				75363B2C2D59765C00FDC4ED /* Common */,
-				75788DCC2D9701F500209727 /* Cache */,
 				75A5F4732D95107E003A6632 /* StaggeredView */,
 				754BE1F62D80FC8F00C20CF7 /* StoreKit */,
 				75F7897A2D89199900FEBED8 /* UserDefaults */,
+				75788DCC2D9701F500209727 /* Cache */,
 				75788DD92D97058500209727 /* Modern Views */,
 				7540F7B72C18F0CF007DC97F /* iOS 18 */,
 				7571905D2C1212FF00989D41 /* Need To Organize */,
@@ -641,7 +644,6 @@
 				75718FDE2C120B6C00989D41 /* OnFirstAppear.swift */,
 				75718FDF2C120B6C00989D41 /* PlainList.swift */,
 				75718FE42C120B6C00989D41 /* SafeAreaPadding.swift */,
-				75718FE32C120B6C00989D41 /* TextField */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -649,6 +651,7 @@
 		75718FD32C120B5800989D41 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				753DB4152D9B4D4300F1E6C6 /* Ext+Sequence.swift */,
 				75718FD62C120B6400989D41 /* Ext+Color.swift */,
 				75718FD72C120B6400989D41 /* Ext+Combine.swift */,
 				75718FDA2C120B6400989D41 /* Ext+Date.swift */,
@@ -786,11 +789,13 @@
 		7571904C2C120F0D00989D41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */,
 				751B4D632C93EDE6006239EC /* RichText.swift */,
 				75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */,
 				75BB42AD2C6412B000179078 /* NeonGlowView.swift */,
 				7571904F2C120F4100989D41 /* SampleScrollAnimationView.swift */,
 				757190512C120F7900989D41 /* ColorDemoView.swift */,
+				753FD85B2C0E896C00C20D1A /* IconAnimation.swift */,
 				75718F8E2C120AA300989D41 /* Sidebar */,
 				757190062C120B9900989D41 /* Camera */,
 				756C9B2A2C1207D900E438D6 /* Animations */,
@@ -853,7 +858,13 @@
 				756F46422C2BD14000D14425 /* GentlePath Ideas */,
 				75BA2D112C0E781C0089B70F /* Components */,
 				7571904C2C120F0D00989D41 /* Views */,
+				757382C42CA88B00007ACA27 /* RatingView.swift */,
+				758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */,
+				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
 				75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */,
+				7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */,
+				750B1B572CA8902C007F93E2 /* GestureFillView.swift */,
+				75F8BADD2CDE924F00A05C74 /* Shimmer.swift */,
 				751CBB452D8A10CC00C89EAC /* ButtonAnimationState.swift */,
 				7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */,
 				75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */,
@@ -868,24 +879,17 @@
 				75EC17FE2D03A4EB00942F10 /* Mirror.swift */,
 				75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */,
 				754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */,
-				758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */,
 				75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */,
-				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
 				75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */,
 				75F430162CE5569E008484E6 /* AccelerometerBallView.swift */,
 				75D8B34E2CE5487800681141 /* PulseAnimation.swift */,
 				75F8BADF2CDE926300A05C74 /* SkeletonView.swift */,
-				75F8BADD2CDE924F00A05C74 /* Shimmer.swift */,
 				75C641D32CD56CCC00CDD777 /* MentionPickerView.swift */,
 				75F56E362CCA03270055A437 /* LogChartData.swift */,
-				75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */,
 				75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */,
 				75A6DB752CB8290200055E0E /* TextBlurView.swift */,
 				75A6DB732CB8242E00055E0E /* FannedCarouselView.swift */,
 				757006162CAC807C005FBCB7 /* CloudWithDotsView.swift */,
-				750B1B572CA8902C007F93E2 /* GestureFillView.swift */,
-				757382C42CA88B00007ACA27 /* RatingView.swift */,
-				7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */,
 			);
 			path = "Modern Views";
 			sourceTree = "<group>";
@@ -1278,6 +1282,7 @@
 				75788DD72D97022700209727 /* ImageCacheService.swift in Sources */,
 				757190412C120CE900989D41 /* AppTextFieldPreview.swift in Sources */,
 				75F8BAE02CDE926900A05C74 /* SkeletonView.swift in Sources */,
+				753DB4162D9B4D4800F1E6C6 /* Ext+Sequence.swift in Sources */,
 				757190422C120CE900989D41 /* AppTextField.swift in Sources */,
 				7571900C2C120BF500989D41 /* ToastListView.swift in Sources */,
 				75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */,

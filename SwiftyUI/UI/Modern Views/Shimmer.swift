@@ -158,7 +158,7 @@ public extension View {
     .shimmer(isLoading)
     .redacted(reason: isLoading ? .placeholder : .invalidated)
     .asButton {
-        withAnimation(.smooth(duration: 0.3)) {
+        withAnimation(.bouncy(duration: 0.3)) {
             isLoading.toggle()
         }
     }
