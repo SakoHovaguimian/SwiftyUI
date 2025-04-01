@@ -30,7 +30,7 @@ struct CodeInputView: View {
         
     }
     
-    // MARK: - VIEWS
+    // MARK: - VIEWS -
     
     private func content() -> some View {
         
@@ -42,7 +42,8 @@ struct CodeInputView: View {
                 let isCurrentField = getCurrentIndex()
                 
                 codeInputItemView(character: character)
-                    .frame(maxWidth: 80, maxHeight: 80)
+                    .frame(maxWidth: 120, maxHeight: 120)
+                    .frame(height: 60)
                     .background(ThemeManager.shared.background(.quad))
                     .clipShape(RoundedRectangle(cornerRadius: CornerRadius.small2.value))
                     .appShadow()
@@ -117,7 +118,7 @@ struct CodeInputView: View {
         
     }
     
-    // MARK: - BUSINESS
+    // MARK: - BUSINESS -
     
     private func getCharacterForIndex(_ index: Int) -> String? {
         
@@ -162,7 +163,7 @@ struct CodeInputView: View {
         
         CodeInputView(
             codeInput: $codeInput,
-            maxCharacterCount: 5,
+            maxCharacterCount: 6,
             accentColor: .green
         )
         .padding(.horizontal, 32)

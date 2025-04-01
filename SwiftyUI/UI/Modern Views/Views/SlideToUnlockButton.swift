@@ -70,7 +70,7 @@ public struct DraggingComponent: View {
     let maxWidth: CGFloat
 
     @State private var width = CGFloat(50)
-    private  let minWidth = CGFloat(50)
+    private let minWidth = CGFloat(50)
 
     public init(isLocked: Binding<Bool>, isLoading: Bool, maxWidth: CGFloat) {
         _isLocked = isLocked

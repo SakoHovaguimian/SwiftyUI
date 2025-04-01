@@ -15,7 +15,7 @@ struct SideMenu<Content: View>: View {
     
     public init(
         isSidebarVisible: Binding<Bool>,
-        width: CGFloat = UIScreen.main.bounds.size.width * 0.6,
+        width: CGFloat = UIScreen.main.bounds.size.width * 0.7,
         @ViewBuilder content: () -> Content) {
             
             self._isSidebarVisible = isSidebarVisible
@@ -53,7 +53,7 @@ struct SideMenu<Content: View>: View {
             self.content
                 .frame(width: self.width)
                 .offset(x: isSidebarVisible ? 0 : -self.width)
-                .animation(.default, value: isSidebarVisible)
+                .animation(.spring, value: isSidebarVisible)
             
             Spacer()
             
@@ -113,7 +113,7 @@ struct SideMenuTestView: View {
 //                HStack(alignment: .top) {
                     
                     ZStack(alignment: .top) {
-                        Color.purple
+                        Color.darkPurple
                             .ignoresSafeArea()
 //                    }
                     
