@@ -176,6 +176,7 @@
 		75C7DAAE2C85F700009A5093 /* Shimmer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAD2C85F6FF009A5093 /* Shimmer2.swift */; };
 		75C7DAB02C85F767009A5093 /* SlideButtonStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C7DAAF2C85F767009A5093 /* SlideButtonStyling.swift */; };
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
+		75CEF4E92D9B8A3B00A5CB03 /* PhaseAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759404802D9B896C00DE4741 /* PhaseAnimationTest.swift */; };
 		75D1A7E52D7A8A3E0025C5EC /* BottomTransitionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */; };
 		75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */; };
 		75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */; };
@@ -344,6 +345,7 @@
 		7580AFEB2C12BF890029EF84 /* TypewriterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterView.swift; sourceTree = "<group>"; };
 		7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterContentView.swift; sourceTree = "<group>"; };
 		758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorNew.swift; sourceTree = "<group>"; };
+		759404802D9B896C00DE4741 /* PhaseAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseAnimationTest.swift; sourceTree = "<group>"; };
 		7597E66B2D63E1B00056AAC2 /* MatchedGeoView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoView2.swift; sourceTree = "<group>"; };
 		7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationTest.swift; sourceTree = "<group>"; };
 		75A117BD2D62FBCC003011CA /* RelativeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeBarView.swift; sourceTree = "<group>"; };
@@ -623,6 +625,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				759404802D9B896C00DE4741 /* PhaseAnimationTest.swift */,
 				75363B2C2D59765C00FDC4ED /* Common */,
 				75A5F4732D95107E003A6632 /* StaggeredView */,
 				754BE1F62D80FC8F00C20CF7 /* StoreKit */,
@@ -1261,6 +1264,7 @@
 				7571900A2C120BE900989D41 /* NavBarView.swift in Sources */,
 				75C7DAAE2C85F700009A5093 /* Shimmer2.swift in Sources */,
 				753116572C12C18600C7FBF6 /* MeshGradientCardView.swift in Sources */,
+				75CEF4E92D9B8A3B00A5CB03 /* PhaseAnimationTest.swift in Sources */,
 				757190302C120CB100989D41 /* KeyboardManager.swift in Sources */,
 				757190312C120CB100989D41 /* ThemeManager.swift in Sources */,
 				757190182C120C0B00989D41 /* HapticViewModifier.swift in Sources */,
