@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StaggeredConfig {
+struct StaggeredConfig: Equatable {
     
     var delay: Double = 0.05
     var maxDelay: Double = 0.4

@@ -13,8 +13,9 @@ struct SymbolToggleStyle: ToggleStyle {
     var activeColor: Color = .green
     
     var width: CGFloat = 50
+    
     var offsetWidth: Double {
-        return Double(self.width) * 0.15
+        return Double(self.width) * 0.18
     }
  
     func makeBody(configuration: Configuration) -> some View {
@@ -32,7 +33,7 @@ struct SymbolToggleStyle: ToggleStyle {
                         .overlay {
                             Image(systemName: systemImage)
                                 .foregroundColor(configuration.isOn ? activeColor : Color(.systemGray5))
-                                .contentTransition(.symbolEffect(.automatic))
+                                .contentTransition(.symbolEffect(.replace))
                         }
                         .offset(x: configuration.isOn ? offsetWidth : -offsetWidth)
  

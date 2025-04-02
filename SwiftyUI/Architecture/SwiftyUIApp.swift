@@ -16,7 +16,8 @@ struct MyApp2: App {
             
 //            ScrollBannerViewPreview()
             
-            SubscriptionView()
+            StaggeredTestView()
+//            SubscriptionView()
 //            SomePreviewView()
 //            SomePreviewView()
 //            AccelerometerBallView()

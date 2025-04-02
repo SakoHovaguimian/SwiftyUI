@@ -28,7 +28,7 @@ struct CustomStaggeredTransition: Transition {
         
         let offsetX = isIdentity ? 0 : (didDisappear ? disableX : x)
         let offsetY = isIdentity ? 0 : (didDisappear ? disableY : y)
-        
+
         return content
             .opacity(isIdentity ? 1 : 0)
             .blur(radius: isIdentity ? 0 : config.blurRadius)

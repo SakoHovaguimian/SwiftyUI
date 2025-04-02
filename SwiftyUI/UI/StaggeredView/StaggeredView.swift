@@ -25,7 +25,7 @@ struct StaggeredView<Content: View>: View {
         Group(subviews: content) { collection in
             
             ForEach(collection.indices, id: \.self) { index in
-                
+                                
                 collection[index]
                     .transition(CustomStaggeredTransition(index: index, config: config))
                 
@@ -37,58 +37,71 @@ struct StaggeredView<Content: View>: View {
     
 }
 
-#Preview {
+struct StaggeredTestView: View {
     
-    @Previewable @State var showView: Bool = false
+    @State var showView: Bool = false
 
     let config = StaggeredConfig(
-        delay: 0,
-        maxDelay: 0,
+        delay: 0.05,
         blurRadius: 2,
-        offset: .init(width: 300, height: 0),
-        scale: 1,
+        offset: .init(width: 0, height: -600),
+        scale: 0.85,
         scaleAnchor: .center,
-        noDisappearAnimation: true
+        disappearInSameDirection: false
     )
         
-    VStack(spacing: 12) {
+    var body: some View {
         
-        AppButton(
-            title: "Toggle View",
-            titleColor: .white,
-            backgroundColor: .darkBlue
-        ) {
-            showView
-                .toggle()
-        }
-        .padding(.horizontal, .large)
-        
-        LazyVGrid(columns: Array(repeating: GridItem(),
-                                 count: 2)) {
+        VStack(spacing: 12) {
             
-            StaggeredView(config: config) {
+            AppButton(
+                title: "Toggle View",
+                titleColor: .white,
+                backgroundColor: .darkBlue
+            ) {
                 
-                if showView {
+                showView
+                    .toggle()
+                
+            }
+            .padding(.horizontal, .large)
+            
+            ScrollView {
+                
+                StaggeredView(config: config) {
                     
-                    ForEach(1...8, id: \.self) { _ in
+                    if showView {
                         
-                        RoundedRectangle(cornerRadius: 15)
-                            .fill(Color.black.gradient)
-                            .frame(height: 150)
+                        ForEach(1...6, id: \.self) { _ in
+                            
+                            RoundedRectangle(cornerRadius: 15)
+                                .fill(Color.black.gradient)
+                                .frame(height: 150)
+                                .padding(.horizontal, Spacing.medium.value)
+                                .padding(.vertical, Spacing.small.value)
+                            
+                        }
                         
                     }
                     
+                    // When you have no frame animations could be weird
+                    
                 }
+                .frame(
+                    maxWidth: .infinity,
+                    maxHeight: .infinity
+                )
                 
             }
             
         }
-        .padding(Spacing.medium.value)
-        .frame(
-            maxWidth: .infinity,
-            maxHeight: .infinity
-        )
         
     }
+    
+}
+
+#Preview {
+    
+    StaggeredTestView()
     
 }
