@@ -42,12 +42,12 @@ struct StaggeredTestView: View {
     @State var showView: Bool = false
 
     let config = StaggeredConfig(
-        delay: 0.05,
+        delay: 0,
         blurRadius: 2,
-        offset: .init(width: 0, height: -600),
-        scale: 0.85,
+        offset: .init(width: 300, height: 0),
+        scale: 1,
         scaleAnchor: .center,
-        disappearInSameDirection: false
+        disappearInSameDirection: true
     )
         
     var body: some View {

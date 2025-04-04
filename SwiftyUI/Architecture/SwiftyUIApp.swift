@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@main
+//@main
 struct MyApp2: App {
  
     var body: some Scene {
