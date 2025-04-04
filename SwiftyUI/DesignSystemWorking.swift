@@ -10,14 +10,16 @@ import SwiftUI
 // MARK: - Theme Model
 
 protocol ThemeType: Identifiable, Equatable {
+    
     var id: String { get }
-    var accentColor: Color { get }
-    var accentColorSecondary: Color { get }
+    var accentColor: AppForegroundStyle { get }
+    var accentColorSecondary: AppBackgroundStyle { get }
     var background: CustomTheme.Background { get }
     var textColor: CustomTheme.TextColor { get }
     var spacing: CustomTheme.Spacing { get }
     var radius: CustomTheme.Radius { get }
     var fonts: CustomTheme.Fonts { get }
+    
 }
 
 struct CustomTheme: Equatable, Identifiable, ThemeType {
@@ -27,8 +29,8 @@ struct CustomTheme: Equatable, Identifiable, ThemeType {
     }
     
     let id: String
-    let accentColor: Color
-    let accentColorSecondary: Color
+    let accentColor: AppForegroundStyle
+    let accentColorSecondary: AppBackgroundStyle
     let background: Background
     let textColor: TextColor
     let spacing: Spacing
@@ -36,12 +38,12 @@ struct CustomTheme: Equatable, Identifiable, ThemeType {
     let fonts: Fonts
 
     struct Background {
-        let primary: Color
-        let secondary: Color
-        let tertiary: Color
-        let quad: Color
+        let primary: AppBackgroundStyle
+        let secondary: AppBackgroundStyle
+        let tertiary: AppBackgroundStyle
+        let quad: AppBackgroundStyle
         
-        func value(for key: BackgroundKey) -> Color {
+        func value(for key: BackgroundKey) -> AppBackgroundStyle {
             switch key {
             case .primary: return primary
             case .secondary: return secondary
@@ -52,12 +54,12 @@ struct CustomTheme: Equatable, Identifiable, ThemeType {
     }
 
     struct TextColor {
-        let title: Color
-        let titleInverted: Color
-        let body: Color
-        let bodyInverted: Color
+        let title: AppForegroundStyle
+        let titleInverted: AppForegroundStyle
+        let body: AppForegroundStyle
+        let bodyInverted: AppForegroundStyle
         
-        func value(for key: TextColorKey) -> Color {
+        func value(for key: TextColorKey) -> AppForegroundStyle {
             switch key {
             case .title: return title
             case .titleInverted: return titleInverted
@@ -157,19 +159,19 @@ struct CustomTheme: Equatable, Identifiable, ThemeType {
 extension CustomTheme {
     static let `default` = CustomTheme(
         id: "DEFAULT",
-        accentColor: .blue,
-        accentColorSecondary: .cyan,
+        accentColor: .color(.blue),
+        accentColorSecondary: .color(.cyan),
         background: .init(
-            primary: Color(uiColor: .systemGray6),
-            secondary: Color(.secondarySystemBackground),
-            tertiary: Color(.tertiarySystemBackground),
-            quad: Color(.quaternarySystemFill)
+            primary: .color(Color(uiColor: .systemGray6)),
+            secondary: .color(Color(.secondarySystemBackground)),
+            tertiary: .color(Color(.tertiarySystemBackground)),
+            quad: .color(Color(.quaternarySystemFill))
         ),
         textColor: .init(
-            title: .primary,
-            titleInverted: .white,
-            body: .gray,
-            bodyInverted: .gray
+            title: .color(.primary),
+            titleInverted: .color(.white),
+            body: .color(.gray),
+            bodyInverted: .color(.gray)
         ),
         spacing: .default,
         radius: .default,
@@ -183,19 +185,19 @@ extension CustomTheme {
 
     static let alternate = CustomTheme(
         id: "ALTERNATE",
-        accentColor: .orange,
-        accentColorSecondary: .pink,
+        accentColor: .color(.orange),
+        accentColorSecondary: .color(.pink),
         background: .init(
-            primary: .black,
-            secondary: .gray,
-            tertiary: .darkBlue,
-            quad: .init(white: 0.1)
+            primary: .color(.black),
+            secondary: .color(.gray),
+            tertiary: .color(.darkBlue),
+            quad: .color(.init(white: 0.1))
         ),
         textColor: .init(
-            title: .white,
-            titleInverted: .black,
-            body: .init(white: 0.8),
-            bodyInverted: .init(white: 0.2)
+            title: .color(.white),
+            titleInverted: .color(.black),
+            body: .color(.init(white: 0.8)),
+            bodyInverted: .color(.init(white: 0.2))
         ),
         spacing: .default,
         radius: .default,
@@ -227,12 +229,13 @@ extension CustomTheme.Radius {
 protocol DesignSystemProviding: AnyObject {
     var theme: any ThemeType { get }
     func toggleTheme()
-    func background(_ key: CustomTheme.BackgroundKey) -> Color
+    func background(_ key: CustomTheme.BackgroundKey) -> AppBackgroundStyle
     func spacing(_ key: CustomTheme.SpacingKey) -> CGFloat
     func radius(_ key: CustomTheme.RadiusKey) -> CGFloat
     func font(_ key: CustomTheme.FontKey) -> Font
-    func textColor(_ key: CustomTheme.TextColorKey) -> Color
-    var accent: Color { get }
+    func textColor(_ key: CustomTheme.TextColorKey) -> AppForegroundStyle
+    var accent: AppForegroundStyle { get }
+    var titleTextColor: AppForegroundStyle { get }
 }
 
 @Observable
@@ -244,7 +247,7 @@ class DesignSystemProvider: DesignSystemProviding {
         theme = (theme.id == "DEFAULT") ? CustomTheme.alternate : CustomTheme.default
     }
     
-    func background(_ key: CustomTheme.BackgroundKey) -> Color {
+    func background(_ key: CustomTheme.BackgroundKey) -> AppBackgroundStyle {
         theme.background.value(for: key)
     }
 
@@ -260,12 +263,12 @@ class DesignSystemProvider: DesignSystemProviding {
         theme.fonts.value(for: key)
     }
 
-    func textColor(_ key: CustomTheme.TextColorKey) -> Color {
+    func textColor(_ key: CustomTheme.TextColorKey) -> AppForegroundStyle {
         theme.textColor.value(for: key)
     }
 
-    var accent: Color { theme.accentColor }
-    var titleColor: Color { theme.textColor.title }
+    var accent: AppForegroundStyle { theme.accentColor }
+    var titleTextColor: AppForegroundStyle { theme.textColor.title }
     
 }
 
@@ -289,20 +292,20 @@ struct ThemeDemoView: View {
         VStack(spacing: theme.spacing(.medium)) {
             Text("Design System Theme")
                 .font(theme.font(.title))
-                .foregroundStyle(theme.theme.textColor.title)
+                .foregroundStyle(theme.theme.textColor.title.foregroundStyle())
                 .contentTransition(.interpolate)
 
             Button("Toggle Theme") {
                 theme.toggleTheme()
             }
             .padding(theme.spacing(.small))
-            .background(theme.accent)
+            .background(theme.accent.foregroundStyle())
             .clipShape(.rect(cornerRadius: theme.radius(.small2)))
             .foregroundColor(.white)
             .contentTransition(.interpolate)
         }
         .padding(theme.spacing(.large))
-        .background(theme.background(.primary))
+        .background(theme.background(.primary).backgroundStyle())
         .clipShape(.rect(cornerRadius: theme.radius(.medium2)))
         .compositingGroup()
         .contentTransition(.interpolate)
