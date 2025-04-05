@@ -45,7 +45,6 @@
 		7556CB572C2F227E0084A130 /* SizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CB562C2F227E0084A130 /* SizingView.swift */; };
 		7561DE752D3574E300F01C67 /* NewScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */; };
 		756A44D92D9F5CAD00BD65B8 /* DesignSystemTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A44D82D9F5CA900BD65B8 /* DesignSystemTest.swift */; };
-		756A44DB2D9F6D5400BD65B8 /* DesignSystemWorking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A44DA2D9F6D4F00BD65B8 /* DesignSystemWorking.swift */; };
 		756A5F2A2D6846EE00082154 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A5F292D6846EA00082154 /* CommonButton.swift */; };
 		756A5F2C2D684D6200082154 /* CommonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A5F2B2D684D5F00082154 /* CommonImageView.swift */; };
 		756F46442C2BD15200D14425 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F46432C2BD15200D14425 /* MessageView.swift */; };
@@ -187,6 +186,7 @@
 		75F341A72D81054200B11355 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F341A62D81054200B11355 /* StoreKit.framework */; };
 		75F341A92D81058000B11355 /* StoreKitConfigurationFile.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 75F341A82D81058000B11355 /* StoreKitConfigurationFile.storekit */; };
 		75F430172CE5569E008484E6 /* AccelerometerBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F430162CE5569E008484E6 /* AccelerometerBallView.swift */; };
+		75F4F57D2DA0BC5000C50895 /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4F57C2DA0BC5000C50895 /* ThemeType.swift */; };
 		75F56E372CCA03270055A437 /* LogChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F56E362CCA03270055A437 /* LogChartData.swift */; };
 		75F7897C2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7897B2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift */; };
 		75F7897E2D8919A800FEBED8 /* UserDefaultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7897D2D8919A500FEBED8 /* UserDefaultsView.swift */; };
@@ -250,7 +250,6 @@
 		7556CB562C2F227E0084A130 /* SizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingView.swift; sourceTree = "<group>"; };
 		7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScrollBannerView.swift; sourceTree = "<group>"; };
 		756A44D82D9F5CA900BD65B8 /* DesignSystemTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemTest.swift; sourceTree = "<group>"; };
-		756A44DA2D9F6D4F00BD65B8 /* DesignSystemWorking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemWorking.swift; sourceTree = "<group>"; };
 		756A5F292D6846EA00082154 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		756A5F2B2D684D5F00082154 /* CommonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonImageView.swift; sourceTree = "<group>"; };
 		756F46432C2BD15200D14425 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
@@ -394,6 +393,7 @@
 		75F341A62D81054200B11355 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		75F341A82D81058000B11355 /* StoreKitConfigurationFile.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfigurationFile.storekit; sourceTree = "<group>"; };
 		75F430162CE5569E008484E6 /* AccelerometerBallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerometerBallView.swift; sourceTree = "<group>"; };
+		75F4F57C2DA0BC5000C50895 /* ThemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeType.swift; sourceTree = "<group>"; };
 		75F56E362CCA03270055A437 /* LogChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogChartData.swift; sourceTree = "<group>"; };
 		75F7897B2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeyProtocol.swift; sourceTree = "<group>"; };
 		75F7897D2D8919A500FEBED8 /* UserDefaultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsView.swift; sourceTree = "<group>"; };
@@ -988,7 +988,7 @@
 		75BA2CE32C0E780A0089B70F /* SwiftyUI */ = {
 			isa = PBXGroup;
 			children = (
-				756A44DA2D9F6D4F00BD65B8 /* DesignSystemWorking.swift */,
+				75F4F57C2DA0BC5000C50895 /* ThemeType.swift */,
 				756A44D82D9F5CA900BD65B8 /* DesignSystemTest.swift */,
 				7578B14D2C41F751006F07E7 /* Architecture */,
 				75BA2CE62C0E780A0089B70F /* ContentView.swift */,
@@ -1271,10 +1271,10 @@
 				757190562C1212B000989D41 /* HeightPicker.swift in Sources */,
 				7571900F2C120BF500989D41 /* ToastManager.swift in Sources */,
 				75C641D42CD56CCC00CDD777 /* MentionPickerView.swift in Sources */,
-				756A44DB2D9F6D5400BD65B8 /* DesignSystemWorking.swift in Sources */,
 				757190102C120BF500989D41 /* ToastViewModifier.swift in Sources */,
 				75F341A12D81041B00B11355 /* StoreKitService.swift in Sources */,
 				754BE1FA2D80FC9C00C20CF7 /* StoreKitProtocol.swift in Sources */,
+				75F4F57D2DA0BC5000C50895 /* ThemeType.swift in Sources */,
 				754BE1FB2D80FC9C00C20CF7 /* StoreKitTestView.swift in Sources */,
 				75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */,
 				75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */,
