@@ -6,12 +6,9 @@
 //
 
 
-//
-//  NewTheme.swift
-//  Rune
-//
-//  Created by Sako Hovaguimian on 4/4/25.
-//
+// TODO: -
+/// We need to change all AppForeground / AppBackground to use Color source
+/// We need to rename all of these internal types to Singular names / Not Plural
 
 import SwiftUI
 
@@ -27,6 +24,7 @@ protocol ThemeType: Identifiable, Equatable {
     var spacing: CustomTheme.Spacing { get }
     var radius: CustomTheme.Radius { get }
     var fonts: CustomTheme.Fonts { get }
+    var shadow: CustomTheme.Shadow { get }
     
 }
 
@@ -44,13 +42,14 @@ struct CustomTheme: Equatable, Identifiable, ThemeType {
     let spacing: Spacing
     let radius: Radius
     let fonts: Fonts
+    let shadow: Shadow
 
     struct Background {
         
         let primary: AppBackgroundStyle
         let secondary: AppBackgroundStyle
         let tertiary: AppBackgroundStyle
-        let quad: AppBackgroundStyle
+        let quaternary: AppBackgroundStyle
         
         func value(for key: BackgroundKey) -> AppBackgroundStyle {
             
@@ -58,7 +57,7 @@ struct CustomTheme: Equatable, Identifiable, ThemeType {
             case .primary: return primary
             case .secondary: return secondary
             case .tertiary: return tertiary
-            case .quad: return quad
+            case .quaternary: return quaternary
             }
             
         }
@@ -159,12 +158,45 @@ struct CustomTheme: Equatable, Identifiable, ThemeType {
         
     }
     
+    struct DecodableShadow {
+        
+        var color: Color
+        var radius: CGFloat
+        var x: CGFloat
+        var y: CGFloat
+        
+    }
+    
+    struct Shadow {
+        
+        let card: DecodableShadow
+        let subtle: DecodableShadow
+        let offset: DecodableShadow
+        let neon: DecodableShadow
+        let hard: DecodableShadow
+        let inner: DecodableShadow
+        
+        func value(for key: ShadowKey) -> DecodableShadow {
+            
+            switch key {
+            case .card: return card
+            case .subtle: return subtle
+            case .offset: return offset
+            case .neon: return neon
+            case .hard: return hard
+            case .inner: return inner
+            }
+            
+        }
+        
+    }
+    
     enum BackgroundKey {
         
         case primary
         case secondary
         case tertiary
-        case quad
+        case quaternary
         
     }
     
@@ -212,6 +244,17 @@ struct CustomTheme: Equatable, Identifiable, ThemeType {
         
     }
     
+    enum ShadowKey {
+        
+        case card
+        case subtle
+        case offset
+        case neon
+        case hard
+        case inner
+        
+    }
+    
 }
 
 // MARK: - Default Theme
@@ -226,7 +269,7 @@ extension CustomTheme {
             primary: .color(Color(uiColor: .systemGray6)),
             secondary: .color(Color(.secondarySystemBackground)),
             tertiary: .color(Color(.tertiarySystemBackground)),
-            quad: .color(Color(.quaternarySystemFill))
+            quaternary: .color(Color(.quaternarySystemFill))
         ),
         textColor: .init(
             title: .color(.primary),
@@ -241,6 +284,14 @@ extension CustomTheme {
             subtitle: .system(size: 20, weight: .medium),
             body: .system(size: 16, weight: .regular),
             caption: .system(size: 12, weight: .light)
+        ),
+        shadow: .init(
+            card: DecodableShadow(color: Color.black.opacity(0.1), radius: 8, x: 0, y: 4),
+            subtle: DecodableShadow(color: Color.black.opacity(0.05), radius: 4, x: 0, y: 2),
+            offset: DecodableShadow(color: Color.black.opacity(0.2), radius: 10, x: 10, y: 10),
+            neon: DecodableShadow(color: Color.blue.opacity(0.7), radius: 20, x: 0, y: 0),
+            hard: DecodableShadow(color: Color.black.opacity(0.25), radius: 0, x: 0, y: 2),
+            inner: DecodableShadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 2)
         )
     )
 
@@ -252,7 +303,7 @@ extension CustomTheme {
             primary: .color(.black),
             secondary: .color(.gray),
             tertiary: .color(.blue),
-            quad: .color(.init(white: 0.1))
+            quaternary: .color(.init(white: 0.1))
         ),
         textColor: .init(
             title: .color(.white),
@@ -267,6 +318,14 @@ extension CustomTheme {
             subtitle: .system(size: 18, weight: .medium),
             body: .system(size: 15, weight: .regular),
             caption: .system(size: 11, weight: .light)
+        ),
+        shadow: .init(
+            card: DecodableShadow(color: Color.brandGreen.opacity(0.1), radius: 8, x: 0, y: 4),
+            subtle: DecodableShadow(color: Color.brandGreen.opacity(0.05), radius: 4, x: 0, y: 2),
+            offset: DecodableShadow(color: Color.brandGreen.opacity(0.2), radius: 10, x: 10, y: 10),
+            neon: DecodableShadow(color: Color.brandGreen.opacity(0.7), radius: 20, x: 0, y: 0),
+            hard: DecodableShadow(color: Color.brandGreen.opacity(0.25), radius: 0, x: 0, y: 2),
+            inner: DecodableShadow(color: Color.brandGreen.opacity(0.3), radius: 4, x: 0, y: 2)
         )
     )
     
@@ -300,6 +359,33 @@ extension CustomTheme.Radius {
     
 }
 
+struct NewAppShadow: ViewModifier {
+    
+    let style: CustomTheme.DecodableShadow
+    
+    func body(content: Content) -> some View {
+        
+        content
+            .shadow(
+                color: self.style.color,
+                radius: self.style.radius,
+                x: self.style.x,
+                y: self.style.y
+            )
+        
+    }
+    
+}
+
+extension View {
+    
+    @ViewBuilder
+    func newAppShadow(_ shadow: CustomTheme.DecodableShadow) -> some View {
+        self.modifier(NewAppShadow(style: shadow))
+    }
+    
+}
+
 // MARK: - DesignSystem & Environment
 
 protocol DesignSystemProviding: AnyObject {
@@ -313,6 +399,7 @@ protocol DesignSystemProviding: AnyObject {
     func radius(_ key: CustomTheme.RadiusKey) -> CGFloat
     func font(_ key: CustomTheme.FontKey) -> Font
     func textColor(_ key: CustomTheme.TextColorKey) -> AppForegroundStyle
+    func shadow(_ key: CustomTheme.ShadowKey) -> CustomTheme.DecodableShadow
     
     var accent: AppForegroundStyle { get }
     var titleTextColor: AppForegroundStyle { get }
@@ -349,6 +436,10 @@ class DesignSystemProvider: DesignSystemProviding {
     func textColor(_ key: CustomTheme.TextColorKey) -> AppForegroundStyle {
         theme.textColor.value(for: key)
     }
+    
+    func shadow(_ key: CustomTheme.ShadowKey) -> CustomTheme.DecodableShadow {
+        theme.shadow.value(for: key)
+    }
 
     var accent: AppForegroundStyle { theme.accentColor }
     var titleTextColor: AppForegroundStyle { theme.textColor.title }
@@ -356,7 +447,7 @@ class DesignSystemProvider: DesignSystemProviding {
 }
 
 extension EnvironmentValues {
-    @Entry var designSystem = DesignSystemProvider.shared
+    @Entry var designSystem: DesignSystemProviding = DesignSystemProvider.shared
 }
 
 // MARK: - Demo View
@@ -377,6 +468,25 @@ struct ThemeApp: App {
                     .font(theme.font(.title))
                     .foregroundStyle(theme.theme.textColor.title.foregroundStyle())
                     .contentTransition(.interpolate)
+                    .newAppShadow(theme.shadow(.hard))
+                
+                Text("Design System Theme")
+                    .font(theme.font(.title))
+                    .foregroundStyle(theme.theme.textColor.title.foregroundStyle())
+                    .contentTransition(.interpolate)
+                    .newAppShadow(theme.shadow(.inner))
+                
+                Text("Design System Theme")
+                    .font(theme.font(.title))
+                    .foregroundStyle(theme.theme.textColor.title.foregroundStyle())
+                    .contentTransition(.interpolate)
+                    .newAppShadow(theme.shadow(.neon))
+                
+                Text("Design System Theme")
+                    .font(theme.font(.title))
+                    .foregroundStyle(theme.theme.textColor.title.foregroundStyle())
+                    .contentTransition(.interpolate)
+                    .newAppShadow(theme.shadow(.offset))
                 
                 Button("Toggle Theme") {
                     theme.toggleTheme()
@@ -384,6 +494,7 @@ struct ThemeApp: App {
                 .padding(theme.spacing(.small))
                 .background(theme.accent.foregroundStyle())
                 .clipShape(.rect(cornerRadius: theme.radius(.small2)))
+                .newAppShadow(theme.shadow(.subtle))
                 .foregroundColor(.white)
                 .contentTransition(.interpolate)
                 
@@ -391,6 +502,7 @@ struct ThemeApp: App {
             .padding(theme.spacing(.large))
             .background(theme.background(.primary).backgroundStyle())
             .clipShape(.rect(cornerRadius: theme.radius(.medium2)))
+            .newAppShadow(theme.shadow(.card))
             .compositingGroup()
             .contentTransition(.interpolate)
             .animation(.easeOut(duration: 1.2), value: self.theme.theme.id)
