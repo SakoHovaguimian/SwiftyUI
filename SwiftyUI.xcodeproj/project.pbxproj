@@ -180,6 +180,8 @@
 		75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E29E442D24AB140074DCD8 /* Snowfall.swift */; };
 		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
 		75EC17FF2D03A4ED00942F10 /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC17FE2D03A4EB00942F10 /* Mirror.swift */; };
+		75EDCF262DA41B53007DDE41 /* SlideConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDCF252DA41B4F007DDE41 /* SlideConfig.swift */; };
+		75EDCF282DA41B5D007DDE41 /* SlideToConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDCF272DA41B5A007DDE41 /* SlideToConfirmView.swift */; };
 		75F341A12D81041B00B11355 /* StoreKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F341A02D81041200B11355 /* StoreKitService.swift */; };
 		75F341A32D81042B00B11355 /* StoreKitServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F341A22D81041E00B11355 /* StoreKitServiceMock.swift */; };
 		75F341A52D81045600B11355 /* StoreKitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F341A42D81045400B11355 /* StoreKitModels.swift */; };
@@ -387,6 +389,8 @@
 		75E29E442D24AB140074DCD8 /* Snowfall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowfall.swift; sourceTree = "<group>"; };
 		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
 		75EC17FE2D03A4EB00942F10 /* Mirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mirror.swift; sourceTree = "<group>"; };
+		75EDCF252DA41B4F007DDE41 /* SlideConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideConfig.swift; sourceTree = "<group>"; };
+		75EDCF272DA41B5A007DDE41 /* SlideToConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToConfirmView.swift; sourceTree = "<group>"; };
 		75F341A02D81041200B11355 /* StoreKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitService.swift; sourceTree = "<group>"; };
 		75F341A22D81041E00B11355 /* StoreKitServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitServiceMock.swift; sourceTree = "<group>"; };
 		75F341A42D81045400B11355 /* StoreKitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitModels.swift; sourceTree = "<group>"; };
@@ -610,6 +614,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				75EDCF222DA41B36007DDE41 /* NewSlideButton */,
 				75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */,
 				75A117BD2D62FBCC003011CA /* RelativeBarView.swift */,
 				75363B2C2D59765C00FDC4ED /* Common */,
@@ -1052,6 +1057,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		75EDCF222DA41B36007DDE41 /* NewSlideButton */ = {
+			isa = PBXGroup;
+			children = (
+				75EDCF252DA41B4F007DDE41 /* SlideConfig.swift */,
+				75EDCF272DA41B5A007DDE41 /* SlideToConfirmView.swift */,
+			);
+			path = NewSlideButton;
+			sourceTree = "<group>";
+		};
 		75F7897A2D89199900FEBED8 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -1215,6 +1229,7 @@
 				75BA2D442C0E79600089B70F /* ScratcherView.swift in Sources */,
 				7561DE752D3574E300F01C67 /* NewScrollBannerView.swift in Sources */,
 				75421A582C8EAC120078A36E /* TimelineView.swift in Sources */,
+				75EDCF262DA41B53007DDE41 /* SlideConfig.swift in Sources */,
 				75F341A52D81045600B11355 /* StoreKitModels.swift in Sources */,
 				757190502C120F4400989D41 /* SampleScrollAnimationView.swift in Sources */,
 				75718F8B2C120A2500989D41 /* SegmentedControlView.swift in Sources */,
@@ -1265,6 +1280,7 @@
 				7578B1552C41F77A006F07E7 /* EnvironmentService.swift in Sources */,
 				7578B27F2C3057D1006BE789 /* SwiftUIView.swift in Sources */,
 				7571900D2C120BF500989D41 /* Toast.swift in Sources */,
+				75EDCF282DA41B5D007DDE41 /* SlideToConfirmView.swift in Sources */,
 				7571900E2C120BF500989D41 /* ToastView.swift in Sources */,
 				7580B1502C12BF8A0029EF84 /* TypewriterContentView.swift in Sources */,
 				7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */,
