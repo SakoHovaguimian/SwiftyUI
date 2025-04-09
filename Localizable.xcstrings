@@ -1,0 +1,327 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    " embedded in custom text." : {
+
+    },
+    "@%@" : {
+
+    },
+    "%lf" : {
+
+    },
+    "%lld" : {
+
+    },
+    "%lld steps left" : {
+
+    },
+    "%lld. %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld. %2$@"
+          }
+        }
+      }
+    },
+    "%lld%%" : {
+
+    },
+    "❄️" : {
+
+    },
+    "123123" : {
+
+    },
+    "Add Item" : {
+
+    },
+    "Add new Reminder" : {
+
+    },
+    "Airplane mode" : {
+
+    },
+    "Animate" : {
+
+    },
+    "Ball Position: %@" : {
+
+    },
+    "Blur Text Animation" : {
+
+    },
+    "BUTTON" : {
+
+    },
+    "Button 4" : {
+
+    },
+    "Card" : {
+
+    },
+    "Click Me" : {
+
+    },
+    "Current Env" : {
+
+    },
+    "Current Page Index: %lld" : {
+
+    },
+    "Debouncer Demo" : {
+
+    },
+    "Describe yourself" : {
+
+    },
+    "Design System Theme" : {
+
+    },
+    "Detect due dates in tasks automatically" : {
+
+    },
+    "Email" : {
+
+    },
+    "Enter Something" : {
+
+    },
+    "Error: %@" : {
+
+    },
+    "Expanded Card List" : {
+
+    },
+    "Father of 2 year old Leon" : {
+
+    },
+    "Full Name" : {
+
+    },
+    "Go" : {
+
+    },
+    "Have you tried turning it %@?" : {
+
+    },
+    "Hello, World!" : {
+
+    },
+    "Home" : {
+
+    },
+    "Home Page Title" : {
+
+    },
+    "Index" : {
+
+    },
+    "Is Locked" : {
+
+    },
+    "isOn" : {
+
+    },
+    "Items" : {
+
+    },
+    "Log Type" : {
+
+    },
+    "My Button" : {
+
+    },
+    "My Values" : {
+
+    },
+    "Next path" : {
+
+    },
+    "Next Step" : {
+
+    },
+    "Offset: %lf" : {
+
+    },
+    "Oh no!" : {
+
+    },
+    "OK" : {
+
+    },
+    "OP" : {
+
+    },
+    "Order" : {
+
+    },
+    "OTHER TEXT" : {
+
+    },
+    "password" : {
+
+    },
+    "Password" : {
+
+    },
+    "Population" : {
+
+    },
+    "Postcard for Mia" : {
+
+    },
+    "Randomize Progress" : {
+
+    },
+    "Restore Purchases" : {
+
+    },
+    "Ripple Transition" : {
+
+    },
+    "Sako's Hovaguimian" : {
+
+    },
+    "Scroll For Hue Rotation" : {
+
+    },
+    "Search Conversations" : {
+
+    },
+    "Seleted Loan Type: %@" : {
+
+    },
+    "Seleted Pokemon: %@" : {
+
+    },
+    "Send" : {
+
+    },
+    "Send daily reminder" : {
+
+    },
+    "Send money" : {
+
+    },
+    "Sending %lld" : {
+
+    },
+    "Settings" : {
+
+    },
+    "Slide To Confirm" : {
+
+    },
+    "Slide to unlock" : {
+
+    },
+    "Some bio for the user" : {
+
+    },
+    "Some Card Info" : {
+
+    },
+    "SOME SPACING MESSAGE" : {
+
+    },
+    "SomeTest" : {
+
+    },
+    "Start typing" : {
+
+    },
+    "Subscribe" : {
+
+    },
+    "Subscriptions" : {
+
+    },
+    "Subtract Progress" : {
+
+    },
+    "Sync tasks in real time" : {
+
+    },
+    "Sync tasks in real-time" : {
+
+    },
+    "Tap Anywhere to Animate" : {
+
+    },
+    "Tap Me" : {
+
+    },
+    "Tap To Twirl" : {
+
+    },
+    "Test Title" : {
+
+    },
+    "test.something" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This is a really strong reference string to use later"
+          }
+        }
+      }
+    },
+    "This is a " : {
+
+    },
+    "This is a description..." : {
+
+    },
+    "This is a test body" : {
+
+    },
+    "Toggle notifications" : {
+
+    },
+    "Toggle SideBar" : {
+
+    },
+    "Toggle Theme" : {
+
+    },
+    "Total Count" : {
+
+    },
+    "Type" : {
+
+    },
+    "Type something..." : {
+
+    },
+    "Update Progress" : {
+
+    },
+    "Welcome Sako" : {
+
+    },
+    "Woah" : {
+
+    },
+    "Words" : {
+
+    },
+    "You cannot intersect events!" : {
+
+    },
+    "You have selected %@" : {
+
+    },
+    "Your Height" : {
+
+    }
+  },
+  "version" : "1.0"
+}
