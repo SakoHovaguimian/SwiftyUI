@@ -11,6 +11,14 @@ import SwiftUI
 
 struct VerticalTimelineView: View {
     
+    struct Animatable {
+        
+        var circle: Double
+        var line: Double
+        var pulse: Bool
+        
+    }
+    
     struct Item: Equatable, Identifiable {
         
         let id: String = UUID().uuidString
@@ -19,21 +27,15 @@ struct VerticalTimelineView: View {
         
     }
     
-    enum Axis {
-        
-        case horizontal
-        case vertical
-        
-    }
-    
     @State var items: [Item]
     @State var currentIndex: Int = -1
-    @State var axis: Axis = .horizontal
-    @State var iconSize: CGFloat = 36
-    @State var lineWidth: CGFloat = 2
-    @State var inactiveColor: Color = Color.gray
-    @State var activeColor: Color = Color.blue
-    @State var itemProgresses: [String: (circle: Double, line: Double, pulse: Bool)] = [:]
+    
+    @State var itemProgresses: [String: Animatable] = [:]
+    
+    var iconSize: CGFloat = 32
+    var lineWidth: CGFloat = 2
+    var inactiveColor: Color = Color.gray
+    var activeColor: Color = Color.blue
         
     var body: some View {
         
@@ -86,6 +88,7 @@ struct VerticalTimelineView: View {
                             progress: itemProgresses[item.id]?.circle ?? 0,
                             inactiveColor: self.inactiveColor,
                             activeColor: self.activeColor,
+                            iconSize: self.iconSize / 2,
                             shouldPulse: itemProgresses[item.id]?.pulse ?? false
                         )
                         .frame(width: self.iconSize, height: self.iconSize)
@@ -95,6 +98,8 @@ struct VerticalTimelineView: View {
                             VStack {
                                 
                                 Text(title)
+                                    .fontWeight(itemProgresses[item.id]?.circle == 1 ? .bold : nil)
+                                    .fontDesign(.monospaced)
                                     .frame(maxWidth: .infinity, alignment: .leading)
                                 
                             }
@@ -102,7 +107,6 @@ struct VerticalTimelineView: View {
                         }
                         
                     }
-                    
                     
                     if index < items.count - 1 {
                         
@@ -145,7 +149,13 @@ struct VerticalTimelineView: View {
     func initializeProgresses() {
         
         for item in items {
-            itemProgresses[item.id] = (circle: 0, line: 0, pulse: false)
+            
+            itemProgresses[item.id] = Animatable(
+                circle: 0,
+                line: 0,
+                pulse: false
+            )
+            
         }
         
     }

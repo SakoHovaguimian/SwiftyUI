@@ -786,8 +786,11 @@
 		7571904C2C120F0D00989D41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				75718F8D2C120AA300989D41 /* SideMenu.swift */,
+				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
 				75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */,
+				757190062C120B9900989D41 /* Camera */,
+				75421A562C8EAB850078A36E /* TimelineView */,
+				75718F8D2C120AA300989D41 /* SideMenu.swift */,
 				750B1B572CA8902C007F93E2 /* GestureFillView.swift */,
 				75971A702D9C2E6C007F6E52 /* CodeInputView.swift */,
 				751B4D632C93EDE6006239EC /* RichText.swift */,
@@ -796,7 +799,6 @@
 				7571904F2C120F4100989D41 /* SampleScrollAnimationView.swift */,
 				757190512C120F7900989D41 /* ColorDemoView.swift */,
 				753FD85B2C0E896C00C20D1A /* IconAnimation.swift */,
-				757190062C120B9900989D41 /* Camera */,
 				756C9B2A2C1207D900E438D6 /* Animations */,
 				7580B1512C12BFA90029EF84 /* Typewriter */,
 				756C9B2C2C1207F000E438D6 /* Random */,
@@ -849,13 +851,11 @@
 			isa = PBXGroup;
 			children = (
 				75DC79382D760CA1006F3EBE /* Animations */,
-				75421A562C8EAB850078A36E /* TimelineView */,
 				756F46422C2BD14000D14425 /* GentlePath Ideas */,
 				75BA2D112C0E781C0089B70F /* Components */,
 				7571904C2C120F0D00989D41 /* Views */,
 				757382C42CA88B00007ACA27 /* RatingView.swift */,
 				758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */,
-				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
 				75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */,
 				7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */,
 				75F8BADD2CDE924F00A05C74 /* Shimmer.swift */,

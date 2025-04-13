@@ -62,13 +62,15 @@ struct HorizontalTimelineView: View {
                     
                     VStack {
                         
-                        Image(systemName: "checkmark.circle.fill")
-                            .resizable()
-                            .frame(width: self.iconSize, height: self.iconSize)
-                            .foregroundStyle(self.activeColor)
-                            .scaleEffect(shouldHighlight ? 1 : 0)
-//                            .offset(y: shouldHighlight ? 0 : 30)
-                            .opacity(shouldHighlight ? 1 : 0)
+                        if shouldHighlight {
+                         
+                            Image(systemName: "checkmark.circle.fill")
+                                .resizable()
+                                .frame(width: self.iconSize, height: self.iconSize)
+                                .foregroundStyle(self.activeColor)
+                                .transition(.blurReplace(.downUp))
+                            
+                        }
                         
                     }
                     
