@@ -24,7 +24,7 @@ struct StringViewTest: View {
         textView(StringSource.transform(
             camelCasedText,
             from: .camelCase,
-            to: .kebabCase
+            to: .sentenceCase
         ))
         
         let localizableGame = StringSource.localized(fromFile: "Localizable", key: "test.something")
@@ -38,6 +38,8 @@ struct StringViewTest: View {
                 .foregroundStyle(.brandPink)
                 .bold()
                 .monospaced()
+            
+            Text(" [google.com](https://google.com)")
             
         }
         

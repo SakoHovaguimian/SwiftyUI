@@ -613,14 +613,6 @@
 			name = Toggles;
 			sourceTree = "<group>";
 		};
-		75718F8E2C120AA300989D41 /* Sidebar */ = {
-			isa = PBXGroup;
-			children = (
-				75718F8D2C120AA300989D41 /* SideMenu.swift */,
-			);
-			path = Sidebar;
-			sourceTree = "<group>";
-		};
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -633,7 +625,6 @@
 				754BE1F62D80FC8F00C20CF7 /* StoreKit */,
 				75F7897A2D89199900FEBED8 /* UserDefaults */,
 				75788DCC2D9701F500209727 /* Cache */,
-				75788DD92D97058500209727 /* Modern Views */,
 				7540F7B72C18F0CF007DC97F /* iOS 18 */,
 				7571905D2C1212FF00989D41 /* Need To Organize */,
 			);
@@ -741,7 +732,7 @@
 				7551B86A2C2E29400003A0F8 /* ProgressBars */,
 			);
 			name = Base;
-			path = ../../Base;
+			path = ../../../UI/Base;
 			sourceTree = "<group>";
 		};
 		757190022C120B9900989D41 /* Toast */ = {
@@ -785,6 +776,7 @@
 		7571902D2C120CA600989D41 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				75788DD92D97058500209727 /* Modern Views */,
 				7571902F2C120CAD00989D41 /* KeyboardManager.swift */,
 				7571902E2C120CAD00989D41 /* ThemeManager.swift */,
 			);
@@ -794,7 +786,9 @@
 		7571904C2C120F0D00989D41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				75718F8D2C120AA300989D41 /* SideMenu.swift */,
 				75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */,
+				750B1B572CA8902C007F93E2 /* GestureFillView.swift */,
 				75971A702D9C2E6C007F6E52 /* CodeInputView.swift */,
 				751B4D632C93EDE6006239EC /* RichText.swift */,
 				75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */,
@@ -802,7 +796,6 @@
 				7571904F2C120F4100989D41 /* SampleScrollAnimationView.swift */,
 				757190512C120F7900989D41 /* ColorDemoView.swift */,
 				753FD85B2C0E896C00C20D1A /* IconAnimation.swift */,
-				75718F8E2C120AA300989D41 /* Sidebar */,
 				757190062C120B9900989D41 /* Camera */,
 				756C9B2A2C1207D900E438D6 /* Animations */,
 				7580B1512C12BFA90029EF84 /* Typewriter */,
@@ -865,7 +858,6 @@
 				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
 				75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */,
 				7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */,
-				750B1B572CA8902C007F93E2 /* GestureFillView.swift */,
 				75F8BADD2CDE924F00A05C74 /* Shimmer.swift */,
 				751CBB452D8A10CC00C89EAC /* ButtonAnimationState.swift */,
 				7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */,
