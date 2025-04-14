@@ -122,7 +122,7 @@ struct HorizontalTimelineView: View {
             }
             
         }
-        .animation(.smooth(duration: self.animationDuration + 0.3), value: self.currentStep)
+        .animation(.smooth(duration: self.animationDuration + 0.3), value: self.current)
         
     }
     
