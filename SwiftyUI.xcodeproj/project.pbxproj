@@ -182,6 +182,7 @@
 		75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */; };
 		75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */; };
 		75D8B34F2CE5487800681141 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B34E2CE5487800681141 /* PulseAnimation.swift */; };
+		75D8E9992DAE0BA300D63239 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8E9982DAE0B9F00D63239 /* Github.swift */; };
 		75DDAA4D2D6F68AE0014DEB5 /* CalendarClone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */; };
 		75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E29E442D24AB140074DCD8 /* Snowfall.swift */; };
 		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
@@ -397,6 +398,7 @@
 		75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBannerView.swift; sourceTree = "<group>"; };
 		75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTestView.swift; sourceTree = "<group>"; };
 		75D8B34E2CE5487800681141 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
+		75D8E9982DAE0B9F00D63239 /* Github.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
 		75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarClone.swift; sourceTree = "<group>"; };
 		75E29E442D24AB140074DCD8 /* Snowfall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowfall.swift; sourceTree = "<group>"; };
 		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 		75718FD12C120B3B00989D41 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				75D8E9982DAE0B9F00D63239 /* Github.swift */,
 				75A326B42DA72DCE00CA6B46 /* StringSource */,
 				75EDCF222DA41B36007DDE41 /* NewSlideButton */,
 				75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */,
@@ -1361,6 +1364,7 @@
 				7578B15A2C41F7EC006F07E7 /* HomeViewModel.swift in Sources */,
 				7537DA6E2D6967FF0050F0CE /* SexyTransition.swift in Sources */,
 				757190232C120C1100989D41 /* AppSpacing.swift in Sources */,
+				75D8E9992DAE0BA300D63239 /* Github.swift in Sources */,
 				757190242C120C1100989D41 /* AppShadow.swift in Sources */,
 				75363B2E2D59766200FDC4ED /* CommonSelectionSheet.swift in Sources */,
 				757190252C120C1100989D41 /* AppFont.swift in Sources */,
