@@ -180,6 +180,7 @@
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 		75D1A7E52D7A8A3E0025C5EC /* BottomTransitionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */; };
 		75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */; };
+		75D671352DB0188A006457F1 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D671342DB0188A006457F1 /* Stack.swift */; };
 		75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */; };
 		75D8B34F2CE5487800681141 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B34E2CE5487800681141 /* PulseAnimation.swift */; };
 		75D8E9992DAE0BA300D63239 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8E9982DAE0B9F00D63239 /* Github.swift */; };
@@ -396,6 +397,7 @@
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 		75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTransitionTest.swift; sourceTree = "<group>"; };
 		75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBannerView.swift; sourceTree = "<group>"; };
+		75D671342DB0188A006457F1 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTestView.swift; sourceTree = "<group>"; };
 		75D8B34E2CE5487800681141 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
 		75D8E9982DAE0B9F00D63239 /* Github.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
@@ -791,6 +793,7 @@
 		7571904C2C120F0D00989D41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				75D671342DB0188A006457F1 /* Stack.swift */,
 				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
 				75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */,
 				757190062C120B9900989D41 /* Camera */,
@@ -1340,6 +1343,7 @@
 				7571903E2C120CE600989D41 /* PlainList.swift in Sources */,
 				7571903F2C120CE600989D41 /* CenterIconStyle.swift in Sources */,
 				752563FE2D14C0D0009AFC34 /* IconAnimationTest.swift in Sources */,
+				75D671352DB0188A006457F1 /* Stack.swift in Sources */,
 				757190472C120E7900989D41 /* OrientationChangeModifier.swift in Sources */,
 				7578B1512C41F76A006F07E7 /* ViewModelAssembly.swift in Sources */,
 				7578B1532C41F772006F07E7 /* APIService.swift in Sources */,

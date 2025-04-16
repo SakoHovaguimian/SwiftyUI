@@ -117,8 +117,7 @@ public struct ContributionChartView: View {
             
             guard let firstDayOfMonth = calendar.date(from: components),
                   let addedMonthStart = calendar.date(byAdding: .month, value: 1, to: firstDayOfMonth),
-                  let lastDayOfMonth = calendar.date(byAdding: .day, value: -1, to: addedMonthStart),
-                  let range = calendar.range(of: .day, in: .month, for: firstDayOfMonth) else {
+                  let lastDayOfMonth = calendar.date(byAdding: .day, value: -1, to: addedMonthStart) else {
                 
                 return (now, now)
                 
@@ -196,7 +195,7 @@ public struct ContributionChartView: View {
             "2025-07-16": 9,
             "2025-12-31": 1
         ],
-        style: .year,
+        style: .currentMonth,
         cellSize: 28
     )
     .frame(maxWidth: .infinity)
