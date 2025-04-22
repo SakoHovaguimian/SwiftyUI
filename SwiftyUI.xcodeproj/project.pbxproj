@@ -137,6 +137,7 @@
 		7580B0AC2C12BF8A0029EF84 /* TypewriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580AFEB2C12BF890029EF84 /* TypewriterView.swift */; };
 		7580B1502C12BF8A0029EF84 /* TypewriterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */; };
 		758421AD2D010694007A9F6E /* ProgressIndicatorNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */; };
+		759206F82DB14B8B00E53B72 /* MentionPickerView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759206F72DB14B8B00E53B72 /* MentionPickerView2.swift */; };
 		75971A712D9C2E70007F6E52 /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75971A702D9C2E6C007F6E52 /* CodeInputView.swift */; };
 		7597E66C2D63E1B50056AAC2 /* MatchedGeoView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7597E66B2D63E1B00056AAC2 /* MatchedGeoView2.swift */; };
 		7597E8F22D8268F600C9334F /* CustomAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */; };
@@ -176,7 +177,6 @@
 		75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2675A2C78EC720064EA6B /* DropDownTextField.swift */; };
 		75C2A02D2D597BC400E5B328 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A02C2D597BC400E5B328 /* Selectable.swift */; };
 		75C5F8A42CFE4433003446CC /* AnimatedIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */; };
-		75C641D42CD56CCC00CDD777 /* MentionPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C641D32CD56CCC00CDD777 /* MentionPickerView.swift */; };
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 		75D1A7E52D7A8A3E0025C5EC /* BottomTransitionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */; };
 		75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */; };
@@ -351,6 +351,7 @@
 		7580AFEB2C12BF890029EF84 /* TypewriterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterView.swift; sourceTree = "<group>"; };
 		7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterContentView.swift; sourceTree = "<group>"; };
 		758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorNew.swift; sourceTree = "<group>"; };
+		759206F72DB14B8B00E53B72 /* MentionPickerView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentionPickerView2.swift; sourceTree = "<group>"; };
 		75971A702D9C2E6C007F6E52 /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
 		7597E66B2D63E1B00056AAC2 /* MatchedGeoView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoView2.swift; sourceTree = "<group>"; };
 		7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationTest.swift; sourceTree = "<group>"; };
@@ -393,7 +394,6 @@
 		75C2675A2C78EC720064EA6B /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
 		75C2A02C2D597BC400E5B328 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedIntroView.swift; sourceTree = "<group>"; };
-		75C641D32CD56CCC00CDD777 /* MentionPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentionPickerView.swift; sourceTree = "<group>"; };
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 		75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTransitionTest.swift; sourceTree = "<group>"; };
 		75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBannerView.swift; sourceTree = "<group>"; };
@@ -627,6 +627,11 @@
 				75EDCF222DA41B36007DDE41 /* NewSlideButton */,
 				75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */,
 				75A117BD2D62FBCC003011CA /* RelativeBarView.swift */,
+				75D671342DB0188A006457F1 /* Stack.swift */,
+				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
+				75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */,
+				757190062C120B9900989D41 /* Camera */,
+				75421A562C8EAB850078A36E /* TimelineView */,
 				75363B2C2D59765C00FDC4ED /* Common */,
 				75A5F4732D95107E003A6632 /* StaggeredView */,
 				754BE1F62D80FC8F00C20CF7 /* StoreKit */,
@@ -739,7 +744,7 @@
 				7551B86A2C2E29400003A0F8 /* ProgressBars */,
 			);
 			name = Base;
-			path = ../../../UI/Base;
+			path = ../../UI/Base;
 			sourceTree = "<group>";
 		};
 		757190022C120B9900989D41 /* Toast */ = {
@@ -783,7 +788,6 @@
 		7571902D2C120CA600989D41 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				75788DD92D97058500209727 /* Modern Views */,
 				7571902F2C120CAD00989D41 /* KeyboardManager.swift */,
 				7571902E2C120CAD00989D41 /* ThemeManager.swift */,
 			);
@@ -793,11 +797,6 @@
 		7571904C2C120F0D00989D41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				75D671342DB0188A006457F1 /* Stack.swift */,
-				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
-				75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */,
-				757190062C120B9900989D41 /* Camera */,
-				75421A562C8EAB850078A36E /* TimelineView */,
 				75718F8D2C120AA300989D41 /* SideMenu.swift */,
 				750B1B572CA8902C007F93E2 /* GestureFillView.swift */,
 				75971A702D9C2E6C007F6E52 /* CodeInputView.swift */,
@@ -883,8 +882,8 @@
 				75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */,
 				75F430162CE5569E008484E6 /* AccelerometerBallView.swift */,
 				75D8B34E2CE5487800681141 /* PulseAnimation.swift */,
-				75C641D32CD56CCC00CDD777 /* MentionPickerView.swift */,
 				75F56E362CCA03270055A437 /* LogChartData.swift */,
+				759206F72DB14B8B00E53B72 /* MentionPickerView2.swift */,
 				75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */,
 				75A6DB752CB8290200055E0E /* TextBlurView.swift */,
 				75A6DB732CB8242E00055E0E /* FannedCarouselView.swift */,
@@ -1024,6 +1023,7 @@
 				751E5B7B2C1DE7F60065AC0A /* ViewModelTest.swift */,
 				75E0087D2C17B09B00A2F9BE /* Models */,
 				7571902D2C120CA600989D41 /* Managers */,
+				75788DD92D97058500209727 /* Modern Views */,
 				75718FD12C120B3B00989D41 /* UI */,
 				75718FD22C120B4D00989D41 /* ViewModifiers */,
 				75718FD32C120B5800989D41 /* Extensions */,
@@ -1313,7 +1313,6 @@
 				7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */,
 				757190562C1212B000989D41 /* HeightPicker.swift in Sources */,
 				7571900F2C120BF500989D41 /* ToastManager.swift in Sources */,
-				75C641D42CD56CCC00CDD777 /* MentionPickerView.swift in Sources */,
 				757190102C120BF500989D41 /* ToastViewModifier.swift in Sources */,
 				75F341A12D81041B00B11355 /* StoreKitService.swift in Sources */,
 				754BE1FA2D80FC9C00C20CF7 /* StoreKitProtocol.swift in Sources */,
@@ -1339,6 +1338,7 @@
 				757190522C120F7900989D41 /* ColorDemoView.swift in Sources */,
 				7541096A2DADA8BD00B2AE4B /* verticalScroll.swift in Sources */,
 				75F7897C2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift in Sources */,
+				759206F82DB14B8B00E53B72 /* MentionPickerView2.swift in Sources */,
 				7571903D2C120CE600989D41 /* asButton.swift in Sources */,
 				7571903E2C120CE600989D41 /* PlainList.swift in Sources */,
 				7571903F2C120CE600989D41 /* CenterIconStyle.swift in Sources */,

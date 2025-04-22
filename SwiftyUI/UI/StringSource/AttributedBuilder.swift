@@ -47,6 +47,13 @@ struct AttributedTextViewTest: View {
                 .underline()
             
             Text(" embedded in custom text.")
+            Text(" embedded in custom text.")
+            Text(" embedded in custom text.")
+            Text(" embedded in custom text.")
+            Text(" embedded in custom text.")
+            Text(" embedded in custom text.")
+            Text(" embedded in custom text.")
+            Text(" embedded in custom text.")
             
         }
         
