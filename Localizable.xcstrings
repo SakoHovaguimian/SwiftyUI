@@ -41,6 +41,9 @@
     "123123" : {
 
     },
+    "1231231231" : {
+
+    },
     "Add Item" : {
 
     },
@@ -105,6 +108,9 @@
 
     },
     "Full Name" : {
+
+    },
+    "Gauge" : {
 
     },
     "Go" : {
@@ -177,6 +183,9 @@
 
     },
     "Postcard for Mia" : {
+
+    },
+    "Random Value" : {
 
     },
     "Randomize Progress" : {
@@ -277,6 +286,9 @@
         }
       }
     },
+    "TEXT" : {
+
+    },
     "This is " : {
 
     },
@@ -311,6 +323,9 @@
 
     },
     "Words" : {
+
+    },
+    "WTF" : {
 
     },
     "You cannot intersect events!" : {
