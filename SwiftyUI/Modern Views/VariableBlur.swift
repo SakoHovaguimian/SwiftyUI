@@ -170,3 +170,205 @@ open class VariableBlurUIView: UIVisualEffectView {
         .cornerRadius(.medium)
     
 }
+
+#Preview {
+    
+    AppBaseView {
+        
+        ScrollView {
+            
+            Rectangle()
+                .fill(.darkBlue)
+                .frame(height: 400)
+            
+            Rectangle()
+                .fill(.mint)
+                .frame(height: 400)
+            
+            Rectangle()
+                .fill(.yellow)
+                .frame(height: 400)
+            
+        }
+        .safeAreaInset(edge: .bottom) {
+            
+            Text("Blur View")
+                .foregroundStyle(.black)
+                .frame(maxWidth: .infinity)
+                .padding(.top, 32)
+                .padding(.bottom, 120)
+                .background {
+                    
+                    LinearGradient(
+                        colors: [
+                            .indigo.opacity(1),
+                            .clear
+                        ],
+                        startPoint: .bottom,
+                        endPoint: .top
+                    )
+                    .blur(radius: 1)
+                    
+                }
+            
+        }
+        
+    }
+    .ignoresSafeArea()
+    
+}
+
+#Preview {
+    
+    VStack(alignment: .leading, spacing: 8) {
+        
+        BlurImageItemView(
+            title: "New Track #1",
+            image: Image(.image3)
+        )
+        
+        BlurImageItemView(
+            title: "New Track #2",
+            image: Image(.image2)
+        )
+        
+        BlurImageItemView(
+            title: "New Track #3",
+            image: Image(.image1)
+        )
+        
+        BlurImageItemView(
+            title: "New Track #4",
+            image: Image(.image4)
+        )
+        
+    }
+    
+}
+
+fileprivate struct BlurImageItemView: View {
+    
+    let title: String
+    let image: Image
+    
+    var body: some View {
+        
+        HStack {
+            
+            self.image
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(.extraSmall)
+                .frame(width: 120, height: 80)
+            
+            Text(self.title)
+                .appFont(with: .header(.h10))
+                .foregroundStyle(.white)
+            
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical, 8)
+        .padding(.horizontal, 8)
+        .backgroundImageBlur(self.image)
+        .cornerRadius(.small)
+        .padding(.horizontal, 32)
+        
+    }
+    
+}
+
+struct BackgroundImageBlurViewModifier: ViewModifier {
+    
+    let image: Image
+    let radius: CGFloat
+    
+    init(image: Image,
+         radius: CGFloat = 18) {
+        
+        self.image = image
+        self.radius = radius
+        
+    }
+    
+    func body(content: Content) -> some View {
+    
+        content
+            .background {
+                
+                self.image
+                    .resizable()
+                    .blur(radius: self.radius)
+                
+            }
+        
+    }
+    
+}
+
+extension View {
+    
+    public func backgroundImageBlur(_ image: Image,
+                                    radius: CGFloat = 18) -> some View {
+        
+        modifier(BackgroundImageBlurViewModifier(
+            image: image,
+            radius: radius
+        ))
+        
+    }
+}
+
+extension UIImage {
+    var averageColor: UIColor? {
+        guard let inputImage = CIImage(image: self) else { return nil }
+        let extentVector = CIVector(x: inputImage.extent.origin.x, y: inputImage.extent.origin.y, z: inputImage.extent.size.width, w: inputImage.extent.size.height)
+
+        guard let filter = CIFilter(name: "CIAreaAverage", parameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: extentVector]) else { return nil }
+        guard let outputImage = filter.outputImage else { return nil }
+
+        var bitmap = [UInt8](repeating: 0, count: 4)
+        let context = CIContext(options: [.workingColorSpace: kCFNull!])
+        context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: .RGBA8, colorSpace: nil)
+
+        return UIColor(red: CGFloat(bitmap[0]) / 255, green: CGFloat(bitmap[1]) / 255, blue: CGFloat(bitmap[2]) / 255, alpha: CGFloat(bitmap[3]) / 255)
+    }
+}
+
+// SwiftUI usage:
+struct VisionColorDemo: View {
+    
+    let uiImage: UIImage
+    @State private var dominant: Color = .clear
+
+    var body: some View {
+        
+        ZStack {
+            
+            dominant
+                .opacity(0.8)
+                .ignoresSafeArea()
+            
+            Image(uiImage: uiImage)
+                .resizable()
+                .scaledToFit()
+                .onAppear {
+                    
+                    if let color = uiImage.averageColor {
+                        dominant = Color(color)
+                    }
+                    
+                }
+                .cornerRadius(.medium)
+                .padding(.horizontal, .large)
+            
+        }
+        
+    }
+    
+}
+
+#Preview {
+    
+    VisionColorDemo(uiImage: UIImage(named: "image_1")!)
+    
+}

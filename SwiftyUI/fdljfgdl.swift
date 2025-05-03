@@ -15,33 +15,45 @@ struct pleaseWorkView: View {
         
         ZStack {
             
-            Color.red.ignoresSafeArea()
+            Color.cyan
+                .ignoresSafeArea()
             
             VStack {
-                
-                Text("1231231231")
-                    .asButton {
-                        
-                        if items.count > 3 {
-                            print(dump(items))
-                        }
-                        
-                        print(items.count)
-                        items.append("\(Int.random(in: 0...1000))")
-                        
-                    }
-                
-                ForEach(Array(items.enumerated()), id: \.element) { index, item in
-                    
-                    Text("WTF")
-                    TextField("TEXT", text: $items[index])
-                        .background(.blue)
-                    
-                }
-                
+
+                button()
+                list()
+
             }
             
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            
+        }
+        
+    }
+    
+    private func button() -> some View {
+        
+        Text("Fake Button")
+            .asButton {
+                
+                if items.count > 3 {
+                    print(dump(items))
+                }
+                
+                print(items.count)
+                items.append("\(Int.random(in: 0...1000))")
+                
+            }
+        
+    }
+    
+    private func list() -> some View {
+        
+        
+        ForEach(Array(items.enumerated()), id: \.element) { index, item in
+
+            TextField("TEXT", text: $items[index])
+                .background(.blue)
             
         }
         
