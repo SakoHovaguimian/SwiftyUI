@@ -140,6 +140,9 @@
     "isOn" : {
 
     },
+    "Item %lld" : {
+
+    },
     "Items" : {
 
     },
@@ -188,10 +191,19 @@
     "Postcard for Mia" : {
 
     },
+    "Pull to refresh" : {
+
+    },
     "Random Value" : {
 
     },
     "Randomize Progress" : {
+
+    },
+    "Refreshing..." : {
+
+    },
+    "Release to refresh" : {
 
     },
     "Restore Purchases" : {
