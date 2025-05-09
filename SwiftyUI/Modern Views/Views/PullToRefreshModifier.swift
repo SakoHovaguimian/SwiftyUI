@@ -34,7 +34,7 @@ struct PullToRefreshModifier: ViewModifier {
             }
             
             content
-                .safeAreaPadding(.top, self.isRefreshing ? self.threshold / 2 : 0)
+                .contentMargins(.top, self.isRefreshing ? self.contentOffset : 0)
             
         }
         .onScrollGeometryChange(for: CGFloat.self) { geo in
@@ -48,7 +48,7 @@ struct PullToRefreshModifier: ViewModifier {
             }
             
             if self.offset > self.threshold {
-                handleRefreshTrigger(newValue: newValue)
+                handleRefreshTrigger(newValue: self.offset)
             }
             
         }
@@ -62,7 +62,7 @@ struct PullToRefreshModifier: ViewModifier {
         withAnimation(.smooth(duration: 0.3)) {
             
             self.offset = refreshTriggerOffset
-            self.contentOffset = refreshTriggerOffset
+            self.contentOffset = refreshTriggerOffset + (refreshTriggerOffset / 2)
             self.isRefreshing = true
             onRefresh()
             
@@ -79,17 +79,17 @@ struct PullToRefreshModifier: ViewModifier {
                 return AnyView(
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle())
-                        .frame(width: 24, height: 24)
-                        .padding(.bottom, 8)
+                        .frame(width: 32, height: 32)
                         .transition(.opacity)
                 )
                 
             case .arrow:
                 return AnyView(
                     Image(systemName: isRefreshing ? "arrow.2.circlepath" : "arrow.down")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
                         .rotationEffect(.degrees(offset >= threshold ? 180 : 0))
-                        .padding(.bottom, 8)
-                        .frame(width: 24, height: 24)
+                        .frame(width: 32, height: 32)
                         .transition(.opacity)
                 )
                 
@@ -281,15 +281,15 @@ struct PullToRefreshExample: View {
             .customPullToRefresh(
                 offset: $pullOffset,
                 isRefreshing: $isRefreshing,
-                threshold: 100,
-                refreshTriggerOffset: 50,
-//                refreshIndicator: .custom(
-//                    CustomRefreshIndicator(
-//                        progress: .init(get: { min(pullOffset / 80, 1.0) }, set: { _ in }),
-//                        isRefreshing: isRefreshing
-//                    )
-//                ),
-                refreshIndicator: .arrow,
+                threshold: 85,
+                refreshTriggerOffset: 24,
+                refreshIndicator: .custom(
+                    CustomRefreshIndicator(
+                        progress: .init(get: { min(pullOffset / 80, 1.0) }, set: { _ in }),
+                        isRefreshing: isRefreshing
+                    )
+                ),
+//                refreshIndicator: .arrow,
                 onRefresh: {
                     
                     // Simulate network request
