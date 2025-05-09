@@ -7,30 +7,69 @@
 
 import SwiftUI
 
-struct PullToRefreshModifier: ViewModifier {
+public struct PullToRefreshModifier: ViewModifier {
+    
+    public enum RefreshStyle {
+        
+        case sticky
+        case offset
+        
+    }
+    
+    public enum RefreshIndicatorType {
+        
+        case system
+        case arrow
+        case custom(AnyView)
+        
+        static func custom<T: View>(_ view: T) -> RefreshIndicatorType {
+            RefreshIndicatorType.custom(AnyView(view))
+        }
+        
+    }
         
     @Binding var offset: CGFloat
     @Binding var isRefreshing: Bool
     
     @State private var contentOffset: CGFloat = 0
+    @State private var refreshIndicatorSize: CGSize = .zero
     
-    var threshold: CGFloat
-    var refreshTriggerOffset: CGFloat
-    var refreshIndicator: RefreshIndicatorType
-    var onRefresh: () -> Void
-    var onRefreshCompleted: (() -> Void)?
-            
-    func body(content: Content) -> some View {
+    private var threshold: CGFloat
+    private var refreshIndicator: RefreshIndicatorType
+    private var refreshStyle: RefreshStyle
+    private var onRefresh: () -> Void
+    private var onRefreshCompleted: (() -> Void)?
+    
+    private var progress: CGFloat {
+        return min(offset / threshold, 1.0)
+    }
+    
+    public init(offset: Binding<CGFloat>,
+                isRefreshing: Binding<Bool>,
+                threshold: CGFloat,
+                refreshIndicator: RefreshIndicatorType,
+                refreshStyle: RefreshStyle = .sticky,
+                onRefresh: @escaping () -> Void,
+                onRefreshCompleted: (() -> Void)? = nil) {
+        
+        self._offset = offset
+        self._isRefreshing = isRefreshing
+        
+        self.threshold = threshold
+        self.refreshIndicator = refreshIndicator
+        self.refreshStyle = refreshStyle
+        
+        self.onRefresh = onRefresh
+        self.onRefreshCompleted = onRefreshCompleted
+        
+    }
+    
+    public func body(content: Content) -> some View {
         
         ZStack(alignment: .top) {
             
             if self.offset > 0 || self.isRefreshing {
-                
                 self.refreshIndicatorView
-                    .offset(y: computeIndicatorOffset())
-                    .opacity(computeIndicatorOpacity())
-                    .zIndex(1)
-                
             }
             
             content
@@ -38,9 +77,7 @@ struct PullToRefreshModifier: ViewModifier {
             
         }
         .onScrollGeometryChange(for: CGFloat.self) { geo in
-            
-            return -CGFloat(geo.contentOffset.y + geo.contentInsets.top + 32)
-            
+            return -CGFloat(geo.contentOffset.y + geo.contentInsets.top + 12)
         } action: { oldValue, newValue in
             
             withAnimation(.smooth(duration: 0.3)) {
@@ -50,21 +87,6 @@ struct PullToRefreshModifier: ViewModifier {
             if self.offset > self.threshold {
                 handleRefreshTrigger(newValue: self.offset)
             }
-            
-        }
-        
-    }
-    
-    // MARK: - Private Methods
-    
-    private func handleRefreshTrigger(newValue: CGFloat) {
-        
-        withAnimation(.smooth(duration: 0.3)) {
-            
-            self.offset = refreshTriggerOffset
-            self.contentOffset = refreshTriggerOffset + (refreshTriggerOffset / 2)
-            self.isRefreshing = true
-            onRefresh()
             
         }
         
@@ -85,12 +107,36 @@ struct PullToRefreshModifier: ViewModifier {
                 
             case .arrow:
                 return AnyView(
-                    Image(systemName: isRefreshing ? "arrow.2.circlepath" : "arrow.down")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .rotationEffect(.degrees(offset >= threshold ? 180 : 0))
-                        .frame(width: 32, height: 32)
-                        .transition(.opacity)
+                    Group {
+                        
+                        if isRefreshing {
+                            
+                            ProgressView()
+                                .controlSize(.large)
+                                .padding(8)
+                                .background(
+                                    .gray.opacity(0.15),
+                                    in: .rect(cornerRadius: 12)
+                                )
+                                .transition(.opacity)
+                            
+                        } else {
+                            
+                            Image(systemName: "arrow.down")
+                                .aspectRatio(contentMode: .fit)
+                                .rotationEffect(.degrees(progress >= 0.80 ? 540 : 0))
+//                                .rotationEffect(.degrees(progress * 500))
+                                .transition(.opacity)
+                                .padding(16)
+                                .background(
+                                    .gray.opacity(0.15),
+                                    in: .rect(cornerRadius: 12)
+                                )
+                                .transition(.opacity)
+                            
+                        }
+                        
+                    }
                 )
                 
             case .custom(let view):
@@ -98,19 +144,49 @@ struct PullToRefreshModifier: ViewModifier {
             }
             
         }
+        .offset(y: computeIndicatorOffset())
+        .opacity(computeIndicatorOpacity())
+        .zIndex(1)
+        .onGeometryChange(for: CGSize.self) { geo in
+            return geo.size
+        } action: { newValue in
+            self.refreshIndicatorSize = newValue
+        }
+        
+    }
+    
+    // MARK: - Private Methods
+    
+    private func handleRefreshTrigger(newValue: CGFloat) {
+        
+        withAnimation(.smooth(duration: 0.3)) {
+                        
+            let minContentOffset: CGFloat = 50
+            let dynamicContentOffset: CGFloat = self.refreshIndicatorSize.height
+            self.contentOffset = max(dynamicContentOffset, minContentOffset)
+            
+            self.isRefreshing = true
+            onRefresh()
+            
+        }
         
     }
     
     private func computeIndicatorOffset() -> CGFloat {
-        
-        // Offset is based on pull progress
-        
-        if isRefreshing {
-            return self.refreshTriggerOffset - 30
-        } else {
-            return max(0, self.offset - 30)
+                
+        switch self.refreshStyle {
+        case .sticky:
+            return 0
+            
+        case .offset:
+            
+            if isRefreshing {
+                return 0
+            } else {
+                return max(0, self.offset - 30)
+            }
         }
-        
+
     }
     
     private func computeIndicatorOpacity() -> Double {
@@ -127,20 +203,6 @@ struct PullToRefreshModifier: ViewModifier {
     
 }
 
-// MARK: - Refresh Indicator Type
-
-enum RefreshIndicatorType {
-    
-    case system
-    case arrow
-    case custom(AnyView)
-    
-    static func custom<T: View>(_ view: T) -> RefreshIndicatorType {
-        RefreshIndicatorType.custom(AnyView(view))
-    }
-    
-}
-
 // MARK: - View Extension
 
 extension View {
@@ -148,8 +210,8 @@ extension View {
     func customPullToRefresh(offset: Binding<CGFloat>,
                              isRefreshing: Binding<Bool>,
                              threshold: CGFloat = 100,
-                             refreshTriggerOffset: CGFloat = 100,
-                             refreshIndicator: RefreshIndicatorType = .system,
+                             refreshIndicator: PullToRefreshModifier.RefreshIndicatorType = .system,
+                             refreshStyle: PullToRefreshModifier.RefreshStyle = .sticky,
                              onRefresh: @escaping () -> Void,
                              onRefreshCompleted: (() -> Void)? = nil) -> some View {
         
@@ -157,8 +219,8 @@ extension View {
             offset: offset,
             isRefreshing: isRefreshing,
             threshold: threshold,
-            refreshTriggerOffset: refreshTriggerOffset,
             refreshIndicator: refreshIndicator,
+            refreshStyle: refreshStyle,
             onRefresh: onRefresh,
             onRefreshCompleted: onRefreshCompleted
         ))
@@ -208,43 +270,6 @@ extension View {
     
 }
 
-// MARK: - Custom Refresh Indicator Example
-
-struct CustomRefreshIndicator: View {
-    
-    @Binding var progress: CGFloat
-    var isRefreshing: Bool
-    
-    var body: some View {
-        
-        VStack(spacing: 4) {
-            
-            if isRefreshing {
-                
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle())
-                
-                Text("Refreshing...")
-                    .font(.caption)
-                
-            } else {
-                
-                Image(systemName: "arrow.down")
-                    .rotationEffect(.degrees(progress >= 1.0 ? 180 : 0))
-                    .animation(.easeOut, value: progress)
-                
-                Text(progress >= 1.0 ? "Release to refresh" : "Pull to refresh")
-                    .font(.caption)
-                
-            }
-            
-        }
-        .padding(.vertical, 8)
-        
-    }
-    
-}
-
 // MARK: - Example Usage
 
 struct PullToRefreshExample: View {
@@ -281,15 +306,9 @@ struct PullToRefreshExample: View {
             .customPullToRefresh(
                 offset: $pullOffset,
                 isRefreshing: $isRefreshing,
-                threshold: 85,
-                refreshTriggerOffset: 24,
-                refreshIndicator: .custom(
-                    CustomRefreshIndicator(
-                        progress: .init(get: { min(pullOffset / 80, 1.0) }, set: { _ in }),
-                        isRefreshing: isRefreshing
-                    )
-                ),
-//                refreshIndicator: .arrow,
+                threshold: 150,
+                refreshIndicator: .arrow,
+                refreshStyle: .sticky,
                 onRefresh: {
                     
                     // Simulate network request
@@ -313,13 +332,6 @@ struct PullToRefreshExample: View {
         
     }
     
-}
-
-// For demonstration purposes only - replace with your actual implementation
-extension Color {
-    static var systemBackground: Color {
-        return Color(UIColor.systemBackground)
-    }
 }
 
 #Preview {
