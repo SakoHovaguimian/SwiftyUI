@@ -462,7 +462,7 @@ struct ThemeApp: App {
         
         WindowGroup {
             
-            PullToRefreshExample()
+            PullToRefreshExample(style: .arrow)
 //
 //            VStack(spacing: theme.spacing(.medium)) {
 //                

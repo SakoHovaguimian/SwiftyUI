@@ -12,6 +12,10 @@
 		750B1B582CA89037007F93E2 /* GestureFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750B1B572CA8902C007F93E2 /* GestureFillView.swift */; };
 		751658B22DA7314C00549BF6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 751658B12DA7314C00549BF6 /* Localizable.xcstrings */; };
 		751658B42DA7368D00549BF6 /* AttributedBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751658B32DA7368A00549BF6 /* AttributedBuilder.swift */; };
+		751675AF2DD300DD002685C5 /* PullToRefreshModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751675AD2DD300DD002685C5 /* PullToRefreshModifier.swift */; };
+		751675B12DD3010C002685C5 /* RefreshIndicatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751675B02DD3010C002685C5 /* RefreshIndicatorType.swift */; };
+		751675B32DD3017B002685C5 /* PullToRefreshExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751675B22DD30178002685C5 /* PullToRefreshExampleView.swift */; };
+		751675B52DD301AD002685C5 /* Ext+PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751675B42DD301A7002685C5 /* Ext+PullToRefresh.swift */; };
 		7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751974192C8ABD0300173F15 /* VerticalTimelineView.swift */; };
 		751B4D642C93EDEE006239EC /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B4D632C93EDE6006239EC /* RichText.swift */; };
 		751CBB462D8A10D000C89EAC /* ButtonAnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CBB452D8A10CC00C89EAC /* ButtonAnimationState.swift */; };
@@ -184,7 +188,6 @@
 		75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */; };
 		75D671352DB0188A006457F1 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D671342DB0188A006457F1 /* Stack.swift */; };
 		75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */; };
-		75D6B89A2DCC42FA0093F736 /* PullToRefreshModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D6B8992DCC42FA0093F736 /* PullToRefreshModifier.swift */; };
 		75D8B34F2CE5487800681141 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B34E2CE5487800681141 /* PulseAnimation.swift */; };
 		75D8E9992DAE0BA300D63239 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8E9982DAE0B9F00D63239 /* Github.swift */; };
 		75DDAA4D2D6F68AE0014DEB5 /* CalendarClone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */; };
@@ -232,6 +235,10 @@
 		750B1B572CA8902C007F93E2 /* GestureFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureFillView.swift; sourceTree = "<group>"; };
 		751658B12DA7314C00549BF6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		751658B32DA7368A00549BF6 /* AttributedBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedBuilder.swift; sourceTree = "<group>"; };
+		751675AD2DD300DD002685C5 /* PullToRefreshModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshModifier.swift; sourceTree = "<group>"; };
+		751675B02DD3010C002685C5 /* RefreshIndicatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshIndicatorType.swift; sourceTree = "<group>"; };
+		751675B22DD30178002685C5 /* PullToRefreshExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshExampleView.swift; sourceTree = "<group>"; };
+		751675B42DD301A7002685C5 /* Ext+PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+PullToRefresh.swift"; sourceTree = "<group>"; };
 		751974192C8ABD0300173F15 /* VerticalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTimelineView.swift; sourceTree = "<group>"; };
 		751B4D632C93EDE6006239EC /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
 		751CBB452D8A10CC00C89EAC /* ButtonAnimationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimationState.swift; sourceTree = "<group>"; };
@@ -405,7 +412,6 @@
 		75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBannerView.swift; sourceTree = "<group>"; };
 		75D671342DB0188A006457F1 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTestView.swift; sourceTree = "<group>"; };
-		75D6B8992DCC42FA0093F736 /* PullToRefreshModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshModifier.swift; sourceTree = "<group>"; };
 		75D8B34E2CE5487800681141 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
 		75D8E9982DAE0B9F00D63239 /* Github.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
 		75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarClone.swift; sourceTree = "<group>"; };
@@ -484,6 +490,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		751675AE2DD300DD002685C5 /* PullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				751675B02DD3010C002685C5 /* RefreshIndicatorType.swift */,
+				751675AD2DD300DD002685C5 /* PullToRefreshModifier.swift */,
+				751675B22DD30178002685C5 /* PullToRefreshExampleView.swift */,
+				751675B42DD301A7002685C5 /* Ext+PullToRefresh.swift */,
+			);
+			path = PullToRefresh;
+			sourceTree = "<group>";
+		};
 		75363B2C2D59765C00FDC4ED /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1023,8 +1040,8 @@
 		75BA2CE32C0E780A0089B70F /* SwiftyUI */ = {
 			isa = PBXGroup;
 			children = (
+				751675AE2DD300DD002685C5 /* PullToRefresh */,
 				75B245E32DD2546200A0BFE0 /* SegmentedCircleView.swift */,
-				75D6B8992DCC42FA0093F736 /* PullToRefreshModifier.swift */,
 				75EF0DA22DCD399900650407 /* ConfettiViewNew.swift */,
 				75827EE92DB8761100132BD0 /* fdljfgdl.swift */,
 				75F4F57C2DA0BC5000C50895 /* ThemeType.swift */,
@@ -1274,6 +1291,7 @@
 				753116862C12C34A00C7FBF6 /* ToggleStyles.swift in Sources */,
 				750B1B3A2CA88ECF007F93E2 /* RatingView.swift in Sources */,
 				7571900B2C120BF100989D41 /* GPWebView.swift in Sources */,
+				751675B52DD301AD002685C5 /* Ext+PullToRefresh.swift in Sources */,
 				75BA2CE72C0E780A0089B70F /* ContentView.swift in Sources */,
 				75BA2D352C0E79600089B70F /* CustomToggle.swift in Sources */,
 				75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */,
@@ -1327,7 +1345,6 @@
 				7571900F2C120BF500989D41 /* ToastManager.swift in Sources */,
 				757190102C120BF500989D41 /* ToastViewModifier.swift in Sources */,
 				75F341A12D81041B00B11355 /* StoreKitService.swift in Sources */,
-				75D6B89A2DCC42FA0093F736 /* PullToRefreshModifier.swift in Sources */,
 				754BE1FA2D80FC9C00C20CF7 /* StoreKitProtocol.swift in Sources */,
 				75F4F57D2DA0BC5000C50895 /* ThemeType.swift in Sources */,
 				75A326B62DA72DF600CA6B46 /* StyleConverter.swift in Sources */,
@@ -1336,6 +1353,7 @@
 				75F81C432DBA892F00B1D87C /* Gauge.swift in Sources */,
 				75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */,
 				756F46442C2BD15200D14425 /* MessageView.swift in Sources */,
+				751675B12DD3010C002685C5 /* RefreshIndicatorType.swift in Sources */,
 				756A5F2A2D6846EE00082154 /* CommonButton.swift in Sources */,
 				753116662C12C22B00C7FBF6 /* AdaptiveGridView.swift in Sources */,
 				75C5F8A42CFE4433003446CC /* AnimatedIntroView.swift in Sources */,
@@ -1381,6 +1399,7 @@
 				75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */,
 				75A5F4772D9510E8003A6632 /* CustomStaggeredTransition.swift in Sources */,
 				757190222C120C1100989D41 /* CornerRadius.swift in Sources */,
+				751675B32DD3017B002685C5 /* PullToRefreshExampleView.swift in Sources */,
 				7578B15A2C41F7EC006F07E7 /* HomeViewModel.swift in Sources */,
 				7537DA6E2D6967FF0050F0CE /* SexyTransition.swift in Sources */,
 				757190232C120C1100989D41 /* AppSpacing.swift in Sources */,
@@ -1428,6 +1447,7 @@
 				7580AFEA2C12BF5F0029EF84 /* ChartView.swift in Sources */,
 				75A117C02D6303CD003011CA /* WStack.swift in Sources */,
 				75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */,
+				751675AF2DD300DD002685C5 /* PullToRefreshModifier.swift in Sources */,
 				75A117BE2D62FBD3003011CA /* RelativeBarView.swift in Sources */,
 				753FD85A2C0E859900C20D1A /* CustomEnvironment.swift in Sources */,
 				757190492C120E8E00989D41 /* ScrollViewWithOnScrollChanged.swift in Sources */,
