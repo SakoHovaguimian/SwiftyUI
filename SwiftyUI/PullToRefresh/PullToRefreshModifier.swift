@@ -126,7 +126,7 @@ public struct PullToRefreshModifier: ViewModifier {
             if isRefreshing {
                 return 0
             } else {
-                return max(0, self.offset - self.refreshIndicatorSize.height / 1.2)
+                return max(0, self.offset - self.refreshIndicatorSize.height)
             }
         }
 

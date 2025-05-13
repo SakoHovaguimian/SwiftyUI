@@ -45,8 +45,7 @@ public enum RefreshIndicatorType {
             SegmentedCirclePathView(
                 items: items,
                 lineWidth: lineWidth,
-                rotationAngle: .degrees(isRefreshing ? 3000 : offset),
-                animation: isRefreshing ? .smooth(duration: 2) : .smooth
+                rotationAngle: .degrees(isRefreshing ? 30000 : offset),
             )
             .frame(height: height)
             
@@ -65,17 +64,7 @@ fileprivate struct ArrowView: View {
     let isRefreshing: Bool
     
     var body: some View {
-        
-        Group {
-            
-            if self.isRefreshing {
-                loadingView()
-            } else {
-                scrollingView()
-            }
-            
-        }
-        
+        scrollingView()
     }
     
     private func scrollingView() -> some View {
@@ -86,14 +75,26 @@ fileprivate struct ArrowView: View {
                 .frame(width: 48)
                 .overlay {
                     
-                    Image(systemName: "arrow.down")
+                    Image(systemName: self.isRefreshing ? "progress.indicator" : "arrow.down")
+                        .contentTransition(.symbolEffect(.replace))
                         .aspectRatio(contentMode: .fit)
+                        .phaseAnimator([false, true], trigger: self.isRefreshing) { view, bool in
+                            view.rotationEffect(.degrees(bool ? 3000 : 0))
+                        } animation: { bool in
+                            return .bouncy(duration: 1)
+                        }
+                        .clipped()
                     
                 }
             
-            Text("Pull To Refresh")
-                .font(.caption)
-                .fontWeight(.semibold)
+            if !self.isRefreshing {
+                
+                Text("Pull to refresh")
+                    .font(.caption)
+                    .fontWeight(.semibold)
+                    .transition(.opacity)
+                
+            }
             
         }
         

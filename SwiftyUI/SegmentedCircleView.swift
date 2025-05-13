@@ -21,17 +21,14 @@ public struct SegmentedCirclePathView: View {
     let items: [Item]
     let lineWidth: CGFloat
     let rotationAngle: Angle
-    let animation: Animation
     
     public init(items: [Item],
                 lineWidth: CGFloat = 12,
-                rotationAngle: Angle = .degrees(-90),
-                animation: Animation = .smooth) {
+                rotationAngle: Angle = .degrees(-90)) {
         
         self.items = items
         self.lineWidth = lineWidth
         self.rotationAngle = rotationAngle
-        self.animation = animation
         
     }
     
@@ -100,9 +97,13 @@ public struct SegmentedCirclePathView: View {
             }
             
             // rotate so “0%” begins at 12‑o’clock
-            .rotationEffect(self.rotationAngle)
+            .phaseAnimator([false, true], trigger: self.rotationAngle) { view, bool in
+                view.rotationEffect(self.rotationAngle)
+            } animation: { bool in
+                return .bouncy(duration: 3)
+            }
+            
         }
-        .animation(self.animation, value: self.rotationAngle)
         
     }
     
