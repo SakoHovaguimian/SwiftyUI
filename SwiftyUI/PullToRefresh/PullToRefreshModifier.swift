@@ -25,11 +25,12 @@ public struct PullToRefreshModifier: ViewModifier {
     private var threshold: CGFloat
     private var refreshIndicator: RefreshIndicatorType
     private var refreshStyle: RefreshStyle
+    
     private var onRefresh: () -> Void
     private var onRefreshCompleted: (() -> Void)?
     
     private var progress: CGFloat {
-        return min(offset / threshold, 1.0)
+        return min(self.offset / self.threshold, 1.0)
     }
     
     public init(offset: Binding<CGFloat>,
@@ -57,13 +58,16 @@ public struct PullToRefreshModifier: ViewModifier {
         ZStack(alignment: .top) {
             
             if self.offset > 0 || self.isRefreshing {
-                
                 self.refreshIndicatorView
-                
             }
             
             content
                 .contentMargins(.top, self.isRefreshing ? self.contentOffset : 0)
+//                .transformEffect(
+//                    CGAffineTransform(
+//                        translationX: 0,
+//                        y: isRefreshing ? refreshIndicatorSize.height : 0)
+//                )
             
         }
         .onScrollGeometryChange(for: CGFloat.self) { geo in
@@ -89,21 +93,20 @@ public struct PullToRefreshModifier: ViewModifier {
         
         guard !self.isRefreshing else { return }
         
-        withAnimation(.smooth(duration: 0.3)) {
-            self.offset = value
-        }
-                    
-        if self.offset >= self.threshold {
+        self.offset = value
+        
+        let hitThreshold = self.offset >= self.threshold
+        if hitThreshold {
             handleRefreshTrigger(newValue: self.offset)
         }
         
     }
     
     private func handleRefreshTrigger(newValue: CGFloat) {
+    
+        self.contentOffset = self.refreshIndicatorSize.height
         
         withAnimation(.smooth(duration: 0.3)) {
-            
-            self.contentOffset = self.refreshIndicatorSize.height
             
             self.isRefreshing = true
             onRefresh()
@@ -157,7 +160,17 @@ public struct PullToRefreshModifier: ViewModifier {
         .onGeometryChange(for: CGSize.self) { geo in
             return geo.size
         } action: { newValue in
-            self.refreshIndicatorSize = newValue
+            
+            withAnimation(.smooth) {
+                
+                self.refreshIndicatorSize = newValue
+                
+                if isRefreshing {
+                    self.contentOffset = newValue.height
+                }
+                
+            }
+            
         }
   
 /// Working on making this a nice animation
@@ -168,4 +181,8 @@ public struct PullToRefreshModifier: ViewModifier {
         
     }
     
+}
+
+#Preview("Arrow") {
+    PullToRefreshExample(style: .arrow)
 }

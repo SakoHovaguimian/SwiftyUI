@@ -53,9 +53,10 @@ struct PullToRefreshExample: View {
                 }
                 
             }
-            .padding()
             
         }
+        .safeAreaPadding(.horizontal, .appMedium)
+        .safeAreaPadding(.top, .appSmall)
         
     }
     
