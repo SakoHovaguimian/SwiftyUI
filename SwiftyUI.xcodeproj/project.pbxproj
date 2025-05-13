@@ -158,6 +158,7 @@
 		75ABE6E32CE98347000DC32B /* AppBackgroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */; };
 		75B16CAD2D627B15002DC3F9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */; };
 		75B16CAF2D627B24002DC3F9 /* TextProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */; };
+		75B245E42DD2546200A0BFE0 /* SegmentedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B245E32DD2546200A0BFE0 /* SegmentedCircleView.swift */; };
 		75B99DAB2D0343260088E9BC /* FinalStrechyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */; };
 		75B9C6922C35206800F434EE /* OldMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B9C6912C35206400F434EE /* OldMessageView.swift */; };
 		75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */; };
@@ -196,7 +197,6 @@
 		75F341A12D81041B00B11355 /* StoreKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F341A02D81041200B11355 /* StoreKitService.swift */; };
 		75F341A32D81042B00B11355 /* StoreKitServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F341A22D81041E00B11355 /* StoreKitServiceMock.swift */; };
 		75F341A52D81045600B11355 /* StoreKitModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F341A42D81045400B11355 /* StoreKitModels.swift */; };
-		75F341A72D81054200B11355 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75F341A62D81054200B11355 /* StoreKit.framework */; };
 		75F341A92D81058000B11355 /* StoreKitConfigurationFile.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 75F341A82D81058000B11355 /* StoreKitConfigurationFile.storekit */; };
 		75F430172CE5569E008484E6 /* AccelerometerBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F430162CE5569E008484E6 /* AccelerometerBallView.swift */; };
 		75F4F57D2DA0BC5000C50895 /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4F57C2DA0BC5000C50895 /* ThemeType.swift */; };
@@ -375,6 +375,7 @@
 		75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundStyle.swift; sourceTree = "<group>"; };
 		75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProgressBar.swift; sourceTree = "<group>"; };
+		75B245E32DD2546200A0BFE0 /* SegmentedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedCircleView.swift; sourceTree = "<group>"; };
 		75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStrechyHeader.swift; sourceTree = "<group>"; };
 		75B9C6912C35206400F434EE /* OldMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldMessageView.swift; sourceTree = "<group>"; };
 		75BA2CE12C0E780A0089B70F /* SwiftyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -417,7 +418,6 @@
 		75F341A02D81041200B11355 /* StoreKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitService.swift; sourceTree = "<group>"; };
 		75F341A22D81041E00B11355 /* StoreKitServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitServiceMock.swift; sourceTree = "<group>"; };
 		75F341A42D81045400B11355 /* StoreKitModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitModels.swift; sourceTree = "<group>"; };
-		75F341A62D81054200B11355 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		75F341A82D81058000B11355 /* StoreKitConfigurationFile.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitConfigurationFile.storekit; sourceTree = "<group>"; };
 		75F430162CE5569E008484E6 /* AccelerometerBallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerometerBallView.swift; sourceTree = "<group>"; };
 		75F4F57C2DA0BC5000C50895 /* ThemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeType.swift; sourceTree = "<group>"; };
@@ -462,7 +462,6 @@
 			files = (
 				757190452C120D1700989D41 /* SwiftDate in Frameworks */,
 				7571902C2C120C7100989D41 /* Kingfisher in Frameworks */,
-				75F341A72D81054200B11355 /* StoreKit.framework in Frameworks */,
 				75287A972C43662700787C50 /* Amplitude in Frameworks */,
 				7578B14C2C41F73A006F07E7 /* Swinject in Frameworks */,
 			);
@@ -788,7 +787,6 @@
 			isa = PBXGroup;
 			children = (
 				75F341A82D81058000B11355 /* StoreKitConfigurationFile.storekit */,
-				75F341A62D81054200B11355 /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -805,7 +803,6 @@
 		7571904C2C120F0D00989D41 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				75D6B8992DCC42FA0093F736 /* PullToRefreshModifier.swift */,
 				75718F8D2C120AA300989D41 /* SideMenu.swift */,
 				750B1B572CA8902C007F93E2 /* GestureFillView.swift */,
 				75971A702D9C2E6C007F6E52 /* CodeInputView.swift */,
@@ -1026,6 +1023,8 @@
 		75BA2CE32C0E780A0089B70F /* SwiftyUI */ = {
 			isa = PBXGroup;
 			children = (
+				75B245E32DD2546200A0BFE0 /* SegmentedCircleView.swift */,
+				75D6B8992DCC42FA0093F736 /* PullToRefreshModifier.swift */,
 				75EF0DA22DCD399900650407 /* ConfettiViewNew.swift */,
 				75827EE92DB8761100132BD0 /* fdljfgdl.swift */,
 				75F4F57C2DA0BC5000C50895 /* ThemeType.swift */,
@@ -1373,6 +1372,7 @@
 				757190362C120CE300989D41 /* Ext+NavigationController.swift in Sources */,
 				757190372C120CE300989D41 /* Ext+Color.swift in Sources */,
 				7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */,
+				75B245E42DD2546200A0BFE0 /* SegmentedCircleView.swift in Sources */,
 				757190382C120CE300989D41 /* Ext+String.swift in Sources */,
 				7578B15C2C41F810006F07E7 /* ServiceAssembly.swift in Sources */,
 				757190392C120CE300989D41 /* Ext+Combine.swift in Sources */,

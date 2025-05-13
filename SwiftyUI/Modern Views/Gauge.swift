@@ -53,7 +53,7 @@ struct GagueViewTest: View {
     GagueViewTest(value: 0.8)
 }
 
-fileprivate struct ProgressCircle: View {
+struct ProgressCircle: View {
     
     var progress: CGFloat
     var inactiveColor: AppForegroundStyle

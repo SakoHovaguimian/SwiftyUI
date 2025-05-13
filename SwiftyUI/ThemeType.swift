@@ -461,7 +461,9 @@ struct ThemeApp: App {
     var body: some Scene {
         
         WindowGroup {
-//            
+            
+            PullToRefreshExample()
+//
 //            VStack(spacing: theme.spacing(.medium)) {
 //                
 //                Text("Design System Theme")
@@ -507,7 +509,7 @@ struct ThemeApp: App {
 //            .contentTransition(.interpolate)
 //            .animation(.easeOut(duration: 1.2), value: self.theme.theme.id)
             
-            StringViewTest()
+//            StringViewTest()
             
         }
         

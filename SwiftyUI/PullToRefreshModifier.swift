@@ -20,6 +20,9 @@ public struct PullToRefreshModifier: ViewModifier {
         
         case system
         case arrow
+        case segmentedColorShape(height: CGFloat,
+                                 lineWidth: CGFloat = 8,
+                                 items: [SegmentedCirclePathView.Item])
         case custom(AnyView)
         
         static func custom<T: View>(_ view: T) -> RefreshIndicatorType {
@@ -69,7 +72,14 @@ public struct PullToRefreshModifier: ViewModifier {
         ZStack(alignment: .top) {
             
             if self.offset > 0 || self.isRefreshing {
+                
                 self.refreshIndicatorView
+                    .zIndex(0)
+//                    .transition(.asymmetric(
+//                        insertion: .move(edge: .top).combined(with: .opacity),
+//                        removal: .opacity
+//                    ))
+                
             }
             
             content
@@ -77,28 +87,40 @@ public struct PullToRefreshModifier: ViewModifier {
             
         }
         .onScrollGeometryChange(for: CGFloat.self) { geo in
-            return -CGFloat(geo.contentOffset.y + geo.contentInsets.top + 12)
+            return -CGFloat(geo.contentOffset.y + geo.contentInsets.top)
         } action: { oldValue, newValue in
             
+            guard !self.isRefreshing else { return }
+            
             withAnimation(.smooth(duration: 0.3)) {
-                self.offset = self.isRefreshing ? self.threshold : newValue
+                self.offset = newValue
+            }
+                        
+            if self.offset >= self.threshold {
+                handleRefreshTrigger(newValue: self.offset)
             }
             
-            if self.offset > self.threshold {
-                handleRefreshTrigger(newValue: self.offset)
+        }
+        .onChange(of: self.isRefreshing) { oldValue, newValue in
+            
+            withAnimation(.smooth(duration: 0.3)) {
+                if !newValue {
+                    contentOffset = 0
+                }
             }
             
         }
         
     }
     
+    @ViewBuilder
     private var refreshIndicatorView: some View {
         
         Group {
             
             switch refreshIndicator {
             case .system:
-                return AnyView(
+                AnyView(
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle())
                         .frame(width: 32, height: 32)
@@ -106,7 +128,7 @@ public struct PullToRefreshModifier: ViewModifier {
                 )
                 
             case .arrow:
-                return AnyView(
+                AnyView(
                     Group {
                         
                         if isRefreshing {
@@ -122,25 +144,54 @@ public struct PullToRefreshModifier: ViewModifier {
                             
                         } else {
                             
-                            Image(systemName: "arrow.down")
-                                .aspectRatio(contentMode: .fit)
-                                .rotationEffect(.degrees(progress >= 0.80 ? 540 : 0))
-//                                .rotationEffect(.degrees(progress * 500))
-                                .transition(.opacity)
-                                .padding(16)
-                                .background(
-                                    .gray.opacity(0.15),
-                                    in: .rect(cornerRadius: 12)
-                                )
-                                .transition(.opacity)
+                            //                            Image(systemName: "arrow.down")
+                            //                                .aspectRatio(contentMode: .fit)
+                            //                                .rotationEffect(.degrees(progress >= 0.80 ? 540 : 0))
+                            ////                                .rotationEffect(.degrees(progress * 500))
+                            //                                .transition(.opacity)
+                            //                                .padding(16)
+                            //                                .background(
+                            //                                    .gray.opacity(0.15),
+                            //                                    in: .rect(cornerRadius: 12)
+                            //                                )
+                            //                                .transition(.opacity)
+                            //
+                            //                        }
                             
+                            VStack {
+                                
+                                ProgressCircle(progress: progress)
+                                    .frame(width: 48)
+                                    .overlay {
+                                        
+                                        Image(systemName: "arrow.down")
+                                            .aspectRatio(contentMode: .fit)
+                                        
+                                    }
+                                
+                                Text("Pull To Refresh")
+                                    .font(.caption)
+                                    .fontWeight(.semibold)
+                                
+                            }
                         }
+                        
                         
                     }
                 )
                 
+            case .segmentedColorShape(let height, let lineWidth, let items):
+                
+                SegmentedCirclePathView(
+                    items: items,
+                    lineWidth: lineWidth,
+                    rotationAngle: .degrees(isRefreshing ? 3000 : offset),
+                    animation: isRefreshing ? .smooth(duration: 2) : .smooth
+                )
+                .frame(height: height)
+                
             case .custom(let view):
-                return AnyView(view.transition(.opacity))
+                AnyView(view.transition(.opacity))
             }
             
         }
@@ -160,10 +211,8 @@ public struct PullToRefreshModifier: ViewModifier {
     private func handleRefreshTrigger(newValue: CGFloat) {
         
         withAnimation(.smooth(duration: 0.3)) {
-                        
-            let minContentOffset: CGFloat = 50
-            let dynamicContentOffset: CGFloat = self.refreshIndicatorSize.height
-            self.contentOffset = max(dynamicContentOffset, minContentOffset)
+            
+            self.contentOffset = self.refreshIndicatorSize.height
             
             self.isRefreshing = true
             onRefresh()
@@ -183,7 +232,7 @@ public struct PullToRefreshModifier: ViewModifier {
             if isRefreshing {
                 return 0
             } else {
-                return max(0, self.offset - 30)
+                return max(0, self.offset - self.refreshIndicatorSize.height / 1.2)
             }
         }
 
@@ -306,9 +355,26 @@ struct PullToRefreshExample: View {
             .customPullToRefresh(
                 offset: $pullOffset,
                 isRefreshing: $isRefreshing,
-                threshold: 150,
-                refreshIndicator: .arrow,
-                refreshStyle: .sticky,
+                threshold: 120,
+                refreshIndicator: .segmentedColorShape(
+                    height: 50,
+                    lineWidth: 6,
+                    items: [
+                        .init(percentage: 50, color: .red),
+                        .init(percentage: 25, color: .blue),
+                        .init(percentage: 25, color: .green),
+                    ]),
+//                refreshIndicator: .arrow,
+//                refreshIndicator: PullToRefreshModifier.RefreshIndicatorType.custom(AnyView(Text("PLEASE PULL ME DADDY"))),
+//                refreshIndicator: PullToRefreshModifier.RefreshIndicatorType.custom(AnyView(
+//                    Rectangle()
+//                        .fill(.blue)
+//                        .ignoresSafeArea()
+//                        .overlay {
+//                            Text("Some CoolText")
+//                        }
+//                )                        .frame(maxHeight: 80)),
+                refreshStyle: .offset,
                 onRefresh: {
                     
                     // Simulate network request
