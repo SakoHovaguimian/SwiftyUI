@@ -171,7 +171,8 @@ struct ScrollBannerView: View {
             .foregroundColor(.white)
             .frame(maxWidth: .infinity, alignment: .center)
             .fixedSize(horizontal: false, vertical: true)
-            .padding(16)
+            .padding(.horizontal, Spacing.custom(12).value)
+            .padding(.vertical, Spacing.medium.value)
             .lineLimit(nil)
             .allowsTightening(true)
         

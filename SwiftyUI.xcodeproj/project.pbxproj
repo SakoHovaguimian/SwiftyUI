@@ -647,15 +647,15 @@
 			isa = PBXGroup;
 			children = (
 				75D8E9982DAE0B9F00D63239 /* Github.swift */,
+				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
+				757190062C120B9900989D41 /* Camera */,
+				75421A562C8EAB850078A36E /* TimelineView */,
 				75A326B42DA72DCE00CA6B46 /* StringSource */,
 				75EDCF222DA41B36007DDE41 /* NewSlideButton */,
 				75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */,
 				75A117BD2D62FBCC003011CA /* RelativeBarView.swift */,
 				75D671342DB0188A006457F1 /* Stack.swift */,
-				75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */,
 				75A6DB792CB82CCE00055E0E /* HalfCircleView.swift */,
-				757190062C120B9900989D41 /* Camera */,
-				75421A562C8EAB850078A36E /* TimelineView */,
 				75363B2C2D59765C00FDC4ED /* Common */,
 				75A5F4732D95107E003A6632 /* StaggeredView */,
 				754BE1F62D80FC8F00C20CF7 /* StoreKit */,
