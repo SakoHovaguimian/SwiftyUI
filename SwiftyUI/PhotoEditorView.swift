@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// Trash can to remove item floating over when selected
+
 // MARK: - Shape Model
 enum ShapeType: String, CaseIterable {
     case rectangle, circle, star, arrow

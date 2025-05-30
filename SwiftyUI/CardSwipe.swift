@@ -7,198 +7,256 @@
 
 import SwiftUI
 
-// MARK: - Model: Unwind Intention
-
-// TODO: - Add protocol to conform objects to or have customView.self injected
-// TODO: - Remove UnwinPickerSection abstraction
-// TODO: - Have dynamic sizing, borderColor, rotation offset style
-// TODO: - Style for remove or infinite carousel
-// TODO: -
-
-public struct UnwindIntention: Identifiable, Equatable {
-    public let id: UUID
-    public let title: String
+public struct CardSwipeView<Data: RandomAccessCollection, Card: View>: View where Data.Element: Identifiable & Equatable {
     
-    public init(id: UUID = UUID(), title: String) {
-        self.id = id
-        self.title = title
+    public enum SwipeDirection {
+        
+        case left
+        case right
+        
     }
-}
-
-// MARK: - Card Picker Section
-
-public struct UnwindIntentCardPickerSection: View {
-    @Binding private var selectedIntention: UnwindIntention
-    private let intentions: [UnwindIntention]
-    private let verticalPadding: CGFloat = 24
-    private let bottomPadding: CGFloat = 32
-
-    public init(
-        intentions: [UnwindIntention],
-        selectedIntention: Binding<UnwindIntention>
-    ) {
-        self.intentions = intentions
-        self._selectedIntention = selectedIntention
+    
+    public enum RemovalStyle {
+        
+        case infinite
+        case remove
+        
     }
-
+    
+    @Binding private var selected: Data.Element
+    
+    @State private var items: [Data.Element]
+    @State private var drag: CGSize = .zero
+    @State private var isDragging = false
+    
+    @ViewBuilder private let cardContent: (Data.Element) -> Card
+    
+    private let maxVisible: Int
+    private let yOffset: CGFloat
+    private let rotation: Double
+    private let swipeThreshold: CGFloat
+    private let velocityThreshold: CGFloat
+    private let removalStyle: RemovalStyle
+    private let onCompletionSwipeAction: ((SwipeDirection) -> Void)?
+    
+    public init(selected: Binding<Data.Element>,
+                items: Data,
+                maxVisible: Int = 5,
+                yOffset: CGFloat = 5,
+                rotation: Double = 2,
+                swipeThreshold: CGFloat = 120,
+                velocityThreshold: CGFloat = 180,
+                removalStyle: RemovalStyle = .remove,
+                onCompletionSwipeAction: ((SwipeDirection) -> Void)? = nil,
+                @ViewBuilder cardContent: @escaping (Data.Element) -> Card) {
+        
+        self._selected = selected
+        self.items = Array(items)
+        self.maxVisible = maxVisible
+        self.yOffset = yOffset
+        self.rotation = rotation
+        self.swipeThreshold = swipeThreshold
+        self.velocityThreshold = velocityThreshold
+        self.removalStyle = removalStyle
+        self.onCompletionSwipeAction = onCompletionSwipeAction
+        self.cardContent = cardContent
+        
+    }
+    
     public var body: some View {
-        sectionView()
-            .padding(.vertical, verticalPadding)
-            .padding(.bottom, bottomPadding)
-            .frame(maxWidth: .infinity)
-            .animation(.easeInOut, value: selectedIntention)
-    }
-
-    // MARK: - Views
-
-    private func sectionView() -> some View {
-        UnwindIntentCardPicker(
-            intentions: intentions,
-            selectedIntention: $selectedIntention
-        )
-    }
-}
-
-// MARK: - Card Picker
-
-public struct UnwindIntentCardPicker: View {
-    @Binding private var selectedIntention: UnwindIntention
-    private let intentions: [UnwindIntention]
-    @State private var deck: [UnwindIntention]
-    @State private var dragOffset: CGSize = .zero
-    @State private var isDragging: Bool = false
-
-    private let maxVisible: Int = 5
-    private let yOffsetPerCard: CGFloat = 5
-    private let rotationPerCard: Double = 5.5
-    private let swipeThreshold: CGFloat = 120
-    private let velocityThreshold: CGFloat = 180
-
-    public init(
-        intentions: [UnwindIntention],
-        selectedIntention: Binding<UnwindIntention>
-    ) {
-        self.intentions = intentions
-        self._selectedIntention = selectedIntention
-        self._deck = State(initialValue: intentions)
-    }
-
-    public var body: some View {
-        cardStack()
-            .contentShape(Rectangle())
-            .gesture(dragGesture())
-            .accessibilityElement(children: .combine)
-            .accessibilityLabel("Unwind intention picker")
-    }
-
-    // MARK: - Views
-
-    private func cardStack() -> some View {
+        
         ZStack {
-            ForEach(Array(deck.prefix(maxVisible).enumerated()), id: \.element.id) { index, intention in
-                cardView(intention: intention, at: index)
+            
+            ForEach(Array(self.items.prefix(maxVisible).enumerated()), id: \.element.id) { index, element in
+                
+                buildCardContent(
+                    element,
+                    index: index
+                )
+                
             }
+            
         }
+        .gesture(dragGesture)
+        
     }
-
-    private func cardView(intention: UnwindIntention, at index: Int) -> some View {
-        baseCard(intention)
-            .offset(y: CGFloat(index) * yOffsetPerCard)
-            .rotationEffect(.degrees(Double(index) * rotationPerCard))
+    
+    private func buildCardContent(_ element: Data.Element, index: Int) -> some View {
+        
+        cardContent(element)
+            .offset(y: CGFloat(index) * yOffset)
+            .rotationEffect(.degrees(Double(index) * rotation))
             .scaleEffect(index == 0 ? 1 : 0.95)
             .shadow(radius: index == 0 ? 10 : 2)
             .offset(
-                x: index == 0 ? dragOffset.width : 0,
-                y: index == 0 ? dragOffset.height : 0
+                x: index == 0 ? drag.width : 0,
+                y: index == 0 ? drag.height : 0
             )
-            .rotationEffect(
-                index == 0 ? .degrees(Double(dragOffset.width / 10)) : .zero
-            )
+            .rotationEffect(index == 0 ? .degrees(Double(drag.width / 10)) : .zero)
             .zIndex(Double(maxVisible - index) + (index == 0 && isDragging ? 1 : 0))
+            .animation(.linear, value: self.items)
+            .animation(.linear, value: self.selected)
+            .animation(.linear, value: self.swipeThreshold)
+        
     }
-
-    private func baseCard(_ intention: UnwindIntention) -> some View {
-        ZStack {
-            cardBackground()
-            cardTitle(intention.title)
-        }
-        .frame(width: 260, height: 380)
-        .cornerRadius(24)
-        .overlay(cardBorder())
-    }
-
-    private func cardBackground() -> some View {
-        Image(.image2)
-            .resizable()
-            .scaledToFill()
-            .frame(width: 260, height: 380)
-            .clipped()
-    }
-
-    private func cardTitle(_ text: String) -> some View {
-        Text(text)
-            .multilineTextAlignment(.center)
-            .padding(.horizontal, 16)
-            .shadow(radius: 4)
-    }
-
-    private func cardBorder() -> some View {
-        RoundedRectangle(cornerRadius: 24)
-            .stroke(Color.white.opacity(0.25), lineWidth: 1)
-    }
-
-    // MARK: - Gestures
-
-    private func dragGesture() -> some Gesture {
+    
+    private var dragGesture: some Gesture {
+        
         DragGesture()
-            .onChanged { value in
-                isDragging = true
-                dragOffset = value.translation
-            }
-            .onEnded { value in
-                withAnimation(.spring(response: 0.35, dampingFraction: 0.8)) {
-                    if shouldSwipe(value) {
-                        performSwipe(direction: value.translation.width < 0 ? .left : .right)
-                    } else {
-                        dragOffset = .zero
-                    }
-                    isDragging = false
-                }
-            }
+          .onChanged { v in
+              
+              self.isDragging = true
+              self.drag = v.translation
+              
+          }
+          .onEnded { v in
+              
+              withAnimation(.spring) {
+                  
+                  if shouldSwipe(v) {
+                      swipe(v.translation.width < 0 ? .left : .right)
+                  } else {
+                      self.drag = .zero
+                  }
+                  
+                  self.isDragging = false
+                  
+              }
+              
+          }
+        
     }
-
-    // MARK: - Helpers
-
-    private func shouldSwipe(_ value: DragGesture.Value) -> Bool {
-        abs(value.translation.width) > swipeThreshold
-        || abs(value.predictedEndTranslation.width) > velocityThreshold
+    
+    private func shouldSwipe(_ v: DragGesture.Value) -> Bool {
+        abs(v.translation.width) > self.swipeThreshold || abs(v.predictedEndTranslation.width) > self.velocityThreshold
     }
-
-    private func performSwipe(direction: SwipeDirection) {
-        let offsetX: CGFloat = direction == .left ? -600 : 600
-        dragOffset = CGSize(width: offsetX, height: 0)
-
+    
+    private func swipe(_ direction: SwipeDirection) {
+        
+        let offsetX: CGFloat = (direction == .left) ? -600 : 600
+        drag = CGSize(width: offsetX, height: 0)
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-            deck.append(deck.removeFirst())
-            dragOffset = .zero
-            selectedIntention = deck.first!
+            
+            switch self.removalStyle {
+            case .infinite:
+                
+                self.items.append(self.items.removeFirst())
+                self.drag = .zero
+                self.selected = self.items.first!
+                
+            case .remove:
+                
+                self.items.removeFirst()
+                self.drag = .zero
+                self.selected = self.items.first!
+            }
+            
+            self.onCompletionSwipeAction?(direction)
+            
         }
+        
     }
+    
+}
 
-    private enum SwipeDirection {
-        case left, right
+fileprivate struct InternalCardSwipeView: View {
+    
+    @Binding private var selectedItem: InternalCardItem
+    private let items: [InternalCardItem]
+    
+    init(selectedItem: Binding<InternalCardItem>,
+         items: [InternalCardItem]) {
+        
+        self.items = items
+        self._selectedItem = selectedItem
+        
     }
+    
+    var body: some View {
+        
+        VStack(spacing: Spacing.xLarge.value) {
+            
+            cardView(shouldRemove: true)
+            cardView(shouldRemove: false)
+            
+        }
+        
+    }
+    
+    private func cardView(shouldRemove: Bool) -> some View {
+        
+        CardSwipeView(
+            selected: $selectedItem,
+            items: items,
+            maxVisible: shouldRemove ? 5 : 3,
+            rotation: shouldRemove ? 5 : 1,
+            removalStyle: shouldRemove ? .remove : .infinite
+        ) { item in
+            
+            ZStack {
+                
+                Image(item.image)
+                    .resizable()
+                    .scaledToFill()
+                    .clipped()
+                    .overlay(alignment: .bottom) {
+                        
+                        Text(item.title)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity)
+                            .padding(16)
+                            .shadow(radius: 4)
+                            .background(.ultraThinMaterial.opacity(0.8))
+                        
+                    }
+                
+            }
+            .frame(width: 280, height: 300)
+            .cornerRadius(24)
+            .overlay(
+                RoundedRectangle(cornerRadius: 24)
+                    .stroke(Color.white.opacity(0.25), lineWidth: 1)
+            )
+            
+        }
+        .frame(maxWidth: .infinity)
+        .animation(.bouncy, value: self.selectedItem)
+        
+    }
+    
+}
+
+fileprivate struct InternalCardItem: Identifiable, Equatable {
+    
+    public let id: UUID
+    public let title: String
+    public let image: ImageResource
+    
+    public init(id: UUID = UUID(),
+                title: String,
+                image: ImageResource) {
+        
+        self.id = id
+        self.title = title
+        self.image = image
+        
+    }
+    
 }
 
 #Preview {
     
-    @Previewable @State var selectedIntention: UnwindIntention = .init(title: "1")
+    @Previewable @State var selectedCardItem: InternalCardItem = .init(title: "", image: .image1)
     
-    UnwindIntentCardPickerSection(intentions: [
-        .init(title: "1"),
-        .init(title: "2"),
-        .init(title: "3"),
-        .init(title: "4"),
-    ], selectedIntention: $selectedIntention)
+    InternalCardSwipeView(
+        selectedItem: $selectedCardItem,
+        items: [
+            .init(title: "First", image: .image3),
+            .init(title: "Second", image: .image4),
+            .init(title: "Third", image: .prize),
+            .init(title: "Fourth", image: .image1)
+        ]
+    )
     
 }
