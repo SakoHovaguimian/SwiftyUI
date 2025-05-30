@@ -55,6 +55,7 @@
 		756A44D92D9F5CAD00BD65B8 /* DesignSystemTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A44D82D9F5CA900BD65B8 /* DesignSystemTest.swift */; };
 		756A5F2A2D6846EE00082154 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A5F292D6846EA00082154 /* CommonButton.swift */; };
 		756A5F2C2D684D6200082154 /* CommonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A5F2B2D684D5F00082154 /* CommonImageView.swift */; };
+		756B98322DEA205A008CFF7C /* CardSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B98312DEA2056008CFF7C /* CardSwipe.swift */; };
 		756F46442C2BD15200D14425 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F46432C2BD15200D14425 /* MessageView.swift */; };
 		757006172CAC807C005FBCB7 /* CloudWithDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757006162CAC807C005FBCB7 /* CloudWithDotsView.swift */; };
 		75718F832C1209C200989D41 /* BoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F822C1209C200989D41 /* BoomView.swift */; };
@@ -163,7 +164,7 @@
 		75A8F24A2DE6213E0055DB7C /* AttributedStringBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A8F2492DE6213E0055DB7C /* AttributedStringBuilder.swift */; };
 		75ABE6E12CE9800A000DC32B /* ProgressSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE6E02CE98005000DC32B /* ProgressSlider.swift */; };
 		75ABE6E32CE98347000DC32B /* AppBackgroundStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */; };
-		75AC8FF72DEA005D0045863A /* Gestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AC8FF62DEA00590045863A /* Gestures.swift */; };
+		75AC8FF72DEA005D0045863A /* PhotoEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AC8FF62DEA00590045863A /* PhotoEditorView.swift */; };
 		75B16CAD2D627B15002DC3F9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */; };
 		75B16CAF2D627B24002DC3F9 /* TextProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */; };
 		75B245E42DD2546200A0BFE0 /* SegmentedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B245E32DD2546200A0BFE0 /* SegmentedCircleView.swift */; };
@@ -281,6 +282,7 @@
 		756A44D82D9F5CA900BD65B8 /* DesignSystemTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemTest.swift; sourceTree = "<group>"; };
 		756A5F292D6846EA00082154 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		756A5F2B2D684D5F00082154 /* CommonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonImageView.swift; sourceTree = "<group>"; };
+		756B98312DEA2056008CFF7C /* CardSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSwipe.swift; sourceTree = "<group>"; };
 		756F46432C2BD15200D14425 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		757006162CAC807C005FBCB7 /* CloudWithDotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudWithDotsView.swift; sourceTree = "<group>"; };
 		75718F802C12085D00989D41 /* AnimatedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedPicker.swift; sourceTree = "<group>"; };
@@ -387,7 +389,7 @@
 		75A8F2492DE6213E0055DB7C /* AttributedStringBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringBuilder.swift; sourceTree = "<group>"; };
 		75ABE6E02CE98005000DC32B /* ProgressSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSlider.swift; sourceTree = "<group>"; };
 		75ABE6E22CE98347000DC32B /* AppBackgroundStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBackgroundStyle.swift; sourceTree = "<group>"; };
-		75AC8FF62DEA00590045863A /* Gestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gestures.swift; sourceTree = "<group>"; };
+		75AC8FF62DEA00590045863A /* PhotoEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorView.swift; sourceTree = "<group>"; };
 		75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProgressBar.swift; sourceTree = "<group>"; };
 		75B245E32DD2546200A0BFE0 /* SegmentedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedCircleView.swift; sourceTree = "<group>"; };
@@ -1040,7 +1042,8 @@
 		75BA2CE32C0E780A0089B70F /* SwiftyUI */ = {
 			isa = PBXGroup;
 			children = (
-				75AC8FF62DEA00590045863A /* Gestures.swift */,
+				756B98312DEA2056008CFF7C /* CardSwipe.swift */,
+				75AC8FF62DEA00590045863A /* PhotoEditorView.swift */,
 				75A8F2492DE6213E0055DB7C /* AttributedStringBuilder.swift */,
 				7587C3B02DE4F8020067C2D5 /* HoldButtonView.swift */,
 				751675AE2DD300DD002685C5 /* PullToRefresh */,
@@ -1322,6 +1325,7 @@
 				757190182C120C0B00989D41 /* HapticViewModifier.swift in Sources */,
 				757190192C120C0B00989D41 /* Haptics.swift in Sources */,
 				75EF0DA32DCD399E00650407 /* ConfettiViewNew.swift in Sources */,
+				756B98322DEA205A008CFF7C /* CardSwipe.swift in Sources */,
 				757006172CAC807C005FBCB7 /* CloudWithDotsView.swift in Sources */,
 				7571905E2C12131300989D41 /* CenterContentView.swift in Sources */,
 				757190602C12131300989D41 /* MatchedGeoView.swift in Sources */,
@@ -1392,7 +1396,7 @@
 				752563FE2D14C0D0009AFC34 /* IconAnimationTest.swift in Sources */,
 				75D671352DB0188A006457F1 /* Stack.swift in Sources */,
 				757190472C120E7900989D41 /* OrientationChangeModifier.swift in Sources */,
-				75AC8FF72DEA005D0045863A /* Gestures.swift in Sources */,
+				75AC8FF72DEA005D0045863A /* PhotoEditorView.swift in Sources */,
 				7578B1512C41F76A006F07E7 /* ViewModelAssembly.swift in Sources */,
 				7578B1532C41F772006F07E7 /* APIService.swift in Sources */,
 				751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */,
