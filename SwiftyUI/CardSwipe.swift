@@ -67,7 +67,7 @@ public struct CardSwipeView<Data: RandomAccessCollection, Card: View>: View wher
         
         ZStack {
             
-            ForEach(Array(self.items.prefix(maxVisible).enumerated()), id: \.element.id) { index, element in
+            ForEach(Array(self.items.enumerated()), id: \.element.id) { index, element in
                 
                 buildCardContent(
                     element,
@@ -92,6 +92,7 @@ public struct CardSwipeView<Data: RandomAccessCollection, Card: View>: View wher
                 x: index == 0 ? drag.width : 0,
                 y: index == 0 ? drag.height : 0
             )
+            .opacity(index < maxVisible ? 1 : 0)
             .rotationEffect(index == 0 ? .degrees(Double(drag.width / 10)) : .zero)
             .zIndex(Double(maxVisible - index) + (index == 0 && isDragging ? 1 : 0))
             .animation(.linear, value: self.items)
@@ -189,8 +190,9 @@ fileprivate struct InternalCardSwipeView: View {
         CardSwipeView(
             selected: $selectedItem,
             items: items,
-            maxVisible: shouldRemove ? 5 : 3,
-            rotation: shouldRemove ? 5 : 1,
+            maxVisible: shouldRemove ? 5 : 20,
+            yOffset: shouldRemove ? 0 : 6,
+            rotation: shouldRemove ? 2 : 1,
             removalStyle: shouldRemove ? .remove : .infinite
         ) { item in
             
@@ -213,7 +215,7 @@ fileprivate struct InternalCardSwipeView: View {
                 
             }
             .frame(width: 280, height: 300)
-            .cornerRadius(24)
+            .cornerRadius(16)
             .overlay(
                 RoundedRectangle(cornerRadius: 24)
                     .stroke(Color.white.opacity(0.25), lineWidth: 1)
@@ -247,7 +249,7 @@ fileprivate struct InternalCardItem: Identifiable, Equatable {
 
 #Preview {
     
-    @Previewable @State var selectedCardItem: InternalCardItem = .init(title: "", image: .image1)
+    @Previewable @State var selectedCardItem: InternalCardItem = .init(title: "First", image: .image3)
     
     InternalCardSwipeView(
         selectedItem: $selectedCardItem,
@@ -255,7 +257,9 @@ fileprivate struct InternalCardItem: Identifiable, Equatable {
             .init(title: "First", image: .image3),
             .init(title: "Second", image: .image4),
             .init(title: "Third", image: .prize),
-            .init(title: "Fourth", image: .image1)
+            .init(title: "Fourth", image: .image1),
+            .init(title: "Fifth", image: .image3),
+            .init(title: "Sixth", image: .image4)
         ]
     )
     
