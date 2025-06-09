@@ -213,6 +213,7 @@
 		75F7897E2D8919A800FEBED8 /* UserDefaultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7897D2D8919A500FEBED8 /* UserDefaultsView.swift */; };
 		75F81C432DBA892F00B1D87C /* Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F81C412DBA887A00B1D87C /* Gauge.swift */; };
 		75F8BADE2CDE924F00A05C74 /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8BADD2CDE924F00A05C74 /* Shimmer.swift */; };
+		75FA67FE2DF60BD500061ED0 /* LoggerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA67FD2DF60BD100061ED0 /* LoggerTest.swift */; };
 		75FB1C552C8CEF5C003028B8 /* HorizontalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FB1C542C8CEF55003028B8 /* HorizontalTimelineView.swift */; };
 		75FD1DAE2C914E9E004AC287 /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FD1DAD2C914E9E004AC287 /* AppText.swift */; };
 		75FE274A2C7EE73B0097C68F /* FlapperSean.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FE27492C7EE6B40097C68F /* FlapperSean.swift */; };
@@ -442,6 +443,7 @@
 		75F7897D2D8919A500FEBED8 /* UserDefaultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsView.swift; sourceTree = "<group>"; };
 		75F81C412DBA887A00B1D87C /* Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gauge.swift; sourceTree = "<group>"; };
 		75F8BADD2CDE924F00A05C74 /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
+		75FA67FD2DF60BD100061ED0 /* LoggerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerTest.swift; sourceTree = "<group>"; };
 		75FB1C542C8CEF55003028B8 /* HorizontalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalTimelineView.swift; sourceTree = "<group>"; };
 		75FD1DAD2C914E9E004AC287 /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
 		75FE27492C7EE6B40097C68F /* FlapperSean.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlapperSean.swift; sourceTree = "<group>"; };
@@ -1042,6 +1044,7 @@
 		75BA2CE32C0E780A0089B70F /* SwiftyUI */ = {
 			isa = PBXGroup;
 			children = (
+				75FA67FD2DF60BD100061ED0 /* LoggerTest.swift */,
 				756B98312DEA2056008CFF7C /* CardSwipe.swift */,
 				75AC8FF62DEA00590045863A /* PhotoEditorView.swift */,
 				75A8F2492DE6213E0055DB7C /* AttributedStringBuilder.swift */,
@@ -1323,6 +1326,7 @@
 				757190302C120CB100989D41 /* KeyboardManager.swift in Sources */,
 				757190312C120CB100989D41 /* ThemeManager.swift in Sources */,
 				757190182C120C0B00989D41 /* HapticViewModifier.swift in Sources */,
+				75FA67FE2DF60BD500061ED0 /* LoggerTest.swift in Sources */,
 				757190192C120C0B00989D41 /* Haptics.swift in Sources */,
 				75EF0DA32DCD399E00650407 /* ConfettiViewNew.swift in Sources */,
 				756B98322DEA205A008CFF7C /* CardSwipe.swift in Sources */,
