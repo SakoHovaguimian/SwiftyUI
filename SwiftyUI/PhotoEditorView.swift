@@ -291,3 +291,20 @@ extension View {
         modifier(Rotatable())
     }
 }
+
+#Preview {
+    
+    RoundedRectangle(cornerRadius: 24)
+//        .fill(.red) if you want to fill color
+        .strokeBorder(style: StrokeStyle(
+            lineWidth: 5,
+            lineCap: .round,
+            lineJoin: .round,
+            dash: [15],
+        ))
+//        .foregroundStyle(.green) // changes color of stroke border
+        .frame(height: 200)
+        .padding(.horizontal, .large)
+    
+    
+}
