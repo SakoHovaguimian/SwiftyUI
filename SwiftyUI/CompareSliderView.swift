@@ -7,17 +7,19 @@
 
 import SwiftUI
 
-public struct BeforeAfterSlider<BeforeContent: View, AfterContent: View>: View {
+public struct CompareSliderView<BeforeContent: View, AfterContent: View>: View {
     
     private let beforeContent: BeforeContent
     private let afterContent: AfterContent
     
-    @State private var sliderPosition: CGFloat = 0.5
+    @State private var sliderPosition: CGFloat
     @State private var isDragging: Bool = false
         
-    public init(@ViewBuilder beforeContent: () -> BeforeContent,
+    public init(initialSliderPosition: CGFloat = 0.5,
+                @ViewBuilder beforeContent: () -> BeforeContent,
                 @ViewBuilder afterContent: () -> AfterContent) {
         
+        self.sliderPosition = initialSliderPosition
         self.beforeContent = beforeContent()
         self.afterContent = afterContent()
         
@@ -38,37 +40,9 @@ public struct BeforeAfterSlider<BeforeContent: View, AfterContent: View>: View {
         
         ZStack {
             
-            // After content: full
-            self.afterContent
-                .frame(
-                    width: size.width,
-                    height: size.height
-                )
-                .clipped()
-            
-            // Before content: clipped
-            self.beforeContent
-                .frame(
-                    width: size.width,
-                    height: size.height
-                )
-                .clipped()
-                .mask(
-                    Rectangle()
-                        .frame(width: self.sliderPosition * size.width)
-                        .alignmentGuide(.leading, computeValue: { _ in 0 })
-                        .position(
-                            x: self.sliderPosition * (size.width / 2),
-                            y: size.height / 2
-                        )
-                )
-            
-            SliderControl(
-                position: self.sliderPosition,
-                isDragging: self.isDragging
-            )
-            .frame(height: size.height)
-            .offset(x: (self.sliderPosition - 0.5) * size.width * 1)
+            afterView(size: size)
+            beforeView(size: size)
+            sliderControls(size: size)
             
         }
         .frame(
@@ -102,11 +76,53 @@ public struct BeforeAfterSlider<BeforeContent: View, AfterContent: View>: View {
         
     }
     
+    private func afterView(size: CGSize) -> some View {
+        
+        self.afterContent
+            .frame(
+                width: size.width,
+                height: size.height
+            )
+            .clipped()
+        
+    }
+    
+    private func beforeView(size: CGSize) -> some View {
+        
+        self.beforeContent
+            .frame(
+                width: size.width,
+                height: size.height
+            )
+            .clipped()
+            .mask(
+                Rectangle()
+                    .frame(width: self.sliderPosition * size.width)
+                    .alignmentGuide(.leading, computeValue: { _ in 0 })
+                    .position(
+                        x: self.sliderPosition * (size.width / 2),
+                        y: size.height / 2
+                    )
+            )
+        
+    }
+    
+    private func sliderControls(size: CGSize) -> some View {
+        
+        SliderControl(
+            position: self.sliderPosition,
+            isDragging: self.isDragging
+        )
+        .frame(height: size.height)
+        .offset(x: (self.sliderPosition - 0.5) * size.width * 1)
+        
+    }
+    
 }
 
 #Preview {
     
-    BeforeAfterSlider {
+    CompareSliderView {
         
         Rectangle()
             .fill(.red.gradient)
@@ -135,7 +151,9 @@ public struct BeforeAfterSlider<BeforeContent: View, AfterContent: View>: View {
 
 #Preview {
     
-    BeforeAfterSlider {
+    @Previewable @State var sliderPosition: CGFloat = 0.1
+    
+    CompareSliderView(initialSliderPosition: sliderPosition) {
         
         Image(.image3)
             .resizable()
@@ -206,12 +224,13 @@ fileprivate struct SliderControl: View {
             .font(.system(size: 14, weight: .bold))
             .opacity(self.isDragging ? 0.5 : 1)
             .scaleEffect(self.isDragging ? 1.2 : 1)
-            .animation(
-                .spring(response: 0.2),
-                value: self.isDragging
-            )
             
         }
+        .animation(
+            .spring(response: 0.2),
+            value: self.isDragging
+        )
+        .compositingGroup()
         
     }
     
