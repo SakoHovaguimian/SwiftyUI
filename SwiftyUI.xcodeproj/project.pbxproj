@@ -147,6 +147,7 @@
 		758421AD2D010694007A9F6E /* ProgressIndicatorNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */; };
 		7587C3B12DE4F8020067C2D5 /* HoldButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587C3B02DE4F8020067C2D5 /* HoldButtonView.swift */; };
 		759206F82DB14B8B00E53B72 /* MentionPickerView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759206F72DB14B8B00E53B72 /* MentionPickerView2.swift */; };
+		7593D69B2E09938A003C50CD /* SignitureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593D69A2E099386003C50CD /* SignitureView.swift */; };
 		75971A712D9C2E70007F6E52 /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75971A702D9C2E6C007F6E52 /* CodeInputView.swift */; };
 		7597E66C2D63E1B50056AAC2 /* MatchedGeoView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7597E66B2D63E1B00056AAC2 /* MatchedGeoView2.swift */; };
 		7597E8F22D8268F600C9334F /* CustomAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */; };
@@ -375,6 +376,7 @@
 		758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorNew.swift; sourceTree = "<group>"; };
 		7587C3B02DE4F8020067C2D5 /* HoldButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldButtonView.swift; sourceTree = "<group>"; };
 		759206F72DB14B8B00E53B72 /* MentionPickerView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentionPickerView2.swift; sourceTree = "<group>"; };
+		7593D69A2E099386003C50CD /* SignitureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignitureView.swift; sourceTree = "<group>"; };
 		75971A702D9C2E6C007F6E52 /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
 		7597E66B2D63E1B00056AAC2 /* MatchedGeoView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoView2.swift; sourceTree = "<group>"; };
 		7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationTest.swift; sourceTree = "<group>"; };
@@ -1046,6 +1048,7 @@
 		75BA2CE32C0E780A0089B70F /* SwiftyUI */ = {
 			isa = PBXGroup;
 			children = (
+				7593D69A2E099386003C50CD /* SignitureView.swift */,
 				7545E9F62DFFE0360042A4B3 /* CompareSliderView.swift */,
 				75FA67FD2DF60BD100061ED0 /* LoggerTest.swift */,
 				756B98312DEA2056008CFF7C /* CardSwipe.swift */,
@@ -1315,6 +1318,7 @@
 				751675B52DD301AD002685C5 /* Ext+PullToRefresh.swift in Sources */,
 				75BA2CE72C0E780A0089B70F /* ContentView.swift in Sources */,
 				75BA2D352C0E79600089B70F /* CustomToggle.swift in Sources */,
+				7593D69B2E09938A003C50CD /* SignitureView.swift in Sources */,
 				75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */,
 				758421AD2D010694007A9F6E /* ProgressIndicatorNew.swift in Sources */,
 				75BA2D412C0E79600089B70F /* ButtonStyles.swift in Sources */,
