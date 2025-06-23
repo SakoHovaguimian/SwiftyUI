@@ -8,10 +8,6 @@
 import SwiftUI
 import PencilKit
 
-// TODO: - Sig View
-/// PKCanvas Border ColorSource
-/// PKCanvas CornerRadius / ClipShape
-
 class SignatureViewModel: ObservableObject {
     
     @Published var drawing: PKDrawing = PKDrawing()
@@ -169,7 +165,7 @@ struct CanvasRepresentable: UIViewRepresentable {
             viewModel: viewModel,
             signatureImage: $signatureImage
         )
-        .frame(height: 300)
+        .frame(height: 150)
         .padding(.horizontal, .large)
         
         HStack {
@@ -203,6 +199,7 @@ struct CanvasRepresentable: UIViewRepresentable {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .transition(.move(edge: .bottom).combined(with: .opacity).animation(.snappy))
+                .padding(.horizontal, .large)
             
         }
         
