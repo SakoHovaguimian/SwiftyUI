@@ -53,6 +53,8 @@
 		75533D462D380B8D001A5010 /* VariableBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75533D452D380B89001A5010 /* VariableBlur.swift */; };
 		7556CB572C2F227E0084A130 /* SizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CB562C2F227E0084A130 /* SizingView.swift */; };
 		7561DE752D3574E300F01C67 /* NewScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */; };
+		7569F7C12E1A037F0079BD50 /* PageHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7569F7C02E1A037F0079BD50 /* PageHeader.swift */; };
+		7569F7C32E1A03890079BD50 /* PageHeaderPreviewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7569F7C22E1A03890079BD50 /* PageHeaderPreviewTest.swift */; };
 		756A44D92D9F5CAD00BD65B8 /* DesignSystemTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A44D82D9F5CA900BD65B8 /* DesignSystemTest.swift */; };
 		756A5F2A2D6846EE00082154 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A5F292D6846EA00082154 /* CommonButton.swift */; };
 		756A5F2C2D684D6200082154 /* CommonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756A5F2B2D684D5F00082154 /* CommonImageView.swift */; };
@@ -283,6 +285,8 @@
 		75533D452D380B89001A5010 /* VariableBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableBlur.swift; sourceTree = "<group>"; };
 		7556CB562C2F227E0084A130 /* SizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingView.swift; sourceTree = "<group>"; };
 		7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScrollBannerView.swift; sourceTree = "<group>"; };
+		7569F7C02E1A037F0079BD50 /* PageHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHeader.swift; sourceTree = "<group>"; };
+		7569F7C22E1A03890079BD50 /* PageHeaderPreviewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHeaderPreviewTest.swift; sourceTree = "<group>"; };
 		756A44D82D9F5CA900BD65B8 /* DesignSystemTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemTest.swift; sourceTree = "<group>"; };
 		756A5F292D6846EA00082154 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		756A5F2B2D684D5F00082154 /* CommonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonImageView.swift; sourceTree = "<group>"; };
@@ -560,6 +564,15 @@
 				7551B86B2C2E29540003A0F8 /* DashProgressView.swift */,
 			);
 			path = ProgressBars;
+			sourceTree = "<group>";
+		};
+		7569F7BD2E1A03760079BD50 /* ScrollableTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7569F7C02E1A037F0079BD50 /* PageHeader.swift */,
+				7569F7C22E1A03890079BD50 /* PageHeaderPreviewTest.swift */,
+			);
+			path = ScrollableTabBar;
 			sourceTree = "<group>";
 		};
 		756C9B262C1207BF00E438D6 /* Buttons */ = {
@@ -1058,6 +1071,7 @@
 		75BA2CE32C0E780A0089B70F /* SwiftyUI */ = {
 			isa = PBXGroup;
 			children = (
+				7569F7BD2E1A03760079BD50 /* ScrollableTabBar */,
 				7593D69C2E09A2EA003C50CD /* PhotoContext */,
 				75FA67FD2DF60BD100061ED0 /* LoggerTest.swift */,
 				756B98312DEA2056008CFF7C /* CardSwipe.swift */,
@@ -1321,6 +1335,7 @@
 				7578B1582C41F7AD006F07E7 /* ViewModel.swift in Sources */,
 				75BA2D322C0E79600089B70F /* ScrollFilters.swift in Sources */,
 				753116862C12C34A00C7FBF6 /* ToggleStyles.swift in Sources */,
+				7569F7C32E1A03890079BD50 /* PageHeaderPreviewTest.swift in Sources */,
 				750B1B3A2CA88ECF007F93E2 /* RatingView.swift in Sources */,
 				7571900B2C120BF100989D41 /* GPWebView.swift in Sources */,
 				751675B52DD301AD002685C5 /* Ext+PullToRefresh.swift in Sources */,
@@ -1454,6 +1469,7 @@
 				75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */,
 				7531166C2C12C22B00C7FBF6 /* CombineInputView.swift in Sources */,
 				75A6DB762CB8290300055E0E /* TextBlurView.swift in Sources */,
+				7569F7C12E1A037F0079BD50 /* PageHeader.swift in Sources */,
 				754AF6AD2D02492D00042BA8 /* SafeAreaGradientModifier.swift in Sources */,
 				75F56E372CCA03270055A437 /* LogChartData.swift in Sources */,
 				75A6DB7A2CB82CD200055E0E /* HalfCircleView.swift in Sources */,
