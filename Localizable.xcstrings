@@ -62,7 +62,13 @@
     "Ball Position: %@" : {
 
     },
+    "Blur Pulse" : {
+
+    },
     "Blur Text Animation" : {
+
+    },
+    "Bounce" : {
 
     },
     "Burst Confetti" : {
@@ -191,6 +197,9 @@
     "Password" : {
 
     },
+    "Pop" : {
+
+    },
     "Population" : {
 
     },
@@ -198,6 +207,9 @@
 
     },
     "Pull to refresh" : {
+
+    },
+    "Pulse Color" : {
 
     },
     "Random Value" : {
@@ -325,6 +337,9 @@
     "This is a test body" : {
 
     },
+    "Tilt 3D" : {
+
+    },
     "Toggle notifications" : {
 
     },
@@ -337,6 +352,9 @@
     "Type" : {
 
     },
+    "Typewriter Effect This is a long sentence to try and make it work character by character" : {
+
+    },
     "Update Progress" : {
 
     },
@@ -347,6 +365,9 @@
 
     },
     "Woah" : {
+
+    },
+    "Wobble" : {
 
     },
     "Words" : {

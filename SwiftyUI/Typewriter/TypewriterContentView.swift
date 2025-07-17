@@ -56,8 +56,12 @@ struct TypewriterContentView: View {
                     
                     TypingText(
                         text: currentStoryText,
-                        startTyping: self.startTyping
+                        startTyping: self.startTyping,
+                        typingSpeed: 0.05...0.05,
+                        typingPreDelay: 0
                     )
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, .large)
                     
                 }
                 .onAppear {
