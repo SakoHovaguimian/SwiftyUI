@@ -9,7 +9,7 @@ import SwiftUI
 
 // Add completion
 
-struct VerticalTimelineView: View {
+struct VerticalTimelineView2: View {
     
     struct Animatable {
         
@@ -290,7 +290,7 @@ struct LineView: View {
 
 #Preview {
     
-    @Previewable @State var items: [VerticalTimelineView.Item] = [
+    @Previewable @State var items: [VerticalTimelineView2.Item] = [
         .init(title: "Verifying Information", duration: 1),
         .init(title: "Creating Account", duration: 2),
         .init(title: "Generating Assets", duration: 0.5),
@@ -298,7 +298,7 @@ struct LineView: View {
         .init(title: "💵 Profit", duration: 0.5),
     ]
     
-    VerticalTimelineView(items: items, activeColor: .darkPurple)
+    VerticalTimelineView2(items: items, activeColor: .darkPurple)
         .frame(width: 350, height: 500)
     
 }
