@@ -62,6 +62,7 @@
 		756B98322DEA205A008CFF7C /* CardSwipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756B98312DEA2056008CFF7C /* CardSwipe.swift */; };
 		756F46442C2BD15200D14425 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756F46432C2BD15200D14425 /* MessageView.swift */; };
 		757006172CAC807C005FBCB7 /* CloudWithDotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757006162CAC807C005FBCB7 /* CloudWithDotsView.swift */; };
+		757021382E3FAB61003F99B8 /* PasswordStrength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757021372E3FAB5D003F99B8 /* PasswordStrength.swift */; };
 		75718F832C1209C200989D41 /* BoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F822C1209C200989D41 /* BoomView.swift */; };
 		75718F852C1209DF00989D41 /* WaterFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F842C1209DF00989D41 /* WaterFillView.swift */; };
 		75718F872C120A0000989D41 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75718F862C120A0000989D41 /* BadgeView.swift */; };
@@ -295,6 +296,7 @@
 		756B98312DEA2056008CFF7C /* CardSwipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSwipe.swift; sourceTree = "<group>"; };
 		756F46432C2BD15200D14425 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		757006162CAC807C005FBCB7 /* CloudWithDotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudWithDotsView.swift; sourceTree = "<group>"; };
+		757021372E3FAB5D003F99B8 /* PasswordStrength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordStrength.swift; sourceTree = "<group>"; };
 		75718F802C12085D00989D41 /* AnimatedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedPicker.swift; sourceTree = "<group>"; };
 		75718F822C1209C200989D41 /* BoomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoomView.swift; sourceTree = "<group>"; };
 		75718F842C1209DF00989D41 /* WaterFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterFillView.swift; sourceTree = "<group>"; };
@@ -1072,6 +1074,7 @@
 		75BA2CE32C0E780A0089B70F /* SwiftyUI */ = {
 			isa = PBXGroup;
 			children = (
+				757021372E3FAB5D003F99B8 /* PasswordStrength.swift */,
 				7580B1512C12BFA90029EF84 /* Typewriter */,
 				75632B1A2E29650900672C7B /* Effects.swift */,
 				7569F7BD2E1A03760079BD50 /* ScrollableTabBar */,
@@ -1429,6 +1432,7 @@
 				75F7897C2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift in Sources */,
 				759206F82DB14B8B00E53B72 /* MentionPickerView2.swift in Sources */,
 				7571903D2C120CE600989D41 /* asButton.swift in Sources */,
+				757021382E3FAB61003F99B8 /* PasswordStrength.swift in Sources */,
 				7571903E2C120CE600989D41 /* PlainList.swift in Sources */,
 				7571903F2C120CE600989D41 /* CenterIconStyle.swift in Sources */,
 				752563FE2D14C0D0009AFC34 /* IconAnimationTest.swift in Sources */,
