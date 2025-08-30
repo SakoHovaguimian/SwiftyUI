@@ -462,19 +462,21 @@ struct ThemeApp: App {
         
         WindowGroup {
             
-            PullToRefreshExample(style: .arrow)
-                .onFirstAppear {
-                    
-                    let service = MyService()
-                    let monkeyService = MonkeyService()
-
-                    monkeyService.log(message: "Did some work")
-                    monkeyService.error("Something borked")
-                    monkeyService.logDeinit()
-
-                    print("COMPLETE")
-                    
-                }
+//            TestVst2()
+            
+//            PullToRefreshExample(style: .arrow)
+//                .onFirstAppear {
+//                    
+//                    let service = MyService()
+//                    let monkeyService = MonkeyService()
+//
+//                    monkeyService.log(message: "Did some work")
+//                    monkeyService.error("Something borked")
+//                    monkeyService.logDeinit()
+//
+//                    print("COMPLETE")
+//                    
+//                }
 //
 //            VStack(spacing: theme.spacing(.medium)) {
 //                

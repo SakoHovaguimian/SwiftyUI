@@ -4,6 +4,9 @@
     "" : {
 
     },
+    " " : {
+
+    },
     " [google.com](https://google.com)" : {
 
     },
@@ -131,6 +134,12 @@
     "Go" : {
 
     },
+    "Goal: %lld" : {
+
+    },
+    "Hatch" : {
+
+    },
     "Have you tried turning it %@?" : {
 
     },
@@ -192,6 +201,9 @@
 
     },
     "Password" : {
+
+    },
+    "Phone" : {
 
     },
     "Pop" : {
@@ -337,6 +349,15 @@
     "Tilt 3D" : {
 
     },
+    "Tip 1" : {
+
+    },
+    "Tip 5" : {
+
+    },
+    "Tip Jar" : {
+
+    },
     "Toggle notifications" : {
 
     },
@@ -344,6 +365,9 @@
 
     },
     "Total Count" : {
+
+    },
+    "Total Tips: %lld" : {
 
     },
     "Type" : {
@@ -377,6 +401,9 @@
 
     },
     "Your Height" : {
+
+    },
+    "Your Password is: %@" : {
 
     }
   },
