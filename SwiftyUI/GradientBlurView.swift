@@ -162,7 +162,7 @@ fileprivate struct GradientBlurOverlay: View {
         }
     }
     
-    /// Parametric harshness control:
+        /// Parametric harshness control:
         /// - `h = 0` very soft (long ramp)
         /// - `h = 1` very harsh (short ramp)
         private static func harshnessStops(_ h: Double) -> [Gradient.Stop] {
@@ -189,14 +189,14 @@ fileprivate struct GradientBlurOverlay: View {
 
 struct TestVst2: View {
     
-    let uiImage: UIImage = UIImage(resource: .image1)
+    let uiImage: UIImage = UIImage(resource: .image4)
     @State private var extractedColors: [Color] = []
     
     var body: some View {
             
         VStack(spacing: 0) {
             
-            Image(.image1)
+            Image(.image4)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .ignoresSafeArea()
@@ -207,6 +207,27 @@ struct TestVst2: View {
                     mask: .preset(.medium),
                     heightStyle: .fixed(150)
                 )
+//                .overlay(alignment: .top) {
+//                    
+//                    Color.clear
+//                        .gradientBlur(
+//                            color: extractedColors.reversed().first ?? .red,
+//                            alignment: .top,
+//                            gradientDirection: .bottomToTop,
+//                            mask: .preset(.medium),
+//                            heightStyle: .fixed(400)
+//                        )
+//                        .overlay(alignment: .leading) {
+//                            
+//                            Text("New Album")
+//                                .foregroundStyle(.white)
+//                                .appFont(with: .header(.h5))
+//                                .offset(x: 48, y: -120)
+//                            
+//                        }
+//                        .ignoresSafeArea()
+//                    
+//                }
             
             VStack(alignment: .leading, spacing: 8) {
                 
