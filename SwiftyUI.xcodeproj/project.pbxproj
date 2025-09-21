@@ -180,6 +180,7 @@
 		75AC8FF72DEA005D0045863A /* PhotoEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75AC8FF62DEA00590045863A /* PhotoEditorView.swift */; };
 		75B16CAD2D627B15002DC3F9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */; };
 		75B16CAF2D627B24002DC3F9 /* TextProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */; };
+		75B18C9B2E7F84A200F82EEC /* PopInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B18C9A2E7F84A100F82EEC /* PopInView.swift */; };
 		75B245E42DD2546200A0BFE0 /* SegmentedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B245E32DD2546200A0BFE0 /* SegmentedCircleView.swift */; };
 		75B467202E41138D00E0E32B /* CoinTipJarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4671F2E41138D00E0E32B /* CoinTipJarScene.swift */; };
 		75B99DAB2D0343260088E9BC /* FinalStrechyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */; };
@@ -429,6 +430,7 @@
 		75AC8FF62DEA00590045863A /* PhotoEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorView.swift; sourceTree = "<group>"; };
 		75B16CAC2D627B13002DC3F9 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		75B16CAE2D627B24002DC3F9 /* TextProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProgressBar.swift; sourceTree = "<group>"; };
+		75B18C9A2E7F84A100F82EEC /* PopInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopInView.swift; sourceTree = "<group>"; };
 		75B245E32DD2546200A0BFE0 /* SegmentedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedCircleView.swift; sourceTree = "<group>"; };
 		75B4671F2E41138D00E0E32B /* CoinTipJarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTipJarScene.swift; sourceTree = "<group>"; };
 		75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStrechyHeader.swift; sourceTree = "<group>"; };
@@ -1086,6 +1088,7 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				75B18C9A2E7F84A100F82EEC /* PopInView.swift */,
 				75EF2BC52E6B94AC00C562ED /* GlowProKeyframeWordmark.swift */,
 				75235D762E6896E600A986D7 /* SomeParticle.swift */,
 				751658B12DA7314C00549BF6 /* Localizable.xcstrings */,
@@ -1566,6 +1569,7 @@
 				753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */,
 				751CBB462D8A10D000C89EAC /* ButtonAnimationState.swift in Sources */,
 				75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */,
+				75B18C9B2E7F84A200F82EEC /* PopInView.swift in Sources */,
 				7522F32C2D58600400276177 /* CommonSegmentedControl.swift in Sources */,
 				75F430172CE5569E008484E6 /* AccelerometerBallView.swift in Sources */,
 				751658B42DA7368D00549BF6 /* AttributedBuilder.swift in Sources */,
