@@ -207,6 +207,7 @@
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 		75D1A7E52D7A8A3E0025C5EC /* BottomTransitionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */; };
 		75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */; };
+		75D564292E931F2B00168E84 /* Chandeliers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D564282E931F2B00168E84 /* Chandeliers.swift */; };
 		75D671352DB0188A006457F1 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D671342DB0188A006457F1 /* Stack.swift */; };
 		75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */; };
 		75D8B34F2CE5487800681141 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B34E2CE5487800681141 /* PulseAnimation.swift */; };
@@ -461,6 +462,7 @@
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 		75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTransitionTest.swift; sourceTree = "<group>"; };
 		75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBannerView.swift; sourceTree = "<group>"; };
+		75D564282E931F2B00168E84 /* Chandeliers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chandeliers.swift; sourceTree = "<group>"; };
 		75D671342DB0188A006457F1 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTestView.swift; sourceTree = "<group>"; };
 		75D8B34E2CE5487800681141 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
@@ -1088,6 +1090,7 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				75D564282E931F2B00168E84 /* Chandeliers.swift */,
 				75B18C9A2E7F84A100F82EEC /* PopInView.swift */,
 				75EF2BC52E6B94AC00C562ED /* GlowProKeyframeWordmark.swift */,
 				75235D762E6896E600A986D7 /* SomeParticle.swift */,
@@ -1525,6 +1528,7 @@
 				7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */,
 				75B245E42DD2546200A0BFE0 /* SegmentedCircleView.swift in Sources */,
 				757190382C120CE300989D41 /* Ext+String.swift in Sources */,
+				75D564292E931F2B00168E84 /* Chandeliers.swift in Sources */,
 				7578B15C2C41F810006F07E7 /* ServiceAssembly.swift in Sources */,
 				757190392C120CE300989D41 /* Ext+Combine.swift in Sources */,
 				7571903A2C120CE300989D41 /* Ext+UIApplication.swift in Sources */,
