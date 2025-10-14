@@ -183,6 +183,7 @@
 		75B18C9B2E7F84A200F82EEC /* PopInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B18C9A2E7F84A100F82EEC /* PopInView.swift */; };
 		75B245E42DD2546200A0BFE0 /* SegmentedCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B245E32DD2546200A0BFE0 /* SegmentedCircleView.swift */; };
 		75B467202E41138D00E0E32B /* CoinTipJarScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4671F2E41138D00E0E32B /* CoinTipJarScene.swift */; };
+		75B4897B2E9EBAD5007B0F8A /* SpriteKitGravity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B4897A2E9EBAD0007B0F8A /* SpriteKitGravity.swift */; };
 		75B99DAB2D0343260088E9BC /* FinalStrechyHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */; };
 		75B9C6922C35206800F434EE /* OldMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B9C6912C35206400F434EE /* OldMessageView.swift */; };
 		75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2CE42C0E780A0089B70F /* SwiftyUIApp.swift */; };
@@ -434,6 +435,7 @@
 		75B18C9A2E7F84A100F82EEC /* PopInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopInView.swift; sourceTree = "<group>"; };
 		75B245E32DD2546200A0BFE0 /* SegmentedCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedCircleView.swift; sourceTree = "<group>"; };
 		75B4671F2E41138D00E0E32B /* CoinTipJarScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinTipJarScene.swift; sourceTree = "<group>"; };
+		75B4897A2E9EBAD0007B0F8A /* SpriteKitGravity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitGravity.swift; sourceTree = "<group>"; };
 		75B99DAA2D0343210088E9BC /* FinalStrechyHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalStrechyHeader.swift; sourceTree = "<group>"; };
 		75B9C6912C35206400F434EE /* OldMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldMessageView.swift; sourceTree = "<group>"; };
 		75BA2CE12C0E780A0089B70F /* SwiftyUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1090,6 +1092,7 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				75B4897A2E9EBAD0007B0F8A /* SpriteKitGravity.swift */,
 				75D564282E931F2B00168E84 /* Chandeliers.swift */,
 				75B18C9A2E7F84A100F82EEC /* PopInView.swift */,
 				75EF2BC52E6B94AC00C562ED /* GlowProKeyframeWordmark.swift */,
@@ -1468,6 +1471,7 @@
 				75788DD02D97021300209727 /* AsyncImageView.swift in Sources */,
 				7578B1552C41F77A006F07E7 /* EnvironmentService.swift in Sources */,
 				7578B27F2C3057D1006BE789 /* SwiftUIView.swift in Sources */,
+				75B4897B2E9EBAD5007B0F8A /* SpriteKitGravity.swift in Sources */,
 				7571900D2C120BF500989D41 /* Toast.swift in Sources */,
 				75EDCF282DA41B5D007DDE41 /* SlideToConfirmView.swift in Sources */,
 				7571900E2C120BF500989D41 /* ToastView.swift in Sources */,
