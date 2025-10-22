@@ -58,21 +58,22 @@ struct PasswordStrength: View {
     func passwordStrengthContainer() -> some View {
         
         let currentStrengthInt: Int = self.passwordStrength?.rawValue ?? -1
+        let currentStrengthColor: Color = self.passwordStrength?.color ?? .pink
         
         return HStack(spacing: 8) {
             
             passwordStrengthProgressBar(
-                color: Strength.weak.color,
+                color: currentStrengthColor,
                 isFilled: currentStrengthInt >= 0
             )
             
             passwordStrengthProgressBar(
-                color: Strength.medium.color,
+                color: currentStrengthColor,
                 isFilled: currentStrengthInt >= 1
             )
             
             passwordStrengthProgressBar(
-                color: Strength.strong.color,
+                color: currentStrengthColor,
                 isFilled: currentStrengthInt >= 2
             )
             
