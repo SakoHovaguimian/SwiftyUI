@@ -184,6 +184,7 @@ public struct PixelRiver: View {
             }
             
         }
+        .ignoresSafeArea()
         
     }
     
