@@ -26,6 +26,9 @@
 		75235D772E6896EC00A986D7 /* SomeParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75235D762E6896E600A986D7 /* SomeParticle.swift */; };
 		7524BAC42E56E9B900563B59 /* VariableBlur3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7524BAC32E56E9B200563B59 /* VariableBlur3.swift */; };
 		7524BAC62E56EB9A00563B59 /* PixelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7524BAC52E56EB9A00563B59 /* PixelData.swift */; };
+		75253A382EC46321004D1F02 /* PDFDraw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75253A372EC4631F004D1F02 /* PDFDraw.swift */; };
+		75253A3A2EC46347004D1F02 /* Canvas.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 75253A392EC46347004D1F02 /* Canvas.pdf */; };
+		75253A3C2EC46684004D1F02 /* Sample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 75253A3B2EC46684004D1F02 /* Sample.pdf */; };
 		752563FE2D14C0D0009AFC34 /* IconAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */; };
 		75287A942C4365C700787C50 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75287A932C4365C200787C50 /* AnalyticsService.swift */; };
 		75287A972C43662700787C50 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 75287A962C43662700787C50 /* Amplitude */; };
@@ -281,6 +284,9 @@
 		75235D762E6896E600A986D7 /* SomeParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeParticle.swift; sourceTree = "<group>"; };
 		7524BAC32E56E9B200563B59 /* VariableBlur3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableBlur3.swift; sourceTree = "<group>"; };
 		7524BAC52E56EB9A00563B59 /* PixelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelData.swift; sourceTree = "<group>"; };
+		75253A372EC4631F004D1F02 /* PDFDraw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDraw.swift; sourceTree = "<group>"; };
+		75253A392EC46347004D1F02 /* Canvas.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Canvas.pdf; sourceTree = "<group>"; };
+		75253A3B2EC46684004D1F02 /* Sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Sample.pdf; sourceTree = "<group>"; };
 		752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAnimationTest.swift; sourceTree = "<group>"; };
 		75287A932C4365C200787C50 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
 		7531164E2C12C11D00C7FBF6 /* GrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextField.swift; sourceTree = "<group>"; };
@@ -1092,6 +1098,9 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				75253A3B2EC46684004D1F02 /* Sample.pdf */,
+				75253A392EC46347004D1F02 /* Canvas.pdf */,
+				75253A372EC4631F004D1F02 /* PDFDraw.swift */,
 				75B4897A2E9EBAD0007B0F8A /* SpriteKitGravity.swift */,
 				75D564282E931F2B00168E84 /* Chandeliers.swift */,
 				75B18C9A2E7F84A100F82EEC /* PopInView.swift */,
@@ -1368,6 +1377,8 @@
 			files = (
 				757190542C120FEC00989D41 /* Colors.xcassets in Resources */,
 				751658B22DA7314C00549BF6 /* Localizable.xcstrings in Resources */,
+				75253A3A2EC46347004D1F02 /* Canvas.pdf in Resources */,
+				75253A3C2EC46684004D1F02 /* Sample.pdf in Resources */,
 				75BA2CED2C0E780B0089B70F /* Preview Assets.xcassets in Resources */,
 				75F341A92D81058000B11355 /* StoreKitConfigurationFile.storekit in Resources */,
 				75BA2CE92C0E780B0089B70F /* Assets.xcassets in Resources */,
@@ -1515,6 +1526,7 @@
 				752563FE2D14C0D0009AFC34 /* IconAnimationTest.swift in Sources */,
 				75D671352DB0188A006457F1 /* Stack.swift in Sources */,
 				757190472C120E7900989D41 /* OrientationChangeModifier.swift in Sources */,
+				75253A382EC46321004D1F02 /* PDFDraw.swift in Sources */,
 				75AC8FF72DEA005D0045863A /* PhotoEditorView.swift in Sources */,
 				7545E9F72DFFE03B0042A4B3 /* CompareSliderView.swift in Sources */,
 				7578B1512C41F76A006F07E7 /* ViewModelAssembly.swift in Sources */,

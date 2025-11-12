@@ -41,6 +41,9 @@
     "❄️" : {
 
     },
+    "🚀 OVER EVERYTHING" : {
+
+    },
     "24%" : {
 
     },
@@ -104,10 +107,16 @@
     "Detect due dates in tasks automatically" : {
 
     },
+    "Draw" : {
+
+    },
     "Email" : {
 
     },
     "Enter Something" : {
+
+    },
+    "Erase" : {
 
     },
     "Error: %@" : {
@@ -123,6 +132,9 @@
 
     },
     "Fill Color" : {
+
+    },
+    "Finish" : {
 
     },
     "Full Name" : {
@@ -362,6 +374,9 @@
 
     },
     "Tip Jar" : {
+
+    },
+    "Toggle Animation" : {
 
     },
     "Toggle notifications" : {

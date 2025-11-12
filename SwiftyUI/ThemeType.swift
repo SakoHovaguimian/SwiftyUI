@@ -453,14 +453,14 @@ extension EnvironmentValues {
 // MARK: - Demo View
 
 
-@main
-struct ThemeApp: App {
-    
-    @Environment(\.designSystem) private var theme
-    
-    var body: some Scene {
-        
-        WindowGroup {
+//@main
+//struct ThemeApp: App {
+//    
+//    @Environment(\.designSystem) private var theme
+//    
+//    var body: some Scene {
+//        
+//        WindowGroup {
             
 //            TestVst2()
             
@@ -525,9 +525,9 @@ struct ThemeApp: App {
             
 //            StringViewTest()
             
-        }
+//        }
         
-    }
+//    }
     
-}
+//}
 
