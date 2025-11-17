@@ -388,3 +388,27 @@ private struct DrawingPoint {
     DrawingView()
     
 }
+
+#Preview {
+    
+    ScrollView(.horizontal) {
+        
+        HStack(spacing: 8) {
+            
+            ForEach(0..<4, id: \.self) { index in
+                
+                Rectangle()
+                    .fill(index % 2 == 0 ? Color.red : Color.blue)
+                    .frame(height: 120)
+                    .containerRelativeFrame(.horizontal)
+                
+            }
+            
+        }
+        .scrollTargetLayout()
+        
+    }
+    .scrollTargetBehavior(.viewAligned)
+    .safeAreaPadding(.horizontal, 16)
+    
+}
