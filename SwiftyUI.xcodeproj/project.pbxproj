@@ -240,6 +240,7 @@
 		75F56E372CCA03270055A437 /* LogChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F56E362CCA03270055A437 /* LogChartData.swift */; };
 		75F7897C2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7897B2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift */; };
 		75F7897E2D8919A800FEBED8 /* UserDefaultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7897D2D8919A500FEBED8 /* UserDefaultsView.swift */; };
+		75F7D9772ECD45EB00E11EC6 /* WheelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7D9762ECD45E400E11EC6 /* WheelPickerView.swift */; };
 		75F81C432DBA892F00B1D87C /* Gauge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F81C412DBA887A00B1D87C /* Gauge.swift */; };
 		75F8BADE2CDE924F00A05C74 /* Shimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F8BADD2CDE924F00A05C74 /* Shimmer.swift */; };
 		75FA67FE2DF60BD500061ED0 /* LoggerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75FA67FD2DF60BD100061ED0 /* LoggerTest.swift */; };
@@ -499,6 +500,7 @@
 		75F56E362CCA03270055A437 /* LogChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogChartData.swift; sourceTree = "<group>"; };
 		75F7897B2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeyProtocol.swift; sourceTree = "<group>"; };
 		75F7897D2D8919A500FEBED8 /* UserDefaultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsView.swift; sourceTree = "<group>"; };
+		75F7D9762ECD45E400E11EC6 /* WheelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPickerView.swift; sourceTree = "<group>"; };
 		75F81C412DBA887A00B1D87C /* Gauge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gauge.swift; sourceTree = "<group>"; };
 		75F8BADD2CDE924F00A05C74 /* Shimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shimmer.swift; sourceTree = "<group>"; };
 		75FA67FD2DF60BD100061ED0 /* LoggerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerTest.swift; sourceTree = "<group>"; };
@@ -1098,6 +1100,7 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				75F7D9762ECD45E400E11EC6 /* WheelPickerView.swift */,
 				75253A3B2EC46684004D1F02 /* Sample.pdf */,
 				75253A392EC46347004D1F02 /* Canvas.pdf */,
 				75253A372EC4631F004D1F02 /* PDFDraw.swift */,
@@ -1490,6 +1493,7 @@
 				7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */,
 				757190562C1212B000989D41 /* HeightPicker.swift in Sources */,
 				7571900F2C120BF500989D41 /* ToastManager.swift in Sources */,
+				75F7D9772ECD45EB00E11EC6 /* WheelPickerView.swift in Sources */,
 				757190102C120BF500989D41 /* ToastViewModifier.swift in Sources */,
 				75F341A12D81041B00B11355 /* StoreKitService.swift in Sources */,
 				754BE1FA2D80FC9C00C20CF7 /* StoreKitProtocol.swift in Sources */,
