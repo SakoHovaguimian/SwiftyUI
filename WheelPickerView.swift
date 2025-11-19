@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct WheelPickerView<Value: Identifiable & Hashable, Content: View>: View {
+public struct WheelPickerView<Value: Hashable, Content: View>: View {
     
     public enum WheelPickerSizeStyle {
         
@@ -18,19 +18,19 @@ public struct WheelPickerView<Value: Identifiable & Hashable, Content: View>: Vi
     
     public struct OverlayConfig {
         
-        let strokeColor: Color
-        let strokeWidth: CGFloat
-        let clipeShape: AnyShape
-        let horizontalPadding: CGFloat
+        public let strokeColor: Color
+        public let strokeWidth: CGFloat
+        public let clipShape: AnyShape
+        public let horizontalPadding: CGFloat
         
         public init(strokeColor: Color = .black,
                     strokeWidth: CGFloat = 3.5,
-                    clipeShape: AnyShape = .init(.rect(cornerRadius: 12)),
+                    clipShape: AnyShape = .init(.rect(cornerRadius: 12)),
                     horizontalPadding: CGFloat = 2) {
             
             self.strokeColor = strokeColor
             self.strokeWidth = strokeWidth
-            self.clipeShape = clipeShape
+            self.clipShape = clipShape
             self.horizontalPadding = horizontalPadding
             
         }
@@ -59,7 +59,7 @@ public struct WheelPickerView<Value: Identifiable & Hashable, Content: View>: Vi
     public init(selectedOption: Binding<Value?>,
                 options: [Value],
                 sizingStyle: WheelPickerSizeStyle = .automatic,
-                visibileRows: CGFloat = 3,
+                visibleRows: CGFloat = 3,
                 interitemSpacing: CGFloat = 16,
                 overlayConfig: OverlayConfig = .init(),
                 @ViewBuilder content: @escaping (Value, Bool) -> Content) {
@@ -67,7 +67,7 @@ public struct WheelPickerView<Value: Identifiable & Hashable, Content: View>: Vi
         self._selectedOption = selectedOption
         self.options = options
         self.sizingStyle = sizingStyle
-        self.visibleRows = visibileRows
+        self.visibleRows = visibleRows
         self.interitemSpacing = interitemSpacing
         self.overlayConfig = overlayConfig
         self.content = content
@@ -136,7 +136,7 @@ public struct WheelPickerView<Value: Identifiable & Hashable, Content: View>: Vi
     
     private func overlay() -> some View {
         
-        self.overlayConfig.clipeShape
+        self.overlayConfig.clipShape
             .stroke(
                 self.overlayConfig.strokeColor,
                 style: StrokeStyle(lineWidth: self.overlayConfig.strokeWidth),
@@ -183,9 +183,9 @@ fileprivate struct PokemonWheelExample: View {
                     selectedOption: $selectedPokemon,
                     options: options,
                     sizingStyle: .automatic,
-                    visibileRows: 3,
+                    visibleRows: 3,
                     interitemSpacing: 0,
-                    overlayConfig: .init(strokeColor: Color.mint, strokeWidth: 2, clipeShape: .init(.rect(cornerRadius: 8)), horizontalPadding: 24),
+                    overlayConfig: .init(strokeColor: Color.mint, strokeWidth: 2, clipShape: .init(.rect(cornerRadius: 8)), horizontalPadding: 24),
                     
                 ) { pokemon, isSelected in
                     

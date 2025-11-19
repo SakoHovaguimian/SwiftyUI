@@ -60,6 +60,7 @@
 		7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551B86B2C2E29540003A0F8 /* DashProgressView.swift */; };
 		75533D462D380B8D001A5010 /* VariableBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75533D452D380B89001A5010 /* VariableBlur.swift */; };
 		7556CB572C2F227E0084A130 /* SizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CB562C2F227E0084A130 /* SizingView.swift */; };
+		756150CB2ECD9331008A5263 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756150CA2ECD932C008A5263 /* TimePickerView.swift */; };
 		7561DE752D3574E300F01C67 /* NewScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */; };
 		75632B1B2E29650B00672C7B /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75632B1A2E29650900672C7B /* Effects.swift */; };
 		75683E462E58D411009C3159 /* GradientBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75683E452E58D40A009C3159 /* GradientBlurView.swift */; };
@@ -318,6 +319,7 @@
 		7551B86B2C2E29540003A0F8 /* DashProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashProgressView.swift; sourceTree = "<group>"; };
 		75533D452D380B89001A5010 /* VariableBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableBlur.swift; sourceTree = "<group>"; };
 		7556CB562C2F227E0084A130 /* SizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingView.swift; sourceTree = "<group>"; };
+		756150CA2ECD932C008A5263 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScrollBannerView.swift; sourceTree = "<group>"; };
 		75632B1A2E29650900672C7B /* Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
 		75683E452E58D40A009C3159 /* GradientBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBlurView.swift; sourceTree = "<group>"; };
@@ -1100,6 +1102,7 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				756150CA2ECD932C008A5263 /* TimePickerView.swift */,
 				75F7D9762ECD45E400E11EC6 /* WheelPickerView.swift */,
 				75253A3B2EC46684004D1F02 /* Sample.pdf */,
 				75253A392EC46347004D1F02 /* Canvas.pdf */,
@@ -1616,6 +1619,7 @@
 				7538AFEE2E42729600B0FC16 /* Shapes.swift in Sources */,
 				75D9584E2E42572900D7AF72 /* ConfettiParticle.swift in Sources */,
 				75B16CAF2D627B24002DC3F9 /* TextProgressBar.swift in Sources */,
+				756150CB2ECD9331008A5263 /* TimePickerView.swift in Sources */,
 				7578B1612C41FBE1006F07E7 /* CancelBag.swift in Sources */,
 				75BA2D402C0E79600089B70F /* FrameReader.swift in Sources */,
 				75FD1DAE2C914E9E004AC287 /* AppText.swift in Sources */,
