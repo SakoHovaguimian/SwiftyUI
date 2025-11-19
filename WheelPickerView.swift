@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+// TODO:
+/// - Sounds
+/// - Support horizontal WheelPickerView as well
+
 public struct WheelPickerView<Value: Hashable, Content: View>: View {
     
     public enum WheelPickerSizeStyle {
@@ -86,7 +90,7 @@ public struct WheelPickerView<Value: Hashable, Content: View>: View {
         
         ScrollView(.vertical) {
             
-            VStack(spacing: self.interitemSpacing) {
+            LazyVStack(spacing: self.interitemSpacing) {
                 
                 ForEach(self.options, id: \.self) { option in
                     item(option)
@@ -145,6 +149,7 @@ public struct WheelPickerView<Value: Hashable, Content: View>: View {
             .frame(height: self.rowHeight + 2)
             .frame(maxWidth: .infinity)
             .padding(.horizontal, self.overlayConfig.horizontalPadding)
+            .allowsHitTesting(false)
         
     }
     
@@ -198,6 +203,9 @@ fileprivate struct PokemonWheelExample: View {
 //                        .background(.white)
 //                        .clipShape(RoundedRectangle(cornerRadius: 8))
 //                        .appShadow(style: .card)
+                        .scaleEffect(isSelected ? 1 : 0.98)
+                        .opacity(isSelected ? 1 : 0.75)
+                        .animation(.bouncy, value: isSelected)
                         .overlay(alignment: .topLeading) {
                             
                             if isSelected {

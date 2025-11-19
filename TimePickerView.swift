@@ -171,7 +171,9 @@ public struct WheelTimePicker: View {
                 .font(isSelected ? .title3 : .body)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 8)
-                .animation(.smooth, value: self.hours)
+                .scaleEffect(isSelected ? 1 : 0.75)
+                .opacity(isSelected ? 1 : 0.75)
+                .animation(.bouncy(duration: 0.5), value: self.hours)
             
         }
         .frame(maxWidth: .infinity)
@@ -195,6 +197,8 @@ public struct WheelTimePicker: View {
                 .font(isSelected ? .title3 : .body)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 8)
+                .scaleEffect(isSelected ? 1 : 0.75)
+                .opacity(isSelected ? 1 : 0.75)
                 .animation(.smooth, value: self.minutes)
             
         }
@@ -219,6 +223,8 @@ public struct WheelTimePicker: View {
                 .font(isSelected ? .title3 : .body)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 8)
+                .scaleEffect(isSelected ? 1 : 0.75)
+                .opacity(isSelected ? 1 : 0.75)
                 .animation(.smooth, value: self.periods)
             
         }
