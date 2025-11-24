@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7502D4052D38265700263263 /* ZigZagShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7502D4042D38265200263263 /* ZigZagShape.swift */; };
+		7507E3412ED128C400577064 /* BudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7507E3402ED128C400577064 /* BudgetCategory.swift */; };
 		750B1B3A2CA88ECF007F93E2 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757382C42CA88B00007ACA27 /* RatingView.swift */; };
 		750B1B582CA89037007F93E2 /* GestureFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750B1B572CA8902C007F93E2 /* GestureFillView.swift */; };
 		751361CA2DE4BD6B00C51230 /* SliderTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751361C92DE4BD6B00C51230 /* SliderTicker.swift */; };
@@ -161,6 +162,7 @@
 		75827EEA2DB8761300132BD0 /* fdljfgdl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75827EE92DB8761100132BD0 /* fdljfgdl.swift */; };
 		758421AD2D010694007A9F6E /* ProgressIndicatorNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */; };
 		7587C3B12DE4F8020067C2D5 /* HoldButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587C3B02DE4F8020067C2D5 /* HoldButtonView.swift */; };
+		7590B8152ED123B500EEC295 /* SegmentedProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7590B8142ED123B500EEC295 /* SegmentedProgressView.swift */; };
 		759206F82DB14B8B00E53B72 /* MentionPickerView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759206F72DB14B8B00E53B72 /* MentionPickerView2.swift */; };
 		7593D69B2E09938A003C50CD /* SignitureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593D69A2E099386003C50CD /* SignitureView.swift */; };
 		75971A712D9C2E70007F6E52 /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75971A702D9C2E6C007F6E52 /* CodeInputView.swift */; };
@@ -269,6 +271,7 @@
 
 /* Begin PBXFileReference section */
 		7502D4042D38265200263263 /* ZigZagShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZigZagShape.swift; sourceTree = "<group>"; };
+		7507E3402ED128C400577064 /* BudgetCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
 		750B1B572CA8902C007F93E2 /* GestureFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureFillView.swift; sourceTree = "<group>"; };
 		751361C82DE4BD6B00C51230 /* CardFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlipView.swift; sourceTree = "<group>"; };
 		751361C92DE4BD6B00C51230 /* SliderTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTicker.swift; sourceTree = "<group>"; };
@@ -419,6 +422,7 @@
 		75827EE92DB8761100132BD0 /* fdljfgdl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fdljfgdl.swift; sourceTree = "<group>"; };
 		758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorNew.swift; sourceTree = "<group>"; };
 		7587C3B02DE4F8020067C2D5 /* HoldButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldButtonView.swift; sourceTree = "<group>"; };
+		7590B8142ED123B500EEC295 /* SegmentedProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedProgressView.swift; sourceTree = "<group>"; };
 		759206F72DB14B8B00E53B72 /* MentionPickerView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentionPickerView2.swift; sourceTree = "<group>"; };
 		7593D69A2E099386003C50CD /* SignitureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignitureView.swift; sourceTree = "<group>"; };
 		75971A702D9C2E6C007F6E52 /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
@@ -1102,6 +1106,8 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				7507E3402ED128C400577064 /* BudgetCategory.swift */,
+				7590B8142ED123B500EEC295 /* SegmentedProgressView.swift */,
 				756150CA2ECD932C008A5263 /* TimePickerView.swift */,
 				75F7D9762ECD45E400E11EC6 /* WheelPickerView.swift */,
 				75253A3B2EC46684004D1F02 /* Sample.pdf */,
@@ -1508,6 +1514,7 @@
 				75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */,
 				756F46442C2BD15200D14425 /* MessageView.swift in Sources */,
 				751675B12DD3010C002685C5 /* RefreshIndicatorType.swift in Sources */,
+				7590B8152ED123B500EEC295 /* SegmentedProgressView.swift in Sources */,
 				756A5F2A2D6846EE00082154 /* CommonButton.swift in Sources */,
 				753116662C12C22B00C7FBF6 /* AdaptiveGridView.swift in Sources */,
 				75C5F8A42CFE4433003446CC /* AnimatedIntroView.swift in Sources */,
@@ -1525,6 +1532,7 @@
 				75827EEA2DB8761300132BD0 /* fdljfgdl.swift in Sources */,
 				7541096A2DADA8BD00B2AE4B /* verticalScroll.swift in Sources */,
 				75F7897C2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift in Sources */,
+				7507E3412ED128C400577064 /* BudgetCategory.swift in Sources */,
 				759206F82DB14B8B00E53B72 /* MentionPickerView2.swift in Sources */,
 				7571903D2C120CE600989D41 /* asButton.swift in Sources */,
 				757021382E3FAB61003F99B8 /* PasswordStrength.swift in Sources */,

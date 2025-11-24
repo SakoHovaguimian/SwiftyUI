@@ -44,6 +44,9 @@
     "🚀 OVER EVERYTHING" : {
 
     },
+    "$%lld" : {
+
+    },
     "24%" : {
 
     },
@@ -256,6 +259,16 @@
     },
     "Search Conversations" : {
 
+    },
+    "Selected: %lld:%@ %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Selected: %1$lld:%2$@ %3$@"
+          }
+        }
+      }
     },
     "Seleted Loan Type: %@" : {
 
