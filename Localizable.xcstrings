@@ -41,9 +41,6 @@
     "❄️" : {
 
     },
-    "🚀 OVER EVERYTHING" : {
-
-    },
     "$%lld" : {
 
     },
@@ -110,16 +107,13 @@
     "Detect due dates in tasks automatically" : {
 
     },
-    "Draw" : {
+    "Editor" : {
 
     },
     "Email" : {
 
     },
     "Enter Something" : {
-
-    },
-    "Erase" : {
 
     },
     "Error: %@" : {
@@ -252,6 +246,9 @@
 
     },
     "Sako's Hovaguimian" : {
+
+    },
+    "Save" : {
 
     },
     "Scroll For Hue Rotation" : {

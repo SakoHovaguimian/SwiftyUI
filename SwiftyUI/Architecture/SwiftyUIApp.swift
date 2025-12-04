@@ -74,41 +74,41 @@ fileprivate class PassthroughWindow: UIWindow {
     
 }
 
-@main
-struct MyApp2: App {
-    
-    @State private var shouldShow: Bool = true
-    
-    var body: some Scene {
-        
-        WindowGroup {
-            
-            DrawingView()
-            
-        }
-        
-    }
-    
-    private var overlayView: some View {
-        
-        Text("🚀 OVER EVERYTHING")
-            .font(.largeTitle.bold())
-            .foregroundStyle(.white)
-            .padding()
-            .background(
-                Color.black.opacity(0.7)
-            )
-            .cornerRadius(12)
-            .padding(.top, 60)
-            .frame(
-                maxWidth: .infinity,
-                maxHeight: .infinity,
-                alignment: .top
-            )
-            .allowsHitTesting(false)   // so it doesn’t block taps below, if you want
-        
-    }
-}
+//@main
+//struct MyApp2: App {
+//    
+//    @State private var shouldShow: Bool = true
+//    
+//    var body: some Scene {
+//        
+//        WindowGroup {
+//            
+//            DrawingView()
+//            
+//        }
+//        
+//    }
+//    
+//    private var overlayView: some View {
+//        
+//        Text("🚀 OVER EVERYTHING")
+//            .font(.largeTitle.bold())
+//            .foregroundStyle(.white)
+//            .padding()
+//            .background(
+//                Color.black.opacity(0.7)
+//            )
+//            .cornerRadius(12)
+//            .padding(.top, 60)
+//            .frame(
+//                maxWidth: .infinity,
+//                maxHeight: .infinity,
+//                alignment: .top
+//            )
+//            .allowsHitTesting(false)   // so it doesn’t block taps below, if you want
+//        
+//    }
+//}
 
 //@main
 //struct MyApp2: App {
@@ -191,31 +191,39 @@ struct MyApp2: App {
 //    
 //}
 
-//@main
-//struct SwiftyUIApp: App {
-//    
+@main
+struct SwiftyUIApp: App {
+    
 //    private let appAssembler: AppAssembler = AppAssembler()
-//    
+    
 //    private let demoViewModel: DemoViewModel
-//    
-//    init() {
+    
+    init() {
 //        
 //        self.demoViewModel = self.appAssembler
 //            .resolver
 //            .resolve(DemoViewModel.self)!
 //            .setup()
-//        
-//    }
-//    
-//    var body: some Scene {
-//        
-//        WindowGroup {
-//            DemoView(viewModel: demoViewModel)
-//        }
-//        
-//    }
-//    
-//}
+        
+    }
+    
+    var body: some Scene {
+        
+        WindowGroup {
+            let url = Bundle.main.url(forResource: "Sample", withExtension: "pdf")!
+//            
+//            return PDFPencilKitEditorView(
+//                initialPDFURL: url,
+//                outputFileName: "MyEdited.pdf",
+//                showsBuiltInControls: true
+//            )
+//            .ignoresSafeArea()
+            CleanPDFContainer()
+        }
+        
+    }
+    
+}
 
 struct DemoView: View {
     
