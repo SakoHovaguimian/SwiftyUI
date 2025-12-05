@@ -218,7 +218,8 @@ struct SwiftyUIApp: App {
 //                showsBuiltInControls: true
 //            )
 //            .ignoresSafeArea()
-            CleanPDFContainer()
+//            CleanPDFContainer()
+            GlowProDashboardView()
         }
         
     }

@@ -16,6 +16,9 @@
     "@%@" : {
 
     },
+    "%@%%" : {
+
+    },
     "%lf" : {
 
     },
@@ -44,10 +47,22 @@
     "$%lld" : {
 
     },
+    "07:30 pm" : {
+
+    },
+    "09:00 am" : {
+
+    },
     "24%" : {
 
     },
     "123123" : {
+
+    },
+    "active clients" : {
+
+    },
+    "Active Clients" : {
 
     },
     "Add Item" : {
@@ -66,6 +81,15 @@
 
     },
     "Ball Position: %@" : {
+
+    },
+    "Based on media captured in the last 30 days" : {
+
+    },
+    "Based on media captured, clients documented, and active staff." : {
+
+    },
+    "Before / After / Video captured across all staff" : {
 
     },
     "Blur Pulse" : {
@@ -89,13 +113,28 @@
     "Card" : {
 
     },
+    "Category" : {
+
+    },
     "Click Me" : {
+
+    },
+    "Client Engagement Trend" : {
 
     },
     "Current Env" : {
 
     },
     "Current Page Index: %lld" : {
+
+    },
+    "Current Utilization" : {
+
+    },
+    "Date" : {
+
+    },
+    "Day" : {
 
     },
     "Debouncer Demo" : {
@@ -111,6 +150,9 @@
 
     },
     "Email" : {
+
+    },
+    "End" : {
 
     },
     "Enter Something" : {
@@ -134,10 +176,16 @@
     "Finish" : {
 
     },
+    "First booking" : {
+
+    },
     "Full Name" : {
 
     },
     "Gauge" : {
+
+    },
+    "GlowPro usage is" : {
 
     },
     "Go" : {
@@ -150,6 +198,9 @@
 
     },
     "Have you tried turning it %@?" : {
+
+    },
+    "Healthy" : {
 
     },
     "Hello, World!" : {
@@ -173,13 +224,34 @@
     "Item %lld" : {
 
     },
+    "items" : {
+
+    },
     "Items" : {
+
+    },
+    "Kind" : {
+
+    },
+    "Last booking" : {
+
+    },
+    "Location Utilization" : {
 
     },
     "Log Type" : {
 
     },
     "lorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet consectetur adipisicing elit. Quo, voluptatem! Lorem ipsum" : {
+
+    },
+    "Media" : {
+
+    },
+    "Media Count" : {
+
+    },
+    "media items" : {
 
     },
     "My Button" : {
@@ -213,6 +285,9 @@
 
     },
     "Password" : {
+
+    },
+    "Percentage" : {
 
     },
     "Phone" : {
@@ -285,6 +360,15 @@
     "Sending %lld" : {
 
     },
+    "Series" : {
+
+    },
+    "Sessions" : {
+
+    },
+    "Sessions per day (last 7 days)" : {
+
+    },
     "Settings" : {
 
     },
@@ -310,6 +394,9 @@
 
     },
     "SomeTest" : {
+
+    },
+    "Start" : {
 
     },
     "Start typing" : {
@@ -401,6 +488,9 @@
     "Total Tips: %lld" : {
 
     },
+    "Treatment Mix" : {
+
+    },
     "Type" : {
 
     },
@@ -408,6 +498,12 @@
 
     },
     "Update Progress" : {
+
+    },
+    "View full schedule" : {
+
+    },
+    "Weekly Media Captures" : {
 
     },
     "Welcome Sako" : {
@@ -423,6 +519,12 @@
 
     },
     "Words" : {
+
+    },
+    "X" : {
+
+    },
+    "Y" : {
 
     },
     "You cannot intersect events!" : {

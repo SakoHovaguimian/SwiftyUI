@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct AppBaseView<Content>: View where Content: View {
-
+    
     private let horizontalPadding: Spacing
     private let content: Content
     private let alignment: Alignment
     private let backgroundGradient: LinearGradient
-
+    
     public init(
         alignment: Alignment = .center,
         horizontalPadding: Spacing = .none,

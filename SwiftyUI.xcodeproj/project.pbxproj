@@ -226,6 +226,7 @@
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 		75D1A7E52D7A8A3E0025C5EC /* BottomTransitionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */; };
 		75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */; };
+		75D550C22EE2591500EF06B2 /* MacroType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D550C12EE2591500EF06B2 /* MacroType.swift */; };
 		75D564292E931F2B00168E84 /* Chandeliers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D564282E931F2B00168E84 /* Chandeliers.swift */; };
 		75D671352DB0188A006457F1 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D671342DB0188A006457F1 /* Stack.swift */; };
 		75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */; };
@@ -253,6 +254,7 @@
 		75F430172CE5569E008484E6 /* AccelerometerBallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F430162CE5569E008484E6 /* AccelerometerBallView.swift */; };
 		75F4F57D2DA0BC5000C50895 /* ThemeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F4F57C2DA0BC5000C50895 /* ThemeType.swift */; };
 		75F56E372CCA03270055A437 /* LogChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F56E362CCA03270055A437 /* LogChartData.swift */; };
+		75F650D52EE2673000AB9214 /* DayContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F650D42EE2673000AB9214 /* DayContent.swift */; };
 		75F7897C2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7897B2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift */; };
 		75F7897E2D8919A800FEBED8 /* UserDefaultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7897D2D8919A500FEBED8 /* UserDefaultsView.swift */; };
 		75F7D9772ECD45EB00E11EC6 /* WheelPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F7D9762ECD45E400E11EC6 /* WheelPickerView.swift */; };
@@ -501,6 +503,7 @@
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 		75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTransitionTest.swift; sourceTree = "<group>"; };
 		75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBannerView.swift; sourceTree = "<group>"; };
+		75D550C12EE2591500EF06B2 /* MacroType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroType.swift; sourceTree = "<group>"; };
 		75D564282E931F2B00168E84 /* Chandeliers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chandeliers.swift; sourceTree = "<group>"; };
 		75D671342DB0188A006457F1 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTestView.swift; sourceTree = "<group>"; };
@@ -528,6 +531,7 @@
 		75F430162CE5569E008484E6 /* AccelerometerBallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerometerBallView.swift; sourceTree = "<group>"; };
 		75F4F57C2DA0BC5000C50895 /* ThemeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeType.swift; sourceTree = "<group>"; };
 		75F56E362CCA03270055A437 /* LogChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogChartData.swift; sourceTree = "<group>"; };
+		75F650D42EE2673000AB9214 /* DayContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayContent.swift; sourceTree = "<group>"; };
 		75F7897B2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeyProtocol.swift; sourceTree = "<group>"; };
 		75F7897D2D8919A500FEBED8 /* UserDefaultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsView.swift; sourceTree = "<group>"; };
 		75F7D9762ECD45E400E11EC6 /* WheelPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPickerView.swift; sourceTree = "<group>"; };
@@ -1155,6 +1159,8 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				75F650D42EE2673000AB9214 /* DayContent.swift */,
+				75D550C12EE2591500EF06B2 /* MacroType.swift */,
 				758BC8542EDF41F2003DFB57 /* MarkdownRenderer.swift */,
 				7507E3402ED128C400577064 /* BudgetCategory.swift */,
 				7590B8142ED123B500EEC295 /* SegmentedProgressView.swift */,
@@ -1601,6 +1607,7 @@
 				7578B1512C41F76A006F07E7 /* ViewModelAssembly.swift in Sources */,
 				7578B1532C41F772006F07E7 /* APIService.swift in Sources */,
 				751E5B7C2C1DE7FC0065AC0A /* ViewModelTest.swift in Sources */,
+				75F650D52EE2673000AB9214 /* DayContent.swift in Sources */,
 				757190402C120CE600989D41 /* SafeAreaPadding.swift in Sources */,
 				756A44D92D9F5CAD00BD65B8 /* DesignSystemTest.swift in Sources */,
 				75F250AC2E53AD1600BB4A2D /* BlurWordAnimationView.swift in Sources */,
@@ -1666,6 +1673,7 @@
 				7571904B2C120E9F00989D41 /* StetchyHeaderViewModifier.swift in Sources */,
 				75A82EA12C2E76650015A0AE /* AnimatedPicker.swift in Sources */,
 				75533D462D380B8D001A5010 /* VariableBlur.swift in Sources */,
+				75D550C22EE2591500EF06B2 /* MacroType.swift in Sources */,
 				75D1A7E52D7A8A3E0025C5EC /* BottomTransitionTest.swift in Sources */,
 				757190132C120BFF00989D41 /* CameraPickerView.swift in Sources */,
 				757190142C120BFF00989D41 /* PhotoPickerView.swift in Sources */,
