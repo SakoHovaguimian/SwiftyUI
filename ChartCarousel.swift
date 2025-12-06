@@ -19,7 +19,7 @@ struct ChartCarousel: View {
         
         ScrollView(.horizontal) {
             
-            HStack(spacing: 8) {
+            LazyHStack(spacing: 8) {
                 
                 cardView(
                     title: "Weekly Capture Volume",
