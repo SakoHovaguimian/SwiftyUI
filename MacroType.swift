@@ -3,6 +3,65 @@ import Charts
 
 // MARK: - Data Models
 
+let treatmentData: [TreatmentCategorySegment] = [
+    .init(category: "Injectables", percentage: 40.0,
+          color: Color(red: 0.2, green: 0.1, blue: 0.4)),
+    .init(category: "Skin",        percentage: 30.0,
+          color: Color(red: 0.4, green: 0.2, blue: 0.8)),
+    .init(category: "Body",        percentage: 18.0,
+          color: Color(red: 0.6, green: 0.55, blue: 0.85)),
+    .init(category: "Other",       percentage: 12.0,
+          color: Color(red: 0.8, green: 0.8, blue: 0.9))
+]
+
+let weeklyMediaData: [DailyMediaCapture] = [
+    .init(dayLabel: "Sun", mediaKind: .before, count: 12),
+    .init(dayLabel: "Sun", mediaKind: .after,  count: 6),
+    .init(dayLabel: "Sun", mediaKind: .video,  count: 3),
+    
+    // Monday - busiest content day
+    .init(dayLabel: "Mon", mediaKind: .before, count: 30),
+    .init(dayLabel: "Mon", mediaKind: .after,  count: 28),
+    .init(dayLabel: "Mon", mediaKind: .video,  count: 12),
+    
+    .init(dayLabel: "Tue", mediaKind: .before, count: 10),
+    .init(dayLabel: "Tue", mediaKind: .after,  count: 8),
+    .init(dayLabel: "Tue", mediaKind: .video,  count: 4),
+    
+    .init(dayLabel: "Wed", mediaKind: .before, count: 6),
+    .init(dayLabel: "Wed", mediaKind: .after,  count: 5),
+    .init(dayLabel: "Wed", mediaKind: .video,  count: 2),
+    
+    .init(dayLabel: "Thu", mediaKind: .before, count: 14),
+    .init(dayLabel: "Thu", mediaKind: .after,  count: 10),
+    .init(dayLabel: "Thu", mediaKind: .video,  count: 4),
+    
+    .init(dayLabel: "Fri", mediaKind: .before, count: 20),
+    .init(dayLabel: "Fri", mediaKind: .after,  count: 16),
+    .init(dayLabel: "Fri", mediaKind: .video,  count: 7),
+    
+    .init(dayLabel: "Sat", mediaKind: .before, count: 8),
+    .init(dayLabel: "Sat", mediaKind: .after,  count: 6),
+    .init(dayLabel: "Sat", mediaKind: .video,  count: 3)
+]
+
+// 2. Client Engagement Trend (sessions per day)
+let engagementData: [EngagementPoint] = [
+    .init(dayLabel: "Aug 12", sessionCount: 18),
+    .init(dayLabel: "Aug 13", sessionCount: 22),
+    .init(dayLabel: "Aug 14", sessionCount: 46), // The spike day
+    .init(dayLabel: "Aug 15", sessionCount: 28),
+    .init(dayLabel: "Aug 16", sessionCount: 20),
+    .init(dayLabel: "Aug 17", sessionCount: 24),
+    .init(dayLabel: "Aug 18", sessionCount: 16)
+]
+
+struct DailyMediaTotal: Identifiable, Hashable {
+    let id = UUID()
+    let dayLabel: String
+    let totalCount: Int
+}
+
 enum MediaKind: String, Plottable, CaseIterable {
     case before = "Before"
     case after = "After"
@@ -104,6 +163,8 @@ struct GlowProDashboardView: View {
                 // 1. Weekly Media Captures
                 WeeklyMediaCard(data: weeklyMediaData)
                 
+                WeeklyMediaCard2(data: weeklyMediaData)
+                
                 // 2. Utilization Score (location usage)
                 UtilizationScoreCard(utilizationScore: 72.0)
                 
@@ -203,6 +264,117 @@ struct WeeklyMediaCard: View {
                 LegendItem(color: MediaKind.video.color,  label: "Video")
                 Spacer()
             }
+        }
+        .padding(24)
+        .background(Color.white)
+        .cornerRadius(24)
+        .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
+    }
+}
+
+struct WeeklyMediaCard2: View {
+    let data: [DailyMediaCapture]
+    
+    private var totalMediaThisWeek: Int {
+        Int(data.reduce(0) { $0 + $1.count })
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 20) {
+            
+            // Header
+            VStack(alignment: .leading, spacing: 5) {
+                Text("Weekly Media Captures")
+                    .font(.headline)
+                    .fontWeight(.bold)
+                
+                HStack(alignment: .firstTextBaseline, spacing: 4) {
+                    Text("\(totalMediaThisWeek)")
+                        .font(.system(size: 34, weight: .bold, design: .rounded))
+                    Text("items")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
+                }
+                
+                Text("Before / After / Video captured across all staff")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+            }
+            
+            // Chart
+            Chart {
+                
+                let dayOrder: [String: Int] = [
+                    "Sun": 0,
+                    "Mon": 1,
+                    "Tue": 2,
+                    "Wed": 3,
+                    "Thu": 4,
+                    "Fri": 5,
+                    "Sat": 6
+                ]
+
+                let dailyTotals: [DailyMediaTotal] = Dictionary(grouping: data, by: \.dayLabel)
+                    .map { dayLabel, items in
+                        DailyMediaTotal(
+                            dayLabel: dayLabel,
+                            totalCount: items.reduce(0) { $0 + Int($1.count) }
+                        )
+                    }
+                    .sorted { lhs, rhs in
+                        (dayOrder[lhs.dayLabel] ?? 0) < (dayOrder[rhs.dayLabel] ?? 0)
+                    }
+                
+                ForEach(dailyTotals, id: \.self) { item in
+                    BarMark(
+                        x: .value("Day", item.dayLabel),
+                        y: .value("Media Count", item.totalCount)
+                    )
+                    .foregroundStyle(
+                        LinearGradient(
+                            colors: [.mint, .cyan],
+                            startPoint: .bottom,
+                            endPoint: .top
+                        )
+                    )
+                }
+            }
+//            .chartForegroundStyleScale([
+//                MediaKind.before.rawValue: MediaKind.before.color,
+//                MediaKind.after.rawValue: MediaKind.after.color,
+//                MediaKind.video.rawValue: MediaKind.video.color
+//            ])
+//            .chartYAxis {
+//                AxisMarks(position: .leading, values: [0, 20, 40, 60, 80]) { value in
+//                    AxisGridLine(stroke: StrokeStyle(lineWidth: 1, dash: [4, 4]))
+//                        .foregroundStyle(Color.gray.opacity(0.3))
+//                    AxisValueLabel() {
+//                        if let intValue = value.as(Int.self) {
+//                            Text("\(intValue)")
+//                                .font(.caption)
+//                                .foregroundColor(.gray)
+//                        }
+//                    }
+//                }
+//            }
+//            .chartXAxis {
+//                AxisMarks { value in
+//                    AxisValueLabel()
+//                        .font(.caption)
+//                        .foregroundStyle(Color.gray)
+//                }
+//            }
+            .chartLegend(.hidden)
+            .frame(height: 250)
+//            
+//            // Custom Legend
+//            HStack(spacing: 20) {
+//                Spacer()
+//                LegendItem(color: MediaKind.before.color, label: "Before")
+//                LegendItem(color: MediaKind.after.color,  label: "After")
+//                LegendItem(color: MediaKind.video.color,  label: "Video")
+//                Spacer()
+//            }
         }
         .padding(24)
         .background(Color.white)
@@ -651,17 +823,6 @@ struct UsageGrowthCard: View {
 // MARK: - Card 6: Treatment Mix
 
 struct TreatmentMixCard: View {
-    
-    let treatmentData: [TreatmentCategorySegment] = [
-        .init(category: "Injectables", percentage: 40.0,
-              color: Color(red: 0.2, green: 0.1, blue: 0.4)),
-        .init(category: "Skin",        percentage: 30.0,
-              color: Color(red: 0.4, green: 0.2, blue: 0.8)),
-        .init(category: "Body",        percentage: 18.0,
-              color: Color(red: 0.6, green: 0.55, blue: 0.85)),
-        .init(category: "Other",       percentage: 12.0,
-              color: Color(red: 0.8, green: 0.8, blue: 0.9))
-    ]
     
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {

@@ -226,6 +226,7 @@
 		75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */; };
 		75D1A7E52D7A8A3E0025C5EC /* BottomTransitionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */; };
 		75D1F62B2CF77CB200FED788 /* ScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */; };
+		75D330982EE3E53F00996207 /* ChartCarousel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D330972EE3E50A00996207 /* ChartCarousel.swift */; };
 		75D550C22EE2591500EF06B2 /* MacroType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D550C12EE2591500EF06B2 /* MacroType.swift */; };
 		75D564292E931F2B00168E84 /* Chandeliers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D564282E931F2B00168E84 /* Chandeliers.swift */; };
 		75D671352DB0188A006457F1 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D671342DB0188A006457F1 /* Stack.swift */; };
@@ -504,6 +505,7 @@
 		75CE8F5C2C7010C10057A1E2 /* SlideToUnlockButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToUnlockButton.swift; sourceTree = "<group>"; };
 		75D1A7E42D7A8A330025C5EC /* BottomTransitionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTransitionTest.swift; sourceTree = "<group>"; };
 		75D1F62A2CF77CB200FED788 /* ScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollBannerView.swift; sourceTree = "<group>"; };
+		75D330972EE3E50A00996207 /* ChartCarousel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartCarousel.swift; sourceTree = "<group>"; };
 		75D550C12EE2591500EF06B2 /* MacroType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroType.swift; sourceTree = "<group>"; };
 		75D564282E931F2B00168E84 /* Chandeliers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chandeliers.swift; sourceTree = "<group>"; };
 		75D671342DB0188A006457F1 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
@@ -1161,6 +1163,7 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				75D330972EE3E50A00996207 /* ChartCarousel.swift */,
 				75E6D2B12EE3416D006371F5 /* SegmentedBatteryView.swift */,
 				75F650D42EE2673000AB9214 /* DayContent.swift */,
 				75D550C12EE2591500EF06B2 /* MacroType.swift */,
@@ -1688,6 +1691,7 @@
 				75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */,
 				751675AF2DD300DD002685C5 /* PullToRefreshModifier.swift in Sources */,
 				75A117BE2D62FBD3003011CA /* RelativeBarView.swift in Sources */,
+				75D330982EE3E53F00996207 /* ChartCarousel.swift in Sources */,
 				753FD85A2C0E859900C20D1A /* CustomEnvironment.swift in Sources */,
 				757190492C120E8E00989D41 /* ScrollViewWithOnScrollChanged.swift in Sources */,
 				75FE274A2C7EE73B0097C68F /* FlapperSean.swift in Sources */,

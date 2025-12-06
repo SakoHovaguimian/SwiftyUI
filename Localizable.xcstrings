@@ -25,6 +25,9 @@
     "%lld" : {
 
     },
+    "%lld percent" : {
+
+    },
     "%lld steps left" : {
 
     },
@@ -89,6 +92,12 @@
     "Based on media captured, clients documented, and active staff." : {
 
     },
+    "Battery charging" : {
+
+    },
+    "Battery level" : {
+
+    },
     "Before / After / Video captured across all staff" : {
 
     },
@@ -114,6 +123,9 @@
 
     },
     "Category" : {
+
+    },
+    "Charging" : {
 
     },
     "Click Me" : {
