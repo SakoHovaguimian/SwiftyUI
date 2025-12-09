@@ -231,6 +231,7 @@
 		75D564292E931F2B00168E84 /* Chandeliers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D564282E931F2B00168E84 /* Chandeliers.swift */; };
 		75D671352DB0188A006457F1 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D671342DB0188A006457F1 /* Stack.swift */; };
 		75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */; };
+		75D6835A2EE64866009CB936 /* ImageDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D683592EE64866009CB936 /* ImageDrawingView.swift */; };
 		75D8B34F2CE5487800681141 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B34E2CE5487800681141 /* PulseAnimation.swift */; };
 		75D8E9992DAE0BA300D63239 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8E9982DAE0B9F00D63239 /* Github.swift */; };
 		75D958432E4254C200D7AF72 /* TimelineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D958422E4254BE00D7AF72 /* TimelineTest.swift */; };
@@ -245,6 +246,7 @@
 		75EC17FF2D03A4ED00942F10 /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC17FE2D03A4EB00942F10 /* Mirror.swift */; };
 		75EDCF262DA41B53007DDE41 /* SlideConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDCF252DA41B4F007DDE41 /* SlideConfig.swift */; };
 		75EDCF282DA41B5D007DDE41 /* SlideToConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDCF272DA41B5A007DDE41 /* SlideToConfirmView.swift */; };
+		75EEADBB2EE880D10030C5E1 /* ShineOnChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EEADBA2EE880D10030C5E1 /* ShineOnChangeModifier.swift */; };
 		75EF0DA32DCD399E00650407 /* ConfettiViewNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EF0DA22DCD399900650407 /* ConfettiViewNew.swift */; };
 		75EF2BC62E6B94AC00C562ED /* GlowProKeyframeWordmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EF2BC52E6B94AC00C562ED /* GlowProKeyframeWordmark.swift */; };
 		75F135D02E638E2600BFCD51 /* Cam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F135CF2E638E2400BFCD51 /* Cam.swift */; };
@@ -510,6 +512,7 @@
 		75D564282E931F2B00168E84 /* Chandeliers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chandeliers.swift; sourceTree = "<group>"; };
 		75D671342DB0188A006457F1 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTestView.swift; sourceTree = "<group>"; };
+		75D683592EE64866009CB936 /* ImageDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDrawingView.swift; sourceTree = "<group>"; };
 		75D8B34E2CE5487800681141 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
 		75D8E9982DAE0B9F00D63239 /* Github.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
 		75D958422E4254BE00D7AF72 /* TimelineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTest.swift; sourceTree = "<group>"; };
@@ -524,6 +527,7 @@
 		75EC17FE2D03A4EB00942F10 /* Mirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mirror.swift; sourceTree = "<group>"; };
 		75EDCF252DA41B4F007DDE41 /* SlideConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideConfig.swift; sourceTree = "<group>"; };
 		75EDCF272DA41B5A007DDE41 /* SlideToConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToConfirmView.swift; sourceTree = "<group>"; };
+		75EEADBA2EE880D10030C5E1 /* ShineOnChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShineOnChangeModifier.swift; sourceTree = "<group>"; };
 		75EF0DA22DCD399900650407 /* ConfettiViewNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiViewNew.swift; sourceTree = "<group>"; };
 		75EF2BC52E6B94AC00C562ED /* GlowProKeyframeWordmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlowProKeyframeWordmark.swift; sourceTree = "<group>"; };
 		75F135CF2E638E2400BFCD51 /* Cam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cam.swift; sourceTree = "<group>"; };
@@ -1163,6 +1167,8 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				75EEADBA2EE880D10030C5E1 /* ShineOnChangeModifier.swift */,
+				75D683592EE64866009CB936 /* ImageDrawingView.swift */,
 				75D330972EE3E50A00996207 /* ChartCarousel.swift */,
 				75E6D2B12EE3416D006371F5 /* SegmentedBatteryView.swift */,
 				75F650D42EE2673000AB9214 /* DayContent.swift */,
@@ -1539,6 +1545,7 @@
 				751361CA2DE4BD6B00C51230 /* SliderTicker.swift in Sources */,
 				75235D772E6896EC00A986D7 /* SomeParticle.swift in Sources */,
 				751361CB2DE4BD6B00C51230 /* CardFlipView.swift in Sources */,
+				75D6835A2EE64866009CB936 /* ImageDrawingView.swift in Sources */,
 				75BA2D432C0E79600089B70F /* Shake.swift in Sources */,
 				7531167F2C12C34A00C7FBF6 /* GradientButtonContentView.swift in Sources */,
 				75632B1B2E29650B00672C7B /* Effects.swift in Sources */,
@@ -1618,6 +1625,7 @@
 				756A44D92D9F5CAD00BD65B8 /* DesignSystemTest.swift in Sources */,
 				75F250AC2E53AD1600BB4A2D /* BlurWordAnimationView.swift in Sources */,
 				75E6D2B22EE3416D006371F5 /* SegmentedBatteryView.swift in Sources */,
+				75EEADBB2EE880D10030C5E1 /* ShineOnChangeModifier.swift in Sources */,
 				757190342C120CE300989D41 /* Ext+View.swift in Sources */,
 				75DDAA4D2D6F68AE0014DEB5 /* CalendarClone.swift in Sources */,
 				75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */,

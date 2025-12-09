@@ -74,6 +74,9 @@
     "Add new Reminder" : {
 
     },
+    "Add Point" : {
+
+    },
     "Airplane mode" : {
 
     },
@@ -176,6 +179,9 @@
     "Expanded Card List" : {
 
     },
+    "Failed to load image" : {
+
+    },
     "Fake Button" : {
 
     },
@@ -246,6 +252,9 @@
 
     },
     "Last booking" : {
+
+    },
+    "Loading Image..." : {
 
     },
     "Location Utilization" : {
@@ -336,6 +345,9 @@
 
     },
     "Save" : {
+
+    },
+    "Score: %lld" : {
 
     },
     "Scroll For Hue Rotation" : {
