@@ -243,6 +243,7 @@
 		75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E29E442D24AB140074DCD8 /* Snowfall.swift */; };
 		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
 		75E6D2B22EE3416D006371F5 /* SegmentedBatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6D2B12EE3416D006371F5 /* SegmentedBatteryView.swift */; };
+		75EA61B32EEA51D300017F4C /* BentoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA61B22EEA51D300017F4C /* BentoCard.swift */; };
 		75EC17FF2D03A4ED00942F10 /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC17FE2D03A4EB00942F10 /* Mirror.swift */; };
 		75EDCF262DA41B53007DDE41 /* SlideConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDCF252DA41B4F007DDE41 /* SlideConfig.swift */; };
 		75EDCF282DA41B5D007DDE41 /* SlideToConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDCF272DA41B5A007DDE41 /* SlideToConfirmView.swift */; };
@@ -524,6 +525,7 @@
 		75E29E442D24AB140074DCD8 /* Snowfall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowfall.swift; sourceTree = "<group>"; };
 		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
 		75E6D2B12EE3416D006371F5 /* SegmentedBatteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedBatteryView.swift; sourceTree = "<group>"; };
+		75EA61B22EEA51D300017F4C /* BentoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentoCard.swift; sourceTree = "<group>"; };
 		75EC17FE2D03A4EB00942F10 /* Mirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mirror.swift; sourceTree = "<group>"; };
 		75EDCF252DA41B4F007DDE41 /* SlideConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideConfig.swift; sourceTree = "<group>"; };
 		75EDCF272DA41B5A007DDE41 /* SlideToConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToConfirmView.swift; sourceTree = "<group>"; };
@@ -1167,6 +1169,7 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				75EA61B22EEA51D300017F4C /* BentoCard.swift */,
 				75EEADBA2EE880D10030C5E1 /* ShineOnChangeModifier.swift */,
 				75D683592EE64866009CB936 /* ImageDrawingView.swift */,
 				75D330972EE3E50A00996207 /* ChartCarousel.swift */,
@@ -1696,6 +1699,7 @@
 				7580AFEA2C12BF5F0029EF84 /* ChartView.swift in Sources */,
 				75A117C02D6303CD003011CA /* WStack.swift in Sources */,
 				7571F1F32EE077CB00A27404 /* Upgraded.swift in Sources */,
+				75EA61B32EEA51D300017F4C /* BentoCard.swift in Sources */,
 				75BA2CE52C0E780A0089B70F /* SwiftyUIApp.swift in Sources */,
 				751675AF2DD300DD002685C5 /* PullToRefreshModifier.swift in Sources */,
 				75A117BE2D62FBD3003011CA /* RelativeBarView.swift in Sources */,

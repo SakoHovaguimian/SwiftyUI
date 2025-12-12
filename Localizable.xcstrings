@@ -50,13 +50,28 @@
     "$%lld" : {
 
     },
+    "2.1L" : {
+
+    },
     "07:30 pm" : {
+
+    },
+    "8h 12m" : {
 
     },
     "09:00 am" : {
 
     },
     "24%" : {
+
+    },
+    "72 BPM" : {
+
+    },
+    "75%" : {
+
+    },
+    "92%" : {
 
     },
     "123123" : {
@@ -74,10 +89,10 @@
     "Add new Reminder" : {
 
     },
-    "Add Point" : {
+    "Airplane mode" : {
 
     },
-    "Airplane mode" : {
+    "Amount" : {
 
     },
     "Animate" : {
@@ -111,6 +126,9 @@
 
     },
     "Bounce" : {
+
+    },
+    "BPM" : {
 
     },
     "Burst Confetti" : {
@@ -153,6 +171,9 @@
 
     },
     "Debouncer Demo" : {
+
+    },
+    "Deep Sleep +12%" : {
 
     },
     "Describe yourself" : {
@@ -218,6 +239,9 @@
     "Have you tried turning it %@?" : {
 
     },
+    "Health" : {
+
+    },
     "Healthy" : {
 
     },
@@ -254,6 +278,9 @@
     "Last booking" : {
 
     },
+    "Level Up" : {
+
+    },
     "Loading Image..." : {
 
     },
@@ -273,6 +300,9 @@
 
     },
     "media items" : {
+
+    },
+    "MOVE" : {
 
     },
     "My Button" : {
@@ -347,7 +377,7 @@
     "Save" : {
 
     },
-    "Score: %lld" : {
+    "Score" : {
 
     },
     "Scroll For Hue Rotation" : {
@@ -444,6 +474,9 @@
     "Sync tasks in real-time" : {
 
     },
+    "Take Damage" : {
+
+    },
     "Tap Anywhere to Animate" : {
 
     },
@@ -486,6 +519,9 @@
 
     },
     "Tilt 3D" : {
+
+    },
+    "Time" : {
 
     },
     "Tip 1" : {

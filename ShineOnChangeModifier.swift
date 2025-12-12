@@ -121,14 +121,14 @@ fileprivate struct ConfigurableScoreView: View {
                     .foregroundStyle(.secondary)
                 
                 Text("\(self.score)")
-                    .font(.system(size: 24, weight: .black, design: .rounded))
+                    .font(.system(size: 120, weight: .black, design: .rounded))
                     .foregroundStyle(.black)
                     .shineOnChange(
                         of: self.score,
-                        colors: [.clear, .white.opacity(0.60), .clear],
+                        colors: [.clear, .white.opacity(0.50), .clear],
                         duration: 0.80,
-                        widthRatio: 0.30,
-                        angle: .degrees(20)
+                        widthRatio: 0.8,
+                        angle: .degrees(50)
                     )
                 
                 Button("Level Up") { self.score += 100 }
