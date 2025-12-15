@@ -210,7 +210,7 @@ struct SwiftyUIApp: App {
     var body: some Scene {
         
         WindowGroup {
-            let url: URL  = .init(string: "https://fastly.picsum.photos/id/237/1080/1920.jpg?hmac=M8JWQ-aKjdPJk7LsPrXgN_XlxgxXsm1Pr-_WEr6obYU")!
+//            let url: URL  = .init(string: "https://fastly.picsum.photos/id/237/1080/1920.jpg?hmac=M8JWQ-aKjdPJk7LsPrXgN_XlxgxXsm1Pr-_WEr6obYU")!
 //            let url = Bundle.main.url(forResource: "Sample", withExtension: "pdf")!
 //            
 //            return PDFPencilKitEditorView(
@@ -220,8 +220,8 @@ struct SwiftyUIApp: App {
 //            )
 //            .ignoresSafeArea()
 //            CleanPDFContainer()
-            ImageDrawingView(imageURL: url)
-//            GlowProDashboardView()
+//            ImageDrawingView(imageURL: url)
+            GlowProDashboardView()
         }
         
     }

@@ -887,3 +887,204 @@ struct TreatmentMixCard: View {
 #Preview {
     GlowProDashboardView()
 }
+
+//import SwiftUI
+//import Charts
+//
+//// MARK: - Helper View for Legend
+//struct LegendDot2: View {
+//    let color: Color
+//    let label: String
+//    
+//    var body: some View {
+//        HStack(spacing: 4) {
+//            Circle()
+//                .fill(color)
+//                .frame(width: 8, height: 8)
+//            Text(label)
+//        }
+//    }
+//}
+//
+//// MARK: - The Reusable Score Card
+//struct MetricScoreCard: View {
+//    let title: String
+//    let subtitle: String
+//    let description: String
+//    let score: Double // 0-100
+//    
+//    // The visual configuration
+//    let statusText: String
+//    let statusColor: Color
+//    let gradientColors: [Color]
+//    let legendItems: [LegendDot2]
+//    
+//    var body: some View {
+//        VStack(alignment: .leading, spacing: 15) {
+//            
+//            // Header
+//            HStack(alignment: .top) {
+//                VStack(alignment: .leading, spacing: 5) {
+//                    Text(title)
+//                        .font(.headline)
+//                        .fontWeight(.bold)
+//                    
+//                    HStack(spacing: 8) {
+//                        // The Big Number
+//                        Text(String(format: "%.0f%%", score))
+//                            .font(.system(size: 34, weight: .bold, design: .rounded))
+//                        
+//                        // Subtext
+//                        Text(subtitle)
+//                            .foregroundColor(.gray)
+//                            .font(.subheadline)
+//                        
+//                        // The Status Badge
+//                        Text(statusText)
+//                            .font(.caption)
+//                            .fontWeight(.bold)
+//                            .foregroundColor(.white)
+//                            .padding(.horizontal, 8)
+//                            .padding(.vertical, 4)
+//                            .background(statusColor)
+//                            .clipShape(Capsule())
+//                    }
+//                    
+//                    Text(description)
+//                        .font(.caption)
+//                        .foregroundColor(.gray)
+//                        .fixedSize(horizontal: false, vertical: true)
+//                }
+//                Spacer()
+//                Image(systemName: "questionmark.circle")
+//                    .foregroundColor(.gray)
+//            }
+//            
+//            // Gauge Chart
+//            Chart {
+//                // Background Gradient Bar
+//                BarMark(
+//                    xStart: .value("Start", 0),
+//                    xEnd: .value("End", 100),
+//                    y: .value("Y", "Bar")
+//                )
+//                .cornerRadius(10)
+//                .foregroundStyle(
+//                    LinearGradient(
+//                        colors: gradientColors,
+//                        startPoint: .leading,
+//                        endPoint: .trailing
+//                    )
+//                )
+//                
+//                // The White "Needle" Dot
+//                PointMark(
+//                    x: .value("Score", score),
+//                    y: .value("Y", "Bar")
+//                )
+//                .symbol(Circle())
+//                .symbolSize(150)
+//                .foregroundStyle(Color.white)
+//                .shadow(color: .black.opacity(0.2), radius: 5, x: 0, y: 1)
+//            }
+//            .chartXAxis(.hidden)
+//            .chartYAxis(.hidden)
+//            .frame(height: 25)
+//            
+//            // Legend
+//            HStack(spacing: 12) {
+//                ForEach(0..<legendItems.count, id: \.self) { index in
+//                    legendItems[index]
+//                }
+//            }
+//            .font(.caption)
+//            .foregroundColor(.gray)
+//            .frame(maxWidth: .infinity, alignment: .leading)
+//        }
+//        .padding(24)
+//        .background(Color.white)
+//        .cornerRadius(24)
+//        .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
+//    }
+//}
+//
+//struct UntaggedContentCard: View {
+//    let untaggedPercentage: Double // 0-100% (Percentage of items WITHOUT tags)
+//    
+//    // Logic: Lower is better (0% untagged is perfect)
+//    private var status: (text: String, color: Color) {
+//        switch untaggedPercentage {
+//        case ..<15: return ("Optimized", .green)
+//        case 15..<40: return ("Attention", .yellow)
+//        default: return ("Critical", .red)
+//        }
+//    }
+//    
+//    var body: some View {
+//        MetricScoreCard(
+//            title: "Untagged Content",
+//            subtitle: "Library is",
+//            description: "Percentage of Collages & Photos missing search tags.",
+//            score: untaggedPercentage,
+//            statusText: status.text,
+//            statusColor: status.color,
+//            gradientColors: [
+//                Color.green,  // Low % untagged (Good)
+//                Color.yellow, // Medium
+//                Color.red     // High % untagged (Bad)
+//            ],
+//            legendItems: [
+//                LegendDot2(color: .green, label: "Tagged"),
+//                LegendDot2(color: .yellow, label: "Missing some"),
+//                LegendDot2(color: .red, label: "Untagged")
+//            ]
+//        )
+//    }
+//}
+//
+//struct DataQualityCard: View {
+//    let dataQualityScore: Double // 0-100%
+//    
+//    // Logic: Higher is better
+//    private var status: (text: String, color: Color) {
+//        switch dataQualityScore {
+//        case ..<50: return ("Needs Review", .orange)
+//        case 50..<80: return ("Good", .blue)
+//        default: return ("Excellent", .green)
+//        }
+//    }
+//    
+//    var body: some View {
+//        MetricScoreCard(
+//            title: "Client Data Quality",
+//            subtitle: "Profiles are",
+//            description: "Based on presence of Name, Email, Phone, and DOB.",
+//            score: dataQualityScore,
+//            statusText: status.text,
+//            statusColor: status.color,
+//            gradientColors: [
+//                Color.orange, // Missing Data
+//                Color.blue.opacity(0.6),
+//                Color.green   // Complete Data
+//            ],
+//            legendItems: [
+//                LegendDot2(color: .orange, label: "Incomplete"),
+//                LegendDot2(color: .blue, label: "Good"),
+//                LegendDot2(color: .green, label: "Complete")
+//            ]
+//        )
+//    }
+//}
+//
+//
+//#Preview {
+//    
+//    VStack {
+//        
+//        DataQualityCard(dataQualityScore: 0.80)
+//        UntaggedContentCard(untaggedPercentage: 0.50)
+//        
+//    }
+//    .padding(.horizontal, 24)
+//    
+//}

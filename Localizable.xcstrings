@@ -25,6 +25,9 @@
     "%lld" : {
 
     },
+    "%lld " : {
+
+    },
     "%lld percent" : {
 
     },
@@ -140,6 +143,9 @@
     "Button 4" : {
 
     },
+    "captures" : {
+
+    },
     "Card" : {
 
     },
@@ -153,6 +159,15 @@
 
     },
     "Client Engagement Trend" : {
+
+    },
+    "Client Growth (30 Days)" : {
+
+    },
+    "Clients" : {
+
+    },
+    "Count" : {
 
     },
     "Current Env" : {
@@ -290,6 +305,9 @@
     "Log Type" : {
 
     },
+    "logged items" : {
+
+    },
     "lorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet consectetur adipisicing elit. Quo, voluptatem! Lorem ipsum" : {
 
     },
@@ -344,6 +362,12 @@
     "Phone" : {
 
     },
+    "Photo Activity Volume" : {
+
+    },
+    "Photos / Sessions Logged (Last 30 Days)" : {
+
+    },
     "Pop" : {
 
     },
@@ -351,6 +375,12 @@
 
     },
     "Postcard for Mia" : {
+
+    },
+    "Practitioner" : {
+
+    },
+    "Practitioner Activity" : {
 
     },
     "Pull to refresh" : {
@@ -363,6 +393,9 @@
 
     },
     "Randomize Progress" : {
+
+    },
+    "RECOVERY OS" : {
 
     },
     "Restore Purchases" : {
@@ -542,6 +575,9 @@
     "Toggle SideBar" : {
 
     },
+    "Total Active Clients" : {
+
+    },
     "Total Count" : {
 
     },
@@ -561,6 +597,12 @@
 
     },
     "View full schedule" : {
+
+    },
+    "WEDNESDAY" : {
+
+    },
+    "Week" : {
 
     },
     "Weekly Media Captures" : {

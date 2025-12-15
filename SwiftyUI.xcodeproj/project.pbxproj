@@ -64,6 +64,7 @@
 		753FD8602C0E8CA200C20D1A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FD85F2C0E8CA200C20D1A /* SplashView.swift */; };
 		7541096A2DADA8BD00B2AE4B /* verticalScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754109692DADA8BA00B2AE4B /* verticalScroll.swift */; };
 		75421A582C8EAC120078A36E /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75421A572C8EAC0F0078A36E /* TimelineView.swift */; };
+		754363522EEE833D000C48FB /* SampleCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754363512EEE833A000C48FB /* SampleCharts.swift */; };
 		7545E9F72DFFE03B0042A4B3 /* CompareSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7545E9F62DFFE0360042A4B3 /* CompareSliderView.swift */; };
 		754AF6AD2D02492D00042BA8 /* SafeAreaGradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */; };
 		754BE1FA2D80FC9C00C20CF7 /* StoreKitProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BE1F82D80FC9C00C20CF7 /* StoreKitProtocol.swift */; };
@@ -335,6 +336,7 @@
 		753FD85F2C0E8CA200C20D1A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		754109692DADA8BA00B2AE4B /* verticalScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verticalScroll.swift; sourceTree = "<group>"; };
 		75421A572C8EAC0F0078A36E /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		754363512EEE833A000C48FB /* SampleCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCharts.swift; sourceTree = "<group>"; };
 		7545E9F62DFFE0360042A4B3 /* CompareSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareSliderView.swift; sourceTree = "<group>"; };
 		754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaGradientModifier.swift; sourceTree = "<group>"; };
 		754BE1F82D80FC9C00C20CF7 /* StoreKitProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitProtocol.swift; sourceTree = "<group>"; };
@@ -1169,6 +1171,7 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				754363512EEE833A000C48FB /* SampleCharts.swift */,
 				75EA61B22EEA51D300017F4C /* BentoCard.swift */,
 				75EEADBA2EE880D10030C5E1 /* ShineOnChangeModifier.swift */,
 				75D683592EE64866009CB936 /* ImageDrawingView.swift */,
@@ -1679,6 +1682,7 @@
 				75B99DAB2D0343260088E9BC /* FinalStrechyHeader.swift in Sources */,
 				757190122C120BFC00989D41 /* AppButton.swift in Sources */,
 				75C2A02D2D597BC400E5B328 /* Selectable.swift in Sources */,
+				754363522EEE833D000C48FB /* SampleCharts.swift in Sources */,
 				75B16CAD2D627B15002DC3F9 /* ProgressBar.swift in Sources */,
 				753FD85E2C0E8B4F00C20D1A /* HueView.swift in Sources */,
 				751CBB462D8A10D000C89EAC /* ButtonAnimationState.swift in Sources */,
