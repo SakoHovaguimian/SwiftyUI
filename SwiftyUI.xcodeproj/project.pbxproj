@@ -29,6 +29,7 @@
 		751675B12DD3010C002685C5 /* RefreshIndicatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751675B02DD3010C002685C5 /* RefreshIndicatorType.swift */; };
 		751675B32DD3017B002685C5 /* PullToRefreshExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751675B22DD30178002685C5 /* PullToRefreshExampleView.swift */; };
 		751675B52DD301AD002685C5 /* Ext+PullToRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751675B42DD301A7002685C5 /* Ext+PullToRefresh.swift */; };
+		7518B98C2EF131B400A2A1E1 /* SleepSeriesType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7518B98B2EF131B400A2A1E1 /* SleepSeriesType.swift */; };
 		7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751974192C8ABD0300173F15 /* VerticalTimelineView.swift */; };
 		751B4D642C93EDEE006239EC /* RichText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751B4D632C93EDE6006239EC /* RichText.swift */; };
 		751CBB462D8A10D000C89EAC /* ButtonAnimationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751CBB452D8A10CC00C89EAC /* ButtonAnimationState.swift */; };
@@ -302,6 +303,7 @@
 		751675B02DD3010C002685C5 /* RefreshIndicatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshIndicatorType.swift; sourceTree = "<group>"; };
 		751675B22DD30178002685C5 /* PullToRefreshExampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshExampleView.swift; sourceTree = "<group>"; };
 		751675B42DD301A7002685C5 /* Ext+PullToRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+PullToRefresh.swift"; sourceTree = "<group>"; };
+		7518B98B2EF131B400A2A1E1 /* SleepSeriesType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSeriesType.swift; sourceTree = "<group>"; };
 		751974192C8ABD0300173F15 /* VerticalTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalTimelineView.swift; sourceTree = "<group>"; };
 		751B4D632C93EDE6006239EC /* RichText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichText.swift; sourceTree = "<group>"; };
 		751CBB452D8A10CC00C89EAC /* ButtonAnimationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimationState.swift; sourceTree = "<group>"; };
@@ -1171,6 +1173,7 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				7518B98B2EF131B400A2A1E1 /* SleepSeriesType.swift */,
 				754363512EEE833A000C48FB /* SampleCharts.swift */,
 				75EA61B22EEA51D300017F4C /* BentoCard.swift */,
 				75EEADBA2EE880D10030C5E1 /* ShineOnChangeModifier.swift */,
@@ -1726,6 +1729,7 @@
 				756150CB2ECD9331008A5263 /* TimePickerView.swift in Sources */,
 				7578B1612C41FBE1006F07E7 /* CancelBag.swift in Sources */,
 				75BA2D402C0E79600089B70F /* FrameReader.swift in Sources */,
+				7518B98C2EF131B400A2A1E1 /* SleepSeriesType.swift in Sources */,
 				75FD1DAE2C914E9E004AC287 /* AppText.swift in Sources */,
 				75718F8F2C120AA300989D41 /* SideMenu.swift in Sources */,
 				75788DCE2D97020700209727 /* AsyncImageViewModel.swift in Sources */,
