@@ -23,6 +23,7 @@
 		750B1B582CA89037007F93E2 /* GestureFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750B1B572CA8902C007F93E2 /* GestureFillView.swift */; };
 		751361CA2DE4BD6B00C51230 /* SliderTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751361C92DE4BD6B00C51230 /* SliderTicker.swift */; };
 		751361CB2DE4BD6B00C51230 /* CardFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751361C82DE4BD6B00C51230 /* CardFlipView.swift */; };
+		7513DC852EF4D4B6009F2A1F /* FireworksConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513DC842EF4D4B6009F2A1F /* FireworksConfiguration.swift */; };
 		751658B22DA7314C00549BF6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 751658B12DA7314C00549BF6 /* Localizable.xcstrings */; };
 		751658B42DA7368D00549BF6 /* AttributedBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751658B32DA7368A00549BF6 /* AttributedBuilder.swift */; };
 		751675AF2DD300DD002685C5 /* PullToRefreshModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751675AD2DD300DD002685C5 /* PullToRefreshModifier.swift */; };
@@ -172,6 +173,7 @@
 		7580AFEA2C12BF5F0029EF84 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580AFE92C12BF5F0029EF84 /* ChartView.swift */; };
 		7580B0AC2C12BF8A0029EF84 /* TypewriterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580AFEB2C12BF890029EF84 /* TypewriterView.swift */; };
 		7580B1502C12BF8A0029EF84 /* TypewriterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */; };
+		7581F31E2EF4C58700BF56D0 /* StretchyMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7581F31D2EF4C58700BF56D0 /* StretchyMetrics.swift */; };
 		75827EEA2DB8761300132BD0 /* fdljfgdl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75827EE92DB8761100132BD0 /* fdljfgdl.swift */; };
 		758421AD2D010694007A9F6E /* ProgressIndicatorNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */; };
 		7587C3B12DE4F8020067C2D5 /* HoldButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7587C3B02DE4F8020067C2D5 /* HoldButtonView.swift */; };
@@ -297,6 +299,7 @@
 		750B1B572CA8902C007F93E2 /* GestureFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureFillView.swift; sourceTree = "<group>"; };
 		751361C82DE4BD6B00C51230 /* CardFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlipView.swift; sourceTree = "<group>"; };
 		751361C92DE4BD6B00C51230 /* SliderTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTicker.swift; sourceTree = "<group>"; };
+		7513DC842EF4D4B6009F2A1F /* FireworksConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworksConfiguration.swift; sourceTree = "<group>"; };
 		751658B12DA7314C00549BF6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		751658B32DA7368A00549BF6 /* AttributedBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedBuilder.swift; sourceTree = "<group>"; };
 		751675AD2DD300DD002685C5 /* PullToRefreshModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshModifier.swift; sourceTree = "<group>"; };
@@ -453,6 +456,7 @@
 		7580AFE92C12BF5F0029EF84 /* ChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		7580AFEB2C12BF890029EF84 /* TypewriterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterView.swift; sourceTree = "<group>"; };
 		7580B0AB2C12BF8A0029EF84 /* TypewriterContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypewriterContentView.swift; sourceTree = "<group>"; };
+		7581F31D2EF4C58700BF56D0 /* StretchyMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StretchyMetrics.swift; sourceTree = "<group>"; };
 		75827EE92DB8761100132BD0 /* fdljfgdl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fdljfgdl.swift; sourceTree = "<group>"; };
 		758421AC2D01068C007A9F6E /* ProgressIndicatorNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorNew.swift; sourceTree = "<group>"; };
 		7587C3B02DE4F8020067C2D5 /* HoldButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldButtonView.swift; sourceTree = "<group>"; };
@@ -1173,6 +1177,8 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				7513DC842EF4D4B6009F2A1F /* FireworksConfiguration.swift */,
+				7581F31D2EF4C58700BF56D0 /* StretchyMetrics.swift */,
 				7518B98B2EF131B400A2A1E1 /* SleepSeriesType.swift */,
 				754363512EEE833A000C48FB /* SampleCharts.swift */,
 				75EA61B22EEA51D300017F4C /* BentoCard.swift */,
@@ -1517,6 +1523,7 @@
 				7569F7C32E1A03890079BD50 /* PageHeaderPreviewTest.swift in Sources */,
 				750B1B3A2CA88ECF007F93E2 /* RatingView.swift in Sources */,
 				7571900B2C120BF100989D41 /* GPWebView.swift in Sources */,
+				7581F31E2EF4C58700BF56D0 /* StretchyMetrics.swift in Sources */,
 				751675B52DD301AD002685C5 /* Ext+PullToRefresh.swift in Sources */,
 				75BA2CE72C0E780A0089B70F /* ContentView.swift in Sources */,
 				75BA2D352C0E79600089B70F /* CustomToggle.swift in Sources */,
@@ -1545,6 +1552,7 @@
 				757190602C12131300989D41 /* MatchedGeoView.swift in Sources */,
 				757190622C12131300989D41 /* TransitionTestView.swift in Sources */,
 				758BC8552EDF41F7003DFB57 /* MarkdownRenderer.swift in Sources */,
+				7513DC852EF4D4B6009F2A1F /* FireworksConfiguration.swift in Sources */,
 				75B467202E41138D00E0E32B /* CoinTipJarScene.swift in Sources */,
 				7571901A2C120C0B00989D41 /* HapticOption.swift in Sources */,
 				757190262C120C1400989D41 /* Alerts.swift in Sources */,

@@ -101,6 +101,9 @@
     "Animate" : {
 
     },
+    "avg. time asleep" : {
+
+    },
     "Awesome & Creative" : {
 
     },
@@ -230,7 +233,16 @@
     "Finish" : {
 
     },
+    "Fire (Bool)" : {
+
+    },
+    "Fire (Token)" : {
+
+    },
     "First booking" : {
+
+    },
+    "FUCK" : {
 
     },
     "Full Name" : {
@@ -267,6 +279,9 @@
 
     },
     "Home Page Title" : {
+
+    },
+    "Hours" : {
 
     },
     "Index" : {
@@ -348,6 +363,9 @@
 
     },
     "OTHER TEXT" : {
+
+    },
+    "Overlay is non-interactive" : {
 
     },
     "password" : {
@@ -511,6 +529,9 @@
 
     },
     "Tap Anywhere to Animate" : {
+
+    },
+    "Tap buttons above" : {
 
     },
     "Tap Me" : {
