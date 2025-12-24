@@ -437,6 +437,9 @@
     "Search Conversations" : {
 
     },
+    "Selected: %@" : {
+
+    },
     "Selected: %lld:%@ %@" : {
       "localizations" : {
         "en" : {
