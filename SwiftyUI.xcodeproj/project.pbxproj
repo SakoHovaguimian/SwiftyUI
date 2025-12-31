@@ -185,6 +185,7 @@
 		75971A712D9C2E70007F6E52 /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75971A702D9C2E6C007F6E52 /* CodeInputView.swift */; };
 		7597E66C2D63E1B50056AAC2 /* MatchedGeoView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7597E66B2D63E1B00056AAC2 /* MatchedGeoView2.swift */; };
 		7597E8F22D8268F600C9334F /* CustomAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */; };
+		75983AB12F04A85E004AE2D8 /* LevelReading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75983AB02F04A85E004AE2D8 /* LevelReading.swift */; };
 		7599C4242EFBCDCA003A9D4D /* SpinWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7599C4232EFBCDBF003A9D4D /* SpinWheel.swift */; };
 		75A117BE2D62FBD3003011CA /* RelativeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A117BD2D62FBCC003011CA /* RelativeBarView.swift */; };
 		75A117C02D6303CD003011CA /* WStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A117BF2D6303CD003011CA /* WStack.swift */; };
@@ -470,6 +471,7 @@
 		75971A702D9C2E6C007F6E52 /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
 		7597E66B2D63E1B00056AAC2 /* MatchedGeoView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoView2.swift; sourceTree = "<group>"; };
 		7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationTest.swift; sourceTree = "<group>"; };
+		75983AB02F04A85E004AE2D8 /* LevelReading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelReading.swift; sourceTree = "<group>"; };
 		7599C4232EFBCDBF003A9D4D /* SpinWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheel.swift; sourceTree = "<group>"; };
 		75A117BD2D62FBCC003011CA /* RelativeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeBarView.swift; sourceTree = "<group>"; };
 		75A117BF2D6303CD003011CA /* WStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WStack.swift; sourceTree = "<group>"; };
@@ -1181,6 +1183,7 @@
 		75BA2CD82C0E780A0089B70F = {
 			isa = PBXGroup;
 			children = (
+				75983AB02F04A85E004AE2D8 /* LevelReading.swift */,
 				75465E2E2EFC7A8B00B9C43E /* ActionButton.swift */,
 				7599C4232EFBCDBF003A9D4D /* SpinWheel.swift */,
 				7513DC842EF4D4B6009F2A1F /* FireworksConfiguration.swift */,
@@ -1509,6 +1512,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75983AB12F04A85E004AE2D8 /* LevelReading.swift in Sources */,
 				75EF2BC62E6B94AC00C562ED /* GlowProKeyframeWordmark.swift in Sources */,
 				7597E66C2D63E1B50056AAC2 /* MatchedGeoView2.swift in Sources */,
 				7538AFF22E4273D200B0FC16 /* ConfettiConfigDefaults.swift in Sources */,
