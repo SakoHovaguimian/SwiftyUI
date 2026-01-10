@@ -13,6 +13,15 @@
     " embedded in custom text." : {
 
     },
+    ", and you have" : {
+
+    },
+    "." : {
+
+    },
+    ". The" : {
+
+    },
     "@%@" : {
 
     },
@@ -27,6 +36,16 @@
     },
     "%lld " : {
 
+    },
+    "%lld %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld %2$@"
+          }
+        }
+      }
     },
     "%lld percent" : {
 
@@ -146,6 +165,9 @@
     "Button 4" : {
 
     },
+    "Calibrate" : {
+
+    },
     "captures" : {
 
     },
@@ -177,6 +199,9 @@
 
     },
     "Current Page Index: %lld" : {
+
+    },
+    "current temperature is" : {
 
     },
     "Current Utilization" : {
@@ -213,6 +238,9 @@
 
     },
     "Error: %@" : {
+
+    },
+    "exercised for" : {
 
     },
     "Expanded Card List" : {
@@ -281,6 +309,9 @@
     "Home Page Title" : {
 
     },
+    "Horizontal level" : {
+
+    },
     "Hours" : {
 
     },
@@ -306,6 +337,9 @@
 
     },
     "Last booking" : {
+
+    },
+    "LEVEL" : {
 
     },
     "Level Up" : {
@@ -345,6 +379,9 @@
 
     },
     "Next path" : {
+
+    },
+    "NOT LEVEL" : {
 
     },
     "Offset: %lf" : {
@@ -414,6 +451,12 @@
 
     },
     "RECOVERY OS" : {
+
+    },
+    "recovery score is" : {
+
+    },
+    "Reset" : {
 
     },
     "Restore Purchases" : {
@@ -508,6 +551,9 @@
 
     },
     "Start typing" : {
+
+    },
+    "Stop" : {
 
     },
     "Stop Confetti" : {
@@ -635,6 +681,9 @@
     "Welcome Sako" : {
 
     },
+    "with" : {
+
+    },
     "WNG Confetti Demo" : {
 
     },
@@ -657,6 +706,12 @@
 
     },
     "You have selected %@" : {
+
+    },
+    "Your" : {
+
+    },
+    "Your active energy today is at" : {
 
     },
     "Your Height" : {
