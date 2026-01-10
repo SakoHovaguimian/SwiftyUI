@@ -5,17 +5,15 @@
 //  Created by Sako Hovaguimian on 12/4/25.
 //
 
-
-//
-//  MultiCalendarChartView2.swift
-//  Rival
-//
-//  Refactored for Performance
-//
-
 import SwiftUI
 
 // MARK: - Models
+
+enum SelectionMode {
+    case single
+    case multi
+    case range
+}
 
 enum DayContent: Equatable {
     
@@ -55,6 +53,7 @@ class CalendarViewModel {
     var selectedDays: [Day] = []
     var currentMonth: Date = Date()
     
+    var selectionMode: SelectionMode = .single
     var readOnly: Bool = false
     var selectionColor: Color = .blue
     var selectionTextColor: Color = .white
@@ -65,7 +64,6 @@ class CalendarViewModel {
     // Performance: Cache Calendar and Formatters
     private var calendar: Calendar = Calendar.autoupdatingCurrent
     
-    // Performance: Static formatters prevent allocation on every View refresh
     private static let dayFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "d"
@@ -83,13 +81,15 @@ class CalendarViewModel {
     }
     
     @discardableResult
-    func setup(selectedDays: [Day],
+    func setup(mode: SelectionMode = .single,
+               selectedDays: [Day] = [],
                readOnly: Bool = false,
                selectionColor: Color = .blue,
                selectionTextColor: Color = .white,
                selectionIconName: String? = nil,
                didTapDateAction: @escaping (Day) -> ()) -> Self {
         
+        self.selectionMode = mode
         self.selectedDays = selectedDays
         self.readOnly = readOnly
         self.selectionColor = selectionColor
@@ -98,19 +98,6 @@ class CalendarViewModel {
         self.didTapDateAction = didTapDateAction
         
         self.currentMonth = self.calendar.startOfDay(for: Date())
-        
-        // Normalize selected days to start of day for comparison
-        self.selectedDays = self.selectedDays.map {
-            var day = $0
-            day = Day(
-                date: self.calendar.startOfDay(for: $0.date),
-                isSelected: $0.isSelected,
-                selectedBackgroundColor: $0.selectedBackgroundColor,
-                selectedTextColor: $0.selectedTextColor,
-                contentType: $0.contentType
-            )
-            return day
-        }
         
         setupCalendar()
         
@@ -132,7 +119,7 @@ class CalendarViewModel {
         let firstWeekday = self.calendar.component(.weekday, from: firstDayOfMonth)
         
         // Previous Month Padding
-        let prevMonthDays = firstWeekday - self.calendar.firstWeekday
+        let prevMonthDays = (firstWeekday - self.calendar.firstWeekday + 7) % 7
         if prevMonthDays > 0 {
             
             let prevMonthDate = self.calendar.date(byAdding: .month, value: -1, to: firstDayOfMonth)!
@@ -162,11 +149,11 @@ class CalendarViewModel {
             
         }
         
-        // Next Month Padding
+        // Next Month Padding (Maintain 6 rows for layout stability)
         let totalDays = newDays.count
-        let additionalDays = 7 - (totalDays % 7)
+        let additionalDays = 42 - totalDays
         
-        if additionalDays < 7 {
+        if additionalDays > 0 {
             
             let nextMonthDate = self.calendar.date(byAdding: .month, value: 1, to: firstDayOfMonth)!
             
@@ -190,22 +177,20 @@ class CalendarViewModel {
     func applySelectionState() {
         
         // Performance: Create a Set for O(1) lookups
-        let selectedDates = Set(self.selectedDays.map { $0.date })
+        let selectedDates = Set(self.selectedDays.map { self.calendar.startOfDay(for: $0.date) })
         
         for index in self.days.indices {
             
-            let dayDate = self.days[index].date
+            let dayDate = self.calendar.startOfDay(for: self.days[index].date)
             
             if selectedDates.contains(dayDate) {
                 
-                // Find original config
-                if let config = self.selectedDays.first(where: { $0.date == dayDate }) {
-                    
-                    self.days[index].isSelected = true
-                    self.days[index].selectedBackgroundColor = config.selectedBackgroundColor
-                    self.days[index].selectedTextColor = config.selectedTextColor
-                    self.days[index].contentType = config.contentType
-                    
+                self.days[index].isSelected = true
+                self.days[index].selectedBackgroundColor = self.selectionColor
+                self.days[index].selectedTextColor = self.selectionTextColor
+                
+                if let iconName = self.selectionIconName {
+                    self.days[index].contentType = .icon(iconName)
                 }
                 
             } else {
@@ -213,6 +198,80 @@ class CalendarViewModel {
                 self.days[index].isSelected = false
                 self.days[index].selectedBackgroundColor = .clear
                 self.days[index].contentType = .none
+                
+            }
+            
+        }
+        
+    }
+    
+    func toggleDaySelection(_ day: Day) {
+        
+        self.didTapDateAction?(day)
+        guard !self.readOnly else { return }
+        
+        let tappedDate = self.calendar.startOfDay(for: day.date)
+        
+        switch self.selectionMode {
+            
+        case .single:
+            
+            self.selectedDays = [day]
+            
+        case .multi:
+            
+            if let index = self.selectedDays.firstIndex(where: { self.calendar.isDate($0.date, inSameDayAs: tappedDate) }) {
+                self.selectedDays.remove(at: index)
+            } else {
+                self.selectedDays.append(day)
+            }
+            
+        case .range:
+            
+            self.handleRangeSelection(tappedDate)
+            
+        }
+        
+        self.applySelectionState()
+        
+    }
+    
+    private func handleRangeSelection(_ tappedDate: Date) {
+        
+        if self.selectedDays.isEmpty || self.selectedDays.count > 1 {
+            
+            // Start fresh with one pick
+            self.selectedDays = [Day(date: tappedDate)]
+            
+        } else {
+            
+            let firstPick = self.calendar.startOfDay(for: self.selectedDays[0].date)
+            
+            if tappedDate < firstPick {
+                
+                // Past date picked: this becomes the new lower bound pick
+                self.selectedDays = [Day(date: tappedDate)]
+                
+            } else if tappedDate > firstPick {
+                
+                // Future picked: Create sequential range
+                var rangeDays: [Day] = []
+                var currentDate = firstPick
+                
+                while currentDate <= tappedDate {
+                    
+                    rangeDays.append(Day(date: currentDate))
+                    guard let nextDate = self.calendar.date(byAdding: .day, value: 1, to: currentDate) else { break }
+                    currentDate = nextDate
+                    
+                }
+                
+                self.selectedDays = rangeDays
+                
+            } else {
+                
+                // Tapped the same date: Deselect
+                self.selectedDays = []
                 
             }
             
@@ -242,42 +301,6 @@ class CalendarViewModel {
         
     }
     
-    func toggleDaySelection(_ day: Day) {
-        
-        self.didTapDateAction?(day)
-        guard !self.readOnly else { return }
-        
-        if let index = self.days.firstIndex(where: { $0.id == day.id }) {
-            
-            let isSelected = self.days[index].isSelected
-            self.days[index].isSelected.toggle()
-            
-            if isSelected {
-                
-                // Deselect
-                self.days[index].selectedBackgroundColor = .clear
-                self.days[index].contentType = .none
-                self.selectedDays.removeAll(where: { $0.date == day.date })
-                
-            } else {
-                
-                // Select
-                self.days[index].selectedBackgroundColor = self.selectionColor
-                self.days[index].selectedTextColor = self.selectionTextColor
-                
-                if let iconName = self.selectionIconName {
-                    self.days[index].contentType = .icon(iconName)
-                }
-                
-                self.selectedDays.append(self.days[index])
-                
-            }
-            
-        }
-        
-    }
-    
-    // Helper to keep View clean
     func dayString(for day: Day) -> String {
         return Self.dayFormatter.string(from: day.date)
     }
@@ -290,7 +313,7 @@ struct CustomCalendarView: View {
     
     @State var viewModel = CalendarViewModel()
     
-    private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 7)
+    private let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 0), count: 7)
     private let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     
     var body: some View {
@@ -316,8 +339,6 @@ struct CustomCalendarView: View {
                 Text(self.viewModel.currentMonthTitle)
                     .font(.title2)
                     .foregroundStyle(.black)
-                    .contentTransition(.numericText()) // iOS 17 Performance
-                    .animation(.snappy, value: self.viewModel.currentMonth)
                 
                 Spacer()
                 
@@ -336,7 +357,7 @@ struct CustomCalendarView: View {
             .padding(.vertical)
             
             // Calendar Grid
-            LazyVGrid(columns: self.columns, spacing: 15) {
+            LazyVGrid(columns: self.columns, spacing: 5) {
                 
                 ForEach(self.weekDays, id: \.self) { weekday in
                     
@@ -346,32 +367,34 @@ struct CustomCalendarView: View {
                     
                 }
                 
-                ForEach(self.viewModel.days) { day in
+                ForEach(self.viewModel.days, id: \.id) { day in
                     
                     dayCell(day: day)
                     
                 }
                 
             }
-            .geometryGroup()
-            .compositingGroup()
-            .transaction { t in
-                t.animation = nil
-            }
+            .id(self.viewModel.currentMonthTitle)
             
         }
         .padding(.horizontal, 16)
         .padding(.bottom, 16)
-        .background(Color.white) // Replaced AppColor for compilation
-        .animation(.smooth, value: self.viewModel.currentMonth)
+        .background(Color.white)
         
     }
-    
-    // Performance: @ViewBuilder extracts logic, keeps "body" clean
+
     @ViewBuilder
     private func dayCell(day: Day) -> some View {
         
         ZStack {
+            
+            if day.isSelected {
+                
+                selectionBackground(for: day)
+                    .padding(self.viewModel.selectionMode != .range ? 4 : 0)
+                    .foregroundStyle(self.viewModel.selectionColor)
+                
+            }
             
             if case .icon(let name) = day.contentType {
                 
@@ -389,13 +412,40 @@ struct CustomCalendarView: View {
             }
             
         }
-        .frame(width: 30, height: 30)
-        .background(day.isSelected ? day.selectedBackgroundColor : Color.clear)
-        .cornerRadius(8) // Replaced .medium for compilation
+        .frame(height: 40)
+        .contentShape(Rectangle())
         .opacity(day.isCurrentMonth ? 1.0 : 0.3)
         .onTapGesture {
             
             self.viewModel.toggleDaySelection(day)
+            
+        }
+        
+    }
+    
+    @ViewBuilder
+    private func selectionBackground(for day: Day) -> some View {
+        
+        let isRange = self.viewModel.selectionMode == .range && self.viewModel.selectedDays.count >= 2
+        
+        if isRange {
+            
+            let sorted = self.viewModel.selectedDays.map { $0.date }.sorted()
+            let isStart = Calendar.current.isDate(day.date, inSameDayAs: sorted.first!)
+            let isEnd = Calendar.current.isDate(day.date, inSameDayAs: sorted.last!)
+            
+            if isStart {
+                UnevenRoundedRectangle(topLeadingRadius: 12, bottomLeadingRadius: 12)
+            } else if isEnd {
+                UnevenRoundedRectangle(bottomTrailingRadius: 12, topTrailingRadius: 12)
+            } else {
+                Rectangle()
+            }
+
+        } else {
+            
+            // Default appearance for single selection or incomplete range
+            RoundedRectangle(cornerRadius: 12)
             
         }
         
@@ -415,16 +465,13 @@ struct CustomCalendarView: View {
 
 // MARK: - Previews
 
-#Preview {
+#Preview("Single Selection") {
     
     let viewModel = CalendarViewModel()
     
     viewModel.setup(
-        selectedDays: [],
-        readOnly: false,
-        selectionColor: .purple,
-        selectionTextColor: .white,
-        selectionIconName: nil
+        mode: .single,
+        selectionColor: .blue
     ) { day in
         print("Tapped: \(day.date)")
     }
@@ -438,20 +485,36 @@ struct CustomCalendarView: View {
     
 }
 
-#Preview {
-    
-    // Icons
+#Preview("Range Selection") {
     
     let viewModel = CalendarViewModel()
     
     viewModel.setup(
-        selectedDays: [],
-        readOnly: false,
-        selectionColor: .blue,
-        selectionTextColor: .white,
-        selectionIconName: "person.fill"
+        mode: .range,
+        selectionColor: .orange
     ) { day in
-        print("Tapped")
+        print("Tapped: \(day.date)")
+    }
+    
+    return ZStack {
+        Color(.systemGray5).ignoresSafeArea()
+        CustomCalendarView(viewModel: viewModel)
+            .clipShape(.rect(cornerRadius: 16))
+            .padding(.horizontal, 16)
+    }
+    
+}
+
+#Preview("Multi Selection") {
+    
+    let viewModel = CalendarViewModel()
+    
+    viewModel.setup(
+        mode: .multi,
+        selectionColor: .purple,
+        selectionIconName: "checkmark"
+    ) { day in
+        print("Tapped: \(day.date)")
     }
     
     return ZStack {
