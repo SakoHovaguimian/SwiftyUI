@@ -463,6 +463,37 @@ struct CustomCalendarView: View {
     private func dayCell(day: Day) -> some View {
         
         let position = self.viewModel.getRangePosition(for: day)
+        let policy = self.viewModel.selectionPolicy
+        
+        var foregroundColor: Color {
+            
+            if day.isSelected {
+               return .white
+            }
+
+            if let minStartDate = policy.minStartDate {
+                
+                if day.date.dateAtStartOf(.day) < minStartDate.date.dateAtStartOf(.day) {
+                    return .red.opacity(0.2)
+                }
+                
+            }
+            
+            if let maxEndDate = policy.maxEndDate {
+                
+                if day.date.dateAtStartOf(.day) > maxEndDate.dateAtStartOf(.day) {
+                    return .red.opacity(0.8)
+                }
+                
+            }
+            
+            if day.isCurrentMonth {
+                return .black
+            }
+
+            return .gray.opacity(0.5)
+            
+        }
         
         ZStack {
             
@@ -478,7 +509,7 @@ struct CustomCalendarView: View {
                 Image(systemName: name).foregroundStyle(day.selectedTextColor)
             } else {
                 Text("\(Calendar.current.component(.day, from: day.date))")
-                    .foregroundStyle(day.isSelected ? .white : (day.isCurrentMonth ? .black : .gray.opacity(0.5)))
+                    .foregroundStyle(foregroundColor)
             }
             
         }
@@ -514,7 +545,7 @@ struct CustomCalendarView: View {
 #Preview("Range (Min 2, Max 7)") {
     
     let vm = CalendarViewModel()
-    let policy = RangeSelectionPolicy(minRange: 2, maxRange: 7)
+    let policy = RangeSelectionPolicy(minRange: 2, maxRange: 20)
     
     vm.setup(policy: policy, selectionColor: .orange) { _ in }
     
