@@ -12,7 +12,34 @@ import SwiftUI
 protocol SelectionPolicy {
     
     var mode: SelectionMode { get }
+    var minStartDate: Date? { get }
+    var maxEndDate: Date? { get }
+    
     func processTap(at date: Date, currentSelected: [Day], calendar: Calendar) -> [Day]
+    
+}
+
+extension SelectionPolicy {
+    
+    func normalized(_ date: Date, calendar: Calendar) -> Date {
+        return calendar.startOfDay(for: date)
+    }
+    
+    func isWithinBounds(_ date: Date, calendar: Calendar) -> Bool {
+        
+        let normalizedDate = self.normalized(date, calendar: calendar)
+        
+        if let minStart = self.minStartDate, normalizedDate < self.normalized(minStart, calendar: calendar) {
+            return false
+        }
+        
+        if let maxEnd = self.maxEndDate, normalizedDate > self.normalized(maxEnd, calendar: calendar) {
+            return false
+        }
+        
+        return true
+        
+    }
     
 }
 
@@ -20,8 +47,23 @@ struct SingleSelectionPolicy: SelectionPolicy {
     
     let mode: SelectionMode = .single
     
+    let minStartDate: Date?
+    let maxEndDate: Date?
+    
+    init(minStartDate: Date? = nil,
+         maxEndDate: Date? = nil) {
+        
+        self.minStartDate = minStartDate
+        self.maxEndDate = maxEndDate
+        
+    }
+    
     func processTap(at date: Date, currentSelected: [Day], calendar: Calendar) -> [Day] {
-        return [Day(date: date)]
+        
+        guard self.isWithinBounds(date, calendar: calendar) else { return currentSelected }
+        
+        return [Day(date: self.normalized(date, calendar: calendar))]
+        
     }
     
 }
@@ -31,10 +73,25 @@ struct MultiSelectionPolicy: SelectionPolicy {
     let mode: SelectionMode = .multi
     let maxSelections: Int?
     
+    let minStartDate: Date?
+    let maxEndDate: Date?
+    
+    init(maxSelections: Int?,
+         minStartDate: Date? = nil,
+         maxEndDate: Date? = nil) {
+        
+        self.maxSelections = maxSelections
+        self.minStartDate = minStartDate
+        self.maxEndDate = maxEndDate
+        
+    }
+    
     func processTap(at date: Date, currentSelected: [Day], calendar: Calendar) -> [Day] {
         
+        guard self.isWithinBounds(date, calendar: calendar) else { return currentSelected }
+        
         var newSelection = currentSelected
-        let tappedDate = calendar.startOfDay(for: date)
+        let tappedDate = self.normalized(date, calendar: calendar)
         
         if let index = newSelection.firstIndex(where: { calendar.isDate($0.date, inSameDayAs: tappedDate) }) {
             
@@ -62,16 +119,33 @@ struct RangeSelectionPolicy: SelectionPolicy {
     let minRange: Int?
     let maxRange: Int?
     
+    let minStartDate: Date?
+    let maxEndDate: Date?
+    
+    init(minRange: Int?,
+         maxRange: Int?,
+         minStartDate: Date? = nil,
+         maxEndDate: Date? = nil) {
+        
+        self.minRange = minRange
+        self.maxRange = maxRange
+        self.minStartDate = minStartDate
+        self.maxEndDate = maxEndDate
+        
+    }
+    
     func processTap(at date: Date, currentSelected: [Day], calendar: Calendar) -> [Day] {
         
-        let tappedDate = calendar.startOfDay(for: date)
+        guard self.isWithinBounds(date, calendar: calendar) else { return currentSelected }
+        
+        let tappedDate = self.normalized(date, calendar: calendar)
         
         // If empty or already a full range, start a new anchor
         if currentSelected.isEmpty || currentSelected.count > 1 {
             return [Day(date: tappedDate)]
         }
         
-        let anchorDate = calendar.startOfDay(for: currentSelected[0].date)
+        let anchorDate = self.normalized(currentSelected[0].date, calendar: calendar)
         
         // Logic: Whatever you select first is valid.
         // If a past date was picked, the new lower range becomes the new pick.
@@ -84,6 +158,11 @@ struct RangeSelectionPolicy: SelectionPolicy {
             return [] // Deselect
             
         } else {
+            
+            // Enforce maxEndDate on range end explicitly (even though tapped was validated)
+            if let maxEnd = self.maxEndDate, tappedDate > self.normalized(maxEnd, calendar: calendar) {
+                return currentSelected
+            }
             
             // Future picked: Calculate range
             let components = calendar.dateComponents([.day], from: anchorDate, to: tappedDate)
@@ -121,9 +200,11 @@ struct RangeSelectionPolicy: SelectionPolicy {
 // MARK: - Models
 
 enum SelectionMode {
+    
     case single
     case multi
     case range
+    
 }
 
 enum DayContent: Equatable {
@@ -474,6 +555,30 @@ struct CustomCalendarView: View {
         CustomCalendarView(viewModel: vm)
             .clipShape(.rect(cornerRadius: 20))
             .padding()
+    }
+    
+}
+
+#Preview("Single Selection Min / Max Date") {
+    
+    let vm = CalendarViewModel()
+    let calendar = Calendar.autoupdatingCurrent
+
+    let policy = SingleSelectionPolicy(
+        minStartDate: calendar.date(byAdding: .day, value: -3, to: .now),
+        maxEndDate: calendar.date(byAdding: .day, value: 3, to: .now)
+    )
+    
+    vm.setup(policy: policy, selectionColor: .blue) { _ in }
+    
+    return ZStack {
+        
+        Color(.systemGray6).ignoresSafeArea()
+        
+        CustomCalendarView(viewModel: vm)
+            .clipShape(.rect(cornerRadius: 20))
+            .padding()
+        
     }
     
 }
