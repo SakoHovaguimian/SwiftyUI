@@ -15,7 +15,9 @@ protocol SelectionPolicy {
     var minStartDate: Date? { get }
     var maxEndDate: Date? { get }
     
-    func processTap(at date: Date, currentSelected: [Day], calendar: Calendar) -> [Day]
+    func processTap(at date: Date,
+                    currentSelected: [Day],
+                    calendar: Calendar) -> [Day]
     
 }
 
@@ -414,6 +416,9 @@ struct CustomCalendarView: View {
     private let columns: [GridItem] = Array(repeating: .init(.flexible(), spacing: 0), count: 7)
     private let weekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     
+    var cornerRadius: CGFloat = 12
+    var dateSelectionStampInset: CGFloat = 4
+    
     var body: some View {
         
         VStack(spacing: 15) {
@@ -422,7 +427,9 @@ struct CustomCalendarView: View {
                 
                 Button {
                     self.viewModel.goToPreviousMonth()
-                } label: { Image(systemName: "chevron.left") }
+                } label: { Image(systemName: "chevron.left").transaction { t in
+                    t.animation = nil
+                } }
                 
                 Spacer()
                 
@@ -434,10 +441,12 @@ struct CustomCalendarView: View {
                 
                 Button {
                     self.viewModel.goToNextMonth()
-                } label: { Image(systemName: "chevron.right") }
+                } label: { Image(systemName: "chevron.right").transaction { t in
+                    t.animation = nil
+                } }
                 
             }
-            .foregroundStyle(self.viewModel.selectionColor)
+            .foregroundStyle(.black)
             .padding(.vertical)
             
             LazyVGrid(columns: self.columns, spacing: 5) {
@@ -464,6 +473,9 @@ struct CustomCalendarView: View {
         
         let position = self.viewModel.getRangePosition(for: day)
         let policy = self.viewModel.selectionPolicy
+        
+        let isRange = self.viewModel.selectionPolicy.mode == .range
+        let clipShape = isRange ? 0 : self.cornerRadius
         
         var foregroundColor: Color {
             
@@ -500,8 +512,9 @@ struct CustomCalendarView: View {
             if day.isSelected {
                 
                 selectionShape(for: position)
-                    .padding(self.viewModel.selectionPolicy.mode != .range ? 4 : 0)
+                    .padding(!isRange ? self.dateSelectionStampInset : 0)
                     .foregroundStyle(self.viewModel.selectionColor)
+                    .clipShape(self.cornerRadius > 24 ? AnyShape(.circle) : AnyShape(.rect(cornerRadius: clipShape)))
                 
             }
             
@@ -527,13 +540,13 @@ struct CustomCalendarView: View {
         
         switch position {
         case .start:
-            UnevenRoundedRectangle(topLeadingRadius: 12, bottomLeadingRadius: 12)
+            UnevenRoundedRectangle(topLeadingRadius: self.cornerRadius, bottomLeadingRadius: self.cornerRadius)
         case .end:
-            UnevenRoundedRectangle(bottomTrailingRadius: 12, topTrailingRadius: 12)
+            UnevenRoundedRectangle(bottomTrailingRadius: self.cornerRadius, topTrailingRadius: self.cornerRadius)
         case .middle:
             Rectangle()
         case .none:
-            RoundedRectangle(cornerRadius: 12)
+            RoundedRectangle(cornerRadius: self.cornerRadius)
         }
         
     }
@@ -542,16 +555,19 @@ struct CustomCalendarView: View {
 
 // MARK: - Previews
 
+// TODO:
+/// When selection is too far range up to the max
+
 #Preview("Range (Min 2, Max 7)") {
     
     let vm = CalendarViewModel()
-    let policy = RangeSelectionPolicy(minRange: 2, maxRange: 20)
+    let policy = RangeSelectionPolicy(minRange: 2, maxRange: 10)
     
     vm.setup(policy: policy, selectionColor: .orange) { _ in }
     
     return ZStack {
         Color(.systemGray6).ignoresSafeArea()
-        CustomCalendarView(viewModel: vm)
+        CustomCalendarView(viewModel: vm, cornerRadius: 12 , dateSelectionStampInset: 0)
             .clipShape(.rect(cornerRadius: 20))
             .padding()
     }
@@ -610,6 +626,26 @@ struct CustomCalendarView: View {
             .clipShape(.rect(cornerRadius: 20))
             .padding()
         
+    }
+    
+}
+
+#Preview("Corner Radius") {
+    
+    let vm = CalendarViewModel()
+    let policy = MultiSelectionPolicy(maxSelections: 3)
+    
+    vm.setup(policy: policy, selectionColor: .purple, selectionIconName: "star.fill") { _ in }
+    
+    return ZStack {
+        Color(.systemGray6).ignoresSafeArea()
+        CustomCalendarView(
+            viewModel: vm,
+            cornerRadius: 20,
+            dateSelectionStampInset: 4
+        )
+        .clipShape(.rect(cornerRadius: 20))
+        .padding()
     }
     
 }
