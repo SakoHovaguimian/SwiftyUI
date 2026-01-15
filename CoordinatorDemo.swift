@@ -3,7 +3,6 @@ import SwiftUI
 // TODO: -
 /// Opt out view that is not registered
 /// Clear backstack
-/// Add back finish policy pop(count)
 
 // **********************************
 // MARK: - App Coordinator
@@ -140,7 +139,7 @@ final class HomeCoordinator: BaseCoordinator, Coordinator {
                         navigation: self.router.navigation,
                         presentation: self.router.presentation
                     ),
-                    finishPolicy: .popToSelf
+                    finishPolicy: .detach()
                 )
             }
 
@@ -155,7 +154,7 @@ final class HomeCoordinator: BaseCoordinator, Coordinator {
                         navigation: self.router.navigation,
                         presentation: self.router.presentation
                     ),
-                    finishPolicy: .detach
+                    finishPolicy: .detach()
                 )
             }
 
@@ -224,7 +223,9 @@ final class ProfileCoordinator: BaseCoordinator, Coordinator {
         case .bio:
             VStack(spacing: 16) {
                 Text("User Bio Screen")
-                Button("PopToSelf & Finish") { self.finish() }
+                Button("PopToSelf & Finish") {
+                    self.finish()
+                }
             }
             .padding()
 
