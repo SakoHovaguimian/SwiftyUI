@@ -7,19 +7,33 @@ import Observation
 
 @MainActor
 @Observable
-final class TabAppCoordinator: BaseCoordinator {
-    enum RootFlow { case mainTab }
+final class TabAppCoordinator: BaseCoordinator, Coordinator {
+
+    enum Route: Routable {
+        case mainTab
+        var id: String { "mainTab" }
+    }
 
     init() {
-        super.init(parent: nil, router: Router(coordinatorName: "TabAppCoordinator"))
+        super.init(router: Router(coordinatorName: "TabAppCoordinator"))
     }
     
-    override func start(context: NavigationContext) -> AnyView {
-        let mainTab = self.child(id: RootFlow.mainTab) {
-            PrimaryTabCoordinator(parent: self, router: Router(coordinatorName: "PrimaryTabCoordinator"))
+    @ViewBuilder
+    func start(context: NavigationContext = .standalone) -> some View {
+        
+        let mainTab = self.child(id: "main_tab_container") {
+            PrimaryTabCoordinator(parent: self)
         }
-        return mainTab.eraseStart(context: .standalone)
+        
+        mainTab.start(context: .standalone)
+        
     }
+
+    @ViewBuilder
+    func build(_ route: Route) -> some View {
+        EmptyView()
+    }
+
 }
 
 // **********************************
@@ -28,9 +42,16 @@ final class TabAppCoordinator: BaseCoordinator {
 
 @MainActor
 @Observable
-final class PrimaryTabCoordinator: BaseCoordinator {
+final class PrimaryTabCoordinator: BaseCoordinator, Coordinator {
+
+    enum Route: Routable {
+        case none
+        var id: String { "none" }
+    }
+
     enum Tab: Hashable, CaseIterable {
         case dashboard, search, account
+        
         var title: String { "\(self)".capitalized }
         var icon: String {
             switch self {
@@ -43,49 +64,63 @@ final class PrimaryTabCoordinator: BaseCoordinator {
 
     public var selectedTab: Tab = .dashboard
 
-    override func start(context: NavigationContext) -> AnyView {
-        AnyView(
-            TabView(selection: Bindable(self).selectedTab) {
-                ForEach(Tab.allCases, id: \.self) { tab in
-                    self.tabView(for: tab)
-                        .tabItem { Label(tab.title, systemImage: tab.icon) }
-                        .tag(tab)
-                }
+    @ViewBuilder
+    func start(context: NavigationContext = .standalone) -> some View {
+        
+        TabView(selection: Bindable(self).selectedTab) {
+            ForEach(Tab.allCases, id: \.self) { tab in
+                self.viewForTab(tab)
+                    .tabItem { Label(tab.title, systemImage: tab.icon) }
+                    .tag(tab)
             }
-        )
+        }
+        
     }
 
     @ViewBuilder
-    private func tabView(for tab: Tab) -> some View {
+    private func viewForTab(_ tab: Tab) -> some View {
+        
         switch tab {
         case .dashboard:
-            self.child(id: Tab.dashboard) {
-                DashboardCoordinator(parent: self, router: Router(coordinatorName: "Dashboard"))
+            self.child(id: "tab_dashboard") {
+                DashboardCoordinator(parent: self)
             }.start(context: .standalone)
+
         case .search:
-            self.child(id: Tab.search) {
-                SearchCoordinator(parent: self, router: Router(coordinatorName: "Search"))
+            self.child(id: "tab_search") {
+                SearchCoordinator(parent: self)
             }.start(context: .standalone)
+
         case .account:
-            self.child(id: Tab.account) {
-                AccountCoordinator(parent: self, router: Router(coordinatorName: "Account"))
+            self.child(id: "tab_account") {
+                AccountCoordinator(parent: self)
             }.start(context: .standalone)
         }
+        
     }
     
-    func changeTab(to tab: Tab) { self.selectedTab = tab }
+    @ViewBuilder
+    func build(_ route: Route) -> some View {
+        EmptyView()
+    }
+
+    func changeTab(to tab: Tab) {
+        self.selectedTab = tab
+    }
 }
 
 // **********************************
-// MARK: - Dashboard Coordinator (Deep Pushing)
+// MARK: - Dashboard Coordinator
 // **********************************
 
 @MainActor
 @Observable
-final class DashboardCoordinator: BaseCoordinator {
+final class DashboardCoordinator: BaseCoordinator, Coordinator {
+
     enum Destination: Routable {
         case detail(level: Int)
         case settings
+        
         var id: String {
             switch self {
             case .detail(let level): return "detail_\(level)"
@@ -94,80 +129,98 @@ final class DashboardCoordinator: BaseCoordinator {
         }
     }
 
-    override func start(context: NavigationContext) -> AnyView {
-        AnyView(
-            CoordinatorHost(router: self.router, context: context) {
-                DashboardRootView(coordinator: self)
-                    .navigationDestination(for: Destination.self) { self.eraseBuild($0) }
-            }
-        )
-    }
-    
-    override func build(_ destination: AnyRoutable) -> AnyView {
-        guard let dest = destination as? Destination else { return AnyView(EmptyView()) }
-        switch dest {
-        case .detail(let level):
-            return AnyView(DashboardDetailView(coordinator: self, level: level))
-        case .settings:
-            return AnyView(Text("Dashboard Settings").navigationTitle("Settings"))
+    @ViewBuilder
+    func start(context: NavigationContext = .standalone) -> some View {
+        
+        CoordinatorHost(router: self.router, context: context) {
+            DashboardRootView(coordinator: self)
+                .navigationDestination(for: Destination.self) { dest in
+                    self.build(dest)
+                }
         }
+        
+    }
+
+    @ViewBuilder
+    func build(_ route: Destination) -> some View {
+        
+        switch route {
+        case .detail(let level):
+            DashboardDetailView(coordinator: self, level: level)
+        case .settings:
+            Text("Dashboard Settings")
+                .navigationTitle("Settings")
+        }
+        
     }
 }
 
 // **********************************
-// MARK: - Search Coordinator (Cross-Tab Jump)
+// MARK: - Search Coordinator
 // **********************************
 
 @MainActor
 @Observable
-final class SearchCoordinator: BaseCoordinator {
+final class SearchCoordinator: BaseCoordinator, Coordinator {
+
     enum Destination: Routable {
         case results(query: String)
         var id: String { "results" }
     }
 
-    override func start(context: NavigationContext) -> AnyView {
-        AnyView(
-            CoordinatorHost(router: self.router, context: context) {
-                SearchView(coordinator: self)
-                    .navigationDestination(for: Destination.self) { self.eraseBuild($0) }
-            }
-        )
+    @ViewBuilder
+    func start(context: NavigationContext = .standalone) -> some View {
+        
+        CoordinatorHost(router: self.router, context: context) {
+            SearchView(coordinator: self)
+                .navigationDestination(for: Destination.self) { dest in
+                    self.build(dest)
+                }
+        }
+        
     }
 
-    override func build(_ destination: AnyRoutable) -> AnyView {
-        guard let dest = destination as? Destination else { return AnyView(EmptyView()) }
-        switch dest {
+    @ViewBuilder
+    func build(_ route: Destination) -> some View {
+        
+        switch route {
         case .results(let query):
-            return AnyView(Text("Results for: \(query)").navigationTitle("Results"))
+            Text("Results for: \(query)")
+                .navigationTitle("Results")
         }
+        
     }
 }
 
 // **********************************
-// MARK: - Account Coordinator (Modal + Stack)
+// MARK: - Account Coordinator
 // **********************************
 
 @MainActor
 @Observable
-final class AccountCoordinator: BaseCoordinator {
+final class AccountCoordinator: BaseCoordinator, Coordinator {
+
     enum Destination: Routable {
         case profile, security
         var id: String { "\(self)" }
     }
 
-    override func start(context: NavigationContext) -> AnyView {
-        AnyView(
-            CoordinatorHost(router: self.router, context: context) {
-                AccountRootView(coordinator: self)
-                    .navigationDestination(for: Destination.self) { self.eraseBuild($0) }
-            }
-        )
+    @ViewBuilder
+    func start(context: NavigationContext = .standalone) -> some View {
+        
+        CoordinatorHost(router: self.router, context: context) {
+            AccountRootView(coordinator: self)
+                .navigationDestination(for: Destination.self) { dest in
+                    self.build(dest)
+                }
+        }
+        
     }
 
-    override func build(_ destination: AnyRoutable) -> AnyView {
-        guard let dest = destination as? Destination else { return AnyView(EmptyView()) }
-        return AnyView(Text("\(dest.id)".capitalized).navigationTitle(dest.id.capitalized))
+    @ViewBuilder
+    func build(_ route: Destination) -> some View {
+        Text("\(route.id)".capitalized)
+            .navigationTitle(route.id.capitalized)
     }
 }
 
@@ -177,6 +230,7 @@ final class AccountCoordinator: BaseCoordinator {
 
 struct DashboardRootView: View {
     let coordinator: DashboardCoordinator
+    
     var body: some View {
         List {
             Section("Stack Testing") {
@@ -192,22 +246,24 @@ struct DashboardRootView: View {
 struct DashboardDetailView: View {
     let coordinator: DashboardCoordinator
     let level: Int
+    
     var body: some View {
         VStack(spacing: 20) {
             Text("Stack Level: \(level)").font(.headline)
             
-            Button("Push Deeper (Level \(level + 1))") {
+            Button("Push Deeper") {
                 coordinator.router.push(DashboardCoordinator.Destination.detail(level: level + 1))
             }
             
             Button("Pop One Level") { coordinator.router.pop() }
-            
             Button("Pop To Root") { coordinator.router.popToRoot() }
             
             Divider()
             
             Button("Jump to Search Tab") {
-                (coordinator.parent as? PrimaryTabCoordinator)?.changeTab(to: .search)
+                if let tabParent = coordinator.parent as? PrimaryTabCoordinator {
+                    tabParent.changeTab(to: .search)
+                }
             }
         }
         .navigationTitle("Level \(level)")
@@ -217,6 +273,7 @@ struct DashboardDetailView: View {
 struct SearchView: View {
     let coordinator: SearchCoordinator
     @State private var query = ""
+    
     var body: some View {
         Form {
             TextField("Search query...", text: $query)
@@ -230,6 +287,7 @@ struct SearchView: View {
 
 struct AccountRootView: View {
     let coordinator: AccountCoordinator
+    
     var body: some View {
         List {
             Button("Profile") { coordinator.router.push(AccountCoordinator.Destination.profile) }
@@ -244,5 +302,5 @@ struct AccountRootView: View {
 // **********************************
 
 #Preview {
-    TabAppCoordinator().start(context: .standalone)
+    TabAppCoordinator().start()
 }

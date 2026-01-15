@@ -237,9 +237,6 @@
     "Describe yourself" : {
 
     },
-    "Detail Content:" : {
-
-    },
     "Details" : {
 
     },
@@ -489,16 +486,16 @@
     "Pop Logic Tests" : {
 
     },
-    "Pop One" : {
-
-    },
     "Pop One Level" : {
 
     },
     "Pop To Root" : {
 
     },
-    "Pop To Self (Start of Settings)" : {
+    "Pop To Self" : {
+
+    },
+    "PopToRoot Test" : {
 
     },
     "PopToSelf & Finish" : {
@@ -528,22 +525,19 @@
     "Pulse Color" : {
 
     },
-    "Push 3 views then PopToRoot after 1s" : {
-
-    },
     "Push Advanced" : {
 
     },
-    "Push Deeper (Level %lld)" : {
+    "Push Deeper" : {
 
     },
     "Push Detail (Level 1)" : {
 
     },
-    "Push Profile Flow (PopToSelf Finish)" : {
+    "Push Profile Flow" : {
 
     },
-    "Push Settings Flow (Manual PopToSelf)" : {
+    "Push Settings Flow" : {
 
     },
     "Push Simple View" : {

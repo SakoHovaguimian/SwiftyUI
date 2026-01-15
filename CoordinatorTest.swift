@@ -5,33 +5,30 @@ public typealias Routable = Hashable & Identifiable
 public typealias AnyRoutable = any Routable
 public typealias AnyCoordinator = any Coordinator
 public typealias Coordinatable = Coordinator & BaseCoordinator
+import SwiftUI
+import Observation
 
 // **********************************
-// MARK: - Finish Policy
+// MARK: - Core Protocols
 // **********************************
 
 @MainActor
-public enum FinishPolicy: Hashable {
+public protocol ParentCoordinator: AnyObject {
+    var id: UUID { get }
+    var router: Router { get }
+    func removeChild(_ childId: UUID)
+}
 
-    /// Removes the coordinator from its parent only (default).
-    case detach
+/// The UI contract. Moving start/build here allows for 'some View'
+/// and typed Routes in the developer implementation.
+@MainActor
+public protocol Coordinator: ParentCoordinator, Observable {
+    associatedtype Route: Routable
+    associatedtype StartView: View
+    associatedtype BuildView: View
 
-    /// Dismisses current modal context (sheet/fullScreenCover) then detaches.
-    case dismissModal
-
-    /// Pops to root of current navigation stack then detaches.
-    case popToRoot
-
-    /// Pops `count` then detaches.
-    case pop(count: Int)
-    
-    /// Pops to root of the current coordinator in a push context
-    /// This is different than popToRoot since root can we several coordinator pushes deep
-    case popToSelf
-
-    /// Custom escape hatch for edge cases.
-    case custom(id: String)
-
+    @ViewBuilder func start(context: NavigationContext) -> StartView
+    @ViewBuilder func build(_ route: Route) -> BuildView
 }
 
 // **********************************
@@ -52,22 +49,14 @@ public final class NavigationState {
 @Observable
 public final class PresentationState {
 
-    public var sheet: AnyRoutable?
-    public var fullScreenCover: AnyRoutable?
-    
-    public init(sheet: AnyRoutable? = nil,
-                fullScreenCover: AnyRoutable? = nil) {
-        
-        self.sheet = sheet
-        self.fullScreenCover = fullScreenCover
-        
-    }
+    public var sheet: (any Routable)?
+    public var fullScreenCover: (any Routable)?
+
+    public init() {}
 
     public func dismiss() {
-        
         self.sheet = nil
         self.fullScreenCover = nil
-        
     }
 
 }
@@ -78,81 +67,54 @@ public final class Router {
 
     public var navigation: NavigationState
     public let presentation: PresentationState
-    
-    // Context
     public let coordinatorName: String
-    
-    /// Internal count of how many screens THIS specific coordinator instance has pushed.
+
+    /// Tracks screens pushed specifically by this coordinator instance.
     private(set) var localPushCount: Int = 0
-    
+
     public init(coordinatorName: String,
-         navigation: NavigationState = NavigationState(),
-         presentation: PresentationState = PresentationState()) {
+                navigation: NavigationState = NavigationState(),
+                presentation: PresentationState = PresentationState()) {
         
         self.coordinatorName = coordinatorName
         self.navigation = navigation
         self.presentation = presentation
         
     }
-    
+
     // MARK: - Stack Operations
 
     public func push<T: Routable>(_ destination: T) {
-        
         self.navigation.path.append(destination)
         self.localPushCount += 1
-        
-    }
-
-    public func push<T: Routable>(_ destinations: [T]) {
-        
-        for dest in destinations {
-            self.push(dest)
-        }
-        
     }
 
     public func pop() {
-        
-        guard self.localPushCount > 0 else { return }
-        guard !self.navigation.path.isEmpty else { return }
-        
+        guard self.localPushCount > 0, !self.navigation.path.isEmpty else { return }
         self.navigation.path.removeLast()
         self.localPushCount -= 1
-        
-    }
-
-    public func popLast(count: Int) {
-        
-        let safeCount = min(count, self.localPushCount)
-        guard safeCount > 0 else { return }
-
-        for _ in 0..<safeCount {
-            self.navigation.path.removeLast()
-        }
-        
-        self.localPushCount -= safeCount
-        
     }
 
     public func popToSelf() {
-        self.popLast(count: self.localPushCount)
+        let safeCount = min(self.localPushCount, self.navigation.path.count)
+        for _ in 0..<safeCount {
+            self.navigation.path.removeLast()
+        }
+        self.localPushCount = 0
     }
 
     public func popToRoot() {
-        
         self.navigation.path = NavigationPath()
         self.localPushCount = 0
-        
     }
 
     // MARK: - Modal Operations
 
-    public func presentSheet(_ value: AnyRoutable) {
+    public func presentSheet(_ value: any Routable) {
         self.presentation.sheet = value
     }
 
-    public func presentFullScreen(_ value: AnyRoutable) {
+    public func presentFullScreen(_ value: any Routable) {
         self.presentation.fullScreenCover = value
     }
 
@@ -163,71 +125,19 @@ public final class Router {
 }
 
 // **********************************
-// MARK: - Coordinator Context
+// MARK: - Coordinator Context & Policy
 // **********************************
 
-@MainActor
 public enum NavigationContext {
-
-    /// Coordinator is responsible for creating its own NavigationStack.
     case standalone
-
-    /// Coordinator should NOT create a NavigationStack and should share this navigation state.
     case embedded(state: NavigationState)
-
-    public var isStandalone: Bool {
-        
-        switch self {
-        case .standalone: return true
-        case .embedded: return false
-        }
-        
-    }
-
 }
 
-// **********************************
-// MARK: - Coordinator Protocols
-// **********************************
-
-@MainActor
-public protocol Coordinator: AnyObject, Observable {
-    
-    associatedtype Content: View
-
-    var id: UUID { get }
-    var router: Router { get }
-    var parent: AnyCoordinator? { get set }
-
-    var finishPolicy: FinishPolicy { get }
-
-    @ViewBuilder func build(_ destination: AnyRoutable) -> Content
-    @ViewBuilder func start(context: NavigationContext) -> Content
-    
-    // Bridge methods to allow AnyCoordinator to work
-    func eraseBuild(_ destination: AnyRoutable) -> AnyView
-    func eraseStart(context: NavigationContext) -> AnyView
-    
-    func finish()
-
-}
-
-// Default implementation to automatically handle type erasure
-extension Coordinator {
-    
-    public func eraseBuild(_ destination: AnyRoutable) -> AnyView {
-        return AnyView(self.build(destination))
-    }
-    
-    public func eraseStart(context: NavigationContext) -> AnyView {
-        return AnyView(self.start(context: context))
-    }
-    
-}
-
-@MainActor
-public protocol ParentCoordinator: AnyObject {
-    func removeChild(_ childId: UUID)
+public enum FinishPolicy: Hashable {
+    case detach
+    case dismissModal
+    case popToRoot
+    case popToSelf
 }
 
 // **********************************
@@ -236,189 +146,138 @@ public protocol ParentCoordinator: AnyObject {
 
 @MainActor
 @Observable
-open class BaseCoordinator: Coordinator, ParentCoordinator {
+open class BaseCoordinator: ParentCoordinator {
 
     public let id: UUID = UUID()
     public let router: Router
-    public weak var parent: AnyCoordinator?
-
+    public weak var parent: (any ParentCoordinator)?
     public var finishPolicy: FinishPolicy
 
-    // Cache children so pushes/modals don’t recreate flows accidentally.
-    private(set) var childCoordinators: [UUID: AnyCoordinator] = [:]
+    private(set) var childCoordinators: [UUID: any ParentCoordinator] = [:]
     private var childLookup: [AnyHashable: UUID] = [:]
 
-    public init(parent: AnyCoordinator? = nil,
-        router: Router,
-        finishPolicy: FinishPolicy = .detach) {
+    public init(parent: (any ParentCoordinator)? = nil,
+                router: Router? = nil,
+                finishPolicy: FinishPolicy = .detach) {
         
         self.parent = parent
-        self.router = router
+        
+        // Requirement 1: Defaults to standalone.
+        self.router = router ?? Router(coordinatorName: String(describing: Self.self))
         self.finishPolicy = finishPolicy
         
     }
-    
-    open func build(_ destination: AnyRoutable) -> AnyView {
-        return AnyView(EmptyView())
-    }
-    
-    open func start(context: NavigationContext = .standalone) -> AnyView {
-        return AnyView(EmptyView())
-    }
-    
+
     public func finish() {
-
-        self.applyFinishPolicy(self.finishPolicy)
-
+        self.applyFinishPolicy()
         self.childCoordinators.removeAll()
         self.childLookup.removeAll()
-
-        if let parent = self.parent as? any ParentCoordinator {
-            parent.removeChild(self.id)
-        }
-
+        self.parent?.removeChild(self.id)
     }
 
-    private func applyFinishPolicy(_ policy: FinishPolicy) {
-
-        switch policy {
+    private func applyFinishPolicy() {
+        switch self.finishPolicy {
         case .detach:
-            
             self.router.popToSelf()
-            
-            Task { @MainActor in
-                
-                try? await Task.sleep(for: .seconds(0.3))
-                
-                if let parentRouter = self.parent?.router {
-                    parentRouter.pop()
-                }
-                
-            }
-            
+            self.parent?.router.pop()
         case .dismissModal:
-            
-            if let parent = self.parent {
-                parent.router.dismissModal()
-            } else {
-                self.router.dismissModal()
-            }
-            
-        case .popToRoot: self.router.popToRoot()
-        case .pop(let count): self.router.popLast(count: count)
-        case .popToSelf: self.router.popToSelf()
-        case .custom: return
+            (self.parent?.router ?? self.router).dismissModal()
+        case .popToRoot:
+            self.router.popToRoot()
+        case .popToSelf:
+            self.router.popToSelf()
         }
-
     }
 
     public func removeChild(_ childId: UUID) {
         self.childCoordinators.removeValue(forKey: childId)
-
-        for (key, value) in self.childLookup where value == childId {
-            self.childLookup.removeValue(forKey: key)
-        }
+        self.childLookup.removeValue(forKey: childId)
     }
 
-    public func addChild(_ child: AnyCoordinator, key: AnyHashable? = nil) {
-
-        self.childCoordinators[child.id] = child
-
-        if let key {
-            self.childLookup[key] = child.id
-        }
-
-    }
-
-    public func child<C: Coordinator>(id key: AnyHashable,
-                                      factory: () -> C) -> C {
-
+    public func child<C: ParentCoordinator>(id key: AnyHashable, factory: () -> C) -> C {
         if let existingId = self.childLookup[key],
            let existing = self.childCoordinators[existingId] as? C {
-            
             return existing
-            
         }
 
         let created = factory()
-        self.addChild(created, key: key)
+        self.childCoordinators[created.id] = created
+        self.childLookup[key] = created.id
         return created
-
     }
 
 }
 
 // **********************************
-// MARK: - Coordinator Host
+// MARK: - UI Host
 // **********************************
 
-public struct CoordinatorHost<Root: View>: View {
+public struct CoordinatorHost<Content: View>: View {
 
-    @Bindable public var router: Router
-    
-    public let context: NavigationContext
-    public let root: () -> Root
+    @Bindable var router: Router
+    let context: NavigationContext
+    let content: () -> Content
 
     public init(router: Router,
-         context: NavigationContext,
-         @ViewBuilder root: @escaping () -> Root) {
-        
-        self._router = Bindable(wrappedValue: router)
+                context: NavigationContext,
+                @ViewBuilder content: @escaping () -> Content) {
+        self.router = router
         self.context = context
-        self.root = root
-        
+        self.content = content
     }
 
     public var body: some View {
-
         switch self.context {
         case .standalone:
-            
             NavigationStack(path: $router.navigation.path) {
-                self.root()
+                self.content()
             }
-
-        case .embedded: self.root()
+        case .embedded:
+            self.content()
         }
-
     }
 
 }
 
 // **********************************
-// MARK: - Modal Helpers
+// MARK: - View Extensions
 // **********************************
 
 public extension View {
 
-    func coordinatorSheet<Route: Routable, Content: View>(_ routeType: Route.Type,
-                                                          router: Router,
-                                                          @ViewBuilder build: @escaping (Route) -> Content) -> some View {
-
+    /// Using isPresented logic avoids the 'any Routable' Identifiable requirement.
+    func coordinatorSheet<Route: Routable, Content: View>(
+        _ routeType: Route.Type,
+        router: Router,
+        @ViewBuilder build: @escaping (Route) -> Content
+    ) -> some View {
         self.sheet(
-            item: Binding(
-                get: { router.presentation.sheet as? Route },
-                set: { router.presentation.sheet = $0 }
+            isPresented: Binding(
+                get: { router.presentation.sheet is Route },
+                set: { if !$0 { router.presentation.dismiss() } }
             )
-        ) { route in
-            build(route)
+        ) {
+            if let route = router.presentation.sheet as? Route {
+                build(route)
+            }
         }
-
     }
 
-    func coordinatorFullScreen<Route: Routable, Content: View>(_ routeType: Route.Type,
-                                                               router: Router,
-                                                               @ViewBuilder build: @escaping (Route) -> Content) -> some View {
-
+    func coordinatorFullScreen<Route: Routable, Content: View>(
+        _ routeType: Route.Type,
+        router: Router,
+        @ViewBuilder build: @escaping (Route) -> Content
+    ) -> some View {
         self.fullScreenCover(
-            item: Binding(
-                get: { router.presentation.fullScreenCover as? Route },
-                set: { router.presentation.fullScreenCover = $0 }
+            isPresented: Binding(
+                get: { router.presentation.fullScreenCover is Route },
+                set: { if !$0 { router.presentation.dismiss() } }
             )
-        ) { route in
-            build(route)
+        ) {
+            if let route = router.presentation.fullScreenCover as? Route {
+                build(route)
+            }
         }
-
     }
 
 }

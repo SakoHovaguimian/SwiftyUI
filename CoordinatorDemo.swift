@@ -1,34 +1,46 @@
 import SwiftUI
 
+// TODO: -
+/// Opt out view that is not registered
+/// Clear backstack
+/// Add back finish policy pop(count)
+
 // **********************************
 // MARK: - App Coordinator
 // **********************************
 
 @MainActor
 @Observable
-final class AppCoordinator: BaseCoordinator {
+final class AppCoordinator: BaseCoordinator, Coordinator {
 
-    enum RootFlow {
-        case home
+    enum Route: Routable {
+        case root
+        var id: String { "root" }
     }
 
     init() {
+        // Requirement 1: Default to standalone.
+        // We initialize with a specific router here to satisfy your naming convention.
         super.init(
-            parent: nil,
-            router: Router(
-                coordinatorName: "AppCoordinator"
-            )
+            router: Router(coordinatorName: "AppCoordinator")
         )
     }
     
-    override func start(context: NavigationContext) -> AnyView {
+    @ViewBuilder
+    func start(context: NavigationContext = .standalone) -> some View {
         
-        let home = self.child(id: RootFlow.home) {
-            HomeCoordinator(parent: self, router: Router(coordinatorName: "HomeCoordinator"))
+        // Requirement 2: No AnyView.
+        let home = self.child(id: "home_root") {
+            HomeCoordinator(parent: self)
         }
         
-        return home.eraseStart(context: .standalone)
+        home.start(context: .standalone)
         
+    }
+
+    @ViewBuilder
+    func build(_ route: Route) -> some View {
+        EmptyView()
     }
 
 }
@@ -39,7 +51,7 @@ final class AppCoordinator: BaseCoordinator {
 
 @MainActor
 @Observable
-final class HomeCoordinator: BaseCoordinator {
+final class HomeCoordinator: BaseCoordinator, Coordinator {
 
     enum Destination: Routable {
 
@@ -48,6 +60,10 @@ final class HomeCoordinator: BaseCoordinator {
             case settings
         }
 
+        case details(String)
+        case profileFlow
+        case settingsFlow
+
         var id: String {
             switch self {
             case .details(let val): return "details_\(val)"
@@ -55,10 +71,6 @@ final class HomeCoordinator: BaseCoordinator {
             case .settingsFlow: return "settingsFlow"
             }
         }
-
-        case details(String)
-        case profileFlow
-        case settingsFlow
 
         var flowId: FlowId? {
             switch self {
@@ -70,71 +82,56 @@ final class HomeCoordinator: BaseCoordinator {
 
     }
 
-    enum ModalRoute: Hashable, Identifiable {
-
+    enum ModalRoute: Routable {
+        case homeModal
+        case supportSheet
+        
         var id: String {
             switch self {
             case .homeModal: return "homeModal"
             case .supportSheet: return "supportSheet"
             }
         }
-
-        case homeModal
-        case supportSheet
-    }
-
-    // -----------------------------------
-    // MARK: - Convenience Routing
-    // -----------------------------------
-
-    func push(_ route: Destination) {
-        self.router.push(route)
-    }
-
-    func presentFullScreen(_ route: ModalRoute) {
-        self.router.presentFullScreen(route)
-    }
-
-    func presentSheet(_ route: ModalRoute) {
-        self.router.presentSheet(route)
     }
 
     // -----------------------------------
     // MARK: - Start
     // -----------------------------------
 
-    override func start(context: NavigationContext) -> AnyView {
+    @ViewBuilder
+    func start(context: NavigationContext = .standalone) -> some View {
 
-        return AnyView(
-            CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context) {
 
-                HomeViewTest(coordinator: self)
-                    .navigationTitle("Home")
-                    .navigationDestination(for: HomeCoordinator.Destination.self) { dest in
-                        self.eraseBuild(dest)
-                    }
-                    .coordinatorFullScreen(HomeCoordinator.ModalRoute.self, router: self.router) { route in
-                        self.buildModal(route)
-                    }
-                    .coordinatorSheet(HomeCoordinator.ModalRoute.self, router: self.router) { route in
-                        self.buildModal(route)
-                    }
+            HomeViewTest(coordinator: self)
+                .navigationTitle("Home")
+                .navigationDestination(for: Destination.self) { dest in
+                    self.build(dest)
+                }
+                .coordinatorFullScreen(ModalRoute.self, router: self.router) { route in
+                    self.buildModal(route)
+                }
+                .coordinatorSheet(ModalRoute.self, router: self.router) { route in
+                    self.buildModal(route)
+                }
 
-            }
-        )
+        }
 
     }
     
-    override func build(_ destination: AnyRoutable) -> AnyView {
-        guard let dest = destination as? Destination else { return AnyView(EmptyView()) }
+    // -----------------------------------
+    // MARK: - Build
+    // -----------------------------------
+    
+    @ViewBuilder
+    func build(_ route: Destination) -> some View {
         
-        switch dest {
+        switch route {
 
         case .details(let text):
-            return AnyView(DetailScreen(text: text))
+            DetailScreen(text: text)
 
         case .profileFlow:
-
             let profile = self.child(id: Destination.FlowId.profile) {
                 ProfileCoordinator(
                     parent: self,
@@ -147,10 +144,9 @@ final class HomeCoordinator: BaseCoordinator {
                 )
             }
 
-            return profile.eraseStart(context: .embedded(state: self.router.navigation))
+            profile.start(context: .embedded(state: self.router.navigation))
 
         case .settingsFlow:
-
             let settings = self.child(id: Destination.FlowId.settings) {
                 SettingsCoordinator(
                     parent: self,
@@ -163,7 +159,7 @@ final class HomeCoordinator: BaseCoordinator {
                 )
             }
 
-            return settings.eraseStart(context: .embedded(state: self.router.navigation))
+            settings.start(context: .embedded(state: self.router.navigation))
 
         }
     }
@@ -174,36 +170,15 @@ final class HomeCoordinator: BaseCoordinator {
         switch route {
 
         case .homeModal:
-
-            let modalHome = self.child(id: ModalRoute.homeModal) {
-
-                let modalRouter = Router(
-                    coordinatorName: "HomeCoordinator.Modal"
-                )
-
-                let coordinator = HomeModalCoordinator(
-                    parent: self,
-                    router: modalRouter,
-                    finishPolicy: .dismissModal
-                )
-
-                return coordinator
+            let modalHome = self.child(id: route) {
+                HomeModalCoordinator(parent: self, finishPolicy: .dismissModal)
             }
-
             modalHome.start(context: .standalone)
 
         case .supportSheet:
-
-            let support = self.child(id: ModalRoute.supportSheet) {
-                SupportCoordinator(
-                    parent: self,
-                    router: Router(
-                        coordinatorName: "SupportCoordinator"
-                    ),
-                    finishPolicy: .dismissModal
-                )
+            let support = self.child(id: route) {
+                SupportCoordinator(parent: self, finishPolicy: .dismissModal)
             }
-
             support.start(context: .standalone)
 
         }
@@ -218,63 +193,47 @@ final class HomeCoordinator: BaseCoordinator {
 
 @MainActor
 @Observable
-final class ProfileCoordinator: BaseCoordinator {
+final class ProfileCoordinator: BaseCoordinator, Coordinator {
 
     enum Destination: Routable {
-        
-        var id: String {
-            switch self {
-            case .bio: return "bio"
-            case .security: return "security"
-            }
-        }
-        
         case bio
         case security
         
+        var id: String { "\(self)" }
     }
 
-    func push(_ route: Destination) {
-        self.router.push(route)
-    }
+    @ViewBuilder
+    func start(context: NavigationContext = .standalone) -> some View {
 
-    override func start(context: NavigationContext) -> AnyView {
+        CoordinatorHost(router: self.router, context: context) {
 
-        return AnyView(
-            CoordinatorHost(router: self.router, context: context) {
-
-                ProfileScreen(coordinator: self)
-                    .navigationTitle("Profile")
-                    .navigationDestination(for: ProfileCoordinator.Destination.self) { dest in
-                        self.eraseBuild(dest)
-                    }
-
-            }
-        )
-
-    }
-
-    override func build(_ destination: AnyRoutable) -> AnyView {
-        guard let dest = destination as? Destination else { return AnyView(EmptyView()) }
-
-        switch dest {
-        case .bio:
-            return AnyView(
-                VStack(spacing: 16) {
-                    Text("User Bio Screen")
-                    Button("PopToSelf & Finish") { self.finish() }
+            ProfileScreen(coordinator: self)
+                .navigationTitle("Profile")
+                .navigationDestination(for: Destination.self) { dest in
+                    self.build(dest)
                 }
-                .padding()
-            )
+
+        }
+
+    }
+
+    @ViewBuilder
+    func build(_ route: Destination) -> some View {
+        
+        switch route {
+        case .bio:
+            VStack(spacing: 16) {
+                Text("User Bio Screen")
+                Button("PopToSelf & Finish") { self.finish() }
+            }
+            .padding()
 
         case .security:
-            return AnyView(
-                VStack(spacing: 16) {
-                    Text("Security Settings Screen")
-                    Button("Finish") { self.finish() }
-                }
-                .padding()
-            )
+            VStack(spacing: 16) {
+                Text("Security Settings Screen")
+                Button("Finish") { self.finish() }
+            }
+            .padding()
         }
 
     }
@@ -287,63 +246,52 @@ final class ProfileCoordinator: BaseCoordinator {
 
 @MainActor
 @Observable
-final class SettingsCoordinator: BaseCoordinator {
+final class SettingsCoordinator: BaseCoordinator, Coordinator {
     
     enum Destination: Routable {
-        
-        var id: String {
-            switch self {
-            case .general: return "general"
-            case .advanced: return "advanced"
-            }
-        }
-        
         case general
         case advanced
+        var id: String { "\(self)" }
     }
 
-    override func start(context: NavigationContext) -> AnyView {
+    @ViewBuilder
+    func start(context: NavigationContext = .standalone) -> some View {
 
-        return AnyView(
-            CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context) {
 
-                VStack(spacing: 20) {
-                    Text("Settings Root")
-                    Button("Go General") { self.router.push(Destination.general) }
-                    Button("Go Advanced") { self.router.push(Destination.advanced) }
-                    
-                    Divider()
-                    
-                    Button("Finish & Detach") { self.finish() }
-                }
-                .padding()
-                .navigationTitle("Settings")
-                .navigationDestination(for: Destination.self) { dest in
-                    self.eraseBuild(dest)
-                }
-
+            VStack(spacing: 20) {
+                Text("Settings Root")
+                Button("Go General") { self.router.push(Destination.general) }
+                Button("Go Advanced") { self.router.push(Destination.advanced) }
+                
+                Divider()
+                
+                Button("Finish & Detach") { self.finish() }
             }
-        )
+            .padding()
+            .navigationTitle("Settings")
+            .navigationDestination(for: Destination.self) { dest in
+                self.build(dest)
+            }
+
+        }
 
     }
     
-    override func build(_ destination: AnyRoutable) -> AnyView {
-        guard let dest = destination as? Destination else { return AnyView(EmptyView()) }
-        
-        return AnyView(
-            VStack(spacing: 20) {
-                Text(dest == .general ? "General Settings" : "Advanced Settings")
-                
-                Button("Pop To Self (Start of Settings)") {
-                    self.router.popToSelf()
-                }
-                
-                if dest == .general {
-                    Button("Push Advanced") { self.router.push(Destination.advanced) }
-                }
+    @ViewBuilder
+    func build(_ route: Destination) -> some View {
+        VStack(spacing: 20) {
+            Text(route == .general ? "General Settings" : "Advanced Settings")
+            
+            Button("Pop To Self") {
+                self.router.popToSelf()
             }
-            .padding()
-        )
+            
+            if route == .general {
+                Button("Push Advanced") { self.router.push(Destination.advanced) }
+            }
+        }
+        .padding()
     }
 
 }
@@ -354,117 +302,73 @@ final class SettingsCoordinator: BaseCoordinator {
 
 @MainActor
 @Observable
-final class HomeModalCoordinator: BaseCoordinator {
-    override func start(context: NavigationContext) -> AnyView {
-        AnyView(
-            CoordinatorHost(router: self.router, context: context) {
-                VStack {
-                    Text("Home Modal Flow")
-                    Button("Finish") { self.finish() }
-                }
+final class HomeModalCoordinator: BaseCoordinator, Coordinator {
+    enum Route: Routable { case root; var id: String { "root" } }
+
+    @ViewBuilder
+    func start(context: NavigationContext) -> some View {
+        CoordinatorHost(router: self.router, context: context) {
+            VStack {
+                Text("Home Modal Flow")
+                Button("Finish") { self.finish() }
             }
-        )
+        }
     }
-}
-
-@MainActor
-@Observable
-final class SupportCoordinator: BaseCoordinator {
-    override func start(context: NavigationContext) -> AnyView {
-        AnyView(
-            CoordinatorHost(router: self.router, context: context) {
-                VStack {
-                    Text("Support Sheet")
-                    Button("Dismiss") { self.finish() }
-                }
-            }
-        )
-    }
-}
-
-// **********************************
-// MARK: - Team Coordinator (Custom Start Context Example)
-// **********************************
-
-@MainActor
-@Observable
-final class TeamCoordinator: BaseCoordinator {
     
-    enum StartContext {
+    @ViewBuilder func build(_ route: Route) -> some View { EmptyView() }
+}
+
+@MainActor
+@Observable
+final class SupportCoordinator: BaseCoordinator, Coordinator {
+    enum Route: Routable { case root; var id: String { "root" } }
+
+    @ViewBuilder
+    func start(context: NavigationContext) -> some View {
+        CoordinatorHost(router: self.router, context: context) {
+            VStack {
+                Text("Support Sheet")
+                Button("Dismiss") { self.finish() }
+            }
+        }
+    }
+    
+    @ViewBuilder func build(_ route: Route) -> some View { EmptyView() }
+}
+
+// **********************************
+// MARK: - Team Coordinator
+// **********************************
+
+@MainActor
+@Observable
+final class TeamCoordinator: BaseCoordinator, Coordinator {
+    
+    enum Route: Routable {
         case members
         case memberDetails(id: String)
         case stats
+        var id: String { "\(self)" }
     }
     
-    // Default override required by Base
-    override func start(context: NavigationContext) -> AnyView {
-        return self.start(context: context, startWith: .members)
+    @ViewBuilder
+    func start(context: NavigationContext) -> some View {
+        self.build(.members) // Default entry
     }
     
-    // Custom entry point
-    func start(context: NavigationContext, startWith: StartContext) -> AnyView {
-        AnyView(
-            CoordinatorHost(router: self.router, context: context) {
-                VStack(spacing: 20) {
-                    switch startWith {
-                    case .members:
-                        Text("All Team Members")
-                    case .memberDetails(let id):
-                        Text("Showing Details for: \(id)")
-                    case .stats:
-                        Text("Team Statistics")
-                    }
-                    
-                    Button("Finish") { self.finish() }
+    @ViewBuilder
+    func build(_ route: Route) -> some View {
+        CoordinatorHost(router: self.router, context: .standalone) {
+            VStack(spacing: 20) {
+                switch route {
+                case .members: Text("All Team Members")
+                case .memberDetails(let id): Text("Showing Details for: \(id)")
+                case .stats: Text("Team Statistics")
                 }
-                .navigationTitle("Team")
+                Button("Finish") { self.finish() }
             }
-        )
-    }
-}
-
-#Preview {
-    AppCoordinator().start(context: .standalone)
-}
-
-// **********************************
-// MARK: - Profile Screen
-// **********************************
-
-struct ProfileScreen: View {
-    let coordinator: ProfileCoordinator
-    
-    var body: some View {
-        VStack(spacing: 20) {
-            Text("Profile Root")
-            Button("Go Bio") { self.coordinator.push(.bio) }
-            Button("Go Security") { self.coordinator.push(.security) }
-            Button("Pop One") { self.coordinator.router.pop() }
-            
-            Divider()
-            
-            Button("Finish Flow") { self.coordinator.finish() }
+            .navigationTitle("Team")
         }
-        .padding()
-    }
-}
-
-// **********************************
-// MARK: - Detail Screen
-// **********************************
-
-struct DetailScreen: View {
-    let text: String
-    
-    var body: some View {
-        VStack {
-            Text("Detail Content:")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-            Text(text)
-                .font(.largeTitle)
-        }
-        .navigationTitle("Details")
     }
 }
 
@@ -472,16 +376,89 @@ struct DetailScreen: View {
 // MARK: - Sako Coordinator
 // **********************************
 
-final class SakoCoordinator: BaseCoordinator {
-    
-    // Subclasses of BaseCoordinator must at least override start
-    override func start(context: NavigationContext) -> AnyView {
-        return AnyView(
-            CoordinatorHost(router: self.router, context: context) {
-                Text("Sako Coordinator Root")
-                    .navigationTitle("Sako")
+@MainActor
+@Observable
+final class SakoCoordinator: BaseCoordinator, Coordinator {
+    enum Route: Routable { case root; var id: String { "root" } }
+
+    @ViewBuilder
+    func start(context: NavigationContext) -> some View {
+        CoordinatorHost(router: self.router, context: context) {
+            Text("Sako Coordinator Root")
+                .navigationTitle("Sako")
+        }
+    }
+
+    @ViewBuilder func build(_ route: Route) -> some View { EmptyView() }
+}
+
+// **********************************
+// MARK: - UI Screens
+// **********************************
+
+struct HomeViewTest: View {
+
+    let coordinator: HomeCoordinator
+
+    var body: some View {
+        List {
+            Section("Stack Navigation") {
+                Button("Push Simple View") {
+                    self.coordinator.router.push(HomeCoordinator.Destination.details("Simple View"))
+                }
+                Button("Push Profile Flow") {
+                    self.coordinator.router.push(HomeCoordinator.Destination.profileFlow)
+                }
+                Button("Push Settings Flow") {
+                    self.coordinator.router.push(HomeCoordinator.Destination.settingsFlow)
+                }
             }
-        )
+
+            Section("Pop Logic Tests") {
+                Button("PopToRoot Test") {
+                    self.coordinator.router.push(HomeCoordinator.Destination.details("1"))
+                    self.coordinator.router.push(HomeCoordinator.Destination.details("2"))
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        self.coordinator.router.popToRoot()
+                    }
+                }
+            }
+
+            Section("Modal Presentation") {
+                Button("Full Screen Modal") {
+                    self.coordinator.router.presentFullScreen(HomeCoordinator.ModalRoute.homeModal)
+                }
+                Button("Sheet Modal") {
+                    self.coordinator.router.presentSheet(HomeCoordinator.ModalRoute.supportSheet)
+                }
+            }
+        }
+    }
+}
+
+struct ProfileScreen: View {
+    let coordinator: ProfileCoordinator
+    
+    var body: some View {
+        VStack(spacing: 20) {
+            Text("Profile Root")
+            Button("Go Bio") { self.coordinator.router.push(ProfileCoordinator.Destination.bio) }
+            Button("Go Security") { self.coordinator.router.push(ProfileCoordinator.Destination.security) }
+            Divider()
+            Button("Finish Flow") { self.coordinator.finish() }
+        }
+        .padding()
+    }
+}
+
+struct DetailScreen: View {
+    let text: String
+    
+    var body: some View {
+        VStack {
+            Text(text).font(.largeTitle)
+        }
+        .navigationTitle("Details")
     }
 }
 
@@ -490,67 +467,5 @@ final class SakoCoordinator: BaseCoordinator {
 // **********************************
 
 #Preview {
-    // We call eraseStart because the AppCoordinator start returns AnyView
-    // to satisfy the Coordinator protocol requirements.
-    AppCoordinator().start(context: .standalone)
-}
-
-// **********************************
-// MARK: - Home View Test
-// **********************************
-
-struct HomeViewTest: View {
-
-    let coordinator: HomeCoordinator
-
-    var body: some View {
-
-        List {
-
-            Section("Stack Navigation") {
-
-                Button("Push Simple View") {
-                    self.coordinator.push(.details("Simple View"))
-                }
-
-                Button("Push Profile Flow (PopToSelf Finish)") {
-                    self.coordinator.push(.profileFlow)
-                }
-                
-                Button("Push Settings Flow (Manual PopToSelf)") {
-                    self.coordinator.push(.settingsFlow)
-                }
-
-            }
-
-            Section("Pop Logic Tests") {
-
-                Button("Push 3 views then PopToRoot after 1s") {
-                    self.coordinator.push(.details("1"))
-                    self.coordinator.push(.details("2"))
-                    self.coordinator.push(.details("3"))
-
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        self.coordinator.router.popToRoot()
-                    }
-                }
-
-            }
-
-            Section("Modal Presentation") {
-
-                Button("Full Screen Modal") {
-                    self.coordinator.presentFullScreen(.homeModal)
-                }
-
-                Button("Sheet Modal") {
-                    self.coordinator.presentSheet(.supportSheet)
-                }
-
-            }
-
-        }
-
-    }
-
+    AppCoordinator().start()
 }
