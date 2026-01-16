@@ -35,8 +35,10 @@ open class BaseCoordinator: ParentCoordinatorProtocol {
     public func finish() {
         
         self.applyFinishPolicy()
+        
         self.childCoordinators.removeAll()
         self.childLookup.removeAll()
+        
         self.parent?.removeChild(self.id)
         
     }
