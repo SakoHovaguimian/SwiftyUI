@@ -2,7 +2,6 @@ import SwiftUI
 
 // TODO: -
 /// Opt out view that is not registered
-/// Clear backstack
 
 // **********************************
 // MARK: - App Coordinator
