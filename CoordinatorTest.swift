@@ -83,7 +83,8 @@ public final class Router {
 
     public func pop() {
         
-        guard self.localPushCount > 0, !self.navigation.path.isEmpty else { return }
+        guard self.localPushCount > 0,
+              !self.navigation.path.isEmpty else { return }
         
         self.navigation.path.removeLast()
         self.localPushCount -= 1
@@ -129,9 +130,22 @@ public final class Router {
     public func dismissModal() {
         self.presentation.dismiss()
     }
+    
+    public func replace<T: Routable>(last count: Int = 1,
+                                     with destination: T) {
+        
+        let safeCount = min(self.localPushCount, count)
+        
+        if safeCount > 0 {
+            self.navigation.path.removeLast(safeCount)
+        }
+        
+        self.navigation.path.append(destination)
+        self.localPushCount = (self.localPushCount - safeCount) + 1
+        
+    }
 
 }
-
 
 public enum NavigationContext {
     
@@ -245,6 +259,30 @@ open class BaseCoordinator: ParentCoordinator {
         self.childLookup[key] = created.id
         
         return created
+        
+    }
+    
+    private func replaceChild<C: ParentCoordinator>(id key: AnyHashable,
+                                                   with factory: () -> C) -> C {
+        
+        if let oldId = self.childLookup[key] {
+            self.removeChild(oldId)
+        }
+        
+        let newChild = factory()
+        self.childCoordinators[newChild.id] = newChild
+        self.childLookup[key] = newChild.id
+        
+        return newChild
+        
+    }
+    
+    public func swapFlow<C: ParentCoordinator, R: Routable>(id key: AnyHashable,
+                                                            with newRoute: R,
+                                                            factory: @escaping () -> C) {
+        
+        _ = self.replaceChild(id: key, with: factory)
+        self.router.replace(last: 1, with: newRoute)
         
     }
 

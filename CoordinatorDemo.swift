@@ -433,6 +433,45 @@ struct HomeViewTest: View {
                     self.coordinator.router.presentSheet(HomeCoordinator.ModalRoute.supportSheet)
                 }
             }
+            
+            Section("Stack Surgery (1a)") {
+                            Button("Deep Pop (3) & Replace") {
+                                // Simulate a deep stack
+                                coordinator.router.push(HomeCoordinator.Destination.details("Step 1"))
+                                coordinator.router.push(HomeCoordinator.Destination.details("Step 2"))
+                                coordinator.router.push(HomeCoordinator.Destination.details("Step 3"))
+                                
+                                // After a delay, pop all 3 and replace with one success screen
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                                    coordinator.router.replace(
+                                        last: 3,
+                                        with: HomeCoordinator.Destination.settingsFlow
+                                    )
+                                }
+                            }
+            }
+            
+            Section("Coordinator Swap (1b)") {
+                Button("Atomic Swap: Profile → Settings") {
+                    
+                    coordinator.router.push(HomeCoordinator.Destination.details("Step 1"))
+                    
+//                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                        
+                        // We swap the memory instance AND the navigation route in one go
+                        coordinator.swapFlow(
+                            id: HomeCoordinator.Destination.details("Step 1"),
+                            with: HomeCoordinator.Destination.settingsFlow
+                        ) {
+                            SettingsCoordinator(
+                                parent: coordinator,
+                                router: coordinator.router
+                            )
+                        }
+                        
+//                    }
+                }
+            }
         }
     }
 }
