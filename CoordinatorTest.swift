@@ -9,6 +9,7 @@ public protocol ParentCoordinator: AnyObject {
     
     var id: UUID { get }
     var router: Router { get }
+    
     func removeChild(_ childId: UUID)
     
 }
@@ -19,7 +20,7 @@ public protocol Coordinator: ParentCoordinator, Observable {
     associatedtype Route: Routable
     associatedtype StartView: View
     associatedtype BuildView: View
-
+    
     @ViewBuilder func start(context: NavigationContext) -> StartView
     @ViewBuilder func build(_ route: Route) -> BuildView
     
@@ -27,43 +28,43 @@ public protocol Coordinator: ParentCoordinator, Observable {
 
 @Observable
 public final class NavigationState {
-
+    
     public var path: NavigationPath = .init()
-
+    
     public init() {
         self.path = .init()
     }
-
+    
 }
 
 @Observable
 public final class PresentationState {
-
+    
     public var sheet: (any Routable)?
     public var fullScreenCover: (any Routable)?
-
+    
     public init() {}
-
+    
     public func dismiss() {
         
         self.sheet = nil
         self.fullScreenCover = nil
         
     }
-
+    
 }
 
 @MainActor
 @Observable
 public final class Router {
-
+    
     public var navigation: NavigationState
     public let presentation: PresentationState
     public let coordinatorName: String
-
+    
     /// Tracks screens pushed specifically by this coordinator instance.
     private(set) var localPushCount: Int = 0
-
+    
     public init(coordinatorName: String,
                 navigation: NavigationState = NavigationState(),
                 presentation: PresentationState = PresentationState()) {
@@ -73,14 +74,14 @@ public final class Router {
         self.presentation = presentation
         
     }
-
+    
     public func push<T: Routable>(_ destination: T) {
         
         self.navigation.path.append(destination)
         self.localPushCount += 1
         
     }
-
+    
     public func pop() {
         
         guard self.localPushCount > 0,
@@ -90,7 +91,7 @@ public final class Router {
         self.localPushCount -= 1
         
     }
-
+    
     public func popToSelf() {
         
         let safeCount = min(self.localPushCount, self.navigation.path.count)
@@ -102,7 +103,7 @@ public final class Router {
         self.localPushCount = 0
         
     }
-
+    
     public func popToRoot() {
         
         self.navigation.path = NavigationPath()
@@ -118,15 +119,15 @@ public final class Router {
         self.localPushCount = max(0, self.localPushCount - safeCount)
         
     }
-
+    
     public func presentSheet(_ value: any Routable) {
         self.presentation.sheet = value
     }
-
+    
     public func presentFullScreen(_ value: any Routable) {
         self.presentation.fullScreenCover = value
     }
-
+    
     public func dismissModal() {
         self.presentation.dismiss()
     }
@@ -144,7 +145,7 @@ public final class Router {
         self.localPushCount = (self.localPushCount - safeCount) + 1
         
     }
-
+    
 }
 
 public enum NavigationContext {
@@ -167,17 +168,17 @@ public enum FinishPolicy: Hashable {
 @MainActor
 @Observable
 open class BaseCoordinator: ParentCoordinator {
-
+    
     public let id: UUID = UUID()
     
     public let router: Router
     public var finishPolicy: FinishPolicy
     
     public weak var parent: (any ParentCoordinator)?
-
+    
     private(set) var childCoordinators: [UUID: any ParentCoordinator] = [:]
     private var childLookup: [AnyHashable: UUID] = [:]
-
+    
     public init(parent: (any ParentCoordinator)? = nil,
                 router: Router? = nil,
                 finishPolicy: FinishPolicy = .detach()) {
@@ -188,7 +189,7 @@ open class BaseCoordinator: ParentCoordinator {
         self.finishPolicy = finishPolicy
         
     }
-
+    
     public func finish() {
         
         self.applyFinishPolicy()
@@ -204,7 +205,7 @@ open class BaseCoordinator: ParentCoordinator {
         finish()
         
     }
-
+    
     private func applyFinishPolicy() {
         
         switch self.finishPolicy {
@@ -236,14 +237,14 @@ open class BaseCoordinator: ParentCoordinator {
         }
         
     }
-
+    
     public func removeChild(_ childId: UUID) {
         
         self.childCoordinators.removeValue(forKey: childId)
         self.childLookup.removeValue(forKey: childId)
         
     }
-
+    
     public func child<C: ParentCoordinator>(id key: AnyHashable,
                                             factory: () -> C) -> C {
         
@@ -253,7 +254,7 @@ open class BaseCoordinator: ParentCoordinator {
             return existing
             
         }
-
+        
         let created = factory()
         self.childCoordinators[created.id] = created
         self.childLookup[key] = created.id
@@ -263,7 +264,7 @@ open class BaseCoordinator: ParentCoordinator {
     }
     
     private func replaceChild<C: ParentCoordinator>(id key: AnyHashable,
-                                                   with factory: () -> C) -> C {
+                                                    with factory: () -> C) -> C {
         
         if let oldId = self.childLookup[key] {
             self.removeChild(oldId)
@@ -285,15 +286,15 @@ open class BaseCoordinator: ParentCoordinator {
         self.router.replace(last: 1, with: newRoute)
         
     }
-
+    
 }
 
 public struct CoordinatorHost<Content: View>: View {
-
+    
     @Bindable var router: Router
     let context: NavigationContext
     let content: () -> Content
-
+    
     public init(router: Router,
                 context: NavigationContext,
                 @ViewBuilder content: @escaping () -> Content) {
@@ -303,7 +304,7 @@ public struct CoordinatorHost<Content: View>: View {
         self.content = content
         
     }
-
+    
     public var body: some View {
         
         switch self.context {
@@ -317,11 +318,11 @@ public struct CoordinatorHost<Content: View>: View {
         }
         
     }
-
+    
 }
 
 public extension View {
-
+    
     /// Using isPresented logic avoids the 'any Routable' Identifiable requirement.
     func coordinatorSheet<Route: Routable, Content: View>(_ routeType: Route.Type,
                                                           router: Router,
@@ -341,7 +342,7 @@ public extension View {
         }
         
     }
-
+    
     func coordinatorFullScreen<Route: Routable, Content: View>(_ routeType: Route.Type,
                                                                router: Router,
                                                                @ViewBuilder build: @escaping (Route) -> Content) -> some View {
@@ -360,5 +361,5 @@ public extension View {
         }
         
     }
-
+    
 }
