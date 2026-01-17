@@ -1,8 +1,5 @@
 import SwiftUI
 
-// TODO: -
-/// Opt out view that is not registered
-
 // **********************************
 // MARK: - App Coordinator
 // **********************************
@@ -337,7 +334,7 @@ final class SupportCoordinator: BaseCoordinator, Coordinator {
 }
 
 // **********************************
-// MARK: - Team Coordinator
+// MARK: - Team CoordinatorHomeCoordinator
 // **********************************
 
 @MainActor

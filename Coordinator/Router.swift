@@ -11,93 +11,98 @@ import Observation
 @MainActor
 @Observable
 public final class Router {
-    
+
     public var navigation: NavigationState
     public let presentation: PresentationState
     public let coordinatorName: String
-    
-    /// Tracks screens pushed specifically by this coordinator instance.
-    private(set) var localPushCount: Int = 0
-    
+
+    /// The path count when this coordinator was initialized or started.
+    /// All "local" push counts are derived by comparing current path count to this base.
+    /// This approach is resilient to @dismiss and interactive swipe-to-dismiss.
+    private(set) var basePathCount: Int = 0
+
+    /// Computed property that returns how many screens this coordinator "owns"
+    /// by comparing current path count to the base count.
+    /// This automatically stays in sync even when SwiftUI dismisses views directly.
+    public var localPushCount: Int {
+        max(0, self.navigation.path.count - self.basePathCount)
+    }
+
     public init(coordinatorName: String,
                 navigation: NavigationState = NavigationState(),
                 presentation: PresentationState = PresentationState()) {
-        
+
         self.coordinatorName = coordinatorName
         self.navigation = navigation
         self.presentation = presentation
-        
+
     }
-    
+
+    /// Call this when the coordinator's root view appears to snapshot the current path depth.
+    /// This establishes the "floor" from which localPushCount is calculated.
+    public func recordBasePathCount() {
+        self.basePathCount = self.navigation.path.count
+    }
+
     public func push<T: Routable>(_ destination: T) {
-        
         self.navigation.path.append(destination)
-        self.localPushCount += 1
-        
     }
-    
+
     public func pop() {
-        
-        guard self.localPushCount > 0,
-              !self.navigation.path.isEmpty else { return }
-        
+    
+        guard self.localPushCount > 0 else { return }
         self.navigation.path.removeLast()
-        self.localPushCount -= 1
         
     }
-    
+
     public func popToSelf() {
         
-        let safeCount = min(self.localPushCount, self.navigation.path.count)
+        let countToPop = self.localPushCount
         
-        for _ in 0..<safeCount {
-            self.navigation.path.removeLast()
-        }
-        
-        self.localPushCount = 0
+        guard countToPop > 0 else { return }
+        self.navigation.path.removeLast(countToPop)
         
     }
-    
+
     public func popToRoot() {
         
         self.navigation.path = NavigationPath()
-        self.localPushCount = 0
+        self.basePathCount = 0
         
     }
-    
+
     public func pop(count: Int) {
         
         let safeCount = min(self.localPushCount, count)
         
+        guard safeCount > 0 else { return }
         self.navigation.path.removeLast(safeCount)
-        self.localPushCount = max(0, self.localPushCount - safeCount)
         
     }
-    
+
     public func presentSheet(_ value: any Routable) {
         self.presentation.sheet = value
     }
-    
+
     public func presentFullScreen(_ value: any Routable) {
         self.presentation.fullScreenCover = value
     }
-    
+
     public func dismissModal() {
         self.presentation.dismiss()
     }
-    
+
     public func replace<T: Routable>(last count: Int = 1,
                                      with destination: T) {
-        
+
         let safeCount = min(self.localPushCount, count)
-        
+
         if safeCount > 0 {
             self.navigation.path.removeLast(safeCount)
         }
-        
+
         self.navigation.path.append(destination)
-        self.localPushCount = (self.localPushCount - safeCount) + 1
         
     }
-    
+
 }
