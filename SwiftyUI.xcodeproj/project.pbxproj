@@ -24,6 +24,8 @@
 		750D3F0A2F1B3FC400AC1651 /* RouterEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D3F092F1B3FB600AC1651 /* RouterEnvironment.swift */; };
 		750D3F0D2F1C15CE00AC1651 /* TypedNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D3F0B2F1C15CE00AC1651 /* TypedNavigation.swift */; };
 		750D3F0E2F1C15CE00AC1651 /* TypedPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D3F0C2F1C15CE00AC1651 /* TypedPresentation.swift */; };
+		750D3F102F1C236F00AC1651 /* CoordinatorLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D3F0F2F1C236F00AC1651 /* CoordinatorLogger.swift */; };
+		750D3F122F1C238900AC1651 /* CoordinatorLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D3F112F1C238900AC1651 /* CoordinatorLifecycle.swift */; };
 		751361CA2DE4BD6B00C51230 /* SliderTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751361C92DE4BD6B00C51230 /* SliderTicker.swift */; };
 		751361CB2DE4BD6B00C51230 /* CardFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751361C82DE4BD6B00C51230 /* CardFlipView.swift */; };
 		7513DC852EF4D4B6009F2A1F /* FireworksConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513DC842EF4D4B6009F2A1F /* FireworksConfiguration.swift */; };
@@ -320,6 +322,8 @@
 		750D3F092F1B3FB600AC1651 /* RouterEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterEnvironment.swift; sourceTree = "<group>"; };
 		750D3F0B2F1C15CE00AC1651 /* TypedNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedNavigation.swift; sourceTree = "<group>"; };
 		750D3F0C2F1C15CE00AC1651 /* TypedPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedPresentation.swift; sourceTree = "<group>"; };
+		750D3F0F2F1C236F00AC1651 /* CoordinatorLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorLogger.swift; sourceTree = "<group>"; };
+		750D3F112F1C238900AC1651 /* CoordinatorLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorLifecycle.swift; sourceTree = "<group>"; };
 		751361C82DE4BD6B00C51230 /* CardFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlipView.swift; sourceTree = "<group>"; };
 		751361C92DE4BD6B00C51230 /* SliderTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTicker.swift; sourceTree = "<group>"; };
 		7513DC842EF4D4B6009F2A1F /* FireworksConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworksConfiguration.swift; sourceTree = "<group>"; };
@@ -1176,6 +1180,7 @@
 		758D27B22F1A1D30000DBB26 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				750D3F0F2F1C236F00AC1651 /* CoordinatorLogger.swift */,
 				750D3F082F1B3F9E00AC1651 /* Environment */,
 				758D27C82F1A1E9F000DBB26 /* Views */,
 				758D27BF2F1A1E12000DBB26 /* Protocols */,
@@ -1205,6 +1210,7 @@
 			children = (
 				758D27B72F1A1D96000DBB26 /* Coordinator.swift */,
 				758D27B42F1A1D67000DBB26 /* ParentCoordinatorProtocol.swift */,
+				750D3F112F1C238900AC1651 /* CoordinatorLifecycle.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1624,6 +1630,7 @@
 				753116862C12C34A00C7FBF6 /* ToggleStyles.swift in Sources */,
 				7569F7C32E1A03890079BD50 /* PageHeaderPreviewTest.swift in Sources */,
 				750B1B3A2CA88ECF007F93E2 /* RatingView.swift in Sources */,
+				750D3F102F1C236F00AC1651 /* CoordinatorLogger.swift in Sources */,
 				7571900B2C120BF100989D41 /* GPWebView.swift in Sources */,
 				7581F31E2EF4C58700BF56D0 /* StretchyMetrics.swift in Sources */,
 				751675B52DD301AD002685C5 /* Ext+PullToRefresh.swift in Sources */,
@@ -1657,6 +1664,7 @@
 				7513DC852EF4D4B6009F2A1F /* FireworksConfiguration.swift in Sources */,
 				75B467202E41138D00E0E32B /* CoinTipJarScene.swift in Sources */,
 				7571901A2C120C0B00989D41 /* HapticOption.swift in Sources */,
+				750D3F122F1C238900AC1651 /* CoordinatorLifecycle.swift in Sources */,
 				757190262C120C1400989D41 /* Alerts.swift in Sources */,
 				757190272C120C1400989D41 /* AppAlertTextFieldView.swift in Sources */,
 				75F135D02E638E2600BFCD51 /* Cam.swift in Sources */,

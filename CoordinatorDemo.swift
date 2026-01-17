@@ -156,7 +156,7 @@ final class HomeCoordinator: BaseCoordinator, Coordinator {
     @ViewBuilder
     func start(context: NavigationContext = .standalone) -> some View {
 
-        CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
 
             HomeViewTest(coordinator: self)
                 .navigationTitle("Home")
@@ -242,6 +242,21 @@ final class HomeCoordinator: BaseCoordinator, Coordinator {
 
 }
 
+// MARK: - CoordinatorLifecycle Example
+extension HomeCoordinator: CoordinatorLifecycle {
+    func coordinatorDidAppear() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "HomeCoordinator appeared")
+    }
+
+    func coordinatorWillDisappear() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "HomeCoordinator will disappear")
+    }
+
+    func coordinatorDidFinish() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "HomeCoordinator finished")
+    }
+}
+
 // **********************************
 // MARK: - Profile Coordinator
 // **********************************
@@ -262,7 +277,7 @@ final class ProfileCoordinator: BaseCoordinator, Coordinator {
     @ViewBuilder
     func start(context: NavigationContext = .standalone) -> some View {
 
-        CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
 
             ProfileScreen()
                 .navigationTitle("Profile")
@@ -292,6 +307,21 @@ final class ProfileCoordinator: BaseCoordinator, Coordinator {
 
 }
 
+// MARK: - CoordinatorLifecycle Example
+extension ProfileCoordinator: CoordinatorLifecycle {
+    func coordinatorDidAppear() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "ProfileCoordinator appeared")
+    }
+
+    func coordinatorWillDisappear() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "ProfileCoordinator will disappear")
+    }
+
+    func coordinatorDidFinish() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "ProfileCoordinator finished")
+    }
+}
+
 // **********************************
 // MARK: - Settings Coordinator
 // **********************************
@@ -309,7 +339,7 @@ final class SettingsCoordinator: BaseCoordinator, Coordinator {
     @ViewBuilder
     func start(context: NavigationContext = .standalone) -> some View {
 
-        CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
 
             SettingsRootView(coordinator: self)
                 .navigationTitle("Settings")
@@ -328,6 +358,20 @@ final class SettingsCoordinator: BaseCoordinator, Coordinator {
 
 }
 
+extension SettingsCoordinator: CoordinatorLifecycle {
+    func coordinatorDidAppear() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "SettingsCoordinator appeared")
+    }
+
+    func coordinatorWillDisappear() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "SettingsCoordinator will disappear")
+    }
+
+    func coordinatorDidFinish() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "SettingsCoordinator finished")
+    }
+}
+
 // **********************************
 // MARK: - Home Modal & Support Coordinators
 // **********************************
@@ -340,7 +384,7 @@ final class HomeModalCoordinator: BaseCoordinator, Coordinator {
 
     @ViewBuilder
     func start(context: NavigationContext) -> some View {
-        CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
             HomeModalRootView(coordinator: self)
         }
     }
@@ -358,7 +402,7 @@ final class SupportCoordinator: BaseCoordinator, Coordinator {
 
     @ViewBuilder
     func start(context: NavigationContext) -> some View {
-        CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
             SupportRootView(coordinator: self)
         }
     }
@@ -391,7 +435,7 @@ final class TeamCoordinator: BaseCoordinator, Coordinator {
     @ViewBuilder
     func build(_ route: Route) -> some View {
 
-        CoordinatorHost(router: self.router, context: .standalone) {
+        CoordinatorHost(router: self.router, context: .standalone, coordinator: self) {
             TeamRootView(coordinator: self, route: route)
                 .navigationTitle("Team")
         }
@@ -412,7 +456,7 @@ final class SakoCoordinator: BaseCoordinator, Coordinator {
 
     @ViewBuilder
     func start(context: NavigationContext) -> some View {
-        CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
             SakoRootView()
                 .navigationTitle("Sako")
         }
@@ -895,7 +939,7 @@ struct DetailScreen: View {
 @MainActor
 @Observable
 final class NestedFullScreenACoordinator: BaseCoordinator, Coordinator {
-    
+
     typealias Route = Destination
     typealias ModalRoute = Modal
 
@@ -924,7 +968,7 @@ final class NestedFullScreenACoordinator: BaseCoordinator, Coordinator {
     @ViewBuilder
     func start(context: NavigationContext) -> some View {
 
-        CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
 
             NestedFullScreenARootView(coordinator: self)
                 .navigationTitle("Full Screen A")
@@ -1037,7 +1081,7 @@ private struct NestedFullScreenARootView: View {
 @MainActor
 @Observable
 final class NestedFullScreenBCoordinator: BaseCoordinator, Coordinator {
-    
+
     typealias Route = Destination
     typealias ModalRoute = Destination
 
@@ -1056,7 +1100,7 @@ final class NestedFullScreenBCoordinator: BaseCoordinator, Coordinator {
     @ViewBuilder
     func start(context: NavigationContext) -> some View {
 
-        CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
 
             NestedFullScreenBRootView(coordinator: self)
                 .navigationTitle("Full Screen B")
@@ -1135,7 +1179,7 @@ private struct NestedFullScreenBRootView: View {
 @MainActor
 @Observable
 final class NestedSheetACoordinator: BaseCoordinator, Coordinator {
-    
+
     typealias Route = Destination
     typealias ModalRoute = Modal
 
@@ -1164,7 +1208,7 @@ final class NestedSheetACoordinator: BaseCoordinator, Coordinator {
     @ViewBuilder
     func start(context: NavigationContext) -> some View {
 
-        CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
 
             NestedSheetARootView(coordinator: self)
                 .navigationTitle("Sheet A")
@@ -1299,7 +1343,7 @@ final class NestedSheetBCoordinator: BaseCoordinator, Coordinator {
     @ViewBuilder
     func start(context: NavigationContext) -> some View {
 
-        CoordinatorHost(router: self.router, context: context) {
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
 
             NestedSheetBRootView(coordinator: self)
                 .navigationTitle("Sheet B")

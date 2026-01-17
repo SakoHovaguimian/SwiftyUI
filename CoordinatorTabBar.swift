@@ -17,16 +17,16 @@ final class TabAppCoordinator: BaseCoordinator, Coordinator {
     init() {
         super.init(router: Router(coordinatorName: "TabAppCoordinator"))
     }
-    
+
     @ViewBuilder
     func start(context: NavigationContext = .standalone) -> some View {
-        
+
         let mainTab = self.child(id: "main_tab_container") {
             PrimaryTabCoordinator(parent: self)
         }
-        
+
         mainTab.start(context: .standalone)
-        
+
     }
 
     @ViewBuilder
@@ -51,7 +51,7 @@ final class PrimaryTabCoordinator: BaseCoordinator, Coordinator {
 
     enum Tab: Hashable, CaseIterable {
         case dashboard, search, account
-        
+
         var title: String { "\(self)".capitalized }
         var icon: String {
             switch self {
@@ -66,7 +66,7 @@ final class PrimaryTabCoordinator: BaseCoordinator, Coordinator {
 
     @ViewBuilder
     func start(context: NavigationContext = .standalone) -> some View {
-        
+
         TabView(selection: Bindable(self).selectedTab) {
             ForEach(Tab.allCases, id: \.self) { tab in
                 self.viewForTab(tab)
@@ -74,12 +74,12 @@ final class PrimaryTabCoordinator: BaseCoordinator, Coordinator {
                     .tag(tab)
             }
         }
-        
+
     }
 
     @ViewBuilder
     private func viewForTab(_ tab: Tab) -> some View {
-        
+
         switch tab {
         case .dashboard:
             self.child(id: "tab_dashboard") {
@@ -96,9 +96,9 @@ final class PrimaryTabCoordinator: BaseCoordinator, Coordinator {
                 AccountCoordinator(parent: self)
             }.start(context: .standalone)
         }
-        
+
     }
-    
+
     @ViewBuilder
     func build(_ route: Route) -> some View {
         EmptyView()
@@ -120,7 +120,7 @@ final class DashboardCoordinator: BaseCoordinator, Coordinator {
     enum Destination: Routable {
         case detail(level: Int)
         case settings
-        
+
         var id: String {
             switch self {
             case .detail(let level): return "detail_\(level)"
@@ -131,19 +131,19 @@ final class DashboardCoordinator: BaseCoordinator, Coordinator {
 
     @ViewBuilder
     func start(context: NavigationContext = .standalone) -> some View {
-        
-        CoordinatorHost(router: self.router, context: context) {
+
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
             DashboardRootView(coordinator: self)
                 .navigationDestination(for: Destination.self) { dest in
                     self.build(dest)
                 }
         }
-        
+
     }
 
     @ViewBuilder
     func build(_ route: Destination) -> some View {
-        
+
         switch route {
         case .detail(let level):
             DashboardDetailView(coordinator: self, level: level)
@@ -151,7 +151,22 @@ final class DashboardCoordinator: BaseCoordinator, Coordinator {
             Text("Dashboard Settings")
                 .navigationTitle("Settings")
         }
-        
+
+    }
+}
+
+// MARK: - CoordinatorLifecycle Example
+extension DashboardCoordinator: CoordinatorLifecycle {
+    func coordinatorDidAppear() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "DashboardCoordinator appeared")
+    }
+
+    func coordinatorWillDisappear() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "DashboardCoordinator will disappear")
+    }
+
+    func coordinatorDidFinish() {
+        CoordinatorLogger.lifecycle(router.coordinatorName, "DashboardCoordinator finished")
     }
 }
 
@@ -170,25 +185,25 @@ final class SearchCoordinator: BaseCoordinator, Coordinator {
 
     @ViewBuilder
     func start(context: NavigationContext = .standalone) -> some View {
-        
-        CoordinatorHost(router: self.router, context: context) {
+
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
             SearchView(coordinator: self)
                 .navigationDestination(for: Destination.self) { dest in
                     self.build(dest)
                 }
         }
-        
+
     }
 
     @ViewBuilder
     func build(_ route: Destination) -> some View {
-        
+
         switch route {
         case .results(let query):
             Text("Results for: \(query)")
                 .navigationTitle("Results")
         }
-        
+
     }
 }
 
@@ -207,14 +222,14 @@ final class AccountCoordinator: BaseCoordinator, Coordinator {
 
     @ViewBuilder
     func start(context: NavigationContext = .standalone) -> some View {
-        
-        CoordinatorHost(router: self.router, context: context) {
+
+        CoordinatorHost(router: self.router, context: context, coordinator: self) {
             AccountRootView(coordinator: self)
                 .navigationDestination(for: Destination.self) { dest in
                     self.build(dest)
                 }
         }
-        
+
     }
 
     @ViewBuilder
@@ -230,7 +245,7 @@ final class AccountCoordinator: BaseCoordinator, Coordinator {
 
 struct DashboardRootView: View {
     let coordinator: DashboardCoordinator
-    
+
     var body: some View {
         List {
             Section("Stack Testing") {
@@ -246,20 +261,20 @@ struct DashboardRootView: View {
 struct DashboardDetailView: View {
     let coordinator: DashboardCoordinator
     let level: Int
-    
+
     var body: some View {
         VStack(spacing: 20) {
             Text("Stack Level: \(level)").font(.headline)
-            
+
             Button("Push Deeper") {
                 coordinator.router.push(DashboardCoordinator.Destination.detail(level: level + 1))
             }
-            
+
             Button("Pop One Level") { coordinator.router.pop() }
             Button("Pop To Root") { coordinator.router.popToRoot() }
-            
+
             Divider()
-            
+
             Button("Jump to Search Tab") {
                 if let tabParent = coordinator.parent as? PrimaryTabCoordinator {
                     tabParent.changeTab(to: .search)
@@ -273,7 +288,7 @@ struct DashboardDetailView: View {
 struct SearchView: View {
     let coordinator: SearchCoordinator
     @State private var query = ""
-    
+
     var body: some View {
         Form {
             TextField("Search query...", text: $query)
@@ -287,7 +302,7 @@ struct SearchView: View {
 
 struct AccountRootView: View {
     let coordinator: AccountCoordinator
-    
+
     var body: some View {
         List {
             Button("Profile") { coordinator.router.push(AccountCoordinator.Destination.profile) }

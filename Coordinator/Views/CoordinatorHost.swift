@@ -12,14 +12,17 @@ public struct CoordinatorHost<Content: View>: View {
 
     @Bindable var router: Router
     let context: NavigationContext
+    let coordinator: BaseCoordinator?
     let content: () -> Content
 
     public init(router: Router,
                 context: NavigationContext,
+                coordinator: BaseCoordinator? = nil,
                 @ViewBuilder content: @escaping () -> Content) {
 
         self.router = router
         self.context = context
+        self.coordinator = coordinator
         self.content = content
 
     }
@@ -31,15 +34,25 @@ public struct CoordinatorHost<Content: View>: View {
 
             NavigationStack(path: $router.navigation.path) {
                 self.content()
+                    .onAppear {
+                        self.coordinator?.notifyDidAppear()
+                    }
+                    .onDisappear {
+                        self.coordinator?.notifyWillDisappear()
+                    }
             }
 
         case .embedded:
-            
+
             self.content()
                 .onAppear {
                     self.router.recordBasePathCount()
+                    self.coordinator?.notifyDidAppear()
                 }
-            
+                .onDisappear {
+                    self.coordinator?.notifyWillDisappear()
+                }
+
         }
 
     }
