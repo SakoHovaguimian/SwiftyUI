@@ -89,7 +89,16 @@ public final class Router {
     }
 
     public func dismissModal() {
+        
+        var transaction = Transaction()
+        transaction.disablesAnimations = true
+        
+        withTransaction(transaction) {
+            self.popToSelf()
+        }
+        
         self.presentation.dismiss()
+        
     }
 
     public func replace<T: Routable>(last count: Int = 1,

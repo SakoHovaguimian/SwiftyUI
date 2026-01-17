@@ -22,6 +22,8 @@
 		750B1B3A2CA88ECF007F93E2 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757382C42CA88B00007ACA27 /* RatingView.swift */; };
 		750B1B582CA89037007F93E2 /* GestureFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750B1B572CA8902C007F93E2 /* GestureFillView.swift */; };
 		750D3F0A2F1B3FC400AC1651 /* RouterEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D3F092F1B3FB600AC1651 /* RouterEnvironment.swift */; };
+		750D3F0D2F1C15CE00AC1651 /* TypedNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D3F0B2F1C15CE00AC1651 /* TypedNavigation.swift */; };
+		750D3F0E2F1C15CE00AC1651 /* TypedPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750D3F0C2F1C15CE00AC1651 /* TypedPresentation.swift */; };
 		751361CA2DE4BD6B00C51230 /* SliderTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751361C92DE4BD6B00C51230 /* SliderTicker.swift */; };
 		751361CB2DE4BD6B00C51230 /* CardFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751361C82DE4BD6B00C51230 /* CardFlipView.swift */; };
 		7513DC852EF4D4B6009F2A1F /* FireworksConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513DC842EF4D4B6009F2A1F /* FireworksConfiguration.swift */; };
@@ -316,6 +318,8 @@
 		7507E3402ED128C400577064 /* BudgetCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
 		750B1B572CA8902C007F93E2 /* GestureFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureFillView.swift; sourceTree = "<group>"; };
 		750D3F092F1B3FB600AC1651 /* RouterEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterEnvironment.swift; sourceTree = "<group>"; };
+		750D3F0B2F1C15CE00AC1651 /* TypedNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedNavigation.swift; sourceTree = "<group>"; };
+		750D3F0C2F1C15CE00AC1651 /* TypedPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypedPresentation.swift; sourceTree = "<group>"; };
 		751361C82DE4BD6B00C51230 /* CardFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlipView.swift; sourceTree = "<group>"; };
 		751361C92DE4BD6B00C51230 /* SliderTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTicker.swift; sourceTree = "<group>"; };
 		7513DC842EF4D4B6009F2A1F /* FireworksConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworksConfiguration.swift; sourceTree = "<group>"; };
@@ -1186,6 +1190,8 @@
 		758D27BE2F1A1E09000DBB26 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				750D3F0B2F1C15CE00AC1651 /* TypedNavigation.swift */,
+				750D3F0C2F1C15CE00AC1651 /* TypedPresentation.swift */,
 				758D27B82F1A1DB0000DBB26 /* TypeAliases.swift */,
 				758D27C42F1A1E69000DBB26 /* FinishPolicy.swift */,
 				758D27C22F1A1E5D000DBB26 /* NavigationContext.swift */,
@@ -1816,6 +1822,8 @@
 				75533D462D380B8D001A5010 /* VariableBlur.swift in Sources */,
 				75D550C22EE2591500EF06B2 /* MacroType.swift in Sources */,
 				75D1A7E52D7A8A3E0025C5EC /* BottomTransitionTest.swift in Sources */,
+				750D3F0D2F1C15CE00AC1651 /* TypedNavigation.swift in Sources */,
+				750D3F0E2F1C15CE00AC1651 /* TypedPresentation.swift in Sources */,
 				757190132C120BFF00989D41 /* CameraPickerView.swift in Sources */,
 				757190142C120BFF00989D41 /* PhotoPickerView.swift in Sources */,
 				75B9C6922C35206800F434EE /* OldMessageView.swift in Sources */,
