@@ -202,13 +202,14 @@ final class ProfileCoordinator: BaseCoordinator, Coordinator {
 
         CoordinatorHost(router: self.router, context: context) {
 
-            ProfileScreen(coordinator: self)
+            ProfileScreen()
                 .navigationTitle("Profile")
                 .navigationDestination(for: Destination.self) { dest in
                     self.build(dest)
                 }
 
         }
+        .environment(\.coordinator, self)
 
     }
 
@@ -473,15 +474,21 @@ struct HomeViewTest: View {
 }
 
 struct ProfileScreen: View {
-    let coordinator: ProfileCoordinator
+
+    @Environment(\.coordinator) var coordinator: BaseCoordinator?
     
     var body: some View {
+        
+        let _ = print(coordinator)
+        
         VStack(spacing: 20) {
+            
             Text("Profile Root")
-            Button("Go Bio") { self.coordinator.router.push(ProfileCoordinator.Destination.bio) }
-            Button("Go Security") { self.coordinator.router.push(ProfileCoordinator.Destination.security) }
+            
+            Button("Go Bio") { self.coordinator?.router.push(ProfileCoordinator.Destination.bio) }
+            Button("Go Security") { self.coordinator?.router.push(ProfileCoordinator.Destination.security) }
             Divider()
-            Button("Finish Flow") { self.coordinator.finish() }
+            Button("Finish Flow") { self.coordinator?.finish() }
         }
         .padding()
     }
