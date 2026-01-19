@@ -1,163 +1,193 @@
 //
-//  Router.swift
-//  SwiftyUI
+//  Router.ts.swift
+//  AsyncStreamDemo
 //
-//  Created by Sako Hovaguimian on 1/15/26.
+//  Created by Sako Hovaguimian on 1/18/26.
 //
 
 import SwiftUI
-import Observation
 
 @MainActor
 @Observable
 public final class Router {
-
-    public var navigation: NavigationState
-    public let presentation: PresentationState
-    public let coordinatorName: String
-
-    /// The path count when this coordinator was initialized or started.
-    /// All "local" push counts are derived by comparing current path count to this base.
-    /// This approach is resilient to @dismiss and interactive swipe-to-dismiss.
-    private(set) var basePathCount: Int = 0
-
-    /// Computed property that returns how many screens this coordinator "owns"
-    /// by comparing current path count to the base count.
-    /// This automatically stays in sync even when SwiftUI dismisses views directly.
-    public var localPushCount: Int {
-        max(0, self.navigation.path.count - self.basePathCount)
+    
+    public var path: [AnyRoutable] = []
+    public var sheet: AnyRoutable?
+    public var fullScreenCover: AnyRoutable?
+    public var dismissRequest: Bool = false
+    
+    public private(set) var coordinatorScopes: [UUID: Int] = [:]
+    private var viewResolvers: [UUID: (AnyRoutable) -> AnyView?] = [:]
+    
+    public init() {
+        
     }
-
-    public init(coordinatorName: String,
-                navigation: NavigationState = NavigationState(),
-                presentation: PresentationState = PresentationState()) {
-
-        self.coordinatorName = coordinatorName
-        self.navigation = navigation
-        self.presentation = presentation
-
-        CoordinatorLogger.lifecycle(coordinatorName, "Router initialized")
-
+    
+    public func push(_ route: any Routable,
+                     from id: UUID,
+                     isEmbedded: Bool) {
+        
+        if isEmbedded,
+           self.coordinatorScopes[id] == nil {
+            
+            self.coordinatorScopes[id] = path.count
+            
+        }
+        
+        self.path.append(AnyRoutable(route))
+        
     }
-
-    /// Call this when the coordinator's root view appears to snapshot the current path depth.
-    /// This establishes the "floor" from which localPushCount is calculated.
-    public func recordBasePathCount() {
-        let previousBase = self.basePathCount
-        self.basePathCount = self.navigation.path.count
-        CoordinatorLogger.debug(self.coordinatorName, "Base path count recorded: \(previousBase) -> \(self.basePathCount)")
+    
+    public func push(_ routes: [any Routable],
+                     from id: UUID,
+                     isEmbedded: Bool) {
+        
+        guard !routes.isEmpty else { return }
+        
+        if isEmbedded,
+           self.coordinatorScopes[id] == nil {
+            
+            self.coordinatorScopes[id] = path.count
+            
+        }
+        
+        self.path.append(contentsOf: routes.map { AnyRoutable($0) })
+        
     }
-
-    public func push<T: Routable>(_ destination: T) {
-        self.navigation.path.append(destination)
-        CoordinatorLogger.navigation(self.coordinatorName, "Push", "\(destination)")
-    }
-
+    
     public func pop() {
-
-        guard self.localPushCount > 0 else {
-            CoordinatorLogger.error(
-                self.coordinatorName,
-                "Pop",
-                "No views to pop (localPushCount: \(self.localPushCount), totalPathCount: \(self.navigation.path.count))"
-            )
-            return
-        }
-
-        self.navigation.path.removeLast()
-        CoordinatorLogger.navigation(self.coordinatorName, "Pop", "localPushCount: \(self.localPushCount)")
+        
+        guard !self.path.isEmpty else { return }
+        
+        self.path.removeLast()
+        pruneScopes()
+        
     }
-
-    public func popToSelf() {
-
-        let countToPop = self.localPushCount
-
-        guard countToPop > 0 else {
-            CoordinatorLogger.error(
-                self.coordinatorName,
-                "PopToSelf",
-                "No views to pop (localPushCount: \(countToPop))"
-            )
-            return
-        }
-
-        self.navigation.path.removeLast(countToPop)
-        CoordinatorLogger.navigation(self.coordinatorName, "PopToSelf", "Popped \(countToPop) views")
-    }
-
+    
     public func popToRoot() {
-
-        let previousCount = self.navigation.path.count
-        self.navigation.path = NavigationPath()
-        self.basePathCount = 0
-
-        CoordinatorLogger.navigation(
-            self.coordinatorName,
-            "PopToRoot",
-            "Cleared \(previousCount) views from path"
-        )
-    }
-
-    public func pop(count: Int) {
-
-        let safeCount = min(self.localPushCount, count)
-
-        guard safeCount > 0 else {
-            CoordinatorLogger.error(
-                self.coordinatorName,
-                "Pop(count: \(count))",
-                "Invalid count: requested \(count), available \(self.localPushCount)"
-            )
+        
+        guard let deepestScope = self.coordinatorScopes.max(by: { $0.value < $1.value }) else {
+            
+            popAll()
             return
+            
         }
-
-        self.navigation.path.removeLast(safeCount)
-        CoordinatorLogger.navigation(
-            self.coordinatorName,
-            "Pop(count: \(count))",
-            "Popped \(safeCount) views (requested: \(count))"
-        )
-    }
-
-    public func presentSheet(_ value: any Routable) {
-        self.presentation.sheet = value
-        CoordinatorLogger.navigation(self.coordinatorName, "PresentSheet", "\(value)")
-    }
-
-    public func presentFullScreen(_ value: any Routable) {
-        self.presentation.fullScreenCover = value
-        CoordinatorLogger.navigation(self.coordinatorName, "PresentFullScreen", "\(value)")
-    }
-
-    public func dismissModal() {
-
-        var transaction = Transaction()
-        transaction.disablesAnimations = true
-
-        withTransaction(transaction) {
-            self.popToSelf()
+        
+        let targetCount = deepestScope.value
+        
+        if self.path.count > targetCount {
+            self.path.removeLast(self.path.count - targetCount)
         }
-
-        self.presentation.dismiss()
-        CoordinatorLogger.navigation(self.coordinatorName, "DismissModal", "Modal dismissed")
+        
+        pruneScopes()
+        
     }
-
-    public func replace<T: Routable>(last count: Int = 1,
-                                     with destination: T) {
-
-        let safeCount = min(self.localPushCount, count)
-
+    
+    public func popAll() {
+        
+        self.path.removeAll()
+        pruneScopes()
+        
+    }
+    
+    public func popToSelf(from id: UUID) {
+        
+        guard let startIndex = self.coordinatorScopes[id] else { return }
+        
+        let countToRemove = self.path.count - startIndex
+        guard countToRemove > 0 else { return }
+        
+        self.path.removeLast(countToRemove)
+        pruneScopes()
+        
+    }
+    
+    public func replace(last count: Int,
+                        with route: any Routable) {
+        
+        let safeCount = min(path.count, count)
+        
         if safeCount > 0 {
-            self.navigation.path.removeLast(safeCount)
+            self.path.removeLast(safeCount)
         }
-
-        self.navigation.path.append(destination)
-
-        CoordinatorLogger.navigation(
-            self.coordinatorName,
-            "Replace",
-            "Replaced last \(safeCount) views with \(destination)"
-        )
+        
+        self.path.append(AnyRoutable(route))
+        pruneScopes()
+        
     }
-
+    
+    public func presentSheet(_ route: any Routable) {
+        self.sheet = AnyRoutable(route)
+    }
+    
+    public func presentFullScreen(_ route: any Routable) {
+        self.fullScreenCover = AnyRoutable(route)
+    }
+    
+    public func dismiss() {
+        
+        if self.sheet != nil || self.fullScreenCover != nil {
+            
+            self.sheet = nil
+            self.fullScreenCover = nil
+            
+        }
+        else {
+            self.dismissRequest = true
+        }
+        
+    }
+    public func registerResolver(_ id: UUID,
+                                 resolver: @escaping (AnyRoutable) -> AnyView?) {
+        
+        self.viewResolvers[id] = resolver
+        
+    }
+    
+    public func resolve(route: AnyRoutable) -> AnyView {
+        
+        let sortedScopes = self.coordinatorScopes.sorted { $0.value > $1.value }
+        
+        // 1. Ask Deepest Children
+        for (id, _) in sortedScopes {
+            
+            if let builder = self.viewResolvers[id],
+               let view = builder(route) {
+                return view
+            }
+            
+        }
+        
+        // 2. Ask Root
+        for (_, builder) in self.viewResolvers {
+            
+            if let view = builder(route) {
+                return view
+            }
+            
+        }
+        
+        return AnyView(Text("❌ Unhandled Route: \(route.id)").background(Color.red.opacity(0.35)))
+        
+    }
+    
+    public func handleNativePopIfNeeded() {
+        pruneScopes()
+    }
+    
+    private func pruneScopes() {
+        
+        let currentPathCount = self.path.count
+        
+        let deadIDs = self.coordinatorScopes.filter { $0.value > currentPathCount }.map { $0.key }
+        
+        for id in deadIDs {
+            
+            self.coordinatorScopes.removeValue(forKey: id)
+            self.viewResolvers.removeValue(forKey: id)
+            
+        }
+        
+    }
+    
 }

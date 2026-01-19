@@ -69,6 +69,9 @@
     "❄️" : {
 
     },
+    "❌ Unhandled Route: %@" : {
+
+    },
     "$%lld" : {
 
     },
@@ -99,12 +102,6 @@
     "123123" : {
 
     },
-    "A Step: %@" : {
-
-    },
-    "Account" : {
-
-    },
     "active clients" : {
 
     },
@@ -117,13 +114,7 @@
     "Add new Reminder" : {
 
     },
-    "Advanced Settings" : {
-
-    },
     "Airplane mode" : {
-
-    },
-    "All Team Members" : {
 
     },
     "Amount" : {
@@ -132,16 +123,10 @@
     "Animate" : {
 
     },
-    "Atomic Swap: Profile → Settings" : {
-
-    },
     "avg. time asleep" : {
 
     },
     "Awesome & Creative" : {
-
-    },
-    "B Step: %@" : {
 
     },
     "Ball Position: %@" : {
@@ -210,9 +195,6 @@
     "Clients" : {
 
     },
-    "Coordinator Swap (1b)" : {
-
-    },
     "Count" : {
 
     },
@@ -228,12 +210,6 @@
     "Current Utilization" : {
 
     },
-    "Dashboard" : {
-
-    },
-    "Dashboard Settings" : {
-
-    },
     "Date" : {
 
     },
@@ -243,22 +219,13 @@
     "Debouncer Demo" : {
 
     },
-    "Deep Pop (3) & Replace" : {
-
-    },
     "Deep Sleep +12%" : {
 
     },
     "Describe yourself" : {
 
     },
-    "Details" : {
-
-    },
     "Detect due dates in tasks automatically" : {
-
-    },
-    "Dismiss" : {
 
     },
     "Editor" : {
@@ -297,24 +264,6 @@
     "Finish" : {
 
     },
-    "Finish (Dismiss A)" : {
-
-    },
-    "Finish (Dismiss B)" : {
-
-    },
-    "Finish (Dismiss Sheet A)" : {
-
-    },
-    "Finish (Dismiss Sheet B)" : {
-
-    },
-    "Finish & Detach" : {
-
-    },
-    "Finish Flow" : {
-
-    },
     "Fire (Bool)" : {
 
     },
@@ -330,43 +279,13 @@
     "Full Name" : {
 
     },
-    "Full Screen A" : {
-
-    },
-    "Full Screen A Root" : {
-
-    },
-    "Full Screen B" : {
-
-    },
-    "Full Screen B Root" : {
-
-    },
-    "Full Screen Modal" : {
-
-    },
     "Gauge" : {
-
-    },
-    "General Settings" : {
 
     },
     "GlowPro usage is" : {
 
     },
     "Go" : {
-
-    },
-    "Go Advanced" : {
-
-    },
-    "Go Bio" : {
-
-    },
-    "Go General" : {
-
-    },
-    "Go Security" : {
 
     },
     "Goal: %lld" : {
@@ -388,9 +307,6 @@
 
     },
     "Home" : {
-
-    },
-    "Home Modal Flow" : {
 
     },
     "Home Page Title" : {
@@ -420,9 +336,6 @@
     "Items" : {
 
     },
-    "Jump to Search Tab" : {
-
-    },
     "Kind" : {
 
     },
@@ -430,9 +343,6 @@
 
     },
     "LEVEL" : {
-
-    },
-    "Level %lld" : {
 
     },
     "Level Up" : {
@@ -460,9 +370,6 @@
 
     },
     "media items" : {
-
-    },
-    "Modal Presentation" : {
 
     },
     "MOVE" : {
@@ -522,24 +429,6 @@
     "Pop" : {
 
     },
-    "Pop Logic Tests" : {
-
-    },
-    "Pop One Level" : {
-
-    },
-    "Pop To Root" : {
-
-    },
-    "Pop To Self" : {
-
-    },
-    "PopToRoot Test" : {
-
-    },
-    "PopToSelf & Finish" : {
-
-    },
     "Population" : {
 
     },
@@ -552,52 +441,13 @@
     "Practitioner Activity" : {
 
     },
-    "Present Full Screen B" : {
-
-    },
-    "Present Sheet B" : {
-
-    },
     "Profile" : {
-
-    },
-    "Profile Root" : {
 
     },
     "Pull to refresh" : {
 
     },
     "Pulse Color" : {
-
-    },
-    "Push A Step 1" : {
-
-    },
-    "Push Advanced" : {
-
-    },
-    "Push B Step 1" : {
-
-    },
-    "Push Deeper" : {
-
-    },
-    "Push Detail (Level 1)" : {
-
-    },
-    "Push Next" : {
-
-    },
-    "Push Profile Flow" : {
-
-    },
-    "Push Screen 1" : {
-
-    },
-    "Push Settings Flow" : {
-
-    },
-    "Push Simple View" : {
 
     },
     "Random Value" : {
@@ -618,19 +468,10 @@
     "Restore Purchases" : {
 
     },
-    "Results" : {
-
-    },
-    "Results for: %@" : {
-
-    },
     "Ripple Transition" : {
 
     },
     "Sako" : {
-
-    },
-    "Sako Coordinator Root" : {
 
     },
     "Sako's Hovaguimian" : {
@@ -645,19 +486,7 @@
     "Scroll For Hue Rotation" : {
 
     },
-    "Search" : {
-
-    },
     "Search Conversations" : {
-
-    },
-    "Search query..." : {
-
-    },
-    "Security" : {
-
-    },
-    "Security Settings Screen" : {
 
     },
     "Selected: %@" : {
@@ -703,37 +532,10 @@
     "Settings" : {
 
     },
-    "Settings Root" : {
-
-    },
     "Shadow" : {
 
     },
     "Shapes" : {
-
-    },
-    "Sheet A" : {
-
-    },
-    "Sheet A Root" : {
-
-    },
-    "Sheet A Screen: %@" : {
-
-    },
-    "Sheet B" : {
-
-    },
-    "Sheet B Root" : {
-
-    },
-    "Sheet B Screen: %@" : {
-
-    },
-    "Sheet Modal" : {
-
-    },
-    "Showing Details for: %@" : {
 
     },
     "Slide To Confirm" : {
@@ -752,18 +554,6 @@
 
     },
     "SomeTest" : {
-
-    },
-    "Stack Level: %lld" : {
-
-    },
-    "Stack Navigation" : {
-
-    },
-    "Stack Surgery (1a)" : {
-
-    },
-    "Stack Testing" : {
 
     },
     "Start" : {
@@ -787,9 +577,6 @@
     "Subtract Progress" : {
 
     },
-    "Support Sheet" : {
-
-    },
     "Sync tasks in real time" : {
 
     },
@@ -809,12 +596,6 @@
 
     },
     "Tap To Twirl" : {
-
-    },
-    "Team" : {
-
-    },
-    "Team Statistics" : {
 
     },
     "Test Title" : {
@@ -892,9 +673,6 @@
 
     },
     "Update Progress" : {
-
-    },
-    "User Bio Screen" : {
 
     },
     "View full schedule" : {

@@ -1,39 +1,145 @@
 //
 //  Coordinator.swift
-//  SwiftyUI
+//  AsyncStreamDemo
 //
-//  Created by Sako Hovaguimian on 1/15/26.
+//  Created by Sako Hovaguimian on 1/18/26.
 //
 
 import SwiftUI
-import Observation
 
 @MainActor
-public protocol Coordinator: ParentCoordinatorProtocol, Observable {
-
+public protocol Coordinator: AnyObject, Identifiable {
+    
     associatedtype Route: Routable
-    associatedtype ModalRoute: Routable = Never
-    associatedtype StartView: View
-    associatedtype BuildView: View
-
-    @ViewBuilder func start(context: NavigationContext) -> StartView
-    @ViewBuilder func build(_ route: Route) -> BuildView
-
+    associatedtype ContentView: View
+    
+    var id: UUID { get }
+    var router: Router { get set }
+    var isRoot: Bool { get }
+    
+    func start() -> ContentView
+    func build(_ route: Route) -> AnyView?
+    func buildModal(_ route: Route) -> AnyView?
+    
 }
 
-/// Default implementations for typed navigation access
-public extension Coordinator {
-
-    /// Type-safe navigation scoped to this coordinator's Route type.
-    /// Enables dot-syntax: `navigation.push(.profile)`
-    var navigation: TypedNavigation<Route> {
-        TypedNavigation(router: router)
+extension Coordinator {
+    
+    public var id: UUID {
+        UUID()
     }
-
-    /// Type-safe presentation scoped to this coordinator's ModalRoute type.
-    /// Enables dot-syntax: `presentation.sheet(.settings)`
-    var presentation: TypedPresentation<ModalRoute> {
-        TypedPresentation(router: router)
+    
+    public func push(_ route: Route) {
+        
+        self.router.push(
+            route,
+            from: self.id,
+            isEmbedded: !self.isRoot
+        )
+        
     }
-
+    
+    public func push(_ routes: [Route]) {
+        
+        self.router.push(
+            routes,
+            from: self.id,
+            isEmbedded: !self.isRoot
+        )
+        
+    }
+    
+    public func pop() {
+        
+        self.router
+            .pop()
+        
+    }
+    
+    public func popToRoot() {
+        
+        self.router
+            .popToRoot()
+        
+    }
+    
+    public func popAll() {
+        
+        self.router
+            .popAll()
+        
+    }
+    
+    public func popToSelf() {
+        
+        self.router
+            .popToSelf(from: self.id)
+        
+    }
+    
+    public func replace(last count: Int = 1,
+                        with route: Route) {
+        
+        self.router
+            .replace(
+                last: count,
+                with: route
+            )
+        
+    }
+    
+    
+    public func sheet(_ route: Route) {
+        
+        self.router
+            .presentSheet(route)
+        
+    }
+    
+    public func fullScreen(_ route: Route) {
+        
+        self.router
+            .presentFullScreen(route)
+        
+    }
+    
+    public func dismiss() {
+        
+        self.router
+            .dismiss()
+        
+    }
+    public func finish() {
+        
+        if self.isRoot {
+            
+            self.router
+                .dismiss()
+            
+        }
+        else {
+            popToSelf()
+        }
+        
+    }
+    
+    public func registerSelf() {
+        
+        self.router.registerResolver(id) { [weak self] anyRoute in
+            
+            guard let self = self,
+                  let specific = anyRoute.as(Route.self) else { return nil }
+            
+            // 1. Try Build (Standard Push)
+            if let view = self.build(specific) {
+                return view
+            }
+            
+            // 2. Try Build Modal (Sheet/Cover)
+            return self.buildModal(specific)
+            
+        }
+        
+    }
+    
 }
