@@ -1,14 +1,14 @@
+////
+////  CoordinatorEnvironment.swift
+////  AsyncStreamDemo
+////
+////  Created by Sako Hovaguimian on 1/18/26.
+////
 //
-//  CoordinatorEnvironment.swift
-//  AsyncStreamDemo
+//import SwiftUI
 //
-//  Created by Sako Hovaguimian on 1/18/26.
-//
-
-import SwiftUI
-
-public extension EnvironmentValues {
-    
-    @Entry var coordinator: AnyCoordinator!
-    
-}
+//public extension EnvironmentValues {
+//    
+//    @Entry var coordinator: AnyCoordinator!
+//    
+//}
