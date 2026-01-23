@@ -262,6 +262,7 @@
 		75D9584A2E42571B00D7AF72 /* ConfettiParticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D958452E42571B00D7AF72 /* ConfettiParticleView.swift */; };
 		75D9584C2E42571B00D7AF72 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D958472E42571B00D7AF72 /* ConfettiView.swift */; };
 		75D9584E2E42572900D7AF72 /* ConfettiParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D9584D2E42572900D7AF72 /* ConfettiParticle.swift */; };
+		75DD30FA2F23378600376BA3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DD30F92F23378300376BA3 /* Validation.swift */; };
 		75DDAA4D2D6F68AE0014DEB5 /* CalendarClone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */; };
 		75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E29E442D24AB140074DCD8 /* Snowfall.swift */; };
 		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
@@ -567,6 +568,7 @@
 		75D958462E42571B00D7AF72 /* ConfettiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiConfig.swift; sourceTree = "<group>"; };
 		75D958472E42571B00D7AF72 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		75D9584D2E42572900D7AF72 /* ConfettiParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticle.swift; sourceTree = "<group>"; };
+		75DD30F92F23378300376BA3 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarClone.swift; sourceTree = "<group>"; };
 		75E29E442D24AB140074DCD8 /* Snowfall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowfall.swift; sourceTree = "<group>"; };
 		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
@@ -1231,6 +1233,7 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				75DD30F92F23378300376BA3 /* Validation.swift */,
 				759B132E2F1DEB1500DFB92E /* TestViewTEst.swift */,
 				759B132C2F1DEA2500DFB92E /* SinglePageContextCode.swift */,
 				759B13112F1DE65300DFB92E /* Demo */,
@@ -1866,6 +1869,7 @@
 				75D9584E2E42572900D7AF72 /* ConfettiParticle.swift in Sources */,
 				75B16CAF2D627B24002DC3F9 /* TextProgressBar.swift in Sources */,
 				756150CB2ECD9331008A5263 /* TimePickerView.swift in Sources */,
+				75DD30FA2F23378600376BA3 /* Validation.swift in Sources */,
 				7578B1612C41FBE1006F07E7 /* CancelBag.swift in Sources */,
 				75BA2D402C0E79600089B70F /* FrameReader.swift in Sources */,
 				7518B98C2EF131B400A2A1E1 /* SleepSeriesType.swift in Sources */,
