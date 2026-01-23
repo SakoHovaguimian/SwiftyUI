@@ -1,51 +1,140 @@
 import SwiftUI
 
-/// Wraps subviews across multiple lines (iOS 16+)
-struct WrapLayout: Layout {
-    var spacing: CGFloat = 6
+private struct BlurFadeModifier: ViewModifier, Animatable {
     
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        let maxWidth = proposal.width ?? .infinity
-        var lineW: CGFloat = 0, lineH: CGFloat = 0
-        var totalH: CGFloat = 0, maxLineW: CGFloat = 0
-        
-        for v in subviews {
-            let s = v.sizeThatFits(.unspecified)
-            if lineW + s.width > maxWidth, lineW > 0 {
-                totalH += lineH + spacing
-                maxLineW = max(maxLineW, lineW - spacing)
-                lineW = 0; lineH = 0
-            }
-            lineW += s.width + spacing
-            lineH = max(lineH, s.height)
-        }
-        totalH += lineH
-        maxLineW = max(maxLineW, lineW - spacing)
-        return CGSize(width: min(maxWidth, maxLineW), height: totalH)
+    var progress: CGFloat // 0 -> hidden, 1 -> visible
+    
+    var animatableData: CGFloat {
+        get { self.progress }
+        set { self.progress = newValue }
     }
     
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
-        var x = bounds.minX, y = bounds.minY, lineH: CGFloat = 0
-        for v in subviews {
-            let s = v.sizeThatFits(.unspecified)
-            if x + s.width > bounds.maxX, x > bounds.minX {
-                y += lineH + spacing
-                x = bounds.minX
-                lineH = 0
+    func body(content: Content) -> some View {
+        content
+            .opacity(max(0.01, self.progress))
+            .blur(radius: (1 - self.progress) * 6)
+    }
+    
+}
+
+extension AnyTransition {
+    
+    static var blurFade: AnyTransition {
+        .modifier(
+            active: BlurFadeModifier(progress: 0),
+            identity: BlurFadeModifier(progress: 1)
+        )
+    }
+    
+}
+
+/// Wraps subviews across multiple lines (iOS 16+)
+struct WrapLayout: Layout {
+    
+    // **********************************
+    // MARK: - Properties
+    // **********************************
+    
+    var wordSpacing: CGFloat = 6
+    var lineSpacing: CGFloat = 6
+    
+    // **********************************
+    // MARK: - Layout
+    // **********************************
+    
+    func sizeThatFits(
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) -> CGSize {
+        
+        let maxWidth = proposal.width ?? .infinity
+        var lineWidth: CGFloat = 0
+        var lineHeight: CGFloat = 0
+        
+        var totalHeight: CGFloat = 0
+        var maxLineWidth: CGFloat = 0
+        
+        for view in subviews {
+            
+            let size = view.sizeThatFits(.unspecified)
+            
+            if lineWidth + size.width > maxWidth, lineWidth > 0 {
+                
+                totalHeight += lineHeight + self.lineSpacing
+                maxLineWidth = max(maxLineWidth, lineWidth - self.wordSpacing)
+                
+                lineWidth = 0
+                lineHeight = 0
+                
             }
-            v.place(at: CGPoint(x: x, y: y), proposal: .unspecified)
-            x += s.width + spacing
-            lineH = max(lineH, s.height)
+            
+            lineWidth += size.width + self.wordSpacing
+            lineHeight = max(lineHeight, size.height)
+            
+        }
+        
+        totalHeight += lineHeight
+        maxLineWidth = max(maxLineWidth, lineWidth - self.wordSpacing)
+        
+        return CGSize(
+            width: min(maxWidth, maxLineWidth),
+            height: totalHeight
+        )
+    }
+    
+    func placeSubviews(
+        in bounds: CGRect,
+        proposal: ProposedViewSize,
+        subviews: Subviews,
+        cache: inout ()
+    ) {
+        
+        var x = bounds.minX
+        var y = bounds.minY
+        var lineHeight: CGFloat = 0
+        
+        for view in subviews {
+            
+            let size = view.sizeThatFits(.unspecified)
+            
+            if x + size.width > bounds.maxX, x > bounds.minX {
+                
+                y += lineHeight + self.lineSpacing
+                x = bounds.minX
+                lineHeight = 0
+                
+            }
+            
+            view.place(
+                at: CGPoint(x: x, y: y),
+                proposal: .unspecified
+            )
+            
+            x += size.width + self.wordSpacing
+            lineHeight = max(lineHeight, size.height)
+            
         }
     }
 }
 
+// **********************************
+// MARK: - BlurWordAnimationView
+// **********************************
+
 struct BlurWordAnimationView: View {
+    
+    enum HeightBehavior {
+        case reserve
+        case grow
+    }
+    
     // Inputs
     let text: String
     let textSize: CGFloat
     let perWordDelay: Double
     let startTime: Double
+    let heightBehavior: HeightBehavior
     
     // Derived once
     private let words: [String]
@@ -53,85 +142,111 @@ struct BlurWordAnimationView: View {
     // State
     @State private var revealedCount = 0
     
-    init(text: String,
-         textSize: CGFloat = 20,
-         perWordDelay: Double = 0.08,
-         startTime: Double = 0.3)
-    {
+    init(
+        text: String,
+        textSize: CGFloat = 20,
+        perWordDelay: Double = 0.08,
+        startTime: Double = 0.3,
+        heightBehavior: HeightBehavior = .reserve
+    ) {
         self.text = text
         self.textSize = textSize
         self.perWordDelay = perWordDelay
         self.startTime = startTime
+        self.heightBehavior = heightBehavior
+        
         // Tokenize once; add a space after each word except the last so wrapping looks natural
         let raw = text.split(whereSeparator: \.isWhitespace).map(String.init)
         var spaced: [String] = []
         spaced.reserveCapacity(raw.count)
+        
         for (i, w) in raw.enumerated() {
             spaced.append(i < raw.count - 1 ? w + " " : w)
         }
+        
         self.words = spaced
     }
     
     var body: some View {
-        WrapLayout(spacing: 6) {
-            ForEach(words.indices, id: \.self) { i in
+        WrapLayout(wordSpacing: 0, lineSpacing: 8) {
+            ForEach(visibleIndices, id: \.self) { i in
+                
                 Text(words[i])
                     .font(.system(size: textSize))
-//                    .blur(radius: i < revealedCount ? 0 : 6)
-                    .opacity(i < revealedCount ? 1 : 0.01)
-                    .blur(radius: i < revealedCount ? 0 : 6)
-//                    .opacity(i < revealedCount ? 1 : 0.25)
-//                    .foregroundStyle(i == revealedCount ? .blue : .black)
-                    .animation(.smooth(duration: 0.3), value: revealedCount)
-//                    .overlay {
-//                        
-//                        if i == revealedCount {
-//                            
-//                            Rectangle()
-//                                .fill(.blue.opacity(1))
-//                                .animation(.smooth(duration: 0.3), value: revealedCount)
-//                            
-//                        }
-//                        
-//                    }
+                    .modifier(wordModifier(for: i))
+                    .transition(.blurFade)
+                
             }
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .animation(.smooth(duration: 0.3), value: revealedCount)
         .padding(12)
         .background(.white)
         .cornerRadius(.large)
         .shadow(radius: 8)
         .padding(.horizontal, 0)
-        .task { await animate() } // explicit stepper
+        .task { await animate() }
+    }
+    
+    private var visibleIndices: Range<Int> {
+        switch self.heightBehavior {
+        case .reserve:
+            return 0..<self.words.count
+        case .grow:
+            return 0..<max(0, min(self.revealedCount, self.words.count))
+        }
+    }
+    
+    @ViewBuilder
+    private func wordModifier(for index: Int) -> some ViewModifier {
+        switch self.heightBehavior {
+        case .reserve:
+            // Current behavior: all words exist; hide unrevealed but layout reserves final height.
+            return BlurFadeModifier(progress: index < self.revealedCount ? 1 : 0)
+            
+        case .grow:
+            // Grow behavior: words only exist once revealed. Keep them fully visible.
+            return BlurFadeModifier(progress: 1)
+        }
     }
     
     @MainActor
     private func step(to n: Int) {
-        withAnimation(.smooth(duration: min(0.25, perWordDelay * 0.9))) {
-            revealedCount = n
+        withAnimation(.smooth(duration: min(0.25, self.perWordDelay * 0.9))) {
+            self.revealedCount = n
         }
     }
     
     private func animate() async {
-        // initial delay
-        try? await Task.sleep(nanoseconds: UInt64(startTime * 1_000_000_000))
-        // reveal words one-by-one with explicit animation
-        for n in 1...words.count {
+        try? await Task.sleep(nanoseconds: UInt64(self.startTime * 1_000_000_000))
+        
+        for n in 1...self.words.count {
             await MainActor.run { step(to: n) }
-            try? await Task.sleep(nanoseconds: UInt64(perWordDelay * 1_000_000_000))
+            try? await Task.sleep(nanoseconds: UInt64(self.perWordDelay * 1_000_000_000))
         }
     }
 }
 
 #Preview {
     ScrollView {
-        VStack {
+        VStack(spacing: 16) {
             
             BlurWordAnimationView(
-                text: "The history of software development is filled with fascinating breakthroughs and frustrating missteps, and nowhere is that more evident than in the shift from monolithic systems to distributed architectures. In the early days, programs were written as massive blocks of logic running on a single machine, which made them relatively easy to reason about but nearly impossible to scale. As the demand for connected applications grew, engineers began exploring. The history of software development is filled with fascinating breakthroughs and frustrating missteps, and nowhere is that more evident than in the shift from monolithic systems to distributed architectures. In the early days, programs were written as massive blocks of logic running on a single machine, which made them relatively easy to reason about but nearly impossible to scale. As the demand for connected applications grew, engineers began exploring. The history of software development is filled with fascinating breakthroughs and frustrating missteps, and nowhere is that more evident than in the shift from monolithic systems to distributed architectures. In the early days, programs were written as massive blocks of logic running on a single machine, which made them relatively easy to reason about but nearly impossible to scale. As the demand for connected applications grew, engineers began exploring.",
+                text: "The history of software development is filled with fascinating breakthroughs and frustrating missteps, and nowhere is that more evident than in the shift from monolithic systems to distributed architectures.",
                 textSize: 16,
-                perWordDelay: 0.011,
-                startTime: 0.3
+                perWordDelay: 0.08,
+                startTime: 0.3,
+                heightBehavior: .reserve
             )
+            
+            BlurWordAnimationView(
+                text: "The history of software development is filled with fascinating breakthroughs and frustrating missteps, and nowhere is that more evident than in the shift from monolithic systems to distributed architectures.",
+                textSize: 16,
+                perWordDelay: 0.08,
+                startTime: 0.3,
+                heightBehavior: .grow
+            )
+            .frame(maxWidth: .infinity)
             
         }
         .padding()

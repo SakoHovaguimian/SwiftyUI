@@ -72,7 +72,7 @@ struct ValidationView: View {
         
     }
     
-    @State var password = "Pokemon"
+    @State var password = ""
     
     var body: some View {
         
@@ -89,7 +89,8 @@ struct ValidationView: View {
                     
                     PasswordRuleRow(
                         title: rule.displayName,
-                        isValid: rule.isValid(password)
+                        isValid: rule.isValid(password),
+                        isEmpty: self.password.isEmpty
                     )
                     
                 }
@@ -110,8 +111,18 @@ private struct PasswordRuleRow: View {
     
     let title: String
     let isValid: Bool
+    let isEmpty: Bool
     
-    private var tint: Color { self.isValid ? .green : .gray }
+    private var tint: Color {
+        
+        if self.isEmpty {
+            return .gray
+        }
+        
+        return self.isValid ? .green : .gray // .red
+        
+    }
+    
     private var symbolName: String { self.isValid ? "checkmark.circle.fill" : "circle" }
     
     var body: some View {
@@ -123,10 +134,19 @@ private struct PasswordRuleRow: View {
             
             Text(self.title)
                 .foregroundStyle(self.tint)
+                .overlay {
+                    
+                    Capsule()
+                        .frame(height: 2)
+                        .frame(maxWidth: self.isValid ? .infinity : 0, alignment: .leading)
+                        .foregroundStyle(self.tint)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .animation(.snappy, value: self.isValid)
+                    
+                }
             
         }
         .contentTransition(.symbolEffect(.replace))
-        .strikethrough(self.isValid)
         
     }
     
