@@ -211,6 +211,7 @@
 		75A326B82DA72E9600CA6B46 /* StringViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A326B72DA72E9300CA6B46 /* StringViewTest.swift */; };
 		75A5F4752D95108B003A6632 /* StaggeredConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F4742D951089003A6632 /* StaggeredConfig.swift */; };
 		75A5F4772D9510E8003A6632 /* CustomStaggeredTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A5F4762D9510E8003A6632 /* CustomStaggeredTransition.swift */; };
+		75A675D32F34F50400A94A36 /* SpinWheel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A675D22F34F4FE00A94A36 /* SpinWheel2.swift */; };
 		75A6DB742CB8243100055E0E /* FannedCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB732CB8242E00055E0E /* FannedCarouselView.swift */; };
 		75A6DB762CB8290300055E0E /* TextBlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB752CB8290200055E0E /* TextBlurView.swift */; };
 		75A6DB782CB82A7300055E0E /* ExpandingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */; };
@@ -517,6 +518,7 @@
 		75A326B72DA72E9300CA6B46 /* StringViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringViewTest.swift; sourceTree = "<group>"; };
 		75A5F4742D951089003A6632 /* StaggeredConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaggeredConfig.swift; sourceTree = "<group>"; };
 		75A5F4762D9510E8003A6632 /* CustomStaggeredTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStaggeredTransition.swift; sourceTree = "<group>"; };
+		75A675D22F34F4FE00A94A36 /* SpinWheel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinWheel2.swift; sourceTree = "<group>"; };
 		75A6DB732CB8242E00055E0E /* FannedCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FannedCarouselView.swift; sourceTree = "<group>"; };
 		75A6DB752CB8290200055E0E /* TextBlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextBlurView.swift; sourceTree = "<group>"; };
 		75A6DB772CB82A6E00055E0E /* ExpandingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingCardView.swift; sourceTree = "<group>"; };
@@ -1239,6 +1241,7 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				75A675D22F34F4FE00A94A36 /* SpinWheel2.swift */,
 				7599C4232EFBCDBF003A9D4D /* SpinWheel.swift */,
 				75D8BA6E2F2F0F770055DD62 /* PixelTileView.swift */,
 				755D51172F2BC353008CA19A /* ImageTransition.swift */,
@@ -1704,6 +1707,7 @@
 				757190422C120CE900989D41 /* AppTextField.swift in Sources */,
 				7571900C2C120BF500989D41 /* ToastListView.swift in Sources */,
 				75CE8F5D2C7010C70057A1E2 /* SlideToUnlockButton.swift in Sources */,
+				75A675D32F34F50400A94A36 /* SpinWheel2.swift in Sources */,
 				753116682C12C22B00C7FBF6 /* ZoomView.swift in Sources */,
 				75A326B32DA72DCA00CA6B46 /* StringSource.swift in Sources */,
 				750B1B582CA89037007F93E2 /* GestureFillView.swift in Sources */,
