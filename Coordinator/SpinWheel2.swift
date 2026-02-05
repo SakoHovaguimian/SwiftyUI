@@ -1,22 +1,3 @@
-//
-//  SpinWheel2.swift
-//  SwiftyUI
-//
-//  Created by Sako Hovaguimian on 2/5/26.
-//
-
-// APP: -
-// Spin Wheels
-// Ads to spin a specific wheel unlimited
-// $1 for more than one wheel
-// See other wheel options, but cannot use
-// Widget ?
-
-// TODO: -
-/// Allow for flag to allow passively slowly rotation for their to be no true 0
-/// Elimation style
-/// Rigged style
-
 import SwiftUI
 import UIKit
 
@@ -37,12 +18,14 @@ public struct Segment: Identifiable, Equatable {
     
 }
 
-public enum Distribution {
+public enum Distribution: Equatable {
     
     case weighted
     case uniform
-    /// Elimation style. Remove segment once selected
-    /// Rigged
+    /// Elimination style. Remove segment once selected
+    case elimination
+    /// Rigged style where we can prefedine who the winner should be
+    case rigged(Segment)
     
 }
 
@@ -62,6 +45,8 @@ public struct WheelMath {
         relativeAngle = relativeAngle.truncatingRemainder(dividingBy: 2 * .pi)
         if relativeAngle < 0 { relativeAngle += 2 * .pi }
         
+        // Elimination and Rigged behave like Weighted for the purpose of drawing/hit-testing
+        // (Assuming standard visualization. If Uniform is desired for elimination, logic varies, but standard is weighted)
         switch distribution {
         case .uniform:
             let segmentCount = Double(segments.count)
@@ -70,7 +55,7 @@ public struct WheelMath {
             let clampedIndex = max(0, min(index, segments.count - 1))
             return segments[clampedIndex]
             
-        case .weighted:
+        case .weighted, .elimination, .rigged:
             let totalValue = segments.reduce(0) { $0 + $1.value }
             var currentAngle: Double = 0
             
@@ -88,6 +73,45 @@ public struct WheelMath {
         return segments.first
     }
     
+    /// Calculates the rotation needed to land exactly on the center of the target segment
+    static func rotationToLand(on target: Segment,
+                               currentRotation: Double,
+                               pointerAngle: Double,
+                               segments: [Segment]) -> Double {
+        
+        let totalValue = segments.reduce(0) { $0 + $1.value }
+        
+        // 1. Find the center angle of the target segment (assuming wheel rotation is 0)
+        var cumulativeValue: Double = 0
+        var targetCenterAngle: Double = 0
+        
+        for segment in segments {
+            let sliceSize = (segment.value / totalValue) * (2 * .pi)
+            if segment == target {
+                targetCenterAngle = ((cumulativeValue / totalValue) * (2 * .pi)) + (sliceSize / 2)
+                break
+            }
+            cumulativeValue += segment.value
+        }
+        
+        // 2. We want: (pointerAngle - finalRotation) % 2pi == targetCenterAngle
+        // Therefore: finalRotation = pointerAngle - targetCenterAngle
+        
+        let targetRotationPosition = pointerAngle - targetCenterAngle
+        
+        // 3. Calculate the delta required from current rotation
+        // Normalize current rotation to 0...2pi for calculation, then re-add total spins later
+        // Or simpler: just find difference and ensure it's positive forward movement
+        
+        let currentMod = currentRotation.truncatingRemainder(dividingBy: 2 * .pi)
+        var delta = targetRotationPosition - currentMod
+        
+        // Ensure we always spin forward (positive delta)
+        while delta < 0 { delta += 2 * .pi }
+        
+        return delta
+    }
+    
 }
 
 // MARK: - Main View
@@ -102,6 +126,9 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
     @State private var dragRotation: Double = 0
     @State private var lastDragValue: CGFloat = 0
     
+    // Passive Spin State
+    @State private var passiveRotationPhase: Double = 0
+    
     private let segments: [Segment]
     private var distribution: Distribution
     private var pickerColor: Color
@@ -112,6 +139,9 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
     // Configurable Pointer
     private var pointerAngle: Double
     private var pointerRotationOffset: Double
+    
+    // Passive Spin Flag
+    private var enablePassiveSpin: Bool
     
     private var onSpinEnd: ((Segment) -> Void)?
     
@@ -126,6 +156,7 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
                 spinAnimation: Animation = .timingCurve(0.15, 0.5, 0.2, 1.0, duration: 4.5),
                 shouldChangeColorWhileSpinning: Bool = true,
                 allowsDragging: Bool = true,
+                enablePassiveSpin: Bool = false, // Default false per TODO
                 onSpinEnd: ((Segment) -> Void)? = nil,
                 @ViewBuilder sliceContent: @escaping (Segment) -> SliceContent,
                 @ViewBuilder hubContent: @escaping () -> HubContent) {
@@ -146,6 +177,7 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
         self.spinAnimation = spinAnimation
         self.shouldChangeColorWhileSpinning = shouldChangeColorWhileSpinning
         self.allowsDragging = allowsDragging
+        self.enablePassiveSpin = enablePassiveSpin
         self.onSpinEnd = onSpinEnd
         self.sliceBuilder = sliceContent
         self.hubBuilder = hubContent
@@ -165,6 +197,13 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
             
         }
         .padding()
+        .onAppear {
+            if enablePassiveSpin {
+                withAnimation(.linear(duration: 20).repeatForever(autoreverses: false)) {
+                    passiveRotationPhase = 2 * .pi
+                }
+            }
+        }
         
     }
     
@@ -188,9 +227,13 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
     
     private var wheelView: some View {
         
-        WheelView(segments: segments, distribution: distribution, sliceBuilder: sliceBuilder)
+        // Combine interactive rotation with passive background rotation
+        // We pause passive visual influence when spinning actively to prevent visual glitches/fighting
+        let totalRotation = rotation + dragRotation + (isSpinning ? 0 : passiveRotationPhase)
+        
+        return WheelView(segments: segments, distribution: distribution, sliceBuilder: sliceBuilder)
             .frame(width: 280, height: 280)
-            .rotationEffect(.radians(rotation + dragRotation))
+            .rotationEffect(.radians(totalRotation))
             .gesture(allowsDragging ? dragGesture : nil)
         
     }
@@ -201,8 +244,12 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
             
             let radius = min(proxy.size.width, proxy.size.height) / 2
             
+            // Pointer calculation also needs to account for the passive drift
+            // so that the color/selection updates in real time while drifting
+            let activeRotation = rotation + dragRotation + (isSpinning ? 0 : passiveRotationPhase)
+            
             PointerView(
-                rotation: rotation + dragRotation,
+                rotation: activeRotation,
                 pointerAngle: pointerAngle,
                 pointerRotationOffset: pointerRotationOffset,
                 segments: segments,
@@ -232,9 +279,20 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
                 .foregroundStyle(.secondary)
                 .textCase(.uppercase)
             
-            Text(segments[winningIndex].name)
-                .font(.system(size: 32, weight: .black, design: .rounded))
-                .foregroundStyle(isSpinning ? .primary : segments[winningIndex].color)
+            if !segments.isEmpty {
+                // If we are rigged, we might want to show the target,
+                // but usually, we want to show what is currently under the pointer
+                // so we use the liveSegment which updates via PointerView
+                Text(liveSegment?.name ?? segments[winningIndex].name)
+                    .font(.system(size: 32, weight: .black, design: .rounded))
+                    .foregroundStyle(isSpinning ? .primary : (liveSegment?.color ?? segments[winningIndex].color))
+                    .transition(.identity) // Prevent fade/scale when switching
+                    .id("ResultText_\(liveSegment?.id.uuidString ?? "")")
+            } else {
+                 Text("Empty Wheel")
+                    .font(.title)
+                    .foregroundStyle(.secondary)
+            }
             
         }
         .animation(.spring(), value: isSpinning)
@@ -259,6 +317,8 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
         DragGesture(minimumDistance: 0)
             .onChanged { value in
                 guard !isSpinning else { return }
+                // Stop passive animation effect visually by snapping rotation to current state
+                // (Handled in wheelView via isSpinning check or similar, strictly simple here)
                 let velocity = value.translation.width - lastDragValue
                 dragRotation += Double(velocity / 100)
                 lastDragValue = value.translation.width
@@ -274,19 +334,52 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
     private func spin(withVelocity velocity: Double = 0) {
         
         guard !isSpinning else { return }
+        
+        // 1. Lock current state (incorporate passive rotation into actual rotation)
+        // This ensures no "jump" when we switch from passive phase to active spin
+        let currentVisualRotation = rotation + dragRotation + passiveRotationPhase
+        self.rotation = currentVisualRotation
+        self.dragRotation = 0
+        self.passiveRotationPhase = 0 // Reset passive so it doesn't double up
+        
         isSpinning = true
         
-        let baseSpin = Double.random(in: 8...14)
-        let extraVelocity = max(abs(velocity), 2.0)
-        let totalSpinAmount = ((baseSpin + extraVelocity) * (2 * .pi))
-        let newRotation = (self.rotation + dragRotation) + totalSpinAmount
+        var totalSpinAmount: Double = 0
+        
+        // 2. Determine Logic
+        if case .rigged(let target) = distribution {
+            
+            let baseSpins = 5.0 // Minimum full rotations
+            let requiredDelta = WheelMath.rotationToLand(on: target,
+                                                         currentRotation: self.rotation,
+                                                         pointerAngle: pointerAngle,
+                                                         segments: segments)
+            
+            totalSpinAmount = (baseSpins * 2 * .pi) + requiredDelta
+            
+        } else {
+            // Standard Random
+            let baseSpin = Double.random(in: 8...14)
+            let extraVelocity = max(abs(velocity), 2.0)
+            totalSpinAmount = ((baseSpin + extraVelocity) * (2 * .pi))
+        }
+        
+        let newRotation = self.rotation + totalSpinAmount
         
         withAnimation(spinAnimation) {
             self.rotation = newRotation
-            self.dragRotation = 0
         } completion: {
             self.isSpinning = false
             finalizeWinner()
+            
+            // Restart passive spin if enabled
+            if enablePassiveSpin {
+                // Reset phase to 0 and restart animation
+                passiveRotationPhase = 0
+                withAnimation(.linear(duration: 20).repeatForever(autoreverses: false)) {
+                    passiveRotationPhase = 2 * .pi
+                }
+            }
         }
         
     }
@@ -297,6 +390,13 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
             rotation = 0
             dragRotation = 0
             winningIndex = 0
+            passiveRotationPhase = 0
+        }
+        
+        if enablePassiveSpin {
+            withAnimation(.linear(duration: 20).repeatForever(autoreverses: false)) {
+                passiveRotationPhase = 2 * .pi
+            }
         }
         
     }
@@ -325,6 +425,7 @@ extension SpinWheel where HubContent == DefaultHubView, SliceContent == Text {
                 spinAnimation: Animation = .timingCurve(0.15, 0.5, 0.2, 1.0, duration: 4.5),
                 shouldChangeColorWhileSpinning: Bool = true,
                 allowsDragging: Bool = true,
+                enablePassiveSpin: Bool = false,
                 onSpinEnd: ((Segment) -> Void)? = nil) {
         
         self.init(segments: segments,
@@ -335,6 +436,7 @@ extension SpinWheel where HubContent == DefaultHubView, SliceContent == Text {
                   spinAnimation: spinAnimation,
                   shouldChangeColorWhileSpinning: shouldChangeColorWhileSpinning,
                   allowsDragging: allowsDragging,
+                  enablePassiveSpin: enablePassiveSpin,
                   onSpinEnd: onSpinEnd) { segment in
             Text(segment.name)
                 .font(.system(size: 10, weight: .black, design: .rounded))
@@ -396,6 +498,10 @@ struct PointerView: View, Animatable {
                     feedback.selectionChanged()
                     updateBinding(segment)
                 }
+            }
+            // Initial load update
+            .onAppear {
+                if let s = activeSegment { liveSegment = s }
             }
         
     }
@@ -479,6 +585,7 @@ struct SliceView<SliceContent: View>: View {
         let startPct: Double
         let endPct: Double
         
+        // Elimination and Rigged use standard weighted proportions
         if distribution == .uniform {
             startPct = Double(index) / Double(count)
             endPct = Double(index + 1) / Double(count)
@@ -600,6 +707,28 @@ struct SliceView<SliceContent: View>: View {
                     )
                 }
                 
+                // -----------------------------------------------------
+                // NEW PREVIEWS BELOW
+                // -----------------------------------------------------
+                
+                Divider()
+                Text("NEW FEATURES").font(.headline).foregroundStyle(.secondary)
+                
+                // 6. Passive Rotation
+                VStack(alignment: .leading) {
+                    previewHeader(title: "Passive Spin", subtitle: "Always rotating slowly (No true 0)")
+                    SpinWheel(
+                        distribution: .weighted,
+                        enablePassiveSpin: true
+                    )
+                }
+                
+                // 7. Elimination Mode
+                EliminationPreviewWrapper()
+                
+                // 8. Rigged Mode
+                RiggedPreviewWrapper()
+                
                 Spacer(minLength: 100)
             }
             .padding()
@@ -607,6 +736,110 @@ struct SliceView<SliceContent: View>: View {
         }
         .navigationTitle("Spin Wheel Lab")
         .background(Color(.systemGroupedBackground))
+    }
+}
+
+// MARK: - New Feature Preview Helpers
+
+struct EliminationPreviewWrapper: View {
+    
+    @State private var segments: [Segment] = [
+        Segment(name: "A", value: 20, color: .red),
+        Segment(name: "B", value: 20, color: .orange),
+        Segment(name: "C", value: 20, color: .yellow),
+        Segment(name: "D", value: 20, color: .green),
+        Segment(name: "E", value: 20, color: .blue),
+        Segment(name: "F", value: 20, color: .purple)
+    ]
+    
+    @State private var lastRemoved: String = ""
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            previewHeader(title: "Elimination Mode", subtitle: "Removes winner on completion")
+            
+            Text("Last Removed: \(lastRemoved)")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            
+            SpinWheel(
+                segments: segments,
+                distribution: .elimination,
+                onSpinEnd: { winner in
+                    lastRemoved = winner.name
+                    // In a real app, you might want a delay before removal
+                    withAnimation {
+                        if let index = segments.firstIndex(of: winner) {
+                            segments.remove(at: index)
+                        }
+                    }
+                }
+            )
+            
+            if segments.isEmpty {
+                Button("Reset Elimination") {
+                    segments = [
+                        Segment(name: "A", value: 20, color: .red),
+                        Segment(name: "B", value: 20, color: .orange),
+                        Segment(name: "C", value: 20, color: .yellow),
+                        Segment(name: "D", value: 20, color: .green),
+                        Segment(name: "E", value: 20, color: .blue),
+                        Segment(name: "F", value: 20, color: .purple)
+                    ]
+                    lastRemoved = ""
+                }
+            }
+        }
+    }
+}
+
+struct RiggedPreviewWrapper: View {
+    
+    let allSegments = [
+        Segment(name: "LOSE", value: 40, color: .gray),
+        Segment(name: "LOSE", value: 40, color: .gray),
+        Segment(name: "JACKPOT", value: 5, color: .yellow),
+        Segment(name: "LOSE", value: 40, color: .gray),
+    ]
+    
+    @State private var mode: Distribution = .weighted
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            previewHeader(title: "Rigged Mode", subtitle: "Force specific outcomes")
+            
+            HStack {
+                Button("Fair Spin") { mode = .weighted }
+                    .buttonStyle(.bordered)
+                    .tint(mode == .weighted ? .blue : .gray)
+                
+                Button("Force Jackpot") {
+                    // Find the jackpot segment
+                    if let jackpot = allSegments.first(where: { $0.name == "JACKPOT" }) {
+                        mode = .rigged(jackpot)
+                    }
+                }
+                .buttonStyle(.bordered)
+                .tint(isRigged ? .red : .gray)
+            }
+            
+            SpinWheel(
+                segments: allSegments,
+                distribution: mode,
+                enablePassiveSpin: true
+            ) { segment in
+                Text(segment.name)
+                    .font(.system(size: 8, weight: .black))
+                    .foregroundColor(segment.name == "JACKPOT" ? .black : .white)
+            } hubContent: {
+                 DefaultHubView()
+            }
+        }
+    }
+    
+    var isRigged: Bool {
+        if case .rigged = mode { return true }
+        return false
     }
 }
 
