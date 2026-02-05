@@ -615,9 +615,6 @@
     "Search Conversations" : {
 
     },
-    "Selected: %@" : {
-
-    },
     "Selected: %lld:%@ %@" : {
       "localizations" : {
         "en" : {
@@ -700,6 +697,9 @@
     "SomeTest" : {
 
     },
+    "Spinning..." : {
+
+    },
     "Stack" : {
 
     },
@@ -710,6 +710,9 @@
 
     },
     "Start" : {
+
+    },
+    "Start Animations" : {
 
     },
     "Start typing" : {
@@ -804,6 +807,9 @@
     "Toggle Animation" : {
 
     },
+    "Toggle Favorite" : {
+
+    },
     "Toggle notifications" : {
 
     },
@@ -850,6 +856,9 @@
 
     },
     "Welcome Sako" : {
+
+    },
+    "Winner: %@" : {
 
     },
     "with" : {

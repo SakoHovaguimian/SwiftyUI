@@ -221,7 +221,8 @@ struct SwiftyUIApp: App {
 //            .ignoresSafeArea()
 //            CleanPDFContainer()
 //            ImageDrawingView(imageURL: url)
-            GlowProDashboardView()
+//            GlowProDashboardView()
+            SpinWheel()
         }
         
     }
