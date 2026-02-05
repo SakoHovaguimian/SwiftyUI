@@ -602,141 +602,148 @@ struct SliceView<SliceContent: View>: View {
     
 }
 
-// MARK: - Testing Preview
+struct DemoWheelSpin: View {
+    
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(spacing: 80) {
+                    
+                    // 1. Basic Default (Pointer Top -90°)
+                    // Tests: Default Init, Weighted, Text Slice, Default Hub
+                    VStack(alignment: .leading) {
+                        previewHeader(title: "Default Config", subtitle: "Pointer Top (-90°) • Weighted")
+                        SpinWheel(distribution: .weighted)
+                    }
+                    
+                    // 2. Right-Side Pointer (0 radians)
+                    // Tests: Pointer Rotation logic, Uniform, No Dragging
+                    VStack(alignment: .leading) {
+                        previewHeader(title: "Right Side Pointer", subtitle: "Pointer Right (0°) • Uniform • No Drag")
+                        SpinWheel(
+                            segments: [
+                                Segment(name: "A", value: 1, color: .red),
+                                Segment(name: "B", value: 1, color: .blue),
+                                Segment(name: "C", value: 1, color: .green)
+                            ],
+                            distribution: .uniform,
+                            pointerAngle: 0,
+                            allowsDragging: false
+                        )
+                    }
+                    
+                    // 3. Bottom Pointer (pi/2) with Custom Hub
+                    // Tests: Pointer Rotation (should face UP), Custom Hub Builder
+                    VStack(alignment: .leading) {
+                        previewHeader(title: "Bottom Pointer", subtitle: "Pointer Bottom (90°) • Custom Hub")
+                        SpinWheel(
+                            distribution: .weighted,
+                            pointerAngle: .pi / 2
+                        ) { segment in
+                            Text(segment.name).bold().foregroundColor(.white)
+                        } hubContent: {
+                            Circle().fill(.black)
+                                .frame(width: 40, height: 40)
+                                .overlay(Text("GO").foregroundColor(.white).font(.caption2.bold()))
+                        }
+                    }
+                    
+                    // 4. Complex Custom Slice View (Casino Royale)
+                    // Tests: Complex ViewBuilder content, Left Pointer (pi), Uniform
+                    VStack(alignment: .leading) {
+                        previewHeader(title: "Casino Royale", subtitle: "Complex Custom Slices • Pointer Left (180°)")
+                        SpinWheel(
+                            segments: [
+                                Segment(name: "100", value: 1, color: .black),
+                                Segment(name: "500", value: 1, color: .red),
+                                Segment(name: "1000", value: 1, color: .black),
+                                Segment(name: "BANK", value: 1, color: .green)
+                            ],
+                            distribution: .uniform,
+                            pointerAngle: .pi,
+                            shouldChangeColorWhileSpinning: false
+                        ) { segment in
+                            VStack(spacing: 2) {
+                                if segment.name == "BANK" {
+                                    Image(systemName: "dollarsign.circle.fill")
+                                        .font(.title2)
+                                        .foregroundStyle(.yellow)
+                                } else {
+                                    Text("$")
+                                        .font(.caption2)
+                                        .opacity(0.6)
+                                    Text(segment.name)
+                                        .font(.headline)
+                                        .fontWeight(.heavy)
+                                }
+                            }
+                            .foregroundColor(.white)
+                            .rotationEffect(.radians(.pi / 2)) // Counter-rotate content
+                            .padding(8)
+                            .background(
+                                Capsule()
+                                    .fill(.ultraThinMaterial)
+                                    .opacity(0.3)
+                            )
+                            .rotationEffect(.radians(-.pi / 2)) // Re-align capsule
+                        } hubContent: {
+                            ZStack {
+                                Circle().fill(Color.yellow)
+                                Image(systemName: "star.fill").foregroundColor(.black)
+                            }
+                            .frame(width: 50, height: 50)
+                            .shadow(radius: 5)
+                        }
+                    }
+                    
+                    // 5. Manual Offset Override
+                    // Tests: PointerRotationOffset (Dev wants pointer to skew 45 degrees)
+                    VStack(alignment: .leading) {
+                        previewHeader(title: "Manual Offset", subtitle: "Pointer Skewed 45° via Dev Override")
+                        SpinWheel(
+                            distribution: .uniform,
+                            pointerAngle: -Double.pi / 2,
+                            pointerRotationOffset: .pi / 4 // 45 deg skew
+                        )
+                    }
+                    
+                    // -----------------------------------------------------
+                    // NEW PREVIEWS BELOW
+                    // -----------------------------------------------------
+                    
+                    Divider()
+                    Text("NEW FEATURES").font(.headline).foregroundStyle(.secondary)
+                    
+                    // 6. Passive Rotation
+                    VStack(alignment: .leading) {
+                        previewHeader(title: "Passive Spin", subtitle: "Always rotating slowly (No true 0)")
+                        SpinWheel(
+                            distribution: .weighted,
+                            enablePassiveSpin: true
+                        )
+                    }
+                    
+                    // 7. Elimination Mode
+                    EliminationPreviewWrapper()
+                    
+                    // 8. Rigged Mode
+                    RiggedPreviewWrapper()
+                    
+                    Spacer(minLength: 100)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+            }
+            .navigationTitle("Spin Wheel Lab")
+            .background(Color(.systemGroupedBackground))
+            
+        }
+    }
+    
+}
 
 #Preview {
-    NavigationStack {
-        ScrollView {
-            VStack(spacing: 80) {
-                
-                // 1. Basic Default (Pointer Top -90°)
-                // Tests: Default Init, Weighted, Text Slice, Default Hub
-                VStack(alignment: .leading) {
-                    previewHeader(title: "Default Config", subtitle: "Pointer Top (-90°) • Weighted")
-                    SpinWheel(distribution: .weighted)
-                }
-                
-                // 2. Right-Side Pointer (0 radians)
-                // Tests: Pointer Rotation logic, Uniform, No Dragging
-                VStack(alignment: .leading) {
-                    previewHeader(title: "Right Side Pointer", subtitle: "Pointer Right (0°) • Uniform • No Drag")
-                    SpinWheel(
-                        segments: [
-                            Segment(name: "A", value: 1, color: .red),
-                            Segment(name: "B", value: 1, color: .blue),
-                            Segment(name: "C", value: 1, color: .green)
-                        ],
-                        distribution: .uniform,
-                        pointerAngle: 0,
-                        allowsDragging: false
-                    )
-                }
-
-                // 3. Bottom Pointer (pi/2) with Custom Hub
-                // Tests: Pointer Rotation (should face UP), Custom Hub Builder
-                VStack(alignment: .leading) {
-                    previewHeader(title: "Bottom Pointer", subtitle: "Pointer Bottom (90°) • Custom Hub")
-                    SpinWheel(
-                        distribution: .weighted,
-                        pointerAngle: .pi / 2
-                    ) { segment in
-                        Text(segment.name).bold().foregroundColor(.white)
-                    } hubContent: {
-                        Circle().fill(.black)
-                            .frame(width: 40, height: 40)
-                            .overlay(Text("GO").foregroundColor(.white).font(.caption2.bold()))
-                    }
-                }
-                
-                // 4. Complex Custom Slice View (Casino Royale)
-                // Tests: Complex ViewBuilder content, Left Pointer (pi), Uniform
-                VStack(alignment: .leading) {
-                    previewHeader(title: "Casino Royale", subtitle: "Complex Custom Slices • Pointer Left (180°)")
-                    SpinWheel(
-                        segments: [
-                            Segment(name: "100", value: 1, color: .black),
-                            Segment(name: "500", value: 1, color: .red),
-                            Segment(name: "1000", value: 1, color: .black),
-                            Segment(name: "BANK", value: 1, color: .green)
-                        ],
-                        distribution: .uniform,
-                        pointerAngle: .pi,
-                        shouldChangeColorWhileSpinning: false
-                    ) { segment in
-                        VStack(spacing: 2) {
-                            if segment.name == "BANK" {
-                                Image(systemName: "dollarsign.circle.fill")
-                                    .font(.title2)
-                                    .foregroundStyle(.yellow)
-                            } else {
-                                Text("$")
-                                    .font(.caption2)
-                                    .opacity(0.6)
-                                Text(segment.name)
-                                    .font(.headline)
-                                    .fontWeight(.heavy)
-                            }
-                        }
-                        .foregroundColor(.white)
-                        .rotationEffect(.radians(.pi / 2)) // Counter-rotate content
-                        .padding(8)
-                        .background(
-                            Capsule()
-                                .fill(.ultraThinMaterial)
-                                .opacity(0.3)
-                        )
-                        .rotationEffect(.radians(-.pi / 2)) // Re-align capsule
-                    } hubContent: {
-                        ZStack {
-                            Circle().fill(Color.yellow)
-                            Image(systemName: "star.fill").foregroundColor(.black)
-                        }
-                        .frame(width: 50, height: 50)
-                        .shadow(radius: 5)
-                    }
-                }
-                
-                // 5. Manual Offset Override
-                // Tests: PointerRotationOffset (Dev wants pointer to skew 45 degrees)
-                VStack(alignment: .leading) {
-                    previewHeader(title: "Manual Offset", subtitle: "Pointer Skewed 45° via Dev Override")
-                    SpinWheel(
-                        distribution: .uniform,
-                        pointerAngle: -Double.pi / 2,
-                        pointerRotationOffset: .pi / 4 // 45 deg skew
-                    )
-                }
-                
-                // -----------------------------------------------------
-                // NEW PREVIEWS BELOW
-                // -----------------------------------------------------
-                
-                Divider()
-                Text("NEW FEATURES").font(.headline).foregroundStyle(.secondary)
-                
-                // 6. Passive Rotation
-                VStack(alignment: .leading) {
-                    previewHeader(title: "Passive Spin", subtitle: "Always rotating slowly (No true 0)")
-                    SpinWheel(
-                        distribution: .weighted,
-                        enablePassiveSpin: true
-                    )
-                }
-                
-                // 7. Elimination Mode
-                EliminationPreviewWrapper()
-                
-                // 8. Rigged Mode
-                RiggedPreviewWrapper()
-                
-                Spacer(minLength: 100)
-            }
-            .padding()
-            .frame(maxWidth: .infinity)
-        }
-        .navigationTitle("Spin Wheel Lab")
-        .background(Color(.systemGroupedBackground))
-    }
+    DemoWheelSpin()
 }
 
 // MARK: - New Feature Preview Helpers

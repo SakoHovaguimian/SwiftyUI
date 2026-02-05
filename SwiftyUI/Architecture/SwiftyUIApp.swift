@@ -222,7 +222,10 @@ struct SwiftyUIApp: App {
 //            CleanPDFContainer()
 //            ImageDrawingView(imageURL: url)
 //            GlowProDashboardView()
-            SpinWheel()
+            DemoWheelSpin()
+                .preferredColorScheme(.light)
+                .colorScheme(.light)
+                .toolbarColorScheme(.light, for: .automatic)
         }
         
     }
