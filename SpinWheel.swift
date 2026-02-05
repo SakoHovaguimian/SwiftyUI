@@ -7,193 +7,170 @@
 
 import SwiftUI
 
+struct Segment: Identifiable, Equatable {
+    let id = UUID()
+    let name: String
+    let value: Double
+    let color: Color
+}
+
 struct SpinWheel: View {
     
-    @State private var rotation: CGFloat = 0
+    @State private var rotation: Double = 0
     @State private var isSpinning: Bool = false
-    @State private var selectedIndex: Int = 0
+    @State private var winningIndex: Int = 0
     
-    private let duration: Double = 5
-    private let extraFullSpinsRange = 3...6
-    
-    private let segments = ["Steve", "John", "Bill", "Dave", "Alan"]
+    // 1. Define Segments with different sizes (values)
+    // Note: The math will normalize these to percentages automatically.
+    private let segments: [Segment] = [
+        Segment(name: "Steve (50%)", value: 50, color: .brandPink),
+        Segment(name: "John (10%)", value: 10, color: .brandGreen),
+        Segment(name: "Bill (10%)", value: 10, color: .mint),
+        Segment(name: "Dave (10%)", value: 10, color: .indigo),
+        Segment(name: "Alan (20%)", value: 20, color: .teal),
+    ]
     
     var body: some View {
         
-        ZStack(alignment: .top) {
+        VStack(spacing: 40) {
             
-            Wheel(segments: self.segments)
-                .frame(width: 200, height: 200)
-                .rotationEffect(.radians(rotation))
-                .animation(.easeInOut(duration: 5), value: self.rotation)
-                .onTapGesture {
-                    spin()
-                }
+            ZStack(alignment: .top) {
+                
+                // Wheel
+                Wheel(segments: segments)
+                    .frame(width: 300, height: 300)
+                    .rotationEffect(.radians(rotation))
+                    .onTapGesture { spin() }
+                
+                // Pointer (Carrot)
+                // 2. Dynamic Color & Shadow
+                Image(systemName: "triangle.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(segments[winningIndex].color) // Matches winner
+                    .shadow(color: .black.opacity(0.4), radius: 2, x: 0, y: 2)
+                    .rotationEffect(.degrees(180))
+                    .offset(y: -15) // Peak down from the very top edge
+                    .zIndex(1)
+                
+            }
             
-            Image(systemName: "triangle.fill")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(maxWidth: 24)
-                .foregroundStyle(.red)
-                .rotationEffect(.degrees(180))
-            
-        }
-        .overlay(alignment: .bottom) {
-            
-            Text("Selected: \(self.segments[self.selectedIndex])")
+            Text("Winner: \(segments[winningIndex].name)")
                 .font(.headline)
-                .padding(.top, 12)
-                .offset(y: 40)
-            
+                .foregroundStyle(.primary)
         }
-        
     }
     
     private func spin() {
-
-        guard !self.isSpinning else { return }
-        self.isSpinning = true
-
-        let winnerIndex = Int.random(in: 0..<self.segments.count)
-
-        let extraSpins = CGFloat(Int.random(in: self.extraFullSpinsRange)) * (2 * .pi)
-
-        let currentNorm = normalized(self.rotation)
-        let baseTarget = baseRotationForSliceCenterAtTop(index: winnerIndex)
-        let deltaForward = normalized(baseTarget - currentNorm) // always forward (0...2π)
-
-        let target = self.rotation + extraSpins + deltaForward
-
-        withAnimation(.easeInOut(duration: self.duration), completionCriteria: .logicallyComplete) {
-            self.rotation = target
+        guard !isSpinning else { return }
+        isSpinning = true
+        
+        let randomAdditional = Double.random(in: 0...(2 * .pi))
+        let spinCount = Double.random(in: 20...32)
+        let totalSpinAmount = (spinCount * (2 * .pi)) + randomAdditional
+        let newRotation = self.rotation + totalSpinAmount
+        
+        let frictionCurve = Animation.timingCurve(0.1, 0.7, 0.1, 1.0, duration: .random(in: 2...10))
+        
+        withAnimation(frictionCurve) {
+            self.rotation = newRotation
         } completion: {
             self.isSpinning = false
-            self.selectedIndex = self.selectedIndexForRotation(self.rotation)
+            determineWinner()
         }
+    }
+    
+    private func determineWinner() {
         
+        let pointerAngle = -Double.pi / 2 // 12 o'clock
+        
+        // Calculate relative angle 0...2pi
+        var relativeAngle = pointerAngle - rotation
+        relativeAngle = relativeAngle.truncatingRemainder(dividingBy: 2 * .pi)
+        if relativeAngle < 0 { relativeAngle += 2 * .pi }
+        
+        // Iterate through segments to find which range contains this angle
+        let totalValue = segments.reduce(0) { $0 + $1.value }
+        var currentAngle: Double = 0
+        
+        for (index, segment) in segments.enumerated() {
+            let sliceSize = (segment.value / totalValue) * (2 * .pi)
+            let endAngle = currentAngle + sliceSize
+            
+            // Check if our angle falls within this slice
+            if relativeAngle >= currentAngle && relativeAngle < endAngle {
+                self.winningIndex = index
+                break
+            }
+            
+            currentAngle += sliceSize
+        }
     }
-    
-    private func finishSpin() {
-
-        self.isSpinning = false
-        self.selectedIndex = self.selectedIndexForRotation(self.rotation)
-
-    }
-
-    private var segmentAngle: CGFloat {
-        (2 * .pi) / CGFloat(self.segments.count)
-    }
-
-    private var sliceShift: CGFloat {
-        self.segmentAngle / 2 // matches: .rotationEffect(.radians(.pi * segmentSize))
-    }
-
-    private func normalized(_ angle: CGFloat) -> CGFloat {
-        var a = angle.truncatingRemainder(dividingBy: 2 * .pi)
-        if a < 0 { a += 2 * .pi }
-        return a
-    }
-
-    /// Which segment is currently under the 12 o’clock pointer
-    private func selectedIndexForRotation(_ rotation: CGFloat) -> Int {
-
-        let pointerAngle: CGFloat = .pi / 2 // 12 o’clock, because 0 is 3 o’clock
-        let local = normalized(pointerAngle - rotation)       // undo wheel rotation
-        let adjusted = normalized(local - self.sliceShift)    // undo your slice shift
-
-        let index = Int(floor(adjusted / self.segmentAngle))
-        return (self.segments.count - 1 - index)
-    }
-
-    /// Rotation (from “zero”) that puts the CENTER of `index` at 12 o’clock
-    private func baseRotationForSliceCenterAtTop(index: Int) -> CGFloat {
-
-        let pointerAngle: CGFloat = .pi / 2
-        let centerAngle = self.segmentAngle * CGFloat(index + 1) // matches your label math
-        return normalized(pointerAngle - centerAngle)
-    }
-
-    private func rotationForSliceCenter(index: Int) -> CGFloat {
-
-        let pointerAngle: CGFloat = -.pi / 2
-        let sliceVisualShift: CGFloat = self.segmentAngle / 2
-
-        // Center of slice `index` in “slice space”
-        let sliceCenterAngle = (CGFloat(index) + 0.5) * self.segmentAngle
-
-        // Invert the selection math to find the rotation that puts that center under the pointer.
-        return pointerAngle + sliceVisualShift - sliceCenterAngle
-
-    }
-    
 }
 
 struct Wheel: View {
-
-    let segments: [String]
-
+    
+    let segments: [Segment]
+    
+    // Computed props to handle variable sizes
+    private var totalValue: Double {
+        segments.reduce(0) { $0 + $1.value }
+    }
+    
     var body: some View {
-
         GeometryReader { proxy in
-
-            ZStack(alignment: .top) {
-
-                ForEach(self.segments.indices, id: \.self) { index in
-
+            let radius = proxy.size.width / 2
+            
+            ZStack {
+                ForEach(Array(segments.enumerated()), id: \.element.id) { index, segment in
+                    
+                    let data = calculateSegmentData(index: index)
+                    
                     ZStack {
-
+                        // 3. Fixed Bounds Logic
+                        // To make a solid pie slice using Stroke, we:
+                        // - Inset by half the radius (putting the path in the middle of the solid area)
+                        // - Stroke by the full radius (filling outward to edge and inward to center)
                         Circle()
-                            .inset(by: proxy.size.width / 4)
-                            .trim(from: CGFloat(index) * self.segmentSize,
-                                  to: CGFloat(index + 1) * self.segmentSize)
-                            .stroke(Color.all[index], style: StrokeStyle(lineWidth: proxy.size.width / 2))
-                            // This is the “visual shift” accounted for in selection math above.
-                            .rotationEffect(.radians(.pi * self.segmentSize))
-                            .opacity(0.3)
-
-                        self.label(
-                            text: self.segments[index],
-                            index: CGFloat(index),
-                            offset: proxy.size.width / 4
-                        )
-
+                            .inset(by: radius / 2) // Crucial: This keeps it inside bounds
+                            .trim(from: data.startPct, to: data.endPct)
+                            .stroke(segment.color, style: StrokeStyle(lineWidth: radius))
+                            
+                        
+                        // Label Math
+                        // We rotate to the 'midAngle' of this specific slice
+                        Text(segment.name)
+                            .font(.system(size: 12, weight: .bold))
+                            .foregroundColor(.white)
+                            .offset(x: radius * 0.7) // Push text towards outer rim
+                            .rotationEffect(.radians(data.midAngle))
                     }
-
                 }
-
             }
-
         }
-
-    }
-
-    private var segmentSize: CGFloat {
-        1 / CGFloat(self.segments.count)
-    }
-
-    private func rotation(index: CGFloat) -> CGFloat {
-        (.pi * (2 * self.segmentSize * (CGFloat(index + 1))))
-    }
-
-    private func label(text: String,
-                       index: CGFloat,
-                       offset: CGFloat) -> some View {
-
-        Text(text)
-            .rotationEffect(.radians(self.rotation(index: CGFloat(index))))
-            .offset(x: cos(self.rotation(index: index)) * offset,
-                    y: sin(self.rotation(index: index)) * offset)
-
-    }
-
-}
-
-extension Color {
-    
-    static var all: [Color] {
-        [Color.yellow, .green, .pink, .cyan, .mint, .orange, .teal, .indigo]
     }
     
+    // Helper to calculate start/end/mid angles for variable slices
+    private func calculateSegmentData(index: Int) -> (startPct: CGFloat, endPct: CGFloat, midAngle: Double) {
+        
+        // Sum values up to this index
+        var precedingValue: Double = 0
+        for i in 0..<index {
+            precedingValue += segments[i].value
+        }
+        
+        // Calculate percentages
+        let startPct = precedingValue / totalValue
+        let endPct = (precedingValue + segments[index].value) / totalValue
+        
+        // Calculate Mid Angle (in Radians) for rotation
+        // 2pi * (start + half of width)
+        let midPct = startPct + ((endPct - startPct) / 2)
+        let midAngle = midPct * (2 * .pi)
+        
+        return (CGFloat(startPct), CGFloat(endPct), midAngle)
+    }
 }
 
 #Preview {

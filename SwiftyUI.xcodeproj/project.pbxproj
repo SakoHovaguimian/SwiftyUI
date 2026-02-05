@@ -75,6 +75,7 @@
 		7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551B86B2C2E29540003A0F8 /* DashProgressView.swift */; };
 		75533D462D380B8D001A5010 /* VariableBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75533D452D380B89001A5010 /* VariableBlur.swift */; };
 		7556CB572C2F227E0084A130 /* SizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CB562C2F227E0084A130 /* SizingView.swift */; };
+		755D51182F2BC35A008CA19A /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755D51172F2BC353008CA19A /* ImageTransition.swift */; };
 		756150CB2ECD9331008A5263 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756150CA2ECD932C008A5263 /* TimePickerView.swift */; };
 		7561DE752D3574E300F01C67 /* NewScrollBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */; };
 		75632B1B2E29650B00672C7B /* Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75632B1A2E29650900672C7B /* Effects.swift */; };
@@ -257,6 +258,7 @@
 		75D67F012D91AB8A00D9BC25 /* RedditTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */; };
 		75D6835A2EE64866009CB936 /* ImageDrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D683592EE64866009CB936 /* ImageDrawingView.swift */; };
 		75D8B34F2CE5487800681141 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8B34E2CE5487800681141 /* PulseAnimation.swift */; };
+		75D8BA6F2F2F0F770055DD62 /* PixelTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8BA6E2F2F0F770055DD62 /* PixelTileView.swift */; };
 		75D8E9992DAE0BA300D63239 /* Github.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D8E9982DAE0B9F00D63239 /* Github.swift */; };
 		75D958432E4254C200D7AF72 /* TimelineTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D958422E4254BE00D7AF72 /* TimelineTest.swift */; };
 		75D958492E42571B00D7AF72 /* ConfettiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D958462E42571B00D7AF72 /* ConfettiConfig.swift */; };
@@ -380,6 +382,7 @@
 		755A293B2EDF4DC700894ED2 /* PDFKitDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKitDrawingView.swift; sourceTree = "<group>"; };
 		755A293C2EDF4E8C00894ED2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		755A293D2EDF4EFF00894ED2 /* PDFDrawingViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDrawingViewControllerWrapper.swift; sourceTree = "<group>"; };
+		755D51172F2BC353008CA19A /* ImageTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransition.swift; sourceTree = "<group>"; };
 		756150CA2ECD932C008A5263 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		7561DE742D3574DE00F01C67 /* NewScrollBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScrollBannerView.swift; sourceTree = "<group>"; };
 		75632B1A2E29650900672C7B /* Effects.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effects.swift; sourceTree = "<group>"; };
@@ -564,6 +567,7 @@
 		75D67F002D91AB7E00D9BC25 /* RedditTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTestView.swift; sourceTree = "<group>"; };
 		75D683592EE64866009CB936 /* ImageDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDrawingView.swift; sourceTree = "<group>"; };
 		75D8B34E2CE5487800681141 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
+		75D8BA6E2F2F0F770055DD62 /* PixelTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PixelTileView.swift; sourceTree = "<group>"; };
 		75D8E9982DAE0B9F00D63239 /* Github.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Github.swift; sourceTree = "<group>"; };
 		75D958422E4254BE00D7AF72 /* TimelineTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTest.swift; sourceTree = "<group>"; };
 		75D958452E42571B00D7AF72 /* ConfettiParticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticleView.swift; sourceTree = "<group>"; };
@@ -1235,6 +1239,8 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				75D8BA6E2F2F0F770055DD62 /* PixelTileView.swift */,
+				755D51172F2BC353008CA19A /* ImageTransition.swift */,
 				759188BA2F243D510051BAE3 /* ContentViewt.swift */,
 				75DD30F92F23378300376BA3 /* Validation.swift */,
 				759B132E2F1DEB1500DFB92E /* TestViewTEst.swift */,
@@ -1864,6 +1870,7 @@
 				750224742EE00CE4003FD733 /* PDFDocumentPage.swift in Sources */,
 				750224752EE00CE4003FD733 /* PDFKitToolPicker.swift in Sources */,
 				750224762EE00CE4003FD733 /* PDFKitDocument.swift in Sources */,
+				755D51182F2BC35A008CA19A /* ImageTransition.swift in Sources */,
 				750224772EE00CE4003FD733 /* PDFKitDrawingView.swift in Sources */,
 				750224782EE00CE4003FD733 /* ViewController.swift in Sources */,
 				750224792EE00CE4003FD733 /* PDFDocumentOverlay.swift in Sources */,
@@ -1877,6 +1884,7 @@
 				7578B1612C41FBE1006F07E7 /* CancelBag.swift in Sources */,
 				75BA2D402C0E79600089B70F /* FrameReader.swift in Sources */,
 				7518B98C2EF131B400A2A1E1 /* SleepSeriesType.swift in Sources */,
+				75D8BA6F2F2F0F770055DD62 /* PixelTileView.swift in Sources */,
 				75FD1DAE2C914E9E004AC287 /* AppText.swift in Sources */,
 				75CF649B2F0DE31B00F94D70 /* SlideInFromBottom.swift in Sources */,
 				75718F8F2C120AA300989D41 /* SideMenu.swift in Sources */,

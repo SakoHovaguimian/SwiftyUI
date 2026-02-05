@@ -438,9 +438,6 @@
     "lorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet consectetur adipisicing elit. Quo, voluptatem! Lorem ipsum" : {
 
     },
-    "Lumina" : {
-
-    },
     "Media" : {
 
     },
@@ -498,6 +495,9 @@
     "Password" : {
 
     },
+    "Pause" : {
+
+    },
     "Percentage" : {
 
     },
@@ -508,6 +508,9 @@
 
     },
     "Photos / Sessions Logged (Last 30 Days)" : {
+
+    },
+    "Play" : {
 
     },
     "Pop" : {
@@ -646,6 +649,9 @@
     "Sending %lld" : {
 
     },
+    "Sent" : {
+
+    },
     "Series" : {
 
     },
@@ -683,6 +689,9 @@
 
     },
     "Some Card Info" : {
+
+    },
+    "Some New Text" : {
 
     },
     "SOME SPACING MESSAGE" : {
@@ -835,6 +844,9 @@
 
     },
     "Weekly Media Captures" : {
+
+    },
+    "Welcome" : {
 
     },
     "Welcome Sako" : {
