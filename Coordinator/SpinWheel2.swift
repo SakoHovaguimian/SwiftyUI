@@ -9,24 +9,51 @@ public struct Segment: Identifiable, Equatable {
     public let name: String
     public let value: Double
     public let color: Color
+    public let backgroundImage: Image?
     
-    public init(name: String, value: Double, color: Color) {
+    public init(name: String, value: Double, color: Color, backgroundImage: Image? = nil) {
         self.name = name
         self.value = value
         self.color = color
+        self.backgroundImage = backgroundImage
     }
     
+    // Equatable conformance manually needed for Image comparison (we ignore image for equality or check via ID)
+    public static func == (lhs: Segment, rhs: Segment) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 public enum Distribution: Equatable {
-    
     case weighted
     case uniform
     /// Elimination style. Remove segment once selected
     case elimination
     /// Rigged style where we can prefedine who the winner should be
     case rigged(Segment)
+}
+
+// MARK: - Helper Shapes
+
+/// A custom shape to draw the slice perfectly from the center, allowing for image clipping
+struct WedgeShape: Shape {
+    var startAngle: Angle
+    var endAngle: Angle
     
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        let center = CGPoint(x: rect.midX, y: rect.midY)
+        let radius = min(rect.width, rect.height) / 2
+        
+        path.move(to: center)
+        path.addArc(center: center,
+                    radius: radius,
+                    startAngle: startAngle,
+                    endAngle: endAngle,
+                    clockwise: false)
+        path.closeSubpath()
+        return path
+    }
 }
 
 // MARK: - Logic
@@ -38,15 +65,10 @@ public struct WheelMath {
                         in segments: [Segment],
                         distribution: Distribution) -> Segment? {
         
-        // pointerAngle is where the physical arrow sits (e.g., -pi/2 for Top)
-        // rotation is the cumulative spin of the wheel
         var relativeAngle = pointerAngle - rotation
-        
         relativeAngle = relativeAngle.truncatingRemainder(dividingBy: 2 * .pi)
         if relativeAngle < 0 { relativeAngle += 2 * .pi }
         
-        // Elimination and Rigged behave like Weighted for the purpose of drawing/hit-testing
-        // (Assuming standard visualization. If Uniform is desired for elimination, logic varies, but standard is weighted)
         switch distribution {
         case .uniform:
             let segmentCount = Double(segments.count)
@@ -73,7 +95,6 @@ public struct WheelMath {
         return segments.first
     }
     
-    /// Calculates the rotation needed to land exactly on the center of the target segment
     static func rotationToLand(on target: Segment,
                                currentRotation: Double,
                                pointerAngle: Double,
@@ -81,7 +102,6 @@ public struct WheelMath {
         
         let totalValue = segments.reduce(0) { $0 + $1.value }
         
-        // 1. Find the center angle of the target segment (assuming wheel rotation is 0)
         var cumulativeValue: Double = 0
         var targetCenterAngle: Double = 0
         
@@ -94,24 +114,13 @@ public struct WheelMath {
             cumulativeValue += segment.value
         }
         
-        // 2. We want: (pointerAngle - finalRotation) % 2pi == targetCenterAngle
-        // Therefore: finalRotation = pointerAngle - targetCenterAngle
-        
         let targetRotationPosition = pointerAngle - targetCenterAngle
-        
-        // 3. Calculate the delta required from current rotation
-        // Normalize current rotation to 0...2pi for calculation, then re-add total spins later
-        // Or simpler: just find difference and ensure it's positive forward movement
-        
         let currentMod = currentRotation.truncatingRemainder(dividingBy: 2 * .pi)
         var delta = targetRotationPosition - currentMod
-        
-        // Ensure we always spin forward (positive delta)
         while delta < 0 { delta += 2 * .pi }
         
         return delta
     }
-    
 }
 
 // MARK: - Main View
@@ -156,7 +165,7 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
                 spinAnimation: Animation = .timingCurve(0.15, 0.5, 0.2, 1.0, duration: 4.5),
                 shouldChangeColorWhileSpinning: Bool = true,
                 allowsDragging: Bool = true,
-                enablePassiveSpin: Bool = false, // Default false per TODO
+                enablePassiveSpin: Bool = false,
                 onSpinEnd: ((Segment) -> Void)? = nil,
                 @ViewBuilder sliceContent: @escaping (Segment) -> SliceContent,
                 @ViewBuilder hubContent: @escaping () -> HubContent) {
@@ -181,7 +190,6 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
         self.onSpinEnd = onSpinEnd
         self.sliceBuilder = sliceContent
         self.hubBuilder = hubContent
-        
     }
     
     public var body: some View {
@@ -204,13 +212,10 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
                 }
             }
         }
-        
     }
     
     private var wheelContainer: some View {
-        
         ZStack {
-            
             wheelView
             pointerView
             
@@ -220,32 +225,21 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
             }
             .disabled(isSpinning)
             .buttonStyle(.plain)
-            
         }
-        
     }
     
     private var wheelView: some View {
-        
-        // Combine interactive rotation with passive background rotation
-        // We pause passive visual influence when spinning actively to prevent visual glitches/fighting
         let totalRotation = rotation + dragRotation + (isSpinning ? 0 : passiveRotationPhase)
         
         return WheelView(segments: segments, distribution: distribution, sliceBuilder: sliceBuilder)
             .frame(width: 280, height: 280)
             .rotationEffect(.radians(totalRotation))
             .gesture(allowsDragging ? dragGesture : nil)
-        
     }
     
     private var pointerView: some View {
-        
         GeometryReader { proxy in
-            
             let radius = min(proxy.size.width, proxy.size.height) / 2
-            
-            // Pointer calculation also needs to account for the passive drift
-            // so that the color/selection updates in real time while drifting
             let activeRotation = rotation + dragRotation + (isSpinning ? 0 : passiveRotationPhase)
             
             PointerView(
@@ -264,61 +258,47 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
                 y: proxy.size.height / 2 + sin(pointerAngle) * radius
             )
             .zIndex(2)
-            
         }
         .frame(width: 280, height: 280)
-        
     }
     
     private var resultLabel: some View {
-        
         VStack(spacing: 4) {
-            
             Text(isSpinning ? "Spinning..." : "Winner")
                 .font(.caption.bold())
                 .foregroundStyle(.secondary)
                 .textCase(.uppercase)
             
             if !segments.isEmpty {
-                // If we are rigged, we might want to show the target,
-                // but usually, we want to show what is currently under the pointer
-                // so we use the liveSegment which updates via PointerView
                 Text(liveSegment?.name ?? segments[winningIndex].name)
                     .font(.system(size: 32, weight: .black, design: .rounded))
                     .foregroundStyle(isSpinning ? .primary : (liveSegment?.color ?? segments[winningIndex].color))
-                    .transition(.identity) // Prevent fade/scale when switching
+                    .transition(.identity)
                     .id("ResultText_\(liveSegment?.id.uuidString ?? "")")
             } else {
-                 Text("Empty Wheel")
+                Text("Empty Wheel")
                     .font(.title)
                     .foregroundStyle(.secondary)
             }
-            
         }
         .animation(.spring(), value: isSpinning)
-        
     }
     
     private var resetButton: some View {
-        
         Button(action: reset) {
             Label("Reset", systemImage: "arrow.counterclockwise")
                 .font(.subheadline.bold())
                 .foregroundStyle(.secondary)
         }
         .opacity(isSpinning || (rotation == 0 && dragRotation == 0) ? 0 : 1)
-        
     }
     
     // MARK: - Interactions
     
     private var dragGesture: some Gesture {
-        
         DragGesture(minimumDistance: 0)
             .onChanged { value in
                 guard !isSpinning else { return }
-                // Stop passive animation effect visually by snapping rotation to current state
-                // (Handled in wheelView via isSpinning check or similar, strictly simple here)
                 let velocity = value.translation.width - lastDragValue
                 dragRotation += Double(velocity / 100)
                 lastDragValue = value.translation.width
@@ -328,37 +308,27 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
                 let velocity = value.predictedEndTranslation.width / 50
                 spin(withVelocity: Double(velocity))
             }
-        
     }
     
     private func spin(withVelocity velocity: Double = 0) {
-        
         guard !isSpinning else { return }
         
-        // 1. Lock current state (incorporate passive rotation into actual rotation)
-        // This ensures no "jump" when we switch from passive phase to active spin
         let currentVisualRotation = rotation + dragRotation + passiveRotationPhase
         self.rotation = currentVisualRotation
         self.dragRotation = 0
-        self.passiveRotationPhase = 0 // Reset passive so it doesn't double up
+        self.passiveRotationPhase = 0
         
         isSpinning = true
-        
         var totalSpinAmount: Double = 0
         
-        // 2. Determine Logic
         if case .rigged(let target) = distribution {
-            
-            let baseSpins = 5.0 // Minimum full rotations
+            let baseSpins = 5.0
             let requiredDelta = WheelMath.rotationToLand(on: target,
                                                          currentRotation: self.rotation,
                                                          pointerAngle: pointerAngle,
                                                          segments: segments)
-            
             totalSpinAmount = (baseSpins * 2 * .pi) + requiredDelta
-            
         } else {
-            // Standard Random
             let baseSpin = Double.random(in: 8...14)
             let extraVelocity = max(abs(velocity), 2.0)
             totalSpinAmount = ((baseSpin + extraVelocity) * (2 * .pi))
@@ -372,45 +342,36 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
             self.isSpinning = false
             finalizeWinner()
             
-            // Restart passive spin if enabled
             if enablePassiveSpin {
-                // Reset phase to 0 and restart animation
                 passiveRotationPhase = 0
                 withAnimation(.linear(duration: 20).repeatForever(autoreverses: false)) {
                     passiveRotationPhase = 2 * .pi
                 }
             }
         }
-        
     }
     
     private func reset() {
-        
         withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
             rotation = 0
             dragRotation = 0
             winningIndex = 0
             passiveRotationPhase = 0
         }
-        
         if enablePassiveSpin {
             withAnimation(.linear(duration: 20).repeatForever(autoreverses: false)) {
                 passiveRotationPhase = 2 * .pi
             }
         }
-        
     }
     
     private func finalizeWinner() {
-        
         if let winner = WheelMath.segment(for: rotation, pointerAngle: pointerAngle, in: segments, distribution: distribution),
            let index = segments.firstIndex(of: winner) {
             self.winningIndex = index
             self.onSpinEnd?(winner)
         }
-        
     }
-    
 }
 
 // MARK: - Default Initializers
@@ -445,7 +406,6 @@ extension SpinWheel where HubContent == DefaultHubView, SliceContent == Text {
             DefaultHubView()
         }
     }
-    
 }
 
 // MARK: - Subviews
@@ -465,7 +425,6 @@ public struct DefaultHubView: View {
 }
 
 struct PointerView: View, Animatable {
-    
     var rotation: Double
     var pointerAngle: Double
     var pointerRotationOffset: Double
@@ -483,7 +442,6 @@ struct PointerView: View, Animatable {
     }
     
     var body: some View {
-        
         let activeSegment = WheelMath.segment(for: rotation, pointerAngle: pointerAngle, in: segments, distribution: distribution)
         
         Image(systemName: "triangle.fill")
@@ -491,7 +449,6 @@ struct PointerView: View, Animatable {
             .aspectRatio(contentMode: .fit)
             .foregroundColor(shouldUpdateColor ? activeSegment?.color ?? defaultColor : defaultColor)
             .shadow(color: .black.opacity(0.3), radius: 2, y: -4)
-            // (3 * .pi / 2) rotates the triangle 270 deg so the Tip faces the Center
             .rotationEffect(.radians(pointerAngle + (3 * .pi / 2) + pointerRotationOffset))
             .onChange(of: activeSegment) { _, newValue in
                 if let segment = newValue {
@@ -499,11 +456,9 @@ struct PointerView: View, Animatable {
                     updateBinding(segment)
                 }
             }
-            // Initial load update
             .onAppear {
                 if let s = activeSegment { liveSegment = s }
             }
-        
     }
     
     private func updateBinding(_ segment: Segment) {
@@ -511,19 +466,15 @@ struct PointerView: View, Animatable {
             self.liveSegment = segment
         }
     }
-    
 }
 
 struct WheelView<SliceContent: View>: View {
-    
     let segments: [Segment]
     let distribution: Distribution
     let sliceBuilder: (Segment) -> SliceContent
     
     var body: some View {
-        
         GeometryReader { proxy in
-            
             let radius = proxy.size.width / 2
             let totalValue = segments.reduce(0) { $0 + $1.value }
             
@@ -542,16 +493,11 @@ struct WheelView<SliceContent: View>: View {
                     )
                 }
             }
-            
         }
-        
     }
-    
-    private func calculateTotalValue() -> Double {
-        segments.reduce(0) { $0 + $1.value }
-    }
-    
 }
+
+// MARK: - UPDATED SLICE VIEW
 
 struct SliceView<SliceContent: View>: View {
     
@@ -565,27 +511,47 @@ struct SliceView<SliceContent: View>: View {
     let content: (Segment) -> SliceContent
     
     var body: some View {
-        
         let data = calculateData()
         
+        // Convert percentages to Angles for the Shape
+        let startAngle = Angle(radians: data.start * 2 * .pi)
+        let endAngle = Angle(radians: data.end * 2 * .pi)
+        
         ZStack {
-            Circle()
-                .inset(by: radius / 2)
-                .trim(from: data.start, to: data.end)
-                .stroke(segment.color, style: StrokeStyle(lineWidth: radius))
-            
+            // 1. The Wedge Container
+            WedgeShape(startAngle: startAngle, endAngle: endAngle)
+                .fill(segment.color) // Fallback color if image fails or is transparent
+                .overlay {
+                    // 2. The Image Overlay (if present)
+                    if let bgImage = segment.backgroundImage {
+                        GeometryReader { geo in
+                            bgImage
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: geo.size.width, height: geo.size.height)
+                                .clipped()
+                        }
+                        // Clip the square image into the wedge shape
+                        .clipShape(WedgeShape(startAngle: startAngle, endAngle: endAngle))
+                    }
+                }
+                // Optional: Add a border stroke if you want separation between slices
+                .overlay {
+                    WedgeShape(startAngle: startAngle, endAngle: endAngle)
+                        .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                }
+
+            // 3. The Content (Text/Icons) on top
             content(segment)
                 .offset(x: radius * 0.65)
                 .rotationEffect(.radians(data.midAngle))
         }
-        
     }
     
-    private func calculateData() -> (start: CGFloat, end: CGFloat, midAngle: Double) {
+    private func calculateData() -> (start: Double, end: Double, midAngle: Double) {
         let startPct: Double
         let endPct: Double
         
-        // Elimination and Rigged use standard weighted proportions
         if distribution == .uniform {
             startPct = Double(index) / Double(count)
             endPct = Double(index + 1) / Double(count)
@@ -597,9 +563,8 @@ struct SliceView<SliceContent: View>: View {
         let midPct = startPct + ((endPct - startPct) / 2)
         let midAngle = midPct * (2 * .pi)
         
-        return (CGFloat(startPct), CGFloat(endPct), midAngle)
+        return (startPct, endPct, midAngle)
     }
-    
 }
 
 struct DemoWheelSpin: View {
@@ -608,6 +573,30 @@ struct DemoWheelSpin: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 80) {
+                    
+                    VStack(alignment: .leading) {
+                        previewHeader(title: "Nature", subtitle: "Complex Custom Slices • Pointer Left (180°)")
+                        
+                        SpinWheel(
+                            segments: [
+                                Segment(name: "Sky", value: 1, color: .blue, backgroundImage: Image(.image1)),
+                                Segment(name: "Fire", value: 1, color: .red, backgroundImage: Image(.image2)),
+                                Segment(name: "Nature", value: 1, color: .green, backgroundImage: Image(.image3)),
+                                Segment(name: "Ocean", value: 1, color: .teal, backgroundImage: Image(.image4))
+                            ],
+                            distribution: .uniform,
+                            pointerAngle: .pi,
+                            shouldChangeColorWhileSpinning: false
+                        ) { segment in
+                            Text(segment.name)
+                                .font(.caption.bold())
+                                .padding(4)
+                                .background(.ultraThinMaterial)
+                                .cornerRadius(4)
+                        } hubContent: {
+                            Circle().fill(.white).frame(width: 40).shadow(radius: 2)
+                        }
+                    }
                     
                     // 1. Basic Default (Pointer Top -90°)
                     // Tests: Default Init, Weighted, Text Slice, Default Hub
