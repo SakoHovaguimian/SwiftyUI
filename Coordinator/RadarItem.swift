@@ -312,7 +312,7 @@ struct RadarChartExample: View {
         showDataPoints: true,
         dataPointColor: .purple,
         dataPointSize: 10,
-        labelOffset: 50
+        labelOffset: 32
     )
 
     var body: some View {
