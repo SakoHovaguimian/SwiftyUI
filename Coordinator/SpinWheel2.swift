@@ -1,6 +1,8 @@
 import SwiftUI
 import UIKit
 
+// TODO: - Have a way to tell it when to spin
+
 // MARK: - Models
 
 public struct Segment: Identifiable, Equatable {
@@ -135,6 +137,8 @@ public struct WheelMath {
 
 public struct SpinWheel<SliceContent: View, HubContent: View>: View {
     
+    @Binding private var spinTrigger: Int
+    
     @State private var rotation: Double = 0
     @State private var isSpinning: Bool = false
     @State private var winningIndex: Int = 0
@@ -157,6 +161,8 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
     private var pointerAngle: Double
     private var pointerRotationOffset: Double
     
+    private var segmentDividerColor: Color
+    
     // Passive Spin Flag
     private var enablePassiveSpin: Bool
     
@@ -168,12 +174,14 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
     public init(segments: [Segment]? = nil,
                 distribution: Distribution = .weighted,
                 pickerColor: Color = .primary,
+                segmentDividerColor: Color = .clear,
                 pointerAngle: Double = -Double.pi / 2,
                 pointerRotationOffset: Double = 0,
                 spinAnimation: Animation = .timingCurve(0.15, 0.5, 0.2, 1.0, duration: 4.5),
                 shouldChangeColorWhileSpinning: Bool = true,
                 allowsDragging: Bool = true,
                 enablePassiveSpin: Bool = false,
+                spinTrigger: Binding<Int> = .constant(0),
                 onSpinEnd: ((Segment) -> Void)? = nil,
                 @ViewBuilder sliceContent: @escaping (Segment) -> SliceContent,
                 @ViewBuilder hubContent: @escaping () -> HubContent) {
@@ -186,9 +194,11 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
             Segment(name: "Alan", value: 20, color: .teal),
         ]
         
+        self._spinTrigger = spinTrigger
         self.segments = segments ?? defaultSegments
         self.distribution = distribution
         self.pickerColor = pickerColor
+        self.segmentDividerColor = segmentDividerColor
         self.pointerAngle = pointerAngle
         self.pointerRotationOffset = pointerRotationOffset
         self.spinAnimation = spinAnimation
@@ -220,6 +230,9 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
                 }
             }
         }
+        .onChange(of: spinTrigger) { _, _ in
+            spin()
+        }
     }
     
     private var wheelContainer: some View {
@@ -239,10 +252,15 @@ public struct SpinWheel<SliceContent: View, HubContent: View>: View {
     private var wheelView: some View {
         let totalRotation = rotation + dragRotation + (isSpinning ? 0 : passiveRotationPhase)
         
-        return WheelView(segments: segments, distribution: distribution, sliceBuilder: sliceBuilder)
-            .frame(width: 280, height: 280)
-            .rotationEffect(.radians(totalRotation))
-            .gesture(allowsDragging ? dragGesture : nil)
+        return WheelView(
+            segments: segments,
+            distribution: distribution,
+            dividerColor: segmentDividerColor,
+            sliceBuilder: sliceBuilder
+        )
+        .frame(width: 280, height: 280)
+        .rotationEffect(.radians(totalRotation))
+        .gesture(allowsDragging ? dragGesture : nil)
     }
     
     private var pointerView: some View {
@@ -389,6 +407,7 @@ extension SpinWheel where HubContent == DefaultHubView, SliceContent == Text {
     public init(segments: [Segment]? = nil,
                 distribution: Distribution = .weighted,
                 pickerColor: Color = .primary,
+                segmentDividerColor: Color = .clear,
                 pointerAngle: Double = -Double.pi / 2,
                 pointerRotationOffset: Double = 0,
                 spinAnimation: Animation = .timingCurve(0.15, 0.5, 0.2, 1.0, duration: 4.5),
@@ -400,6 +419,7 @@ extension SpinWheel where HubContent == DefaultHubView, SliceContent == Text {
         self.init(segments: segments,
                   distribution: distribution,
                   pickerColor: pickerColor,
+                  segmentDividerColor: segmentDividerColor,
                   pointerAngle: pointerAngle,
                   pointerRotationOffset: pointerRotationOffset,
                   spinAnimation: spinAnimation,
@@ -479,6 +499,7 @@ struct PointerView: View, Animatable {
 struct WheelView<SliceContent: View>: View {
     let segments: [Segment]
     let distribution: Distribution
+    let dividerColor: Color
     let sliceBuilder: (Segment) -> SliceContent
     
     var body: some View {
@@ -497,6 +518,7 @@ struct WheelView<SliceContent: View>: View {
                         radius: radius,
                         segmentsBeforeValue: startValue,
                         distribution: distribution,
+                        dividerColor: dividerColor,
                         content: sliceBuilder
                     )
                 }
@@ -516,6 +538,7 @@ struct SliceView<SliceContent: View>: View {
     let radius: CGFloat
     let segmentsBeforeValue: Double
     let distribution: Distribution
+    let dividerColor: Color // New Property
     let content: (Segment) -> SliceContent
     
     var body: some View {
@@ -543,13 +566,13 @@ struct SliceView<SliceContent: View>: View {
                         .clipShape(WedgeShape(startAngle: startAngle, endAngle: endAngle))
                     }
                 }
-                // Optional: Add a border stroke if you want separation between slices
+                // 3. The Separator / Border Stroke
                 .overlay {
                     WedgeShape(startAngle: startAngle, endAngle: endAngle)
-                        .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                        .stroke(dividerColor, lineWidth: 1)
                 }
 
-            // 3. The Content (Text/Icons) on top
+            // 4. The Content (Text/Icons) on top
             content(segment)
                 .offset(x: radius * 0.65)
                 .rotationEffect(.radians(data.midAngle))
@@ -583,6 +606,15 @@ struct DemoWheelSpin: View {
                 VStack(spacing: 80) {
                     
                     VStack(alignment: .leading) {
+                        
+                        VStack(alignment: .leading) {
+                                                previewHeader(title: "Segment Dividers", subtitle: "Opt-in: White Stroke enabled")
+                                                SpinWheel(
+                                                    distribution: .weighted,
+                                                    segmentDividerColor: .white // Opt-in here
+                                                )
+                                            }
+                        
                         previewHeader(title: "Nature", subtitle: "Complex Custom Slices • Pointer Left (180°)")
                         
                         SpinWheel(
@@ -593,6 +625,7 @@ struct DemoWheelSpin: View {
                                 Segment(name: "Ocean", value: 1, color: .teal, backgroundImage: Image(.image4))
                             ],
                             distribution: .uniform,
+                            segmentDividerColor: .white,
                             pointerAngle: .pi,
                             shouldChangeColorWhileSpinning: false
                         ) { segment in

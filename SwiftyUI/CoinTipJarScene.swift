@@ -214,9 +214,9 @@ struct TipJarView: View {
                 Button {
                     sceneHolder.scene.dropCoin()
                 } label: {
-                    Label("Tip 1", systemImage: "circle.fill")
+                    Label("1", systemImage: "circle.fill")
                         .frame(maxWidth: .infinity)
-                        .padding()
+                        .padding(.vertical)
                         .background(.blue.gradient)
                         .foregroundColor(.white)
                         .cornerRadius(12)
@@ -227,9 +227,22 @@ struct TipJarView: View {
                         sceneHolder.scene.dropCoin()
                     }
                 } label: {
-                    Label("Tip 5", systemImage: "star.fill")
+                    Label("5", systemImage: "star.fill")
                         .frame(maxWidth: .infinity)
-                        .padding()
+                        .padding(.vertical)
+                        .background(.green.gradient)
+                        .foregroundColor(.white)
+                        .cornerRadius(12)
+                }
+                
+                Button {
+                    for _ in 0..<100 {
+                        sceneHolder.scene.dropCoin()
+                    }
+                } label: {
+                    Label("100", systemImage: "star.fill")
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical)
                         .background(.green.gradient)
                         .foregroundColor(.white)
                         .cornerRadius(12)

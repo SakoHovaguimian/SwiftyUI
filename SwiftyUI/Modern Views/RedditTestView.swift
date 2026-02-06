@@ -34,6 +34,8 @@ private struct NewCard: View {
         }
         .scrollTransition { content, phase in
             content.opacity(phase.isIdentity ? 1 : 0.5)
+                .scaleEffect(phase.isIdentity ? 1 : 0.8)
+                .blur(radius: phase.isIdentity ? 0 : 10)
         }
     }
 }

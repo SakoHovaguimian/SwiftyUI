@@ -50,6 +50,9 @@ struct BottomTransitionTest: View {
             }
             
         }
+        .clipped()
+        .geometryGroup()
+        .compositingGroup()
         .shadow(radius: 8)
         .padding(.horizontal, .large)
         
@@ -66,6 +69,8 @@ struct BottomTransitionTest: View {
         .onTapGesture {
             self.state = .second
         }
+        .geometryGroup()
+        .compositingGroup()
         .clipShape(.rect(cornerRadius: .appSmall))
         .transition(.blurReplace)
         
@@ -82,6 +87,8 @@ struct BottomTransitionTest: View {
         .onTapGesture {
             self.state = nil
         }
+        .geometryGroup()
+        .compositingGroup()
         .clipShape(.rect(cornerRadius: .appSmall))
         .transition(.blurReplace)
         
