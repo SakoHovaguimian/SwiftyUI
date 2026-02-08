@@ -272,10 +272,12 @@
 		75D9584E2E42572900D7AF72 /* ConfettiParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D9584D2E42572900D7AF72 /* ConfettiParticle.swift */; };
 		75DD30FA2F23378600376BA3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DD30F92F23378300376BA3 /* Validation.swift */; };
 		75DDAA4D2D6F68AE0014DEB5 /* CalendarClone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */; };
+		75DF34E22F37E35200A84AB0 /* PlinkoDropMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF34E12F37E35200A84AB0 /* PlinkoDropMode.swift */; };
 		75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E29E442D24AB140074DCD8 /* Snowfall.swift */; };
 		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
 		75E6D2B22EE3416D006371F5 /* SegmentedBatteryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6D2B12EE3416D006371F5 /* SegmentedBatteryView.swift */; };
 		75EA61B32EEA51D300017F4C /* BentoCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EA61B22EEA51D300017F4C /* BentoCard.swift */; };
+		75EB394C2F37AD1D00B7FEE4 /* BorderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EB394B2F37AD1800B7FEE4 /* BorderCardView.swift */; };
 		75EC17FF2D03A4ED00942F10 /* Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EC17FE2D03A4EB00942F10 /* Mirror.swift */; };
 		75EDCF262DA41B53007DDE41 /* SlideConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDCF252DA41B4F007DDE41 /* SlideConfig.swift */; };
 		75EDCF282DA41B5D007DDE41 /* SlideToConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75EDCF272DA41B5A007DDE41 /* SlideToConfirmView.swift */; };
@@ -586,10 +588,12 @@
 		75D9584D2E42572900D7AF72 /* ConfettiParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticle.swift; sourceTree = "<group>"; };
 		75DD30F92F23378300376BA3 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarClone.swift; sourceTree = "<group>"; };
+		75DF34E12F37E35200A84AB0 /* PlinkoDropMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlinkoDropMode.swift; sourceTree = "<group>"; };
 		75E29E442D24AB140074DCD8 /* Snowfall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowfall.swift; sourceTree = "<group>"; };
 		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
 		75E6D2B12EE3416D006371F5 /* SegmentedBatteryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedBatteryView.swift; sourceTree = "<group>"; };
 		75EA61B22EEA51D300017F4C /* BentoCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BentoCard.swift; sourceTree = "<group>"; };
+		75EB394B2F37AD1800B7FEE4 /* BorderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderCardView.swift; sourceTree = "<group>"; };
 		75EC17FE2D03A4EB00942F10 /* Mirror.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mirror.swift; sourceTree = "<group>"; };
 		75EDCF252DA41B4F007DDE41 /* SlideConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideConfig.swift; sourceTree = "<group>"; };
 		75EDCF272DA41B5A007DDE41 /* SlideToConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideToConfirmView.swift; sourceTree = "<group>"; };
@@ -1247,6 +1251,8 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				75DF34E12F37E35200A84AB0 /* PlinkoDropMode.swift */,
+				75EB394B2F37AD1800B7FEE4 /* BorderCardView.swift */,
 				7575162C2F363D690057F9A5 /* RibbonPlayground.swift */,
 				7575162A2F3636B70057F9A5 /* FlowSegment2.swift */,
 				757516282F35B3900057F9A5 /* RadarItem.swift */,
@@ -1797,6 +1803,7 @@
 				757190362C120CE300989D41 /* Ext+NavigationController.swift in Sources */,
 				757190372C120CE300989D41 /* Ext+Color.swift in Sources */,
 				7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */,
+				75EB394C2F37AD1D00B7FEE4 /* BorderCardView.swift in Sources */,
 				75B245E42DD2546200A0BFE0 /* SegmentedCircleView.swift in Sources */,
 				757190382C120CE300989D41 /* Ext+String.swift in Sources */,
 				75D564292E931F2B00168E84 /* Chandeliers.swift in Sources */,
@@ -1920,6 +1927,7 @@
 				75ABE6E12CE9800A000DC32B /* ProgressSlider.swift in Sources */,
 				753FD8602C0E8CA200C20D1A /* SplashView.swift in Sources */,
 				75718F832C1209C200989D41 /* BoomView.swift in Sources */,
+				75DF34E22F37E35200A84AB0 /* PlinkoDropMode.swift in Sources */,
 				75F8BADE2CDE924F00A05C74 /* Shimmer.swift in Sources */,
 				75FB1C552C8CEF5C003028B8 /* HorizontalTimelineView.swift in Sources */,
 				75BB29CC2E53CEAA005CCCEE /* TestBlur.swift in Sources */,
