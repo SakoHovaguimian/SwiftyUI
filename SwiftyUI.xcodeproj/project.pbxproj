@@ -72,6 +72,7 @@
 		754AF6AD2D02492D00042BA8 /* SafeAreaGradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */; };
 		754BE1FA2D80FC9C00C20CF7 /* StoreKitProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BE1F82D80FC9C00C20CF7 /* StoreKitProtocol.swift */; };
 		754BE1FB2D80FC9C00C20CF7 /* StoreKitTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754BE1F92D80FC9C00C20CF7 /* StoreKitTestView.swift */; };
+		75502E1B2F38527900639A95 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75502E1A2F38527900639A95 /* Card.swift */; };
 		7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551B86B2C2E29540003A0F8 /* DashProgressView.swift */; };
 		75533D462D380B8D001A5010 /* VariableBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75533D452D380B89001A5010 /* VariableBlur.swift */; };
 		7556CB572C2F227E0084A130 /* SizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CB562C2F227E0084A130 /* SizingView.swift */; };
@@ -377,6 +378,7 @@
 		754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaGradientModifier.swift; sourceTree = "<group>"; };
 		754BE1F82D80FC9C00C20CF7 /* StoreKitProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitProtocol.swift; sourceTree = "<group>"; };
 		754BE1F92D80FC9C00C20CF7 /* StoreKitTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreKitTestView.swift; sourceTree = "<group>"; };
+		75502E1A2F38527900639A95 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		7551B86B2C2E29540003A0F8 /* DashProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashProgressView.swift; sourceTree = "<group>"; };
 		75533D452D380B89001A5010 /* VariableBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableBlur.swift; sourceTree = "<group>"; };
 		7556CB562C2F227E0084A130 /* SizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizingView.swift; sourceTree = "<group>"; };
@@ -1251,6 +1253,7 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				75502E1A2F38527900639A95 /* Card.swift */,
 				75DF34E12F37E35200A84AB0 /* PlinkoDropMode.swift */,
 				75EB394B2F37AD1800B7FEE4 /* BorderCardView.swift */,
 				7575162C2F363D690057F9A5 /* RibbonPlayground.swift */,
@@ -1686,6 +1689,7 @@
 				7571900A2C120BE900989D41 /* NavBarView.swift in Sources */,
 				753116572C12C18600C7FBF6 /* MeshGradientCardView.swift in Sources */,
 				757D0CB62E450E4E00C71FE4 /* NewToggleTest.swift in Sources */,
+				75502E1B2F38527900639A95 /* Card.swift in Sources */,
 				75A326B82DA72E9600CA6B46 /* StringViewTest.swift in Sources */,
 				757190302C120CB100989D41 /* KeyboardManager.swift in Sources */,
 				757190312C120CB100989D41 /* ThemeManager.swift in Sources */,

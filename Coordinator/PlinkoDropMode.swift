@@ -1,14 +1,5 @@
-//
-//  PlinkoView.swift
-//  SwiftyUI
-//
 //  Created by Sako Hovaguimian on 2/7/26.
 //
-
-// TODO:
-/// set gravity style
-/// elimination style
-/// randomly set names
 
 import SwiftUI
 import SpriteKit
@@ -119,7 +110,8 @@ final class PlinkoScene: SKScene, SKPhysicsContactDelegate {
     public var pegMode: PlinkoPegMode = .autoFill(minSpacing: 30)
     public var dropMode: PlinkoDropMode = .random
     public var ballRadius: CGFloat = 8
-    public var pegEndY: CGFloat = 100 // Configurable bottom limit for pegs
+    public var pegEndY: CGFloat = 100
+    public var gravity: Double = -4.8
     
     // Callbacks
     
@@ -137,7 +129,7 @@ final class PlinkoScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         self.backgroundColor = UIColor.clear
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: -4.8)
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: self.gravity)
         self.physicsWorld.contactDelegate = self
         self.scaleMode = .resizeFill
         
@@ -148,6 +140,10 @@ final class PlinkoScene: SKScene, SKPhysicsContactDelegate {
     public func setupScene() {
         
         removeAllChildren()
+        
+        // Ensure gravity is updated if setup is called again
+        self.physicsWorld.gravity = CGVector(dx: 0, dy: self.gravity)
+        
         createWalls()
         createSlots()
         createPegs()
@@ -266,8 +262,6 @@ final class PlinkoScene: SKScene, SKPhysicsContactDelegate {
         
         let pegRadius: CGFloat = 4
         let startY = self.size.height - 100
-        
-        // Use the configured bottom limit
         let endY: CGFloat = self.pegEndY
         
         let startX = pegRadius
@@ -306,21 +300,16 @@ final class PlinkoScene: SKScene, SKPhysicsContactDelegate {
             if isStaggered {
                 
                 let colsInRow = cols - 1
-                
                 for col in 0..<colsInRow {
-                    
                     let x = startX + (CGFloat(col) * spacing) + (spacing / 2)
                     createPeg(at: CGPoint(x: x, y: y), radius: pegRadius)
-                    
                 }
                 
             } else {
                 
                 for col in 0..<cols {
-                    
                     let x = startX + (CGFloat(col) * spacing)
                     createPeg(at: CGPoint(x: x, y: y), radius: pegRadius)
-                    
                 }
                 
             }
@@ -412,19 +401,14 @@ final class PlinkoScene: SKScene, SKPhysicsContactDelegate {
            let spawner = self.spawnerNode {
             
             var newX = spawner.position.x + (self.spawnerDirection * CGFloat(speed))
-            
             let limit = (self.ballRadius * 2) + 2
             
             if newX > self.size.width - limit {
-                
                 newX = self.size.width - limit
                 self.spawnerDirection = -1
-                
             } else if newX < limit {
-                
                 newX = limit
                 self.spawnerDirection = 1
-                
             }
             
             spawner.position.x = newX
@@ -434,10 +418,8 @@ final class PlinkoScene: SKScene, SKPhysicsContactDelegate {
         self.children
             .filter { $0.name == "ball" && $0.position.y < -50 }
             .forEach {
-                
                 $0.removeFromParent()
                 self.resetRound()
-                
             }
         
     }
@@ -520,6 +502,7 @@ public struct PlinkoView<HeaderContent: View>: View {
     private let theme: PlinkoTheme
     private let ballRadius: CGFloat
     private let pegEndY: CGFloat
+    private let gravity: Double
     private let headerContent: () -> HeaderContent
     
     private let onGameStart: (() -> Void)?
@@ -534,6 +517,7 @@ public struct PlinkoView<HeaderContent: View>: View {
                 theme: PlinkoTheme = PlinkoTheme(),
                 ballRadius: CGFloat = 10,
                 pegEndY: CGFloat = 100,
+                gravity: Double = -4.8,
                 onGameStart: (() -> Void)? = nil,
                 onGameEnd: ((PlinkoSlot) -> Void)? = nil,
                 @ViewBuilder header: @escaping () -> HeaderContent) {
@@ -544,6 +528,7 @@ public struct PlinkoView<HeaderContent: View>: View {
         self.theme = theme
         self.ballRadius = ballRadius
         self.pegEndY = pegEndY
+        self.gravity = gravity
         self.onGameStart = onGameStart
         self.onGameEnd = onGameEnd
         self.headerContent = header
@@ -574,21 +559,18 @@ public struct PlinkoView<HeaderContent: View>: View {
                                 dropMode: self.dropMode,
                                 theme: self.theme,
                                 ballRadius: self.ballRadius,
-                                pegEndY: self.pegEndY
+                                pegEndY: self.pegEndY,
+                                gravity: self.gravity
                             )
                             
                             self.sceneWrapper.scene.onGameStart = {
-                                
                                 self.isGameActive = true
                                 self.onGameStart?()
-                                
                             }
                             
                             self.sceneWrapper.scene.onGameEnd = { slot in
-                                
                                 self.isGameActive = false
                                 self.onGameEnd?(slot)
-                                
                             }
                             
                         }
@@ -610,6 +592,20 @@ public struct PlinkoView<HeaderContent: View>: View {
         .onTapGesture {
             self.sceneWrapper.scene.dropBall()
         }
+        .onChange(of: self.slots) { _ in
+            
+            // Re-sync with scene if slots are updated externally (e.g., Elimination mode)
+            self.sceneWrapper.updateConfig(
+                slots: self.slots,
+                pegMode: self.pegMode,
+                dropMode: self.dropMode,
+                theme: self.theme,
+                ballRadius: self.ballRadius,
+                pegEndY: self.pegEndY,
+                gravity: self.gravity
+            )
+            
+        }
         
     }
     
@@ -624,7 +620,8 @@ final class SceneWrapper: ObservableObject {
                              dropMode: PlinkoDropMode,
                              theme: PlinkoTheme,
                              ballRadius: CGFloat,
-                             pegEndY: CGFloat) {
+                             pegEndY: CGFloat,
+                             gravity: Double) {
         
         self.scene.slots = slots
         self.scene.pegMode = pegMode
@@ -632,6 +629,7 @@ final class SceneWrapper: ObservableObject {
         self.scene.theme = theme
         self.scene.ballRadius = ballRadius
         self.scene.pegEndY = pegEndY
+        self.scene.gravity = gravity
         self.scene.setupScene()
         
     }
@@ -645,6 +643,9 @@ struct PlinkoShowcaseView: View {
     var body: some View {
         
         TabView {
+            
+            PlinkoEliminationPreview()
+                .tabItem { Label("Eliminate", systemImage: "person.2.slash.fill") }
             
             PlinkoDemoView()
                 .tabItem { Label("Original", systemImage: "star.fill") }
@@ -661,9 +662,6 @@ struct PlinkoShowcaseView: View {
             CottonCandyPreview()
                 .tabItem { Label("Candy", systemImage: "heart.fill") }
             
-            HighStakesPreview()
-                .tabItem { Label("Vegas", systemImage: "suit.diamond.fill") }
-            
         }
         .preferredColorScheme(.dark)
         
@@ -671,7 +669,176 @@ struct PlinkoShowcaseView: View {
     
 }
 
-// MARK: - 1. The Original (Standard Demo)
+struct PlinkoEliminationPreview: View {
+    
+    @State private var participants: [String] = ["Sako", "John", "Sarah", "Emily", "Mike", "Alex", "Jordan"].shuffled()
+    @State private var eliminatedParticipants: [String] = []
+    @State private var statusText: String = "WHO IS NEXT?"
+    @State private var isWinnerFound: Bool = false
+    
+    // Initialize with the starting participants immediately
+    @State private var activeSlots: [PlinkoSlot] = []
+    
+    var body: some View {
+        
+        ZStack {
+            
+            Color.black.ignoresSafeArea()
+            
+            VStack(spacing: 0) {
+                
+                if self.isWinnerFound {
+                    
+                    winnerView
+                    
+                } else {
+                    
+                    // The Plinko Game
+                    PlinkoView(
+                        // Passing the state directly ensures the scene updates
+                        slots: self.activeSlots,
+                        pegMode: .autoFill(minSpacing: 35),
+                        dropMode: .oscillating(speed: 6.0),
+                        theme: PlinkoTheme(
+                            backgroundColor: .black,
+                            pegColor: .white.opacity(0.3),
+                            ballColor: .red,
+                            ballBorderColor: .white,
+                            slotTextColor: .white
+                        ),
+                        ballRadius: 8,
+                        gravity: -7.0,
+                        onGameStart: {
+                            self.statusText = "ELIMINATING..."
+                        },
+                        onGameEnd: { winner in
+                            handleElimination(name: winner.text)
+                        }
+                    ) {
+                        headerView
+                    }
+                    .id(activeSlots.count)
+                    
+                    eliminatedFooter
+                    
+                }
+                
+            }
+            
+        }
+        // This ensures slots are created the moment the view exists
+        .onAppear {
+            setupInitialSlots()
+        }
+        .animation(.spring(), value: self.participants)
+        .animation(.spring(), value: self.eliminatedParticipants)
+        .onChange(of: self.activeSlots) { oldValue, newValue in
+            
+        }
+        
+    }
+    
+    // MARK: - Subviews
+    
+    private var headerView: some View {
+        VStack(spacing: 8) {
+            Text(self.statusText)
+                .font(.title2.bold())
+                .foregroundColor(.red)
+            
+            Text("\(self.participants.count) Players Remaining")
+                .font(.caption)
+                .foregroundColor(.gray)
+        }
+        .padding(.top, 40)
+    }
+    
+    private var eliminatedFooter: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("ELIMINATED")
+                .font(.system(size: 10, weight: .black))
+                .foregroundColor(.gray)
+                .padding(.horizontal)
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 12) {
+                    ForEach(self.eliminatedParticipants, id: \.self) { name in
+                        Text(name)
+                            .font(.caption.bold())
+                            .strikethrough()
+                            .foregroundColor(.white.opacity(0.4))
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .background(Color.red.opacity(0.15))
+                            .cornerRadius(6)
+                    }
+                }
+                .padding(.horizontal)
+            }
+            .frame(height: 40)
+        }
+        .padding(.bottom, 20)
+    }
+    
+    private var winnerView: some View {
+        VStack(spacing: 20) {
+            Text("THE SURVIVOR")
+                .font(.caption.bold())
+                .foregroundColor(.yellow)
+            
+            Text(self.participants.first ?? "None")
+                .font(.system(size: 48, weight: .black, design: .rounded))
+                .foregroundColor(.white)
+            
+            Button("Restart Game") {
+                resetGame()
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.yellow)
+            .foregroundColor(.black)
+        }
+        .frame(maxHeight: .infinity)
+    }
+    
+    // MARK: - Logic
+    
+    private func setupInitialSlots() {
+        self.activeSlots = self.participants.map { name in
+            PlinkoSlot(multiplier: 1.0, text: name, color: .init(white: 0.2))
+        }
+    }
+    
+    private func handleElimination(name: String) {
+        // Delay to let the ball animation finish before removing the slot
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            withAnimation(.spring()) {
+                if self.participants.count > 1 {
+                    self.eliminatedParticipants.insert(name, at: 0)
+                    self.participants.removeAll { $0 == name }
+                    self.statusText = "\(name.uppercased()) REMOVED"
+                    
+                    // Re-sync slots
+                    self.activeSlots = self.participants.map { name in
+                        PlinkoSlot(multiplier: 1.0, text: name, color: .init(white: 0.2))
+                    }
+                    
+                    if self.participants.count == 1 {
+                        self.isWinnerFound = true
+                    }
+                }
+            }
+        }
+    }
+    
+    private func resetGame() {
+        self.participants = ["Sako", "John", "Sarah", "Emily", "Mike", "Alex", "Jordan"].shuffled()
+        self.eliminatedParticipants = []
+        self.isWinnerFound = false
+        self.statusText = "WHO IS NEXT?"
+        setupInitialSlots()
+    }
+}
+// MARK: - 2. The Original
 
 struct PlinkoDemoView: View {
     
@@ -706,7 +873,6 @@ struct PlinkoDemoView: View {
                 slotTextColor: .white
             ),
             ballRadius: 8,
-            pegEndY: 36, // Default Height
             onGameStart: {
                 
                 withAnimation {
@@ -760,15 +926,15 @@ struct PlinkoDemoView: View {
     
 }
 
-// MARK: - 2. Jumbo Coin Toss
+// MARK: - 3. Jumbo Coin Toss
 
 private struct JumboCoinTossPreview: View {
     
     @State private var statusText: String = "HEADS OR TAILS?"
     
     private let slots: [PlinkoSlot] = [
-        PlinkoSlot(multiplier: 1, text: "HEADS", color: Color(hex: "FFD700")), // Gold
-        PlinkoSlot(multiplier: 1, text: "TAILS", color: Color(hex: "C0C0C0"))  // Silver
+        PlinkoSlot(multiplier: 1, text: "HEADS", color: Color(hex: "FFD700")),
+        PlinkoSlot(multiplier: 1, text: "TAILS", color: Color(hex: "C0C0C0"))
     ]
     
     var body: some View {
@@ -789,7 +955,8 @@ private struct JumboCoinTossPreview: View {
                 slotTextColor: .black
             ),
             ballRadius: 25,
-            pegEndY: 120, // Higher pegs
+            pegEndY: 120,
+            gravity: -5.5,
             onGameStart: {
                 
                 withAnimation {
@@ -829,7 +996,7 @@ private struct JumboCoinTossPreview: View {
     
 }
 
-// MARK: - 3. Binary Oracle
+// MARK: - 4. Binary Oracle
 
 private struct BinaryOraclePreview: View {
     
@@ -858,7 +1025,8 @@ private struct BinaryOraclePreview: View {
                 slotTextColor: .gray
             ),
             ballRadius: 18,
-            pegEndY: 80, // Lower pegs
+            pegEndY: 80,
+            gravity: -4.0,
             onGameStart: {
                 
                 withAnimation {
@@ -883,7 +1051,6 @@ private struct BinaryOraclePreview: View {
                     .padding()
                     .background(self.answer == "NO" ? .white : (self.answer == "YES" ? .black : .clear))
                     .cornerRadius(12)
-                    .animation(.spring, value: self.answer)
                 
             }
             .padding(.top, 50)
@@ -894,7 +1061,7 @@ private struct BinaryOraclePreview: View {
     
 }
 
-// MARK: - 4. Neon Cyberpunk Theme
+// MARK: - 5. Neon Cyberpunk
 
 private struct NeonCyberpunkPreview: View {
     
@@ -929,7 +1096,8 @@ private struct NeonCyberpunkPreview: View {
                 slotTextColor: .white
             ),
             ballRadius: 6,
-            pegEndY: 60, // Close to slots
+            pegEndY: 60,
+            gravity: -8.0,
             onGameStart: {
                 
                 withAnimation {
@@ -969,7 +1137,7 @@ private struct NeonCyberpunkPreview: View {
     
 }
 
-// MARK: - 5. Cotton Candy Theme
+// MARK: - 6. Cotton Candy
 
 private struct CottonCandyPreview: View {
     
@@ -1002,127 +1170,23 @@ private struct CottonCandyPreview: View {
                 slotTextColor: .gray
             ),
             ballRadius: 12,
-            onGameStart: {
-                
-                withAnimation {
-                    self.gameStatus = "Wheee!"
-                }
-                
-            },
+            gravity: -3.0,
             onGameEnd: { winner in
-                
-                withAnimation {
-                    self.gameStatus = "Yum! \(winner.text)"
-                }
-                
+                self.gameStatus = "Yum! \(winner.text)"
             }
         ) {
             
-            VStack(spacing: 4) {
-                
-                Text(self.gameStatus)
-                    .font(.system(.title, design: .rounded).weight(.heavy))
-                    .foregroundColor(Color(hex: "FF9AA2"))
-                
-                Text("Tap anywhere for a treat")
-                    .font(.caption)
-                    .foregroundColor(.gray)
-                
-            }
-            .padding(.top, 40)
-            
-        }
-        .colorScheme(.light)
-        
-    }
-    
-}
-
-// MARK: - 6. High Stakes (Vegas) Theme
-
-private struct HighStakesPreview: View {
-    
-    @State private var chips: Int = 1000
-    @State private var lastWinAmount: Int = 0
-    
-    private let slots: [PlinkoSlot] = [
-        PlinkoSlot(multiplier: 50, text: "50x", color: Color(hex: "FFD700")),
-        PlinkoSlot(multiplier: 10, text: "10x", color: Color(hex: "C0C0C0")),
-        PlinkoSlot(multiplier: 0, text: "0x", color: Color(hex: "8B0000")),
-        PlinkoSlot(multiplier: 0.5, text: "0.5x", color: Color(hex: "2E8B57")),
-        PlinkoSlot(multiplier: 0, text: "0x", color: Color(hex: "8B0000")),
-        PlinkoSlot(multiplier: 10, text: "10x", color: Color(hex: "C0C0C0")),
-        PlinkoSlot(multiplier: 50, text: "50x", color: Color(hex: "FFD700"))
-    ]
-    
-    var body: some View {
-        
-        PlinkoView(
-            slots: self.slots,
-            pegMode: .autoFill(minSpacing: 25),
-            dropMode: .oscillating(speed: 2.0),
-            theme: PlinkoTheme(
-                backgroundColor: Color(hex: "0B3D25"),
-                pegColor: Color(hex: "F0E68C"),
-                pegBorderColor: Color(hex: "B8860B"),
-                pegBorderWidth: 1.0,
-                ballColor: .white,
-                ballBorderColor: .gray,
-                ballBorderWidth: 1.0,
-                slotDividerColor: Color(hex: "F0E68C").opacity(0.3),
-                slotTextColor: Color(hex: "F0E68C")
-            ),
-            ballRadius: 5,
-            pegEndY: 40, // High risk, slots are immediate
-            onGameStart: {
-                
-                self.chips -= 100
-                self.lastWinAmount = 0
-                
-            },
-            onGameEnd: { winner in
-                
-                let win = Int(100.0 * winner.multiplier)
-                self.lastWinAmount = win
-                self.chips += win
-                
-            }
-        ) {
-            
-            HStack(spacing: 40) {
-                
-                VStack(spacing: 4) {
-                    
-                    Text("BALANCE")
-                        .font(.caption2.bold())
-                        .foregroundColor(Color(hex: "F0E68C").opacity(0.7))
-                    
-                    Text("$\(self.chips)")
-                        .font(.title2.bold())
-                        .foregroundColor(Color(hex: "F0E68C"))
-                    
-                }
-                
-                VStack(spacing: 4) {
-                    
-                    Text("LAST WIN")
-                        .font(.caption2.bold())
-                        .foregroundColor(Color(hex: "F0E68C").opacity(0.7))
-                    
-                    Text(self.lastWinAmount > 0 ? "+\(self.lastWinAmount)" : "-")
-                        .font(.title2.bold())
-                        .foregroundColor(self.lastWinAmount > 0 ? .green : .white)
-                    
-                }
-                
-            }
-            .padding(.top, 40)
+            Text(self.gameStatus)
+                .font(.title.bold())
+                .foregroundColor(Color(hex: "FF9AA2"))
+                .padding(.top, 40)
             
         }
         
     }
     
 }
+
 
 #Preview {
     PlinkoShowcaseView()

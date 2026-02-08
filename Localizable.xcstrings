@@ -53,6 +53,9 @@
     "%lld percent" : {
 
     },
+    "%lld Players Remaining" : {
+
+    },
     "%lld steps left" : {
 
     },
@@ -106,6 +109,9 @@
 
     },
     "24%" : {
+
+    },
+    "50 / 50" : {
 
     },
     "72 BPM" : {
@@ -207,6 +213,9 @@
     "Cancel" : {
 
     },
+    "Candy" : {
+
+    },
     "captures" : {
 
     },
@@ -286,6 +295,12 @@
 
     },
     "Editor" : {
+
+    },
+    "Eliminate" : {
+
+    },
+    "ELIMINATED" : {
 
     },
     "Email" : {
@@ -441,6 +456,9 @@
     "Items" : {
 
     },
+    "Jumbo" : {
+
+    },
     "Kind" : {
 
     },
@@ -451,6 +469,9 @@
 
     },
     "LEVEL" : {
+
+    },
+    "Level %lld" : {
 
     },
     "Level Up" : {
@@ -492,10 +513,16 @@
     "MOVE" : {
 
     },
+    "Multiplier: %@" : {
+
+    },
     "My Button" : {
 
     },
     "My Values" : {
+
+    },
+    "Neon" : {
 
     },
     "NEW FEATURES" : {
@@ -519,10 +546,19 @@
     "OK" : {
 
     },
+    "OMEGA RARE" : {
+
+    },
     "OP" : {
 
     },
+    "Oracle" : {
+
+    },
     "Order" : {
+
+    },
+    "Original" : {
 
     },
     "OTHER TEXT" : {
@@ -627,6 +663,9 @@
     "Recursion" : {
 
     },
+    "RELOAD DECK" : {
+
+    },
     "Replace" : {
 
     },
@@ -634,6 +673,9 @@
 
     },
     "Reset Elimination" : {
+
+    },
+    "Restart Game" : {
 
     },
     "Restore Purchases" : {
@@ -742,6 +784,9 @@
     "SomeTest" : {
 
     },
+    "Spin" : {
+
+    },
     "Spin Wheel Lab" : {
 
     },
@@ -802,6 +847,12 @@
     "Tap Me" : {
 
     },
+    "Tap screen to release" : {
+
+    },
+    "TAP TO RELEASE" : {
+
+    },
     "Tap To Twirl" : {
 
     },
@@ -820,6 +871,9 @@
       }
     },
     "TEXT" : {
+
+    },
+    "THE SURVIVOR" : {
 
     },
     "This is " : {
@@ -844,6 +898,12 @@
 
     },
     "Tip Jar" : {
+
+    },
+    "TITAN\nDECK" : {
+
+    },
+    "TITANIUM\nEDITION" : {
 
     },
     "Toggle Animation" : {

@@ -1,5 +1,54 @@
 import SwiftUI
 
+// MARK: - Pattern Definition
+
+/// Defines the mask pattern used for the rotating border.
+public enum BorderBeamPattern {
+    case solid
+    case singleBeam
+    case dualBeam
+    case quadBeam
+    case custom([Gradient.Stop])
+    
+    var stops: [Gradient.Stop] {
+        switch self {
+        case .solid:
+            return [.init(color: .white, location: 0)]
+            
+        case .singleBeam:
+            return [
+                .init(color: .clear, location: 0.0),
+                .init(color: .white, location: 0.1),
+                .init(color: .clear, location: 0.2)
+            ]
+            
+        case .dualBeam:
+            // The original logic
+            return [
+                .init(color: .clear, location: 0.0),
+                .init(color: .white, location: 0.10),
+                .init(color: .clear, location: 0.20),
+                .init(color: .clear, location: 0.50),
+                .init(color: .white, location: 0.60),
+                .init(color: .clear, location: 0.70)
+            ]
+            
+        case .quadBeam:
+            return [
+                .init(color: .clear, location: 0.0), .init(color: .white, location: 0.05), .init(color: .clear, location: 0.1),
+                .init(color: .clear, location: 0.25), .init(color: .white, location: 0.30), .init(color: .clear, location: 0.35),
+                .init(color: .clear, location: 0.5), .init(color: .white, location: 0.55), .init(color: .clear, location: 0.6),
+                .init(color: .clear, location: 0.75), .init(color: .white, location: 0.80), .init(color: .clear, location: 0.85)
+            ]
+            
+        case .custom(let stops):
+            return stops
+        }
+    }
+}
+
+// MARK: - View Modifier
+
 struct SimpleCornerBorder<S: ShapeStyle>: ViewModifier {
     
     // MARK: - Private Properties
@@ -11,32 +60,24 @@ struct SimpleCornerBorder<S: ShapeStyle>: ViewModifier {
     
     // Configuration properties
     private let animation: Animation
-    private let gradientStops: [Gradient.Stop]?
+    private let pattern: BorderBeamPattern
     
     // MARK: - Initializer
     
     /// Applies a rotating border with a masking effect to the view.
-    ///
-    /// - Parameters:
-    ///   - radius: The corner radius of the border. Defaults to `16`.
-    ///   - thickness: The line width of the border. Defaults to `4`.
-    ///   - style: The shape style (color or gradient) to apply to the border.
-    ///   - animation: The animation the border follows. Defaults to  `.linear(duration: 3).repeatForever(autoreverses: false)`
-    ///   - gradientStops: Custom gradient stops for the mask. If `nil`, uses the default "dual-beam" pattern.
-    ///   - isAnimating: Controls whether the border rotation animation is active.
     public init(
         radius: CGFloat = 16,
         thickness: CGFloat = 4,
         style: S,
         animation: Animation = .linear(duration: 3).repeatForever(autoreverses: false),
-        gradientStops: [Gradient.Stop]? = nil,
+        pattern: BorderBeamPattern = .dualBeam,
         isAnimating: Bool
     ) {
         self.radius = radius
         self.thickness = thickness
         self.style = style
         self.animation = animation
-        self.gradientStops = gradientStops
+        self.pattern = pattern
         self.isAnimating = isAnimating
     }
     
@@ -47,12 +88,12 @@ struct SimpleCornerBorder<S: ShapeStyle>: ViewModifier {
             .overlay {
                 GeometryReader { proxy in
                     let dimension = max(proxy.size.width, proxy.size.height) * 2
-                    
+                   
                     RoundedRectangle(cornerRadius: radius)
                         .strokeBorder(style, lineWidth: thickness)
                         .mask {
                             AngularGradient(
-                                stops: currentGradientStops,
+                                stops: pattern.stops,
                                 center: .center
                             )
                             .frame(width: dimension, height: dimension)
@@ -61,32 +102,12 @@ struct SimpleCornerBorder<S: ShapeStyle>: ViewModifier {
                         }
                 }
             }
-            // TODO: - Add configuration for Animation Curve (e.g., .easeInOut vs .linear)
             .animation(
                 isAnimating
                     ? animation
                     : .default,
                 value: isAnimating
             )
-    }
-    
-    // MARK: - Helpers
-    
-    private var currentGradientStops: [Gradient.Stop] {
-        // TODO: - Create a static preset enum for different beam patterns (e.g. .singleBeam, .quadBeam)
-        if let customStops = gradientStops {
-            return customStops
-        }
-        
-        // Default "Dual Beam" Pattern
-        return [
-            .init(color: .clear, location: 0.0),
-            .init(color: .white, location: 0.10),
-            .init(color: .clear, location: 0.20),
-            .init(color: .clear, location: 0.50),
-            .init(color: .white, location: 0.60),
-            .init(color: .clear, location: 0.70)
-        ]
     }
 }
 
@@ -100,7 +121,7 @@ extension View {
         thickness: CGFloat = 4,
         style: S,
         animation: Animation = .linear(duration: 3).repeatForever(autoreverses: false),
-        gradientStops: [Gradient.Stop]? = nil,
+        pattern: BorderBeamPattern = .dualBeam, // New Enum Default
         isAnimating: Bool = false
     ) -> some View {
         self.modifier(
@@ -109,7 +130,7 @@ extension View {
                 thickness: thickness,
                 style: style,
                 animation: animation,
-                gradientStops: gradientStops,
+                pattern: pattern,
                 isAnimating: isAnimating
             )
         )
@@ -122,31 +143,69 @@ struct SimpleExample: View {
     @State private var isSpinning = false
     
     var body: some View {
-        VStack {
-            Text("Investments")
-                .font(.headline)
-                .frame(width: 300, height: 500)
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
+        VStack(spacing: 40) {
+            
+            CardViewCustom(title: "Dual Beam (Default)")
                 .simpleCornerBorder(
-                    radius: 20,
-                    thickness: 4,
-                    style: LinearGradient(
-                        colors: [.blue, .purple],
-                        startPoint: .top,
-                        endPoint: .bottom
-                    ),
+                    style: .linearGradient(colors: [.blue, .purple], startPoint: .top, endPoint: .bottom),
+                    pattern: .singleBeam,
+                    isAnimating: isSpinning
+                )
+            
+            // Example 1: Standard Dual Beam
+            CardViewCustom(title: "Dual Beam (Default)")
+                .simpleCornerBorder(
+                    style: .linearGradient(colors: [.blue, .purple], startPoint: .top, endPoint: .bottom),
+                    pattern: .dualBeam,
+                    isAnimating: isSpinning
+                )
+            
+            // Example 2: Quad Beam
+            CardViewCustom(title: "Quad Beam")
+                .simpleCornerBorder(
+                    style: .linearGradient(colors: [.orange, .yellow], startPoint: .top, endPoint: .bottom),
+                    pattern: .quadBeam,
+                    isAnimating: isSpinning
+                )
+
+            // Example 3: Custom Pattern
+            CardViewCustom(title: "Custom (Tiny Dot)")
+                .simpleCornerBorder(
+                    style: .green,
+                    pattern: .custom([
+                        .init(color: .clear, location: 0),
+                        .init(color: .white, location: 0.01),
+                        .init(color: .clear, location: 0.1),
+                        .init(color: .clear, location: 0.2),
+                        .init(color: .clear, location: 0.3),
+                        .init(color: .clear, location: 0.9),
+                        .init(color: .clear, location: 1.9),
+                    ]),
                     isAnimating: isSpinning
                 )
             
             Button("Spin") {
                 isSpinning.toggle()
             }
-            .padding(.top, 50)
+            .buttonStyle(.borderedProminent)
+            .padding(.top, 20)
         }
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.gray.opacity(0.1))
+        .background(Color.black.opacity(0.9))
+    }
+}
+
+// Helper for preview cleanliness
+struct CardViewCustom: View {
+    let title: String
+    var body: some View {
+        Text(title)
+            .font(.headline)
+            .foregroundStyle(.white)
+            .frame(width: 200, height: 100)
+            .background(Color.gray.opacity(0.2))
+            .clipShape(RoundedRectangle(cornerRadius: 16))
     }
 }
 
