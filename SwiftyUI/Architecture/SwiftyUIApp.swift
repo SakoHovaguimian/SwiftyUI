@@ -1,195 +1,265 @@
 //
-//  SwiftyUIApp.swift
-//  SwiftyUI
+//  AlwaysOnTop.swift
+//  Rune
 //
-//  Created by Sako Hovaguimian on 6/3/24.
+//  Created by Sako Hovaguimian on 11/29/25.
 //
 
 import SwiftUI
+import UIKit
 
-final class AlwaysOnTopWindowManager {
+@MainActor
+public enum OverlayChannel: Hashable {
     
-    static let shared = AlwaysOnTopWindowManager()
+    case toast
+    case alert
+    case custom(String)
     
-    private var window: PassthroughWindow?
-    
-    func show<Content: View>(_ view: Content) {
+    var windowLevel: UIWindow.Level {
+        switch self {
+        case .toast:
+            
+            // Below alerts, above normal app content
+            return .alert + 1
+            
+        case .alert:
+            
+            // On top of everything
+            return .alert + 2
+            
+        case .custom:
+            
+            // Reasonable default for extra overlays
+            return .statusBar + 1
+        }
         
-        // If we already have a window, just update its content.
-        if let window {
+    }
+    
+}
+
+@MainActor
+final public class AlwaysOnTopWindowManager {
+    
+    public static let shared = AlwaysOnTopWindowManager()
+    
+    private var windows: [OverlayChannel: PassThroughWindow] = [:]
+    private var pending: [OverlayChannel: () -> AnyView] = [:]
+    
+    private init() {
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(handleDidBecomeActive),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil
+        )
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: - Public API
+    
+    public func show<Content: View>(
+        _ channel: OverlayChannel,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        
+        let anyContent: () -> AnyView = {
+            AnyView(content())
+        }
+        
+        guard let scene = self.bestWindowScene() else {
             
-            if let hosting = window.rootViewController as? UIHostingController<AnyView> {
-                hosting.rootView = AnyView(view)
-            } else {
-                window.rootViewController = UIHostingController(rootView: AnyView(view))
-            }
+            /// Scene not ready yet (common at root)
+            self.pending[channel] = anyContent
             
+            return
+        }
+        
+        self.pending[channel] = nil
+        
+        self.show(
+            channel,
+            in: scene,
+            content: anyContent
+        )
+        
+    }
+    
+    public func hide(_ channel: OverlayChannel) {
+        
+        guard let window = self.windows[channel] else { return }
+        
+        window.isHidden = true
+        window.rootViewController = nil
+        
+        self.windows[channel] = nil
+        self.pending[channel] = nil
+        
+    }
+    
+    public func hideAll() {
+        
+        self.windows.values.forEach {
+            
+            $0.isHidden = true
+            $0.rootViewController = nil
+            
+        }
+        
+        self.windows.removeAll()
+        self.pending.removeAll()
+        
+    }
+    
+    // MARK: - Private
+    
+    @objc
+    private func handleDidBecomeActive() {
+        
+        guard !self.pending.isEmpty else { return }
+        guard let scene = self.bestWindowScene() else { return }
+        
+        let queued = self.pending
+        self.pending.removeAll()
+        
+        for (channel, content) in queued {
+            
+            self.show(
+                channel,
+                in: scene,
+                content: content
+            )
+            
+        }
+        
+    }
+    
+    private func show(
+        _ channel: OverlayChannel,
+        in scene: UIWindowScene,
+        content: @escaping () -> AnyView
+    ) {
+        
+        /// Reuse window if possible
+        if let window = self.windows[channel],
+           let hosting = window.rootViewController as? UIHostingController<AnyView> {
+            
+            hosting.rootView = content()
+            
+            window.windowLevel = channel.windowLevel
             window.isHidden = false
-            window.windowLevel = .alert + 1
-            return
             
-        }
-        
-        // Grab *any* UIWindowScene instead of requiring .foregroundActive
-        guard let scene = UIApplication.shared
-            .connectedScenes
-            .compactMap({ $0 as? UIWindowScene })
-            .first
-        else {
+            self.syncFrame(of: window, to: scene)
+            
             return
         }
         
-        let window = PassthroughWindow(windowScene: scene)
-        let hosting = UIHostingController(rootView: AnyView(view))
+        let window = PassThroughWindow(windowScene: scene)
+        let hosting = UIHostingController(rootView: content())
         
         hosting.view.backgroundColor = .clear
         
         window.rootViewController = hosting
-        window.windowLevel = .alert + 1     // stays above fullScreenCover
         window.backgroundColor = .clear
-        window.isUserInteractionEnabled = true
+        window.windowLevel = channel.windowLevel
+        window.isHidden = false
         
-        window.makeKeyAndVisible()          // <- important
+        self.syncFrame(of: window, to: scene)
         
-        self.window = window
+        self.windows[channel] = window
+        
     }
     
-    func hide() {
+    private func syncFrame(of window: UIWindow, to scene: UIWindowScene) {
         
-        self.window?.isHidden = true
-        self.window = nil
+        if let keyWindow = scene.windows.first(where: { $0.isKeyWindow }) {
+            
+            window.frame = keyWindow.bounds
+            
+        } else {
+            
+            window.frame = scene.screen.bounds
+            
+        }
         
     }
+    
+    private func bestWindowScene() -> UIWindowScene? {
+        
+        let scenes = UIApplication.shared
+            .connectedScenes
+            .compactMap { $0 as? UIWindowScene }
+        
+        /// Prefer foregroundActive, but fall back to foregroundInactive (launch / transitions)
+        if let active = scenes.first(where: { $0.activationState == .foregroundActive }) {
+            return active
+        }
+        
+        if let inactive = scenes.first(where: { $0.activationState == .foregroundInactive }) {
+            return inactive
+        }
+        
+        return scenes.first
+        
+    }
+    
 }
 
-fileprivate class PassthroughWindow: UIWindow {
+import UIKit
+
+public class PassThroughWindow: UIWindow {
     
-    override func hitTest(_ point: CGPoint,
+    public override func hitTest(_ point: CGPoint,
                           with event: UIEvent?) -> UIView? {
         
-        guard let view = super.hitTest(point, with: event) else { return nil }
-        return rootViewController?.view == view ? nil : view
+        guard let hitView = super.hitTest(point, with: event),
+              let rootView = rootViewController?.view else {
+            
+            return nil
+            
+        }
+        
+        if #available(iOS 26, *) {
+            
+            if rootView.layer.hitTest(point)?.name == nil {
+                return rootView
+            }
+            
+            return nil
+            
+        } else {
+            
+            if #unavailable(iOS 18) {
+                
+                /// Less than iOS 18
+                return hitView == rootView ? nil : hitView
+                
+            } else {
+                
+                /// iOS 18 to less than iOS 26
+                for subview in rootView.subviews.reversed() {
+                    
+                    /// Finding if any of rootview's subview is receving hit test
+                    let pointInSubView = subview.convert(point, from: rootView)
+                    if subview.hitTest(pointInSubView, with: event) != nil {
+                        return hitView
+                    }
+                    
+                }
+                
+                return nil
+                
+            }
+            
+        }
         
     }
     
 }
-
-//@main
-//struct MyApp2: App {
-//    
-//    @State private var shouldShow: Bool = true
-//    
-//    var body: some Scene {
-//        
-//        WindowGroup {
-//            
-//            DrawingView()
-//            
-//        }
-//        
-//    }
-//    
-//    private var overlayView: some View {
-//        
-//        Text("🚀 OVER EVERYTHING")
-//            .font(.largeTitle.bold())
-//            .foregroundStyle(.white)
-//            .padding()
-//            .background(
-//                Color.black.opacity(0.7)
-//            )
-//            .cornerRadius(12)
-//            .padding(.top, 60)
-//            .frame(
-//                maxWidth: .infinity,
-//                maxHeight: .infinity,
-//                alignment: .top
-//            )
-//            .allowsHitTesting(false)   // so it doesn’t block taps below, if you want
-//        
-//    }
-//}
-
-//@main
-//struct MyApp2: App {
-//    
-//    @State var shouldShow: Bool = true
-// 
-//    var body: some Scene {
-//        
-//        WindowGroup {
-//            
-//            ZStack {
-//                
-//                Color.green.ignoresSafeArea()
-//                
-//                Color.red.ignoresSafeArea()
-//                    .fullScreenCover(isPresented: $shouldShow) {
-//                        
-//                        Color.blue.ignoresSafeArea()
-//                            .onTapGesture {
-//                                shouldShow = false
-//                            }
-//                        
-//                    }
-//                
-//                Color.yellow.ignoresSafeArea()
-//                
-//            }
-//            .overlay {
-//                
-//                Text("SOME TEST")
-//                    .foregroundStyle(.white)
-//                    .font(.largeTitle)
-//                
-//            }
-//            
-////            ScrollBannerViewPreview()
-//            
-////            StaggeredTestView()
-////            SubscriptionView()
-////            SomePreviewView()
-////            SomePreviewView()
-////            AccelerometerBallView()
-//            
-////            ScrollView {
-////                
-////                AccelerometerBallView()
-////                    .padding(.top, 48)
-////                
-////                PieChartView(logChartData: [
-////                    .init(logType: "Info", totalCount: 100),
-////                    .init(logType: "Error", totalCount: 150),
-////                    .init(logType: "Success", totalCount: 200),
-////                    .init(logType: "Debug", totalCount: 250),
-////                    .init(logType: "Fault", totalCount: 300),
-////                ])
-////                
-////                LineChartView(logChartData: [
-////                    .init(logType: "Info", totalCount: 100),
-////                    .init(logType: "Error", totalCount: 150),
-////                    .init(logType: "Success", totalCount: 200),
-////                    .init(logType: "Debug", totalCount: 250),
-////                    .init(logType: "Fault", totalCount: 300),
-////                    .init(logType: "Info", totalCount: 500)
-////                ])
-////                
-////                BarChartView(logChartData: [
-////                    .init(logType: "Info", totalCount: 100),
-////                    .init(logType: "Error", totalCount: 150),
-////                    .init(logType: "Success", totalCount: 200),
-////                    .init(logType: "Debug", totalCount: 250),
-////                    .init(logType: "Fault", totalCount: 300),
-////                    .init(logType: "Info", totalCount: 500)
-////                ])
-////                
-////            }
-//            
-//        }
-//        
-//    }
-//    
-//}
 
 @main
 struct SwiftyUIApp: App {
@@ -199,7 +269,7 @@ struct SwiftyUIApp: App {
 //    private let demoViewModel: DemoViewModel
     
     init() {
-//        
+//
 //        self.demoViewModel = self.appAssembler
 //            .resolver
 //            .resolve(DemoViewModel.self)!
@@ -212,7 +282,7 @@ struct SwiftyUIApp: App {
         WindowGroup {
 //            let url: URL  = .init(string: "https://fastly.picsum.photos/id/237/1080/1920.jpg?hmac=M8JWQ-aKjdPJk7LsPrXgN_XlxgxXsm1Pr-_WEr6obYU")!
 //            let url = Bundle.main.url(forResource: "Sample", withExtension: "pdf")!
-//            
+//
 //            return PDFPencilKitEditorView(
 //                initialPDFURL: url,
 //                outputFileName: "MyEdited.pdf",
@@ -222,10 +292,12 @@ struct SwiftyUIApp: App {
 //            CleanPDFContainer()
 //            ImageDrawingView(imageURL: url)
 //            GlowProDashboardView()
-            DemoWheelSpin()
-                .preferredColorScheme(.light)
-                .colorScheme(.light)
-                .toolbarColorScheme(.light, for: .automatic)
+//            DemoWheelSpin()
+//                .preferredColorScheme(.light)
+//                .colorScheme(.light)
+//                .toolbarColorScheme(.light, for: .automatic)
+            
+            DynamicIslandAlwaysOnTop()
         }
         
     }

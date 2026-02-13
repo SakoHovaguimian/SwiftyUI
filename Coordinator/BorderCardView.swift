@@ -171,15 +171,14 @@ struct SimpleExample: View {
             // Example 3: Custom Pattern
             CardViewCustom(title: "Custom (Tiny Dot)")
                 .simpleCornerBorder(
-                    style: .green,
+                    style: .brandGreen,
                     pattern: .custom([
-                        .init(color: .clear, location: 0),
-                        .init(color: .white, location: 0.01),
-                        .init(color: .clear, location: 0.1),
-                        .init(color: .clear, location: 0.2),
-                        .init(color: .clear, location: 0.3),
-                        .init(color: .clear, location: 0.9),
-                        .init(color: .clear, location: 1.9),
+                        .init(color: .clear, location: 0.0),
+                        .init(color: .white, location: 0.10),
+                        .init(color: .clear, location: 0.20),
+                        .init(color: .clear, location: 0.50),
+                        .init(color: .white, location: 0.60),
+                        .init(color: .clear, location: 0.70)
                     ]),
                     isAnimating: isSpinning
                 )

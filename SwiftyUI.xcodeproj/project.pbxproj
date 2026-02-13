@@ -19,8 +19,11 @@
 		7502247E2EE00F35003FD733 /* PDFEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7502247D2EE00F35003FD733 /* PDFEditor.swift */; };
 		7502D4052D38265700263263 /* ZigZagShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7502D4042D38265200263263 /* ZigZagShape.swift */; };
 		7507E3412ED128C400577064 /* BudgetCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7507E3402ED128C400577064 /* BudgetCategory.swift */; };
+		750867D82F3E7A05009D9160 /* WeatherLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750867D72F3E7A05009D9160 /* WeatherLabView.swift */; };
+		750867DA2F3E7A1A009D9160 /* shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 750867D92F3E7A16009D9160 /* shaders.metal */; };
 		750B1B3A2CA88ECF007F93E2 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757382C42CA88B00007ACA27 /* RatingView.swift */; };
 		750B1B582CA89037007F93E2 /* GestureFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750B1B572CA8902C007F93E2 /* GestureFillView.swift */; };
+		750E19872F3BDD6500395245 /* DynamicIslandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750E19862F3BDD6500395245 /* DynamicIslandView.swift */; };
 		751361CA2DE4BD6B00C51230 /* SliderTicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751361C92DE4BD6B00C51230 /* SliderTicker.swift */; };
 		751361CB2DE4BD6B00C51230 /* CardFlipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751361C82DE4BD6B00C51230 /* CardFlipView.swift */; };
 		7513DC852EF4D4B6009F2A1F /* FireworksConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7513DC842EF4D4B6009F2A1F /* FireworksConfiguration.swift */; };
@@ -189,6 +192,7 @@
 		759188BB2F243D510051BAE3 /* ContentViewt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759188BA2F243D510051BAE3 /* ContentViewt.swift */; };
 		759206F82DB14B8B00E53B72 /* MentionPickerView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759206F72DB14B8B00E53B72 /* MentionPickerView2.swift */; };
 		7593D69B2E09938A003C50CD /* SignitureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593D69A2E099386003C50CD /* SignitureView.swift */; };
+		759561942F3E3AC5008A1D0A /* StrokeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759561932F3E3AC5008A1D0A /* StrokeModifier.swift */; };
 		75971A712D9C2E70007F6E52 /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75971A702D9C2E6C007F6E52 /* CodeInputView.swift */; };
 		7597E66C2D63E1B50056AAC2 /* MatchedGeoView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7597E66B2D63E1B00056AAC2 /* MatchedGeoView2.swift */; };
 		7597E8F22D8268F600C9334F /* CustomAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */; };
@@ -327,7 +331,10 @@
 		7502247D2EE00F35003FD733 /* PDFEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFEditor.swift; sourceTree = "<group>"; };
 		7502D4042D38265200263263 /* ZigZagShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZigZagShape.swift; sourceTree = "<group>"; };
 		7507E3402ED128C400577064 /* BudgetCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
+		750867D72F3E7A05009D9160 /* WeatherLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLabView.swift; sourceTree = "<group>"; };
+		750867D92F3E7A16009D9160 /* shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = shaders.metal; sourceTree = "<group>"; };
 		750B1B572CA8902C007F93E2 /* GestureFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureFillView.swift; sourceTree = "<group>"; };
+		750E19862F3BDD6500395245 /* DynamicIslandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicIslandView.swift; sourceTree = "<group>"; };
 		751361C82DE4BD6B00C51230 /* CardFlipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlipView.swift; sourceTree = "<group>"; };
 		751361C92DE4BD6B00C51230 /* SliderTicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderTicker.swift; sourceTree = "<group>"; };
 		7513DC842EF4D4B6009F2A1F /* FireworksConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworksConfiguration.swift; sourceTree = "<group>"; };
@@ -503,6 +510,7 @@
 		759188BA2F243D510051BAE3 /* ContentViewt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewt.swift; sourceTree = "<group>"; };
 		759206F72DB14B8B00E53B72 /* MentionPickerView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentionPickerView2.swift; sourceTree = "<group>"; };
 		7593D69A2E099386003C50CD /* SignitureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignitureView.swift; sourceTree = "<group>"; };
+		759561932F3E3AC5008A1D0A /* StrokeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeModifier.swift; sourceTree = "<group>"; };
 		75971A702D9C2E6C007F6E52 /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
 		7597E66B2D63E1B00056AAC2 /* MatchedGeoView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoView2.swift; sourceTree = "<group>"; };
 		7597E8F12D8268ED00C9334F /* CustomAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationTest.swift; sourceTree = "<group>"; };
@@ -1253,6 +1261,10 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				750867D92F3E7A16009D9160 /* shaders.metal */,
+				750867D72F3E7A05009D9160 /* WeatherLabView.swift */,
+				759561932F3E3AC5008A1D0A /* StrokeModifier.swift */,
+				750E19862F3BDD6500395245 /* DynamicIslandView.swift */,
 				75502E1A2F38527900639A95 /* Card.swift */,
 				75DF34E12F37E35200A84AB0 /* PlinkoDropMode.swift */,
 				75EB394B2F37AD1800B7FEE4 /* BorderCardView.swift */,
@@ -1685,6 +1697,8 @@
 				75718F852C1209DF00989D41 /* WaterFillView.swift in Sources */,
 				757190112C120BF700989D41 /* TextEditView.swift in Sources */,
 				75718F892C120A1600989D41 /* CurrencyTextField.swift in Sources */,
+				750867D82F3E7A05009D9160 /* WeatherLabView.swift in Sources */,
+				750867DA2F3E7A1A009D9160 /* shaders.metal in Sources */,
 				751B4D642C93EDEE006239EC /* RichText.swift in Sources */,
 				7571900A2C120BE900989D41 /* NavBarView.swift in Sources */,
 				753116572C12C18600C7FBF6 /* MeshGradientCardView.swift in Sources */,
@@ -1773,8 +1787,10 @@
 				753116562C12C18600C7FBF6 /* GradientCardView.swift in Sources */,
 				756A5F2C2D684D6200082154 /* CommonImageView.swift in Sources */,
 				753116582C12C18600C7FBF6 /* PintrestLayout.swift in Sources */,
+				750E19872F3BDD6500395245 /* DynamicIslandView.swift in Sources */,
 				757190522C120F7900989D41 /* ColorDemoView.swift in Sources */,
 				75827EEA2DB8761300132BD0 /* fdljfgdl.swift in Sources */,
+				759561942F3E3AC5008A1D0A /* StrokeModifier.swift in Sources */,
 				7541096A2DADA8BD00B2AE4B /* verticalScroll.swift in Sources */,
 				75F7897C2D89199C00FEBED8 /* UserDefaultsKeyProtocol.swift in Sources */,
 				7507E3412ED128C400577064 /* BudgetCategory.swift in Sources */,
@@ -2110,7 +2126,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
@@ -2148,7 +2164,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
