@@ -48,6 +48,7 @@
 		752563FE2D14C0D0009AFC34 /* IconAnimationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */; };
 		75287A942C4365C700787C50 /* AnalyticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75287A932C4365C200787C50 /* AnalyticsService.swift */; };
 		75287A972C43662700787C50 /* Amplitude in Frameworks */ = {isa = PBXBuildFile; productRef = 75287A962C43662700787C50 /* Amplitude */; };
+		7530C8CE2F411EEA00ED3B76 /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530C8CD2F411EEA00ED3B76 /* SwipeAction.swift */; };
 		7531164F2C12C11D00C7FBF6 /* GrowingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7531164E2C12C11D00C7FBF6 /* GrowingTextField.swift */; };
 		753116552C12C18600C7FBF6 /* AnimatedSearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753116502C12C18600C7FBF6 /* AnimatedSearchBarView.swift */; };
 		753116562C12C18600C7FBF6 /* GradientCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753116512C12C18600C7FBF6 /* GradientCardView.swift */; };
@@ -358,6 +359,7 @@
 		75253A3B2EC46684004D1F02 /* Sample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Sample.pdf; sourceTree = "<group>"; };
 		752563FD2D14C0C8009AFC34 /* IconAnimationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconAnimationTest.swift; sourceTree = "<group>"; };
 		75287A932C4365C200787C50 /* AnalyticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsService.swift; sourceTree = "<group>"; };
+		7530C8CD2F411EEA00ED3B76 /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 		7531164E2C12C11D00C7FBF6 /* GrowingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingTextField.swift; sourceTree = "<group>"; };
 		753116502C12C18600C7FBF6 /* AnimatedSearchBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedSearchBarView.swift; sourceTree = "<group>"; };
 		753116512C12C18600C7FBF6 /* GradientCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientCardView.swift; sourceTree = "<group>"; };
@@ -1261,6 +1263,7 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				7530C8CD2F411EEA00ED3B76 /* SwipeAction.swift */,
 				750867D92F3E7A16009D9160 /* shaders.metal */,
 				750867D72F3E7A05009D9160 /* WeatherLabView.swift */,
 				759561932F3E3AC5008A1D0A /* StrokeModifier.swift */,
@@ -1728,6 +1731,7 @@
 				751361CA2DE4BD6B00C51230 /* SliderTicker.swift in Sources */,
 				75235D772E6896EC00A986D7 /* SomeParticle.swift in Sources */,
 				757516272F35AF500057F9A5 /* FlowSegment.swift in Sources */,
+				7530C8CE2F411EEA00ED3B76 /* SwipeAction.swift in Sources */,
 				751361CB2DE4BD6B00C51230 /* CardFlipView.swift in Sources */,
 				75D6835A2EE64866009CB936 /* ImageDrawingView.swift in Sources */,
 				75BA2D432C0E79600089B70F /* Shake.swift in Sources */,
