@@ -31,6 +31,9 @@
     "@%@" : {
 
     },
+    "%@" : {
+
+    },
     "%@%%" : {
 
     },
@@ -88,6 +91,9 @@
 
     },
     "$1,299.00" : {
+
+    },
+    "0" : {
 
     },
     "00:04" : {
@@ -199,6 +205,9 @@
 
     },
     "Balance Wheel" : {
+
+    },
+    "Balance: " : {
 
     },
     "Ball Position: %@" : {
@@ -935,6 +944,9 @@
 
     },
     "Subtract Progress" : {
+
+    },
+    "Swipe to Delete" : {
 
     },
     "Sync tasks in real time" : {
