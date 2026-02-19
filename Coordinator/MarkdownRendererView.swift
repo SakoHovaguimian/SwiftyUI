@@ -68,7 +68,7 @@ struct MarkdownRendererTheme {
         bodyFont: .system(size: 16, weight: .regular),
         codeFont: .system(.body, design: .monospaced),
         textColor: .primary,
-        codeBackground: Color(.purple).opacity(0.2),
+        codeBackground: Color(.secondarySystemBackground),
         linkColor: .blue,
         quoteStripe: .blue.opacity(0.4),
         dividerColor: Color(.separator),
@@ -584,6 +584,8 @@ struct MarkdownInlineTextView: View {
     var body: some View {
         Text(buildAttributedString())
             .font(font)
+//            .padding(12)
+//            .background(Color(.secondarySystemBackground))
             .textSelection(.enabled) // Highlight & copy text!
             .environment(\.openURL, .init(handler: { url in
                 print("Opening link: \(url)")
