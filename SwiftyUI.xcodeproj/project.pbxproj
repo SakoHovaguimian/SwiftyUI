@@ -80,6 +80,7 @@
 		7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7551B86B2C2E29540003A0F8 /* DashProgressView.swift */; };
 		75533D462D380B8D001A5010 /* VariableBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75533D452D380B89001A5010 /* VariableBlur.swift */; };
 		7556CB572C2F227E0084A130 /* SizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7556CB562C2F227E0084A130 /* SizingView.swift */; };
+		755A3B962F46D00C00E0F7B8 /* MarkdownRendererView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A3B952F46D00C00E0F7B8 /* MarkdownRendererView.swift */; };
 		755D51182F2BC35A008CA19A /* ImageTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755D51172F2BC353008CA19A /* ImageTransition.swift */; };
 		755EC3432F43B2D9006247C7 /* AmountTransferInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755EC3422F43B2D9006247C7 /* AmountTransferInputField.swift */; };
 		756150CB2ECD9331008A5263 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756150CA2ECD932C008A5263 /* TimePickerView.swift */; };
@@ -401,6 +402,7 @@
 		755A293B2EDF4DC700894ED2 /* PDFKitDrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFKitDrawingView.swift; sourceTree = "<group>"; };
 		755A293C2EDF4E8C00894ED2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		755A293D2EDF4EFF00894ED2 /* PDFDrawingViewControllerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFDrawingViewControllerWrapper.swift; sourceTree = "<group>"; };
+		755A3B952F46D00C00E0F7B8 /* MarkdownRendererView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownRendererView.swift; sourceTree = "<group>"; };
 		755D51172F2BC353008CA19A /* ImageTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTransition.swift; sourceTree = "<group>"; };
 		755EC3422F43B2D9006247C7 /* AmountTransferInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountTransferInputField.swift; sourceTree = "<group>"; };
 		756150CA2ECD932C008A5263 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
@@ -1265,6 +1267,8 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				755A3B952F46D00C00E0F7B8 /* MarkdownRendererView.swift */,
+				758BC8542EDF41F2003DFB57 /* MarkdownRenderer.swift */,
 				755EC3422F43B2D9006247C7 /* AmountTransferInputField.swift */,
 				7530C8CD2F411EEA00ED3B76 /* SwipeAction.swift */,
 				750867D92F3E7A16009D9160 /* shaders.metal */,
@@ -1355,7 +1359,6 @@
 				75D330972EE3E50A00996207 /* ChartCarousel.swift */,
 				75E6D2B12EE3416D006371F5 /* SegmentedBatteryView.swift */,
 				75D550C12EE2591500EF06B2 /* MacroType.swift */,
-				758BC8542EDF41F2003DFB57 /* MarkdownRenderer.swift */,
 				7507E3402ED128C400577064 /* BudgetCategory.swift */,
 				7590B8142ED123B500EEC295 /* SegmentedProgressView.swift */,
 				756150CA2ECD932C008A5263 /* TimePickerView.swift */,
@@ -1724,6 +1727,7 @@
 				757190602C12131300989D41 /* MatchedGeoView.swift in Sources */,
 				757190622C12131300989D41 /* TransitionTestView.swift in Sources */,
 				758BC8552EDF41F7003DFB57 /* MarkdownRenderer.swift in Sources */,
+				755A3B962F46D00C00E0F7B8 /* MarkdownRendererView.swift in Sources */,
 				7513DC852EF4D4B6009F2A1F /* FireworksConfiguration.swift in Sources */,
 				75B467202E41138D00E0E32B /* CoinTipJarScene.swift in Sources */,
 				7571901A2C120C0B00989D41 /* HapticOption.swift in Sources */,

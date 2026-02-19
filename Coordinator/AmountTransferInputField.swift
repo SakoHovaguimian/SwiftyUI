@@ -72,7 +72,7 @@ struct AmountTransferInputField: View {
                     
                     Text(
                         finalNumber.formatted(
-                            .currency(code: "GBP").scale(200.0).sign(
+                            .currency(code: "GBP").scale(1).sign(
                                 strategy: .accountingAlways(showZero: true)
                             ).presentation(
                                 .narrow
