@@ -71,12 +71,6 @@
 		7541096A2DADA8BD00B2AE4B /* verticalScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754109692DADA8BA00B2AE4B /* verticalScroll.swift */; };
 		75421A582C8EAC120078A36E /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75421A572C8EAC0F0078A36E /* TimelineView.swift */; };
 		754363522EEE833D000C48FB /* SampleCharts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754363512EEE833A000C48FB /* SampleCharts.swift */; };
-		7543E6B92F46ED3600BF6770 /* CachedAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543E6B82F46ED3600BF6770 /* CachedAsyncImage.swift */; };
-		7543E6BC2F46ED5B00BF6770 /* ImageCacheConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543E6BB2F46ED5B00BF6770 /* ImageCacheConfiguration.swift */; };
-		7543E6BE2F46ED7800BF6770 /* DiskImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543E6BD2F46ED7800BF6770 /* DiskImageCache.swift */; };
-		7543E6C02F46ED9900BF6770 /* RemoteImagePipeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543E6BF2F46ED9900BF6770 /* RemoteImagePipeline.swift */; };
-		7543E6C22F46EDC100BF6770 /* ImagePrefetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7543E6C12F46EDC100BF6770 /* ImagePrefetcher.swift */; };
-		7543E6C42F46F0A500BF6770 /* CacheReadMe.md in Resources */ = {isa = PBXBuildFile; fileRef = 7543E6C32F46F09A00BF6770 /* CacheReadMe.md */; };
 		7545E9F72DFFE03B0042A4B3 /* CompareSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7545E9F62DFFE0360042A4B3 /* CompareSliderView.swift */; };
 		75465E2F2EFC7A8E00B9C43E /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75465E2E2EFC7A8B00B9C43E /* ActionButton.swift */; };
 		754AF6AD2D02492D00042BA8 /* SafeAreaGradientModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */; };
@@ -390,12 +384,6 @@
 		754109692DADA8BA00B2AE4B /* verticalScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = verticalScroll.swift; sourceTree = "<group>"; };
 		75421A572C8EAC0F0078A36E /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		754363512EEE833A000C48FB /* SampleCharts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCharts.swift; sourceTree = "<group>"; };
-		7543E6B82F46ED3600BF6770 /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
-		7543E6BB2F46ED5B00BF6770 /* ImageCacheConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheConfiguration.swift; sourceTree = "<group>"; };
-		7543E6BD2F46ED7800BF6770 /* DiskImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskImageCache.swift; sourceTree = "<group>"; };
-		7543E6BF2F46ED9900BF6770 /* RemoteImagePipeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImagePipeline.swift; sourceTree = "<group>"; };
-		7543E6C12F46EDC100BF6770 /* ImagePrefetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePrefetcher.swift; sourceTree = "<group>"; };
-		7543E6C32F46F09A00BF6770 /* CacheReadMe.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CacheReadMe.md; sourceTree = "<group>"; };
 		7545E9F62DFFE0360042A4B3 /* CompareSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareSliderView.swift; sourceTree = "<group>"; };
 		75465E2E2EFC7A8B00B9C43E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		754AF6AC2D02492D00042BA8 /* SafeAreaGradientModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaGradientModifier.swift; sourceTree = "<group>"; };
@@ -736,19 +724,6 @@
 				751974192C8ABD0300173F15 /* VerticalTimelineView.swift */,
 			);
 			path = TimelineView;
-			sourceTree = "<group>";
-		};
-		7543E6BA2F46ED4E00BF6770 /* ImageCache */ = {
-			isa = PBXGroup;
-			children = (
-				7543E6C32F46F09A00BF6770 /* CacheReadMe.md */,
-				7543E6B82F46ED3600BF6770 /* CachedAsyncImage.swift */,
-				7543E6C12F46EDC100BF6770 /* ImagePrefetcher.swift */,
-				7543E6BF2F46ED9900BF6770 /* RemoteImagePipeline.swift */,
-				7543E6BD2F46ED7800BF6770 /* DiskImageCache.swift */,
-				7543E6BB2F46ED5B00BF6770 /* ImageCacheConfiguration.swift */,
-			);
-			path = ImageCache;
 			sourceTree = "<group>";
 		};
 		754BE1F62D80FC8F00C20CF7 /* StoreKit */ = {
@@ -1292,7 +1267,7 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				7543E6BA2F46ED4E00BF6770 /* ImageCache */,
+				75CF649A2F0DE31B00F94D70 /* SlideInFromBottom.swift */,
 				755A3B952F46D00C00E0F7B8 /* MarkdownRendererView.swift */,
 				758BC8542EDF41F2003DFB57 /* MarkdownRenderer.swift */,
 				755EC3422F43B2D9006247C7 /* AmountTransferInputField.swift */,
@@ -1372,7 +1347,6 @@
 			children = (
 				759B131D2F1DE65300DFB92E /* Coordinator */,
 				75F650D42EE2673000AB9214 /* Calendar.swift */,
-				75CF649A2F0DE31B00F94D70 /* SlideInFromBottom.swift */,
 				75983AB02F04A85E004AE2D8 /* LevelReading.swift */,
 				75465E2E2EFC7A8B00B9C43E /* ActionButton.swift */,
 				7513DC842EF4D4B6009F2A1F /* FireworksConfiguration.swift */,
@@ -1675,7 +1649,6 @@
 				75BA2CED2C0E780B0089B70F /* Preview Assets.xcassets in Resources */,
 				75F341A92D81058000B11355 /* StoreKitConfigurationFile.storekit in Resources */,
 				75BA2CE92C0E780B0089B70F /* Assets.xcassets in Resources */,
-				7543E6C42F46F0A500BF6770 /* CacheReadMe.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1762,7 +1735,6 @@
 				757190272C120C1400989D41 /* AppAlertTextFieldView.swift in Sources */,
 				75F135D02E638E2600BFCD51 /* Cam.swift in Sources */,
 				757190282C120C1400989D41 /* BaseAppAlertView.swift in Sources */,
-				7543E6C22F46EDC100BF6770 /* ImagePrefetcher.swift in Sources */,
 				759B132D2F1DEA2900DFB92E /* SinglePageContextCode.swift in Sources */,
 				751361CA2DE4BD6B00C51230 /* SliderTicker.swift in Sources */,
 				75235D772E6896EC00A986D7 /* SomeParticle.swift in Sources */,
@@ -1796,7 +1768,6 @@
 				7571900D2C120BF500989D41 /* Toast.swift in Sources */,
 				7502247E2EE00F35003FD733 /* PDFEditor.swift in Sources */,
 				75EDCF282DA41B5D007DDE41 /* SlideToConfirmView.swift in Sources */,
-				7543E6C02F46ED9900BF6770 /* RemoteImagePipeline.swift in Sources */,
 				7571900E2C120BF500989D41 /* ToastView.swift in Sources */,
 				7580B1502C12BF8A0029EF84 /* TypewriterContentView.swift in Sources */,
 				7519741A2C8ABD0800173F15 /* VerticalTimelineView.swift in Sources */,
@@ -1942,7 +1913,6 @@
 				757190132C120BFF00989D41 /* CameraPickerView.swift in Sources */,
 				757190142C120BFF00989D41 /* PhotoPickerView.swift in Sources */,
 				75B9C6922C35206800F434EE /* OldMessageView.swift in Sources */,
-				7543E6BE2F46ED7800BF6770 /* DiskImageCache.swift in Sources */,
 				759188BB2F243D510051BAE3 /* ContentViewt.swift in Sources */,
 				7580AFEA2C12BF5F0029EF84 /* ChartView.swift in Sources */,
 				75A117C02D6303CD003011CA /* WStack.swift in Sources */,
@@ -1954,7 +1924,6 @@
 				75D330982EE3E53F00996207 /* ChartCarousel.swift in Sources */,
 				753FD85A2C0E859900C20D1A /* CustomEnvironment.swift in Sources */,
 				757190492C120E8E00989D41 /* ScrollViewWithOnScrollChanged.swift in Sources */,
-				7543E6BC2F46ED5B00BF6770 /* ImageCacheConfiguration.swift in Sources */,
 				75FE274A2C7EE73B0097C68F /* FlapperSean.swift in Sources */,
 				7538AFEE2E42729600B0FC16 /* Shapes.swift in Sources */,
 				750224742EE00CE4003FD733 /* PDFDocumentPage.swift in Sources */,
@@ -1978,7 +1947,6 @@
 				75FD1DAE2C914E9E004AC287 /* AppText.swift in Sources */,
 				75CF649B2F0DE31B00F94D70 /* SlideInFromBottom.swift in Sources */,
 				75718F8F2C120AA300989D41 /* SideMenu.swift in Sources */,
-				7543E6B92F46ED3600BF6770 /* CachedAsyncImage.swift in Sources */,
 				75788DCE2D97020700209727 /* AsyncImageViewModel.swift in Sources */,
 				7531164F2C12C11D00C7FBF6 /* GrowingTextField.swift in Sources */,
 				7578B14F2C41F762006F07E7 /* AppAssembler.swift in Sources */,
