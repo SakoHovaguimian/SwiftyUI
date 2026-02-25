@@ -22,6 +22,9 @@
     ". The" : {
 
     },
+    ".00" : {
+
+    },
     ".82" : {
 
     },
@@ -29,6 +32,9 @@
 
     },
     "@%@" : {
+
+    },
+    "/$4,000" : {
 
     },
     "%@" : {
@@ -78,6 +84,9 @@
     "%lld%%" : {
 
     },
+    "•••" : {
+
+    },
     "❄️" : {
 
     },
@@ -91,6 +100,12 @@
 
     },
     "$1,299.00" : {
+
+    },
+    "$3,430.75 " : {
+
+    },
+    "$440" : {
 
     },
     "0" : {
@@ -114,6 +129,9 @@
     "2.1L" : {
 
     },
+    "4.8" : {
+
+    },
     "5" : {
 
     },
@@ -132,6 +150,9 @@
     "12B" : {
 
     },
+    "18%" : {
+
+    },
     "24%" : {
 
     },
@@ -142,6 +163,9 @@
 
     },
     "75%" : {
+
+    },
+    "85%" : {
 
     },
     "92%" : {
@@ -160,6 +184,9 @@
 
     },
     "A4" : {
+
+    },
+    "Account" : {
 
     },
     "active clients" : {
@@ -186,10 +213,34 @@
     "Animate" : {
 
     },
+    "Animate Arcs & Lines" : {
+
+    },
+    "Animate Chart" : {
+
+    },
+    "Animate Dashes" : {
+
+    },
+    "Animate Grid" : {
+
+    },
     "Animate Randomly" : {
 
     },
+    "Animate Rectangles" : {
+
+    },
+    "Animate Rings" : {
+
+    },
     "Apple Store" : {
+
+    },
+    "Average" : {
+
+    },
+    "Avg 6 month" : {
 
     },
     "avg. time asleep" : {
@@ -306,6 +357,9 @@
     "Count" : {
 
     },
+    "Credit Card Transfer" : {
+
+    },
     "Current Env" : {
 
     },
@@ -321,7 +375,16 @@
     "Danger Zone (Deep Modal)" : {
 
     },
+    "Dashboard" : {
+
+    },
+    "Dashes & Arcs" : {
+
+    },
     "Date" : {
+
+    },
+    "David Borg" : {
 
     },
     "Day" : {
@@ -418,6 +481,9 @@
 
     },
     "First booking" : {
+
+    },
+    "Floating Geometry" : {
 
     },
     "Flows" : {
@@ -588,10 +654,19 @@
     "media items" : {
 
     },
+    "Merchant" : {
+
+    },
     "Modal Tests" : {
 
     },
     "Mom" : {
+
+    },
+    "Month" : {
+
+    },
+    "Monthly Budget" : {
 
     },
     "MOVE" : {
@@ -609,10 +684,19 @@
     "My Values" : {
 
     },
+    "N. Hardman" : {
+
+    },
     "Neon" : {
 
     },
+    "New Book" : {
+
+    },
     "NEW FEATURES" : {
+
+    },
+    "New: Sports & Finance" : {
 
     },
     "Next" : {
@@ -651,10 +735,19 @@
     "Original" : {
 
     },
+    "Original Cards" : {
+
+    },
+    "Original Dashboard" : {
+
+    },
     "OTHER TEXT" : {
 
     },
     "Overlay is non-interactive" : {
+
+    },
+    "Overview" : {
 
     },
     "password" : {
@@ -735,10 +828,19 @@
     "Profile" : {
 
     },
+    "Progress" : {
+
+    },
+    "PROGRESS" : {
+
+    },
     "Pull to refresh" : {
 
     },
     "Pulse Color" : {
+
+    },
+    "Pulsing Grid" : {
 
     },
     "Push Chaos (Nav Stack)" : {
@@ -750,10 +852,16 @@
     "Q4" : {
 
     },
+    "Radar Rings" : {
+
+    },
     "Random Value" : {
 
     },
     "Randomize Progress" : {
+
+    },
+    "Ranking" : {
 
     },
     "RECOVERY OS" : {
@@ -880,10 +988,16 @@
     "Sheet Root" : {
 
     },
+    "Showcase Your\nClient Results" : {
+
+    },
     "Slide To Confirm" : {
 
     },
     "Slide to unlock" : {
+
+    },
+    "Sliding Dashes" : {
 
     },
     "Some bio for the user" : {
@@ -993,6 +1107,12 @@
     "TEXT" : {
 
     },
+    "Texture Gallery" : {
+
+    },
+    "The Psychology of\nSports Victories" : {
+
+    },
     "THE SURVIVOR" : {
 
     },
@@ -1011,6 +1131,9 @@
     "This is a test body" : {
 
     },
+    "This Month" : {
+
+    },
     "Tilt 3D" : {
 
     },
@@ -1024,6 +1147,9 @@
 
     },
     "TITANIUM\nEDITION" : {
+
+    },
+    "Title: Flying wings" : {
 
     },
     "Toggle Animation" : {
@@ -1044,10 +1170,16 @@
     "Total Count" : {
 
     },
+    "Total Spending" : {
+
+    },
     "Total Tips: %lld" : {
 
     },
     "Toyota Camry • 5XG-992" : {
+
+    },
+    "Transportation 42%" : {
 
     },
     "Treatment Mix" : {

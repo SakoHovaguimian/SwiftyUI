@@ -194,6 +194,7 @@
 		7590B8152ED123B500EEC295 /* SegmentedProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7590B8142ED123B500EEC295 /* SegmentedProgressView.swift */; };
 		759188BB2F243D510051BAE3 /* ContentViewt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759188BA2F243D510051BAE3 /* ContentViewt.swift */; };
 		759206F82DB14B8B00E53B72 /* MentionPickerView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759206F72DB14B8B00E53B72 /* MentionPickerView2.swift */; };
+		7593CB7D2F4D7E5800D50364 /* PatternStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593CB7C2F4D7E5800D50364 /* PatternStyle.swift */; };
 		7593D69B2E09938A003C50CD /* SignitureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7593D69A2E099386003C50CD /* SignitureView.swift */; };
 		759561942F3E3AC5008A1D0A /* StrokeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759561932F3E3AC5008A1D0A /* StrokeModifier.swift */; };
 		75971A712D9C2E70007F6E52 /* CodeInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75971A702D9C2E6C007F6E52 /* CodeInputView.swift */; };
@@ -281,6 +282,7 @@
 		75D9584E2E42572900D7AF72 /* ConfettiParticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D9584D2E42572900D7AF72 /* ConfettiParticle.swift */; };
 		75DD30FA2F23378600376BA3 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DD30F92F23378300376BA3 /* Validation.swift */; };
 		75DDAA4D2D6F68AE0014DEB5 /* CalendarClone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */; };
+		75DEFB2F2F4CBE580090EBB5 /* ComponentsPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DEFB2E2F4CBE580090EBB5 /* ComponentsPreview.swift */; };
 		75DF34E22F37E35200A84AB0 /* PlinkoDropMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DF34E12F37E35200A84AB0 /* PlinkoDropMode.swift */; };
 		75E29E452D24AB1A0074DCD8 /* Snowfall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E29E442D24AB140074DCD8 /* Snowfall.swift */; };
 		75E6085B2C8A1F8500505203 /* Bedar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6085A2C8A1F7F00505203 /* Bedar.swift */; };
@@ -516,6 +518,7 @@
 		7590B8142ED123B500EEC295 /* SegmentedProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedProgressView.swift; sourceTree = "<group>"; };
 		759188BA2F243D510051BAE3 /* ContentViewt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewt.swift; sourceTree = "<group>"; };
 		759206F72DB14B8B00E53B72 /* MentionPickerView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MentionPickerView2.swift; sourceTree = "<group>"; };
+		7593CB7C2F4D7E5800D50364 /* PatternStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternStyle.swift; sourceTree = "<group>"; };
 		7593D69A2E099386003C50CD /* SignitureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignitureView.swift; sourceTree = "<group>"; };
 		759561932F3E3AC5008A1D0A /* StrokeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeModifier.swift; sourceTree = "<group>"; };
 		75971A702D9C2E6C007F6E52 /* CodeInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeInputView.swift; sourceTree = "<group>"; };
@@ -606,6 +609,7 @@
 		75D9584D2E42572900D7AF72 /* ConfettiParticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiParticle.swift; sourceTree = "<group>"; };
 		75DD30F92F23378300376BA3 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
 		75DDAA4C2D6F68A20014DEB5 /* CalendarClone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarClone.swift; sourceTree = "<group>"; };
+		75DEFB2E2F4CBE580090EBB5 /* ComponentsPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsPreview.swift; sourceTree = "<group>"; };
 		75DF34E12F37E35200A84AB0 /* PlinkoDropMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlinkoDropMode.swift; sourceTree = "<group>"; };
 		75E29E442D24AB140074DCD8 /* Snowfall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Snowfall.swift; sourceTree = "<group>"; };
 		75E6085A2C8A1F7F00505203 /* Bedar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bedar.swift; sourceTree = "<group>"; };
@@ -1269,6 +1273,8 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				7593CB7C2F4D7E5800D50364 /* PatternStyle.swift */,
+				75DEFB2E2F4CBE580090EBB5 /* ComponentsPreview.swift */,
 				759770462F496F9B00179133 /* ProcessingTransferHeaderViewModel.swift */,
 				75CF649A2F0DE31B00F94D70 /* SlideInFromBottom.swift */,
 				755A3B952F46D00C00E0F7B8 /* MarkdownRendererView.swift */,
@@ -1718,6 +1724,7 @@
 				757D0CB62E450E4E00C71FE4 /* NewToggleTest.swift in Sources */,
 				75502E1B2F38527900639A95 /* Card.swift in Sources */,
 				75A326B82DA72E9600CA6B46 /* StringViewTest.swift in Sources */,
+				75DEFB2F2F4CBE580090EBB5 /* ComponentsPreview.swift in Sources */,
 				757190302C120CB100989D41 /* KeyboardManager.swift in Sources */,
 				757190312C120CB100989D41 /* ThemeManager.swift in Sources */,
 				757190182C120C0B00989D41 /* HapticViewModifier.swift in Sources */,
@@ -1937,6 +1944,7 @@
 				750224772EE00CE4003FD733 /* PDFKitDrawingView.swift in Sources */,
 				750224782EE00CE4003FD733 /* ViewController.swift in Sources */,
 				750224792EE00CE4003FD733 /* PDFDocumentOverlay.swift in Sources */,
+				7593CB7D2F4D7E5800D50364 /* PatternStyle.swift in Sources */,
 				7502247A2EE00CE4003FD733 /* PDFDocumentView.swift in Sources */,
 				7502247B2EE00CE4003FD733 /* DrawingAnnotation.swift in Sources */,
 				7502247C2EE00CE4003FD733 /* PDFDrawingViewControllerWrapper.swift in Sources */,

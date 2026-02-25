@@ -297,7 +297,9 @@ struct SwiftyUIApp: App {
 //                .colorScheme(.light)
 //                .toolbarColorScheme(.light, for: .automatic)
             
-            DynamicIslandAlwaysOnTop()
+//            DynamicIslandAlwaysOnTop()
+            
+            ComponentsPreview()
         }
         
     }
