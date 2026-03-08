@@ -153,6 +153,9 @@
     "18%" : {
 
     },
+    "18% Growth" : {
+
+    },
     "24%" : {
 
     },
@@ -225,6 +228,9 @@
     "Animate Grid" : {
 
     },
+    "Animate Patterns" : {
+
+    },
     "Animate Randomly" : {
 
     },
@@ -232,6 +238,9 @@
 
     },
     "Animate Rings" : {
+
+    },
+    "Animation Speed (%.1fx)" : {
 
     },
     "Apple Store" : {
@@ -645,6 +654,9 @@
     "lorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet conorem ipsum dolor sit amet consectetur adipisicing elit. Quo, voluptatem! Lorem ipsum" : {
 
     },
+    "Make Boring\nCards Great" : {
+
+    },
     "Media" : {
 
     },
@@ -754,6 +766,15 @@
 
     },
     "Password" : {
+
+    },
+    "Pattern" : {
+
+    },
+    "Pattern Dashboard" : {
+
+    },
+    "Pattern Scale (%.1fx)" : {
 
     },
     "Pause" : {

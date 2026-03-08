@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		75014E812F5DF7FE0008771A /* InfiniteScrollRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75014E802F5DF7FE0008771A /* InfiniteScrollRow.swift */; };
 		750224742EE00CE4003FD733 /* PDFDocumentPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A29362EDF48C700894ED2 /* PDFDocumentPage.swift */; };
 		750224752EE00CE4003FD733 /* PDFKitToolPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A293A2EDF4DC200894ED2 /* PDFKitToolPicker.swift */; };
 		750224762EE00CE4003FD733 /* PDFKitDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A29392EDF4CD400894ED2 /* PDFKitDocument.swift */; };
@@ -334,6 +335,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		75014E802F5DF7FE0008771A /* InfiniteScrollRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteScrollRow.swift; sourceTree = "<group>"; };
 		7502247D2EE00F35003FD733 /* PDFEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFEditor.swift; sourceTree = "<group>"; };
 		7502D4042D38265200263263 /* ZigZagShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZigZagShape.swift; sourceTree = "<group>"; };
 		7507E3402ED128C400577064 /* BudgetCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetCategory.swift; sourceTree = "<group>"; };
@@ -1273,6 +1275,7 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				75014E802F5DF7FE0008771A /* InfiniteScrollRow.swift */,
 				7593CB7C2F4D7E5800D50364 /* PatternStyle.swift */,
 				75DEFB2E2F4CBE580090EBB5 /* ComponentsPreview.swift */,
 				759770462F496F9B00179133 /* ProcessingTransferHeaderViewModel.swift */,
@@ -1759,6 +1762,7 @@
 				75A6DB742CB8243100055E0E /* FannedCarouselView.swift in Sources */,
 				75788DD52D97022700209727 /* ImageCacheServiceProtocol.swift in Sources */,
 				75788DD62D97022700209727 /* ImageCacheServiceMock.swift in Sources */,
+				75014E812F5DF7FE0008771A /* InfiniteScrollRow.swift in Sources */,
 				75D958432E4254C200D7AF72 /* TimelineTest.swift in Sources */,
 				75788DD72D97022700209727 /* ImageCacheService.swift in Sources */,
 				757190412C120CE900989D41 /* AppTextFieldPreview.swift in Sources */,
