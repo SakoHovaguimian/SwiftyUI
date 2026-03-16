@@ -162,6 +162,7 @@
 		757190602C12131300989D41 /* MatchedGeoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571905C2C1212FC00989D41 /* MatchedGeoView.swift */; };
 		757190622C12131300989D41 /* TransitionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757190592C1212FC00989D41 /* TransitionTestView.swift */; };
 		7571F1F32EE077CB00A27404 /* Upgraded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7571F1F22EE077C600A27404 /* Upgraded.swift */; };
+		7573ABB02F685D030033A90A /* DynamicDottedLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7573ABAF2F685D030033A90A /* DynamicDottedLineView.swift */; };
 		757452A82D76623900866873 /* WingPieChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757452A72D76623700866873 /* WingPieChart.swift */; };
 		757516272F35AF500057F9A5 /* FlowSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757516262F35AF500057F9A5 /* FlowSegment.swift */; };
 		757516292F35B3900057F9A5 /* RadarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757516282F35B3900057F9A5 /* RadarItem.swift */; };
@@ -488,6 +489,7 @@
 		7571905C2C1212FC00989D41 /* MatchedGeoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchedGeoView.swift; sourceTree = "<group>"; };
 		7571F1F22EE077C600A27404 /* Upgraded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Upgraded.swift; sourceTree = "<group>"; };
 		757382C42CA88B00007ACA27 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
+		7573ABAF2F685D030033A90A /* DynamicDottedLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicDottedLineView.swift; sourceTree = "<group>"; };
 		757452A72D76623700866873 /* WingPieChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WingPieChart.swift; sourceTree = "<group>"; };
 		757516262F35AF500057F9A5 /* FlowSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowSegment.swift; sourceTree = "<group>"; };
 		757516282F35B3900057F9A5 /* RadarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarItem.swift; sourceTree = "<group>"; };
@@ -1275,6 +1277,7 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				7573ABAF2F685D030033A90A /* DynamicDottedLineView.swift */,
 				75014E802F5DF7FE0008771A /* InfiniteScrollRow.swift */,
 				7593CB7C2F4D7E5800D50364 /* PatternStyle.swift */,
 				75DEFB2E2F4CBE580090EBB5 /* ComponentsPreview.swift */,
@@ -1849,6 +1852,7 @@
 				757190362C120CE300989D41 /* Ext+NavigationController.swift in Sources */,
 				757190372C120CE300989D41 /* Ext+Color.swift in Sources */,
 				7551B86C2C2E29540003A0F8 /* DashProgressView.swift in Sources */,
+				7573ABB02F685D030033A90A /* DynamicDottedLineView.swift in Sources */,
 				75EB394C2F37AD1D00B7FEE4 /* BorderCardView.swift in Sources */,
 				75B245E42DD2546200A0BFE0 /* SegmentedCircleView.swift in Sources */,
 				757190382C120CE300989D41 /* Ext+String.swift in Sources */,
