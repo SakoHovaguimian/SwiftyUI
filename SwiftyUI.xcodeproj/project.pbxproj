@@ -261,6 +261,7 @@
 		75BA2D452C0E79600089B70F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BA2D2C2C0E79600089B70F /* SearchBar.swift */; };
 		75BB29CC2E53CEAA005CCCEE /* TestBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB29CB2E53CEA5005CCCEE /* TestBlur.swift */; };
 		75BB42AE2C6412BA00179078 /* NeonGlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75BB42AD2C6412B000179078 /* NeonGlowView.swift */; };
+		75C18A252F72235D00AF68F9 /* ChartDataPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C18A242F72235D00AF68F9 /* ChartDataPoint.swift */; };
 		75C2675B2C78EC770064EA6B /* DropDownTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2675A2C78EC720064EA6B /* DropDownTextField.swift */; };
 		75C2A02D2D597BC400E5B328 /* Selectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C2A02C2D597BC400E5B328 /* Selectable.swift */; };
 		75C5F8A42CFE4433003446CC /* AnimatedIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */; };
@@ -590,6 +591,7 @@
 		75BA2D2C2C0E79600089B70F /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		75BB29CB2E53CEA5005CCCEE /* TestBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBlur.swift; sourceTree = "<group>"; };
 		75BB42AD2C6412B000179078 /* NeonGlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeonGlowView.swift; sourceTree = "<group>"; };
+		75C18A242F72235D00AF68F9 /* ChartDataPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataPoint.swift; sourceTree = "<group>"; };
 		75C2675A2C78EC720064EA6B /* DropDownTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownTextField.swift; sourceTree = "<group>"; };
 		75C2A02C2D597BC400E5B328 /* Selectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Selectable.swift; sourceTree = "<group>"; };
 		75C5F8A32CFE442F003446CC /* AnimatedIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedIntroView.swift; sourceTree = "<group>"; };
@@ -1277,6 +1279,7 @@
 		759B131D2F1DE65300DFB92E /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				75C18A242F72235D00AF68F9 /* ChartDataPoint.swift */,
 				7573ABAF2F685D030033A90A /* DynamicDottedLineView.swift */,
 				75014E802F5DF7FE0008771A /* InfiniteScrollRow.swift */,
 				7593CB7C2F4D7E5800D50364 /* PatternStyle.swift */,
@@ -1949,6 +1952,7 @@
 				750224752EE00CE4003FD733 /* PDFKitToolPicker.swift in Sources */,
 				750224762EE00CE4003FD733 /* PDFKitDocument.swift in Sources */,
 				755D51182F2BC35A008CA19A /* ImageTransition.swift in Sources */,
+				75C18A252F72235D00AF68F9 /* ChartDataPoint.swift in Sources */,
 				750224772EE00CE4003FD733 /* PDFKitDrawingView.swift in Sources */,
 				750224782EE00CE4003FD733 /* ViewController.swift in Sources */,
 				750224792EE00CE4003FD733 /* PDFDocumentOverlay.swift in Sources */,
