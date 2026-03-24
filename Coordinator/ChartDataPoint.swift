@@ -99,7 +99,7 @@ struct FinancialChartView_Previews: PreviewProvider {
             // Dark background for Preview 1
             Color(red: 0.04, green: 0.09, blue: 0.18).ignoresSafeArea()
             
-            VStack(spacing: 60) {
+            VStack(spacing: 24) {
                 // 1. Dark Mode / Basic Line Chart
                 FinancialChartView(
                     title: "$2,489,510.19",
@@ -111,7 +111,7 @@ struct FinancialChartView_Previews: PreviewProvider {
                     titleColor: Color(red: 0.2, green: 0.5, blue: 1.0),
                     data: sampleDataDown
                 )
-                .padding()
+                .padding(.horizontal)
                 
                 // 2. Light Mode / Line Area Chart
                 FinancialChartView(
@@ -126,8 +126,6 @@ struct FinancialChartView_Previews: PreviewProvider {
                 )
                 .padding()
                 .background(Color.white)
-                .cornerRadius(16)
-                .padding()
             }
         }
     }
